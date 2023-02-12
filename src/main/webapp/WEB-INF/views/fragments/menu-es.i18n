@@ -18,8 +18,11 @@ master.menu.sign-out = Salir
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anónimo
-master.menu.anonymous.favourite-link = Enlace favorito
-
+master.menu.anonymous.favourite-link = 32732059T: López Ruz, Pedro
+master.menu.anonymous.favourite-link2= DNI: Apellidos, Nombre
+master.menu.anonymous.favourite-link3= DNI: Apellidos, Nombre
+master.menu.anonymous.favourite-link4= DNI: Apellidos, Nombre
+master.menu.anonymous.favourite-link5= DNI: Apellidos, Nombre
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrador
