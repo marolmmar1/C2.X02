@@ -23,7 +23,7 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link2" action="https://google.com"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link3" action="https://youtube.com"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link4" action="https://www.twitch.tv"/>
-			<acme:menu-suboption code="master.menu.anonymous.favourite-link5" action=""/>
+			<acme:menu-suboption code="master.menu.anonymous.favourite-link5" action="https://www.skyscanner.com"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
