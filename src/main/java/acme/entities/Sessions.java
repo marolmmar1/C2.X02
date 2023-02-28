@@ -4,17 +4,17 @@ package acme.entities;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PastOrPresent;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.framework.components.datatypes.Money;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,42 +22,33 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Offer extends AbstractEntity {
+public class Sessions extends AbstractEntity {
 
-	// Serialisation identifier 
 	protected static final long	serialVersionUID	= 1L;
-
-	// Attributes
-	@NotNull
-	@PastOrPresent
-	@Temporal(TemporalType.TIMESTAMP)
-	protected Date				instantiation;
 
 	@NotBlank
 	@Length(max = 75)
-	protected String			heading;
+	protected String			title;
 
 	@NotBlank
-	@Length(max = 100)
-	protected String			summary;
+	@Length(max = 75)
+	protected String			abstracts;
 
-	@Temporal(TemporalType.DATE)
 	@NotNull
+	@Enumerated(EnumType.STRING)
+	protected SessionType		sessionType;
+
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
 	@FutureOrPresent
 	protected Date				inicialPeriod;
 
-	@Temporal(TemporalType.DATE)
 	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
 	@FutureOrPresent
 	protected Date				finalPeriod;
 
-	protected Money				price;
-
 	@URL
 	protected String			link;
-
-	// Derived attributes -----------------------------------------------------
-
-	// Relationships ----------------------------------------------------------
 
 }

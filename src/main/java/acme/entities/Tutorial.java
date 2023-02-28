@@ -1,12 +1,10 @@
 
 package acme.entities;
 
-import java.util.Date;
+import java.awt.geom.Arc2D.Double;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
@@ -25,7 +23,7 @@ public class Tutorial extends AbstractEntity {
 
 	@NotBlank
 	@Column(unique = true)
-	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}", message = "{validation.tutorial.code}")
+	@Pattern(regexp = "[A-Z]{1,3}[0-9]{3}", message = "{validation.tutorial.code}")
 	protected String			code;
 
 	@NotBlank
@@ -36,7 +34,6 @@ public class Tutorial extends AbstractEntity {
 	@Length(max = 100)
 	protected String			goals;
 
-	@Temporal(TemporalType.TIME)
-	protected Date				estimatedTime;
+	protected Double			estimatedTime;
 
 }

@@ -25,6 +25,6 @@ public class Lecturer extends AbstractRole {
 	protected String			resume;
 
 	@URL
-	protected String			futherInformation;
+	protected String			link;
 
 }

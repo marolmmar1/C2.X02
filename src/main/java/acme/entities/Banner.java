@@ -27,7 +27,7 @@ public class Banner extends AbstractEntity {
 	@PastOrPresent
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	protected Date				moment;
+	protected Date				instantiation;
 
 	@NotNull
 	protected Date				period;
@@ -37,6 +37,7 @@ public class Banner extends AbstractEntity {
 	protected String			slogan;
 
 	@URL
+	@NotNull
 	protected String			link;
 
 }
