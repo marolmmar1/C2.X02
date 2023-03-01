@@ -529,7 +529,7 @@ bg=black</panel_attributes>
 Company
 --
 + name: String {NotBlank, Length(1,75)}
-+ VAT_number: String {NotBlank, Length(1,25)}
++ vatNumber: String {NotBlank, Length(1,25)}
 + summary: String {NotBlank, Length(1,100)}
 + link: String {URL}
 bg=black</panel_attributes>
