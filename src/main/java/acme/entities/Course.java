@@ -28,7 +28,7 @@ public class Course {
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			abstracts;
+	protected String			_abstract;
 
 	@NotNull
 	protected Money				price;

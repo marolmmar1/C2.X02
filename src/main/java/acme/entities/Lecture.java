@@ -21,7 +21,7 @@ public class Lecture {
 
 	@NotBlank
 	@Length(max = 100)
-	protected String	abstracts;
+	protected String	_abstract;
 
 	@Digits(integer = 3, fraction = 2)
 	@Min((long) 0.01)

@@ -32,7 +32,7 @@ public class TutorialSessions extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 75)
-	protected String			abstracts;
+	protected String			_abstract;
 
 	@NotNull
 	@Enumerated(EnumType.STRING)
