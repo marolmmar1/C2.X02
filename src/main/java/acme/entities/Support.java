@@ -19,6 +19,6 @@ public class Support extends AbstractEntity {
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	protected Tutorial			tutorialSessions;
+	protected TutorialSessions	tutorialSessions;
 
 }
