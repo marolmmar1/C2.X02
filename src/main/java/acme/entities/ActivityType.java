@@ -1,6 +1,7 @@
+
 package acme.entities;
 
-public class ActivityType {
+public enum ActivityType {
 
 	THEORETICAL, HANDS_ON
 

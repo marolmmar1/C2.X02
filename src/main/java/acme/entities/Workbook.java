@@ -3,14 +3,12 @@ package acme.entities;
 
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
-import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -36,13 +34,12 @@ public class Workbook extends AbstractEntity {
 
 	@PastOrPresent
 	protected Date				timePeriod;
-	
+
 	@NotNull
 	@Enumerated(EnumType.STRING)
 	protected ActivityType		activityType;
-	
+
 	@URL
 	protected String			link;
 
 }
-
