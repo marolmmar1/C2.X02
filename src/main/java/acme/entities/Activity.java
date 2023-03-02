@@ -22,7 +22,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Sessions extends AbstractEntity {
+public class Activity extends AbstractEntity {
 
 	protected static final long	serialVersionUID	= 1L;
 
@@ -31,22 +31,22 @@ public class Sessions extends AbstractEntity {
 	protected String			title;
 
 	@NotBlank
-	@Length(max = 75)
+	@Length(max = 100)
 	protected String			abstracts;
 
+	@Temporal(TemporalType.DATE)
 	@NotNull
-	@Enumerated(EnumType.STRING)
-	protected SessionType		sessionType;
-
-	@NotNull
-	@Temporal(TemporalType.TIMESTAMP)
 	@FutureOrPresent
 	protected Date				inicialPeriod;
 
+	@Temporal(TemporalType.DATE)
 	@NotNull
-	@Temporal(TemporalType.TIMESTAMP)
 	@FutureOrPresent
 	protected Date				finalPeriod;
+
+	@NotNull
+	@Enumerated(EnumType.STRING)
+	protected Nature			nature;
 
 	@URL
 	protected String			link;

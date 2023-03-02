@@ -51,6 +51,7 @@ public class Offer extends AbstractEntity {
 	@FutureOrPresent
 	protected Date				finalPeriod;
 
+	@NotNull
 	protected Money				price;
 
 	@URL

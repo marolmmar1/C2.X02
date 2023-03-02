@@ -6,9 +6,11 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PastOrPresent;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -20,7 +22,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Workbook extends AbstractEntity {
+public class TutorialSessions extends AbstractEntity {
 
 	protected static final long	serialVersionUID	= 1L;
 
@@ -29,15 +31,22 @@ public class Workbook extends AbstractEntity {
 	protected String			title;
 
 	@NotBlank
-	@Length(max = 100)
+	@Length(max = 75)
 	protected String			abstracts;
-
-	@PastOrPresent
-	protected Date				timePeriod;
 
 	@NotNull
 	@Enumerated(EnumType.STRING)
-	protected ActivityType		activityType;
+	protected Nature			nature;
+
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
+	@FutureOrPresent
+	protected Date				inicialPeriod;
+
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
+	@FutureOrPresent
+	protected Date				finalPeriod;
 
 	@URL
 	protected String			link;

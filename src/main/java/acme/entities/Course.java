@@ -35,7 +35,7 @@ public class Course {
 
 	@NotNull
 	@Enumerated(EnumType.STRING)
-	protected CourseType		courseType;
+	protected Nature			nature;
 
 	@URL
 	protected String			link;

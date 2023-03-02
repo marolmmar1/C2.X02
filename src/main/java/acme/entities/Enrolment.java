@@ -23,12 +23,12 @@ public class Enrolment extends AbstractEntity {
 
 	@NotBlank
 	@Column(unique = true)
-	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}", message = "{validation.enrolment.code}")
+	@Pattern(regexp = "[A-Z]{1,3}[0-9]{3}", message = "{validation.enrolment.code}")
 	protected String			code;
 
 	@NotBlank
 	@Length(max = 75)
-	protected String			motivation ;
+	protected String			motivation;
 
 	@NotBlank
 	@Length(max = 100)

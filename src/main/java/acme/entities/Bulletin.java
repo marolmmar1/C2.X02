@@ -39,7 +39,7 @@ public class Bulletin extends AbstractEntity {
 	@Length(max = 100)
 	protected String			text;
 
-	protected boolean			flag;
+	protected boolean			critical;
 
 	@URL
 	protected String			link;
