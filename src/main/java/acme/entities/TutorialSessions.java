@@ -4,6 +4,8 @@ package acme.entities;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.FutureOrPresent;
@@ -20,7 +22,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class PracticumSessions extends AbstractEntity {
+public class TutorialSessions extends AbstractEntity {
 
 	protected static final long	serialVersionUID	= 1L;
 
@@ -29,8 +31,12 @@ public class PracticumSessions extends AbstractEntity {
 	protected String			title;
 
 	@NotBlank
-	@Length(max = 100)
+	@Length(max = 75)
 	protected String			_abstract;
+
+	@NotNull
+	@Enumerated(EnumType.STRING)
+	protected Nature			nature;
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)

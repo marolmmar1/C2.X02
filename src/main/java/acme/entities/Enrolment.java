@@ -1,12 +1,10 @@
 
 package acme.entities;
 
-import java.awt.geom.Arc2D.Double;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.validation.constraints.Digits;
-import javax.validation.constraints.Min;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
@@ -19,29 +17,24 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Practicum extends AbstractEntity {
+public class Enrolment extends AbstractEntity {
 
 	protected static final long	serialVersionUID	= 1L;
 
 	@NotBlank
 	@Column(unique = true)
-	@Pattern(regexp = "[A-Z]{1,3}[0-9]{3}", message = "{validation.tutorial.code}")
+	@Pattern(regexp = "[A-Z]{1,3}[0-9]{3}", message = "{validation.enrolment.code}")
 	protected String			code;
 
 	@NotBlank
 	@Length(max = 75)
-	protected String			title;
-
-	@NotBlank
-	@Length(max = 100)
-	protected String			_abstract;
+	protected String			motivation;
 
 	@NotBlank
 	@Length(max = 100)
 	protected String			goals;
 
-	@Digits(integer = 3, fraction = 2)
-	@Min((long) 0.01)
-	protected Double			estimatedTime;
+	@Temporal(TemporalType.TIME)
+	protected String			workTime;
 
 }

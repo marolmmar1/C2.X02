@@ -28,14 +28,14 @@ public class Course {
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			abstracts;
+	protected String			_abstract;
 
 	@NotNull
 	protected Money				price;
 
 	@NotNull
 	@Enumerated(EnumType.STRING)
-	protected CourseType		courseType;
+	protected Nature			nature;
 
 	@URL
 	protected String			link;
