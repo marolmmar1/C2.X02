@@ -1,0 +1,3 @@
+key,username,password,identity,enabled
+user-account-assistant-01,assistant1,assistant1,"UserIdentity{name: 'Assistant', surname: 'One', email: 'assistant1@mail.com', phone: {country-code: '+34', area-code: null, number: '123-456-789'} }",true
+user-account-assistant-02,assistant2,assistant1,"UserIdentity{name: 'Assistant', surname: 'Two', email: 'assistant2@mail.com', phone: null}",true
