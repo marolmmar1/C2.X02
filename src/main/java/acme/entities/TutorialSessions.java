@@ -31,8 +31,8 @@ public class TutorialSessions extends AbstractEntity {
 	protected String			title;
 
 	@NotBlank
-	@Length(max = 75)
-	protected String			_abstract;
+	@Length(max = 100)
+	protected String			abstracts;
 
 	@NotNull
 	@Enumerated(EnumType.STRING)

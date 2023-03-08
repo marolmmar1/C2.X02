@@ -1,6 +1,8 @@
 
 package acme.entities;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
@@ -35,6 +37,6 @@ public class Enrolment extends AbstractEntity {
 	protected String			goals;
 
 	@Temporal(TemporalType.TIME)
-	protected String			workTime;
+	protected Date				workTime;
 
 }

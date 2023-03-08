@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 
 import acme.framework.data.AbstractEntity;
 
-public class Support extends AbstractEntity {
+public class Union extends AbstractEntity {
 
 	protected static final long	serialVersionUID	= 1L;
 
