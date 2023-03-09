@@ -3,8 +3,6 @@ package acme.entities;
 
 import java.awt.geom.Arc2D.Double;
 
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -32,7 +30,6 @@ public class Lecture {
 	protected String	body;
 
 	@NotNull
-	@Enumerated(EnumType.STRING)
 	protected Nature	nature;
 
 	@URL
