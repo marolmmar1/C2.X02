@@ -21,6 +21,7 @@ public class Audit extends AbstractEntity {
 
 	protected static final long	serialVersionUID	= 1L;
 
+	//Comment
 	@NotBlank
 	@Column(unique = true)
 	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}")
