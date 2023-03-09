@@ -6,7 +6,6 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -30,16 +29,14 @@ public class PracticumSessions extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			_abstract;
+	protected String			abstracts;
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	@FutureOrPresent
 	protected Date				inicialPeriod;
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	@FutureOrPresent
 	protected Date				finalPeriod;
 
 	@URL

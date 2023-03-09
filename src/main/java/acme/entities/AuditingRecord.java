@@ -1,9 +1,6 @@
 
 package acme.entities;
 
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -14,7 +11,6 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
-import javax.validation.constraints.PastOrPresent;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -49,14 +45,10 @@ public class AuditingRecord extends AbstractEntity {
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	@PastOrPresent
+	@Past
 	protected Date				finalPeriod;
 
 	@URL
 	protected String			link;
 
-
-	public void setInitialPeriod(final LocalDateTime localDateTime) {
-		this.initialPeriod = Date.from(localDateTime.minus(1, ChronoUnit.HOURS).atZone(ZoneId.systemDefault()).toInstant());
-	}
 }
