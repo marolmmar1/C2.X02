@@ -3,12 +3,16 @@ package acme.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
 import acme.framework.data.AbstractEntity;
+import acme.roles.Company;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -36,4 +40,10 @@ public class Practicum extends AbstractEntity {
 	@Length(max = 100)
 	protected String			goals;
 
+	//Relaciones
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Company			company;
 }
