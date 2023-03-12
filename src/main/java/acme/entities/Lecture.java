@@ -4,7 +4,6 @@ package acme.entities;
 import java.awt.geom.Arc2D.Double;
 
 import javax.validation.constraints.Digits;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -19,10 +18,9 @@ public class Lecture {
 
 	@NotBlank
 	@Length(max = 100)
-	protected String	_abstract;
+	protected String	abstracts;
 
 	@Digits(integer = 3, fraction = 2)
-	@Min((long) 0.01)
 	protected Double	estimatedTime;
 
 	@NotBlank

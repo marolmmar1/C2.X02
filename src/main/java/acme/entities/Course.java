@@ -19,7 +19,7 @@ public class Course {
 
 	@NotBlank
 	@Column(unique = true)
-	@Pattern(regexp = "[A-Z]{1,3}[0-9]{3}", message = "{validation.course.code}")
+	@Pattern(regexp = "(^[A-Z]{1,3}[0-9]{3}$)", message = "{validation.course.code}")
 	protected String			code;
 
 	@NotBlank
@@ -28,7 +28,7 @@ public class Course {
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			_abstract;
+	protected String			abstracts;
 
 	@NotNull
 	protected Money				price;

@@ -32,7 +32,7 @@ public class Activity extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			_abstract;
+	protected String			abstracts;
 
 	@Temporal(TemporalType.DATE)
 	@NotNull
