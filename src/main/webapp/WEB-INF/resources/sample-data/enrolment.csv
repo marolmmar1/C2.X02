@@ -1,3 +1,3 @@
-key,code,motivation,goals
-peep-01,A001,Acudir a clase,aprobar
-peep-02,A012,Estudiar diariamente,aprender conocimientos nuevos
+key,code,motivation,goals,key:student
+enrolment-01,A001,Acudir a clase,aprobar,student-01
+enrolment-02,A012,Estudiar diariamente,aprender conocimientos nuevos,student-02

@@ -12,7 +12,6 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Length;
 
 import acme.framework.data.AbstractEntity;
-import acme.roles.Company;
 import acme.roles.Student;
 import lombok.Getter;
 import lombok.Setter;
@@ -39,8 +38,9 @@ public class Enrolment extends AbstractEntity {
 
 	//Relaciones
 
-		@NotNull
-		@Valid
-		@ManyToOne(optional = false)
-		protected Student			student;
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Student			student;
+
 }
