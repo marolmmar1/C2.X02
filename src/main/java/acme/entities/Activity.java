@@ -18,7 +18,6 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.framework.data.AbstractEntity;
-import acme.roles.Student;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -55,9 +54,9 @@ public class Activity extends AbstractEntity {
 	protected String			link;
 
 	//Relaciones
-	
-			@NotNull
-			@Valid
-			@ManyToOne(optional = false)
-			protected Student			student;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Enrolment			enrolment;
 }
