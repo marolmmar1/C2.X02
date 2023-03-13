@@ -14,8 +14,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.framework.components.datatypes.Money;
-import acme.roles.Company;
-import acme.roles.Student;
+import acme.roles.Lecturer;
 
 public class Course {
 
@@ -43,5 +42,11 @@ public class Course {
 
 	@URL
 	protected String			link;
-	
+
+	// Relationships ----------------------------------------------------------
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Lecturer			lecturer;
+
 }
