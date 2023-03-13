@@ -1,0 +1,3 @@
+key,subject,assessment,markType,initialPeriod,finalPeriod,link,key:audit
+auditingRecord-01,AuditingRecord1,assesment1,B,2010/12/10 21:00,2012/12/10 22:00,http://www.example.com,audit-01
+auditingRecord-02,AuditingRecord2,assesment2,C,2011/12/10 20:00,2013/12/10 22:00,http://www.example.com,audit-02
