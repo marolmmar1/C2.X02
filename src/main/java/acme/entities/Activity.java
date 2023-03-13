@@ -55,7 +55,6 @@ public class Activity extends AbstractEntity {
 	protected String			link;
 
 	//Relaciones
-
 			@NotNull
 			@Valid
 			@ManyToOne(optional = false)
