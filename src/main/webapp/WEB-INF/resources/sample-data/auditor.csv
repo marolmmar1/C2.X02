@@ -1,3 +1,3 @@
 key,key:userAccount,firm,profesionalID,certifications,link
-auditor-01,user-account-auditor-01,auditor-01,ESB87654321,Graduado en la universidad de Sevilla de Ingeniería de Software,http://example.com
-auditor-02,user-account-auditor-02,auditor-02,ESB8765432223,Graduado en la universidad de Sevilla de Ingeniería de Software,http://example.com
+auditor-01,user-account-auditor-01,auditor-01-firma,profesionalID1,Ingeniero,http://student01-etsii.com
+auditor-02,user-account-auditor-02,auditor-02-firma,profesionalID2,Jugador de futboll,http://student02-etsi.com

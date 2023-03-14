@@ -2,6 +2,7 @@
 package acme.entities;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
@@ -14,9 +15,15 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.framework.components.datatypes.Money;
+import acme.framework.data.AbstractEntity;
 import acme.roles.Lecturer;
+import lombok.Getter;
+import lombok.Setter;
 
-public class Course {
+@Entity
+@Getter
+@Setter
+public class Course extends AbstractEntity {
 
 	protected static final long	serialVersionUID	= 1L;
 
