@@ -12,13 +12,14 @@
 
 package acme.forms;
 
+import acme.datatypes.StatData;
 import acme.framework.data.AbstractForm;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class AssistantDashboard extends AbstractForm {
+public class StudentDashboard extends AbstractForm {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -26,17 +27,18 @@ public class AssistantDashboard extends AbstractForm {
 
 	// Attributes -------------------------------------------------------------
 
-	Double						totalNumberOfTutorialTeoricalCoursePerAssistant;
-	Double						totalNumberOfTutorialHandsOnCoursePerAssistant;
-	Double						averageTimeOfTutorialSessionsPerAssistant;
-	Double						deviationTimeOfTutorialSessionsPerAssistant;
-	Double						minimunTimeOfTutorialSessionsPerAssistant;
-	Double						maximunTimeOfTutorialSessionsPerAssistant;
-	Double						averageTimeOfTutorialPerAssistant;
-	Double						desviationTimeOfTutorialPerAssistant;
-	Double						minimunTimeOfTutorialPerAssistant;
-	Double						maximunTimeOfTutorialPerAssistant;
-
+	protected int						totalNumberOfTheoryActivitiesInTheirWorkbook;
+	protected StatData					totalNumberOfHandsOnActivitiesInTheirWorkbook;
+	protected StatData					averagePeriodOfActivitiesInTheirWorkbook;
+	protected StatData					deviationPeriodOfActivitiesInTheirWorkbook;
+	protected StatData					minimumPeriodOfActivitiesInTheirWorkbook;
+	protected Double					maximumPeriodOfActivitiesInTheirWorkbook;
+	protected Double					averageLearningTimeOfCoursesPerStudent;
+	protected Double					deviationLearningTimeOfCoursesPerStudent;
+	protected Double					minimumLearningTimeOfCoursesPerStudent;
+	protected Double					maximumLearningTimeOfCoursesPerStudent;
+	
+	
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
