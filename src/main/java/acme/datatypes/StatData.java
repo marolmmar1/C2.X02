@@ -1,6 +1,11 @@
 
 package acme.datatypes;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class StatData {
 
 	Double	sum;
