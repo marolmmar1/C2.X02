@@ -1,3 +1,3 @@
 key,code,title,abstracts,price,nature,link,key:lecturer
-course-01,GC922,CourseTitle1,buenos dias,50,THEORETICAL,http://example.com,lecturer-01
-course-02,TN928,CourseTitle2,buenas tardes,80,BALANCE,http://example.com,lecturer-02
+course-01,GC922,CourseTitle1,buenos dias,"EUR 15,000.98",THEORETICAL,http://example.com,lecturer-01
+course-02,TN928,CourseTitle2,buenas tardes,"USD 20,000.00",BALANCE,http://example.com,lecturer-02
