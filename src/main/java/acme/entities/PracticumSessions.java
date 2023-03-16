@@ -44,8 +44,6 @@ public class PracticumSessions extends AbstractEntity {
 	@URL
 	protected String			link;
 
-	protected boolean			draftMode;
-
 	//Relaciones
 	@NotNull
 	@Valid

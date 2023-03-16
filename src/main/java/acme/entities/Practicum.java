@@ -40,10 +40,17 @@ public class Practicum extends AbstractEntity {
 	@Length(max = 100)
 	protected String			goals;
 
+	protected boolean			draftMode;
+
 	//Relaciones
 
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
 	protected Company			company;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Course			course;
 }

@@ -4,8 +4,6 @@ package acme.entities;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -37,7 +35,6 @@ public class AuditingRecord extends AbstractEntity {
 	protected String			assessment;
 
 	@NotNull
-	@Enumerated(EnumType.STRING)
 	protected MarkType			markType;
 
 	@NotNull

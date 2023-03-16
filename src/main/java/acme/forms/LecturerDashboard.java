@@ -12,7 +12,10 @@
 
 package acme.forms;
 
+import java.util.Map;
+
 import acme.datatypes.StatData;
+import acme.entities.Nature;
 import acme.framework.data.AbstractForm;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,17 +26,15 @@ public class LecturerDashboard extends AbstractForm {
 
 	// Serialisation identifier -----------------------------------------------
 
-	protected static final long	serialVersionUID	= 1L;
+	protected static final long		serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
 
-	protected int[]				totalNumberOfTheoryLectures;
+	protected Map<Nature, Integer>	totalNumberOfNatureLectures;
 
-	protected int[]				totalNumberOfHandsOnLectures;
+	protected StatData				learningTimeOfLectures;
 
-	protected StatData			learningTimeOfLectures;
-
-	protected StatData			learningTimeOfCourses;
+	protected StatData				learningTimeOfCourses;
 
 	// Derived attributes -----------------------------------------------------
 

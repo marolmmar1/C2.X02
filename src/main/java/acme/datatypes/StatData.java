@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 public class StatData {
 
-	Double	sum;
+	int		count;
 	Double	average;
 	Double	desviation;
 	Double	minimum;
