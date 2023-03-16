@@ -3,8 +3,6 @@ package acme.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
@@ -44,7 +42,6 @@ public class Course extends AbstractEntity {
 	protected Money				price;
 
 	@NotNull
-	@Enumerated(EnumType.STRING)
 	protected Nature			nature;
 
 	@URL

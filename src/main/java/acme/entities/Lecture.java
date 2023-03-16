@@ -32,6 +32,7 @@ public class Lecture extends AbstractEntity {
 	protected String			abstracts;
 
 	@Digits(integer = 3, fraction = 2)
+	@NotNull
 	protected Double			estimatedTime;
 
 	@NotBlank
