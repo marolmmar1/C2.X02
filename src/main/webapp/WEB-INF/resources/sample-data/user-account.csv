@@ -5,6 +5,10 @@ user-account-administrator-02,true,"UserIdentity{name: 'Administrator1Name', sur
 user-account-administrator-03,true,"UserIdentity{name: 'Administrator2Name', surname: 'administrator2Surname', email: 'administrator2@acme.com'}",administrator2,administrator2
 user-account-company-01,true,"UserIdentity{name: 'Company1Name', surname: 'Company1Surname', email: 'company1@acme.com'}",company1,company1
 user-account-company-02,true,"UserIdentity{name: 'Company2Name', surname: 'Company2Surname', email: 'company2@acme.com'}",company2,company2
+user-account-company-03,true,"UserIdentity{name: 'Company3Name', surname: 'Company3Surname', email: 'company3@acme.com'}",company3,company3
+user-account-company-04,true,"UserIdentity{name: 'Company4Name', surname: 'Company4Surname', email: 'company4@acme.com'}",company4,company4
+user-account-company-05,true,"UserIdentity{name: 'Company5Name', surname: 'Company5Surname', email: 'company5@acme.com'}",company5,company5
+user-account-company-06,true,"UserIdentity{name: 'Company6Name', surname: 'Company6Surname', email: 'company6@acme.com'}",company6,company6
 user-account-student-01,true,"UserIdentity{name: 'Student1Name', surname: 'Student1Surname', email: 'student1@acme.com'}",student1,student1
 user-account-student-02,true,"UserIdentity{name: 'Student2Name', surname: 'Student2Surname', email: 'student2@acme.com'}",student2,student2
 user-account-auditor-01,true,"UserIdentity{name: 'Auditor1Name', surname: 'Auditor1Surname', email: 'auditor1@acme.com'}",auditor1,auditor1
