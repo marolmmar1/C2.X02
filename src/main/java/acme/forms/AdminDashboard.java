@@ -12,6 +12,9 @@
 
 package acme.forms;
 
+import java.util.Map;
+
+import acme.datatypes.StatData;
 import acme.framework.data.AbstractForm;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,19 +29,12 @@ public class AdminDashboard extends AbstractForm {
 
 	// Attributes -------------------------------------------------------------
 
-	Double						numPrincipals;
-	Double						ratioEmailPeeps;
-	Double						ratioLinkPeeps;
-	Double						ratioCriticalBulletin;
-	Double						ratioNonCriticalBulletin;
-	Double						averageBudgetPerOffers;
-	Double						minimumBudgetPerOffers;
-	Double						maximumBudgetPerOffers;
-	Double						standardDeviationBudgetPerOffers;
-	Double						averageTotalNumberPerNotes;
-	Double						minimumTotalNumberPerNotes;
-	Double						maximumTotalNumberPerNotes;
-	Double						standardDeviationTotalNumberPerNotes;
+	Map<String, Integer>		principalsByRole;
+	Double						peepsRatioEmailAndLink;
+	Map<Boolean, Double>		ratioCriticalBulletin;
+
+	StatData					currentOffersStats;
+	StatData					notesInLastWeeks;
 
 	// Derived attributes -----------------------------------------------------
 
