@@ -1,3 +1,7 @@
 key,code,conclusion,strongPoints,weakPoints,key:auditor
-audit-01,ABC123,Audit1,complejidad,simplesa,auditor-01
-audit-02,ABC125,Audit2,simplesa,complejidad,auditor-02
+audit-01,ABC123,a,complejidad,simplesa,auditor-01
+audit-02,ABC125,Audit2,s,complejidad,auditor-02
+audit-03,ABC126,Audit3,ok,o,auditor-03
+audit-04,ABC127,HHWjSTaz48zyp9xvrwVv4pbfGeyiAcjdppfQnCDTZVJtVGH6TDTyiEye25HJDUManEkKScu8cNrAGSb9R7jpJ89ccqagyGRp8A5d,ok,ok,auditor-04
+audit-05,ABC128,Audit3,miMpnpmREAxDGebDeLAqpPUw3N4iNxHwNXcdB5aa42qhkPJTYeAdiVvQ9VGLVujLvW66hfgkGxTwbyuUtHJhPzppv8mxdYY6JFKL,ok,auditor-05
+audit-06,ABC129,Audit3,ok,tDxGbBrCMk5g8XDfL9uUSqdKAdQTNxVmxHyL5xnJvRdPXR4cXd5GUW86JY5Z2XR9ky9i2mJKafkL3489Y4hcEejXUteRBbbn2vCL,auditor-06
