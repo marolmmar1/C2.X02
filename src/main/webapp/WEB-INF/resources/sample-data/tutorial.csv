@@ -1,3 +1,6 @@
 key,code,title,abstracts,goals,key:assistant,key:course
-tutorial-01,ABC123,Tutorial1,hola,conseguir aprobar,assistant-01,course-01
-tutorial-02,ABC124,Tutorial2,hola,conseguir aprobar,assistant-02,course-02
+tutorial-01,ABC123,مرحبا لكل شعبي كيف حالنا,الفيزياء الكيميائية,c,assistant-01,course-01
+tutorial-02,ABC124,こんにちは、私のすべての人々に私たちはお元気ですか,<h1> hello and welcome to the class!<h1>,conseguir aprobar,assistant-02,course-02
+tutorial-03,A124,T,h,Máximo 100 caracteres: ¡Bienvenido al mundo de los caracteres especiales! #%&*@¡¿$/,assistant-02,course-01
+tutorial-04,AB124,Tututorial para saber como hacer un csv lo mejor posible sin pasar mal 2335,"<script> alert(""hi!"")</script>",Máximo 100 caracteres: ¡Codea tus sueños en realidad! 💻🌟 #programación #coding,assistant-02,course-02
+tutorial-05,ABC000,Tututorial para saber como hacer un csv lo mejor posible sin pasar mal,"Útil para tus comentarios en Twitter, así como para muchas otras 2222222222",conseguir aprobar,assistant-02,course-01
