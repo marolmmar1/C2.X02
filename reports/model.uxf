@@ -890,21 +890,15 @@ bg=red</panel_attributes>
     <coordinates>
       <x>1410</x>
       <y>430</y>
-      <w>220</w>
-      <h>110</h>
+      <w>300</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Form&gt;&gt;
 Auditor Dashboard
 --
-+ totalNumberOfAuditsWrittenForTheoryAndOnHandCourse: Double
-+ averageNumberOfAuditingRecordsInTheirAudits: Double
-+ deviationNumberOfAuditingRecordsInTheirAudits: Double
-+ minimumNumberOfAuditingRecordsInTheirAudits: Double
-+ maximumNumberOfAuditingRecordsInTheirAudits: Double
-+ averageTimeOfThePeriodLengthsInTheirAuditingRecords: Double
-+ deviationTimeOfThePeriodLengthsInTheirAuditingRecords: Double
-+ minimumTimeOfThePeriodLengthsInTheirAuditingRecords: Double
-+ maximumTimeOfThePeriodLengthsInTheirAuditingRecords: Double
++ totalNumberOfNatureAuditsWrittenForTheoryAndOnHandCourse: Map&lt;Nature, Integer&gt;
++ NumberOfAuditingRecordsInTheirAuditsStats: StatData
++ TimeOfThePeriodLengthsInTheirAuditingRecordsStats: StatData
 bg=red</panel_attributes>
     <additional_attributes/>
   </element>
