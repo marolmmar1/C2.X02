@@ -370,16 +370,16 @@ bg=black</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>130</x>
+      <x>110</x>
       <y>925</y>
-      <w>170</w>
+      <w>190</w>
       <h>75</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Role&gt;&gt;
 Auditor
 --
 + firm: String {NotBlank, Length(1,75)}
-+ professional_id: String {NotBlank, Length(1,25)}
++ professional_id: String {NotBlank, Unique, Length(1,25)}
 + certification: String {NotBlank, Length(1,100)}
 + link: String {URL}
 bg=black</panel_attributes>
