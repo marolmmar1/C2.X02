@@ -31,16 +31,9 @@ public class StudentDashboard extends AbstractForm {
 	// Attributes -------------------------------------------------------------
 
 	protected Map<Nature, Integer>		totalNumberOfNatureActivities;
-	protected StatData					averagePeriodOfActivities;
-	protected StatData					deviationPeriodOfActivities;
-	protected StatData					minimumPeriodOfActivities;
-	protected Double					maximumPeriodOfActivities;
-	protected Double					averageLearningTimeOfCourses;
-	protected Double					deviationLearningTimeOfCoursest;
-	protected Double					minimumLearningTimeOfCourses;
-	protected Double					maximumLearningTimeOfCourses;
-	
-	
+	protected StatData					TimeofPeriodOfActivitiesInTheirWorkbookStats;
+	protected StatData					LearningTimeOfCoursesPerStudent;
+
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
