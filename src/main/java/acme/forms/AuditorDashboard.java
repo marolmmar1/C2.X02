@@ -12,6 +12,10 @@
 
 package acme.forms;
 
+import java.util.Map;
+
+import acme.datatypes.StatData;
+import acme.entities.Nature;
 import acme.framework.data.AbstractForm;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,19 +26,13 @@ public class AuditorDashboard extends AbstractForm {
 
 	// Serialisation identifier -----------------------------------------------
 
-	protected static final long	serialVersionUID	= 1L;
+	protected static final long		serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
 
-	Double						totalNumberOfAuditsWrittenForTheoryAndOnHandCourse;
-	Double						averageNumberOfAuditingRecordsInTheirAudits;
-	Double						deviationNumberOfAuditingRecordsInTheirAudits;
-	Double						minimumNumberOfAuditingRecordsInTheirAudits;
-	Double						maximumNumberOfAuditingRecordsInTheirAudits;
-	Double						averageTimeOfThePeriodLengthsInTheirAuditingRecords;
-	Double						deviationTimeOfThePeriodLengthsInTheirAuditingRecords;
-	Double						minimumTimeOfThePeriodLengthsInTheirAuditingRecords;
-	Double						maximumTimeOfThePeriodLengthsInTheirAuditingRecords;
+	protected Map<Nature, Integer>	totalNumberOfNatureAuditsWrittenForTheoryAndOnHandCourse;
+	protected StatData				NumberOfAuditingRecordsInTheirAuditsStats;
+	protected StatData				TimeOfThePeriodLengthsInTheirAuditingRecordsStats;
 
 	// Derived attributes -----------------------------------------------------
 
