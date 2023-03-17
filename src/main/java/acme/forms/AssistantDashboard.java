@@ -30,9 +30,7 @@ public class AssistantDashboard extends AbstractForm {
 
 	// Attributes -------------------------------------------------------------
 
-	protected Map<Nature, Integer>	totalNumberOfTutorialTeoricalCoursePerAssistant;
-
-	protected Map<Nature, Integer>	totalNumberOfTutorialHandsOnCoursePerAssistant;
+	protected Map<Nature, Integer>	totalNumberNatureCoursePerAssistant;
 
 	protected StatData				timeOfTutorialSessionsPerAssistant;
 
