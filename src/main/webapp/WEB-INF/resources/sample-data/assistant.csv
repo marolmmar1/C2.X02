@@ -1,6 +1,6 @@
 key,key:userAccount,supervisor,expertiseField,resume,link
 assistant-01,user-account-assistant-01,P,F,<h1> hello!<h1>,null
 assistant-02,user-account-assistant-02,Pe,F1,<script> alert("hi!")</script>,http://example.com
-assistant-03,user-account-assistant-02,Pedro Lopez Ruz nacido en Montilla provincia de Cordoba al sur provincial,الفيزياء الكيميائية,Graduado en la universidad de Sevilla de Ingeniería de Software,http://example.com
-assistant-04,user-account-assistant-02,Pedro Lopez Ruz nacido en Montilla provincia de Cordoba al sur provincial,分析师,Graduado en la universidad de Sevilla de Ingeniería de Software,null
-assistant-05,user-account-assistant-02,Pedro Lopez Ruz nacido en Montilla provincia de Cordoba al sur provincial 1,Fisica Quimica Informatica Calculo Informatica especialista en hardware electricista fisicoparticula,Graduado en la universidad de Sevilla de Ingeniería de Software,http://example.com
+assistant-03,user-account-assistant-03,Pedro Lopez Ruz nacido en Montilla provincia de Cordoba al sur provincial,الفيزياء الكيميائية,Graduado en la universidad de Sevilla de Ingeniería de Software,http://example.com
+assistant-04,user-account-assistant-04,Pedro Lopez Ruz nacido en Montilla provincia de Cordoba al sur provincial,分析师,Graduado en la universidad de Sevilla de Ingeniería de Software,null
+assistant-05,user-account-assistant-05,Pedro Lopez Ruz nacido en Montilla provincia de Cordoba al sur provincial 1,Fisica Quimica Informatica Calculo Informatica especialista en hardware electricista fisicoparticula,Graduado en la universidad de Sevilla de Ingeniería de Software,http://example.com
