@@ -12,7 +12,10 @@
 
 package acme.forms;
 
+import java.util.Map;
+
 import acme.datatypes.StatData;
+import acme.entities.Nature;
 import acme.framework.data.AbstractForm;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,16 +30,15 @@ public class StudentDashboard extends AbstractForm {
 
 	// Attributes -------------------------------------------------------------
 
-	protected int						totalNumberOfTheoryActivitiesInTheirWorkbook;
-	protected StatData					totalNumberOfHandsOnActivitiesInTheirWorkbook;
-	protected StatData					averagePeriodOfActivitiesInTheirWorkbook;
-	protected StatData					deviationPeriodOfActivitiesInTheirWorkbook;
-	protected StatData					minimumPeriodOfActivitiesInTheirWorkbook;
-	protected Double					maximumPeriodOfActivitiesInTheirWorkbook;
-	protected Double					averageLearningTimeOfCoursesPerStudent;
-	protected Double					deviationLearningTimeOfCoursesPerStudent;
-	protected Double					minimumLearningTimeOfCoursesPerStudent;
-	protected Double					maximumLearningTimeOfCoursesPerStudent;
+	protected Map<Nature, Integer>		totalNumberOfNatureActivities;
+	protected StatData					averagePeriodOfActivities;
+	protected StatData					deviationPeriodOfActivities;
+	protected StatData					minimumPeriodOfActivities;
+	protected Double					maximumPeriodOfActivities;
+	protected Double					averageLearningTimeOfCourses;
+	protected Double					deviationLearningTimeOfCoursest;
+	protected Double					minimumLearningTimeOfCourses;
+	protected Double					maximumLearningTimeOfCourses;
 	
 	
 	// Derived attributes -----------------------------------------------------
