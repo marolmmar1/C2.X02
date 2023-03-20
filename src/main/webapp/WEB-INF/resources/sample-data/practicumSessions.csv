@@ -1,0 +1,5 @@
+key,title,abstracts,inicialPeriod,finalPeriod,link,key:practicum
+practicumSessions-01,PracticumSessions1,aaaaaaaaaaaaaaaaaaaaaaaaaa,2030/12/10 21:00,2030/12/10 22:00,http://www.example.com,practicum-01
+practicumSessions-02,PracticumSessions3,こんにちは、私のすべての人々に私たちはお元気ですか,2030/12/10 20:00,2030/12/10 22:00,http://www.example.com,practicum-02
+practicumSessions-03,PracticumSessionsPracticumSessions4,"<script> alert(""hi!"")</script>",2030/12/10 20:00,2030/12/10 22:00,http://www.example.com,practicum-03
+practicumSessions-04,PracticumSessions2PracticumSessions4Practicum,121212121221sino12121121212,2030/12/10 20:00,2030/12/10 22:00,http://www.example.com,practicum-04

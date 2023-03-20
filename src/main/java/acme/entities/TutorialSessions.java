@@ -4,11 +4,10 @@ package acme.entities;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.FutureOrPresent;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -32,23 +31,27 @@ public class TutorialSessions extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 75)
-	protected String			_abstract;
+	protected String			abstracts;
 
 	@NotNull
-	@Enumerated(EnumType.STRING)
 	protected Nature			nature;
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	@FutureOrPresent
 	protected Date				inicialPeriod;
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	@FutureOrPresent
 	protected Date				finalPeriod;
 
 	@URL
 	protected String			link;
+
+	protected boolean			draftMode;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Tutorial			tutorial;
 
 }

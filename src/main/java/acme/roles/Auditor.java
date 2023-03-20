@@ -1,13 +1,20 @@
 
 package acme.roles;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.framework.data.AbstractRole;
+import lombok.Getter;
+import lombok.Setter;
 
+@Entity
+@Getter
+@Setter
 public class Auditor extends AbstractRole {
 
 	protected static final long	serialVersionUID	= 1L;
@@ -17,6 +24,7 @@ public class Auditor extends AbstractRole {
 	protected String			firm;
 
 	@NotBlank
+	@Column(unique = true)
 	@Length(max = 25)
 	protected String			profesionalID;
 

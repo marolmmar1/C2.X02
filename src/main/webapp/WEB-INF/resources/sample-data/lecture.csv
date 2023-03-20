@@ -1,0 +1,7 @@
+key,title,abstracts,body,nature,link,key:lecturer,estimatedTime
+lecture-01,L,Graduado,primera clase,THEORETICAL,http://example.com,lecturer-01,5.40
+lecture-02,Lect,"<script> alert(""hi!"")</script>","<script> alert(""segunda clase"")</script>",BALANCE,,lecturer-02,6.40
+lecture-03,LectureTitle3,Graduado en la universidad de Sevilla de Ingeniería de Software comprobando mas,Graduado en la universidad de Sevilla de Ingeniería de Software comprobando mas,THEORETICAL,http://example.com,lecturer-03,5.40
+lecture-04,y5BedXixYknyRfPQAuZuwHL8P,Graduado en la universidad de Sevilla de Ingeniería de Software,Graduado en la universidad de Sevilla de Ingeniería de Software,BALANCE,http://example.com,lecturer-04,0.00
+lecture-05,rRtDcMeZu9NPLiqrz7ASEXW6mNANnPPqiiacgKLfKrYpvTxAR3yP8g7i5Hr7XDBxrLaKPQ,こんにちは、私のすべての人々に私たちはお元気ですか,こんにちは、私のすべての人々に私たちはお元気ですか,THEORETICAL,,lecturer-05,77.40
+lecture-06,4V4gZES32W4gxYad7ap2RERmL7HeB9nxdDnNk8BQKdB4bJXf6zriKV3Sz4R5GAmfg9DWek,tvAS5xHmNyNKxTxanv2gj98GeShhXkTQbiTatkBnGTTtR7BjLABgR3vWRGG9gJvEhZB5q73xdCXtdBLaMe8T8YqrRfDHXAKDD,tvAS5xHmNyNKxTxanv2gj98GeShhXkTQbiTatkBnGTTtR7BjLABgR3vWRGG9gJvEhZB5q73xdCXtdBLaMe8T8YqrRfDHXAKDD,BALANCE,http://example.com,lecturer-06,100.40

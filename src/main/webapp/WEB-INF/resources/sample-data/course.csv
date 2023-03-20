@@ -1,0 +1,7 @@
+key,code,title,abstracts,price,nature,link,draftMode,key:lecturer
+course-01,GC922,c,Graduado,"EUR 15,000.98",THEORETICAL,http://example.com,true,lecturer-01
+course-02,TN928,cour,"<script> alert(""hi!"")</script>","USD 20,000.00",BALANCE,http://example.com,false,lecturer-02
+course-03,TJP928,courseTitle-02,Graduado en la universidad de Sevilla de Ingeniería de Software comprobando mas,"USD 4.00",BALANCE,http://example.com,true,lecturer-03
+course-04,T672,y5BedXixYknyRfPQAuZuwHL8P,Graduado en la universidad de Sevilla de Ingeniería de Software,"GBP 20,000.00",BALANCE,http://example.com,false,lecturer-04
+course-05,TNJ282,rRtDcMeZu9NPLiqrz7ASEXW6mNANnPPqiiacgKLfKrYpvTxAR3yP8g7i5Hr7XDBxrLaKPQ,こんにちは、私のすべての人々に私たちはお元気ですか,"GBP 20,000.00",THEORETICAL,http://example.com,true,lecturer-05
+course-06,T282,4V4gZES32W4gxYad7ap2RERmL7HeB9nxdDnNk8BQKdB4bJXf6zriKV3Sz4R5GAmfg9DWek,tvAS5xHmNyNKxTxanv2gj98GeShhXkTQbiTatkBnGTTtR7BjLABgR3vWRGG9gJvEhZB5q73xdCXtdBLaMe8T8YqrRfDHXAKDD,"EUR 50.00",BALANCE,http://example.com,false,lecturer-06
