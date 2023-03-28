@@ -1,5 +1,24 @@
 key,title,abstracts,inicialPeriod,finalPeriod,link,key:practicum
 practicumSessions-01,PracticumSessions1,aaaaaaaaaaaaaaaaaaaaaaaaaa,2030/12/10 21:00,2030/12/10 22:00,http://www.example.com,practicum-01
-practicumSessions-02,PracticumSessions3,こんにちは、私のすべての人々に私たちはお元気ですか,2030/12/10 20:00,2030/12/10 22:00,http://www.example.com,practicum-02
-practicumSessions-03,PracticumSessionsPracticumSessions4,"<script> alert(""hi!"")</script>",2030/12/10 20:00,2030/12/10 22:00,http://www.example.com,practicum-03
-practicumSessions-04,PracticumSessions2PracticumSessions4Practicum,121212121221sino12121121212,2030/12/10 20:00,2030/12/10 22:00,http://www.example.com,practicum-04
+practicumSessions-02,P,aaaaaaaaaaaaaaaaaaaaaaaaaa,2030/12/10 21:00,2030/12/10 22:00,http://www.example.com,practicum-01
+practicumSessions-03,Pr,aaaaaaaaaaaaaaaaaaaaaaaaaa,2030/12/10 21:00,2030/12/10 22:00,http://www.example.com,practicum-01
+practicumSessions-04,Título de setenta y cinco caracteres exactos para esta práctica profesional,aaaaaaaaaaaaaaaaaaaaaaaaaa,2030/12/10 21:00,2030/12/10 22:00,http://www.example.com,practicum-01
+practicumSessions-05,Soy un título de setenta y cuatro caracteres para la práctica profesional,aaaaaaaaaaaaaaaaaaaaaaaaaa,2030/12/10 21:00,2030/12/10 22:00,http://www.example.com,practicum-01
+practicumSessions-06,مرحبا لكل شعبي كيف حالالفيزياء الكيميائية,aaaaaaaaaaaaaaaaaaaaaaaaaa,2030/12/10 21:00,2030/12/10 22:00,http://www.example.com,practicum-01
+practicumSessions-07,<h1> welcome to the class!<h1>,aaaaaaaaaaaaaaaaaaaaaaaaaa,2030/12/10 21:00,2030/12/10 22:00,http://www.example.com,practicum-01
+practicumSessions-08,"<script>alert(""hi!"")</script>",aaaaaaaaaaaaaaaaaaaaaaaaaa,2030/12/10 21:00,2030/12/10 22:00,http://www.example.com,practicum-01
+practicumSessions-09,PracticumSessions1,a,2030/12/10 21:00,2030/12/10 22:00,http://www.example.com,practicum-01
+practicumSessions-10,PracticumSessions1,aa,2030/12/10 21:00,2030/12/10 22:00,http://www.example.com,practicum-01
+practicumSessions-11,PracticumSessions1,voy a escribir cien caracteres en esta línea para hacer la prueba de que es válida para los csv okey,2030/12/10 21:00,2030/12/10 22:00,http://www.example.com,practicum-01
+practicumSessions-12,PracticumSessions1,voy a escribir 99 caracteres en esta línea para hacer la prueba de que es válida para los csvs okey,conseguir aprobar,2030/12/10 21:00,2030/12/10 22:00,http://www.example.com,practicum-01
+practicumSessions-13,PracticumSessions1,<h1> welcome to the class!<h1>,2030/12/10 21:00,2030/12/10 22:00,http://www.example.com,practicum-01
+practicumSessions-14,PracticumSessions1,"<script>alert(""hi!"")</script>",2030/12/10 21:00,2030/12/10 22:00,http://www.example.com,practicum-01
+practicumSessions-15,PracticumSessions1,こんにちは、私,2030/12/10 21:00,2030/12/10 22:00,http://www.example.com,practicum-01
+practicumSessions-16,PracticumSessions1,aaaaaaaaaaaaaaaaaaaaaaaaaa,2021/08/21 00:00,2021/09/12 17:00,http://www.example.com,practicum-01
+practicumSessions-17,PracticumSessions3,aaaaaaaaaaaaaaaaaaaaaaaaaa,2021/08/21 23:59,2021/09/12 17:00,http://www.example.com,practicum-02
+practicumSessions-18,PracticumSessions1,aaaaaaaaaaaaaaaaaaaaaaaaaa,2022/01/01 00:00,2022/09/12 17:00,http://www.example.com,practicum-03
+practicumSessions-19,PracticumSessions2,aaaaaaaaaaaaaaaaaaaaaaaaaa,2030/12/10 20:00,2030/12/10 22:00,http://www.example.com,practicum-04
+practicumSessions-20,PracticumSessions2,aaaaaaaaaaaaaaaaaaaaaaaaaa,2021/08/21 12:00,2021/09/12 17:00,http://www.example.com,practicum-04
+practicumSessions-21,PracticumSessions2,aaaaaaaaaaaaaaaaaaaaaaaaaa,2022/08/21 17:00,2023/01/01 00:00,http://www.example.com,practicum-04
+practicumSessions-22,PracticumSessions2,aaaaaaaaaaaaaaaaaaaaaaaaaa,2030/12/10 20:00,2030/12/10 22:00,null,practicum-04
+practicumSessions-23,PracticumSessions2,aaaaaaaaaaaaaaaaaaaaaaaaaa,2030/12/10 20:00,2030/12/10 22:00,http://www.example.com,practicum-04
