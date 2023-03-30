@@ -34,6 +34,10 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/shut-down"/>
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.assistant" access="hasRole('Assistant')">
+			<acme:menu-suboption code="master.menu.authenticated.tutorial.list-all" action="/assistant/tutorial/list-all"/>
+		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
 			<acme:menu-suboption code="master.menu.provider.favourite-link" action="http://www.example.com/"/>
@@ -49,11 +53,14 @@
 		<acme:menu-option code="master.menu.sign-in" action="/master/sign-in" access="isAnonymous()"/>
 
 		<acme:menu-option code="master.menu.user-account" access="isAuthenticated()">
+		<acme:menu-suboption code="master.menu.authenticated.bulletin.list-all" action="/authenticated/bulletin/list-all"/>
+		<acme:menu-suboption code="master.menu.authenticated.tutorial.list-all" action="/authenticated/tutorial/list-all"/>
 			<acme:menu-suboption code="master.menu.user-account.general-data" action="/authenticated/user-account/update"/>
 			<acme:menu-suboption code="master.menu.user-account.become-provider" action="/authenticated/provider/create" access="!hasRole('Provider')"/>
 			<acme:menu-suboption code="master.menu.user-account.provider" action="/authenticated/provider/update" access="hasRole('Provider')"/>
 			<acme:menu-suboption code="master.menu.user-account.become-consumer" action="/authenticated/consumer/create" access="!hasRole('Consumer')"/>
 			<acme:menu-suboption code="master.menu.user-account.consumer" action="/authenticated/consumer/update" access="hasRole('Consumer')"/>
+			
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.sign-out" action="/master/sign-out" access="isAuthenticated()"/>
