@@ -1,0 +1,21 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+assistant.user-account.form.label.username = Apodo:
+assistant.user-account.form.label.password = Contraseña:
+assistant.user-account.form.label.confirmation = Confirmación:
+assistant.user-account.form.label.name = Nombre:
+assistant.user-account.form.label.surname = Apellidos:
+assistant.user-account.form.label.email = E-mail:
+assistant.user-account.form.label.phone = Teléfono: (Opcional)
+ 
+assistant.user-account.form.button.update = Actualizar
+
+assistant.user-account.form.error.confirmation-no-match = La confirmación no cuadra

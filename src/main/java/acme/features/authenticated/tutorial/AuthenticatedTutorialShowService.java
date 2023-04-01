@@ -63,8 +63,7 @@ public class AuthenticatedTutorialShowService extends AbstractService<Authentica
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "abstracts", "goals", "assistant.supervisor");
-
+		tuple = super.unbind(object, "code", "title", "abstracts", "goals");
 		super.getResponse().setData(tuple);
 	}
 

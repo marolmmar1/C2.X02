@@ -23,7 +23,7 @@
 	<acme:input-textarea code="assistant.tutorial.form.label.goals" path="goals"/>
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'show'}">
-			<acme:button code="assistant.tutorial.form.button.tutorialSessions" action="/assistant/tutorialSessions/list?id=${id}"/>
+			<acme:button code="assistant.tutorial.form.button.tutorialSessions" action="/assistant/tutorial-sessions/list?id=${id}"/>
 		</jstl:when>	
 	</jstl:choose>
 	

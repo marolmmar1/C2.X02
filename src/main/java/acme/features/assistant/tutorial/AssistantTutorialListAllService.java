@@ -40,12 +40,8 @@ public class AssistantTutorialListAllService extends AbstractService<Assistant, 
 
 	@Override
 	public void authorise() {
-		boolean result;
 
-		final int assistantId = super.getRequest().getPrincipal().getActiveRoleId();
-		final Collection<Tutorial> tutorials = this.repository.findAllTutorialByAssistantId(assistantId);
-		result = tutorials.stream().allMatch(e -> e.getAssistant().getId() == assistantId);
-		super.getResponse().setAuthorised(result);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override

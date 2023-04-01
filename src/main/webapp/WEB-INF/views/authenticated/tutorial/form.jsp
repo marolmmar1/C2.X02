@@ -19,7 +19,6 @@
 
 	<acme:input-textbox code="authenticated.tutorial.form.label.code" path="code"/>	
 	<acme:input-textbox code="authenticated.tutorial.form.label.title" path="title"/>
-	<acme:input-textbox code="authenticated.tutorial.form.label.supervisor" path="assistant.supervisor"/>
 	<acme:input-textarea code="authenticated.tutorial.form.label.abstracts" path="abstracts"/>
 	<acme:input-textarea code="authenticated.tutorial.form.label.goals" path="goals"/>
 

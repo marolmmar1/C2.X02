@@ -17,12 +17,14 @@
 
 <acme:form>
 
-	<acme:input-textbox code="assistant.tutorialSessions.form.label.code" path="code"/>	
 	<acme:input-textbox code="assistant.tutorialSessions.form.label.title" path="title"/>
-	<acme:input-textarea code="assistant.tutorialSessions.form.label.abstracts" path="abstracts"/>
-	<acme:input-textarea code="assistant.tutorialSessions.form.label.goals" path="goals"/>
+	<acme:input-textbox code="assistant.tutorialSessions.form.label.abstracts" path="abstracts"/>
+	<acme:input-textbox code="assistant.tutorialSessions.form.label.nature" path="nature"/>
+	<acme:input-moment code="assistant.tutorialSessions.form.label.inicialPeriod" path="inicialPeriod"/>	
+	<acme:input-moment code="assistant.tutorialSessions.form.label.finalPeriod" path="finalPeriod"/>
+	<acme:input-url code="assistant.tutorialSessions.form.label.link" path="link"/>
 	
-	<acme:button test="${showCreate}" code="assistant.tutorialSessions.list.button.create" action="/assistant/tutorialSessions/create?masterId=${masterId}"/>
+	
 	
 
 </acme:form>

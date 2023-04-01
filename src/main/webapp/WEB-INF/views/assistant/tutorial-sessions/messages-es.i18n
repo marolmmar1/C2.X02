@@ -8,10 +8,12 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-assistant.tutorial.form.label.code = Código:
-assistant.tutorial.form.label.title = Título:
-assistant.tutorial.form.label.abstracts = Resume:
-assistant.tutorial.form.label.goals = Objetivos:
+assistant.tutorialSessions.form.label.title = Título:
+assistant.tutorialSessions.form.label.abstracts = Resume:
+assistant.tutorialSessions.form.label.nature = Tipo:
+assistant.tutorialSessions.form.label.inicialPeriod = Inicio:
+assistant.tutorialSessions.form.label.finalPeriod = Final:
+assistant.tutorialSessions.form.label.link = Link:
 
 
 

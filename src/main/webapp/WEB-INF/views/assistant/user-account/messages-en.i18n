@@ -8,12 +8,14 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.assistant.form.label.supervisor = Supervisor:
-authenticated.assistant.form.label.expertiseField = Expertise Field:
-authenticated.assistant.form.label.resume = Resume:
-authenticated.assistant.form.label.link = Link:
+assistant.user-account.form.label.username = Username:
+assistant.user-account.form.label.password = Password:
+assistant.user-account.form.label.confirmation = Confirmation:
+assistant.user-account.form.label.name = Name:
+assistant.user-account.form.label.surname = Surname:
+assistant.user-account.form.label.email = Email:
 
-authenticated.assistant.form.button.create = Register
+ 
+assistant.user-account.form.button.update = Update
 
-
-
+assistant.user-account.form.error.confirmation-no-match = Confirmation doesn't match

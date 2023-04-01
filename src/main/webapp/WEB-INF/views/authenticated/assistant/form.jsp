@@ -21,4 +21,11 @@
 	<acme:input-textarea code="authenticated.assistant.form.label.expertiseField" path="expertiseField"/>
 	<acme:input-textarea code="authenticated.assistant.form.label.resume" path="resume"/>
 	<acme:input-url code="authenticated.assistant.form.label.link" path="link"/>
+	
+	<acme:submit test="${_command == 'create'}" code="authenticated.assistant.form.button.create" action="/authenticated/assistant/create"/>
+	<%-- <jstl:if test="${_command == 'update'}">
+		<acme:submit code="authenticated.employer.form.button.update" action="/authenticated/employer/update"/>
+		<acme:button code="authenticated.employer.form.button.contractors" action="/employer/works-for/list"/>
+	</jstl:if> --%>	
 </acme:form>
+

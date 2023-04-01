@@ -1,5 +1,5 @@
 /*
- * AuthenticatedAnnouncementRepository.java
+ * AuthenticatedUserAccountRepository.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,29 +10,21 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.assistant;
+package acme.features.assistant.userAccount;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import acme.entities.Tutorial;
 import acme.framework.components.accounts.UserAccount;
 import acme.framework.repositories.AbstractRepository;
-import acme.roles.Assistant;
 
 @Repository
-public interface AuthenticatedAssistantRepository extends AbstractRepository {
-
-	@Query("select a from Assistant a where a.id = :id")
-	Assistant findOneAssistantById(int id);
-
-	@Query("select t from Tutorial t where t.id = :id")
-	Tutorial findOneTutorialById(int id);
-
-	@Query("select a from Assistant a where a.userAccount.id = :id")
-	Assistant findOneAssistantByUserAccountId(int id);
+public interface AssistantUserAccountRepository extends AbstractRepository {
 
 	@Query("select ua from UserAccount ua where ua.id = :id")
 	UserAccount findOneUserAccountById(int id);
+
+	@Query("select ua.identity from UserAccount ua where ua.id = :id")
+	String loadIdentityByUserAccountId(int id);
 
 }

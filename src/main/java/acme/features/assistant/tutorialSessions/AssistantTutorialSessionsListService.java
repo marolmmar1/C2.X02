@@ -44,18 +44,17 @@ public class AssistantTutorialSessionsListService extends AbstractService<Assist
 	@Override
 	public void authorise() {
 		boolean result;
-		int masterId;
+		int tutorialId;
 		Tutorial tutorial;
 
-		masterId = super.getRequest().getData("id", int.class);
-		tutorial = this.repository.findOneTutorialById(masterId);
+		tutorialId = super.getRequest().getData("id", int.class);
+		tutorial = this.repository.findOneTutorialById(tutorialId);
 		result = tutorial != null && super.getRequest().getPrincipal().hasRole(tutorial.getAssistant());
 		super.getResponse().setAuthorised(result);
 	}
 
 	@Override
 	public void load() {
-		final Tutorial tutorial;
 
 		final Collection<TutorialSessions> objects;
 		final int tutorialId = super.getRequest().getData("id", int.class);
@@ -73,22 +72,6 @@ public class AssistantTutorialSessionsListService extends AbstractService<Assist
 		tuple = super.unbind(object, "title");
 
 		super.getResponse().setData(tuple);
-	}
-
-	@Override
-	public void unbind(final Collection<TutorialSessions> objects) {
-		assert objects != null;
-
-		int masterId;
-		final Tutorial tutorial;
-		final boolean showCreate;
-
-		masterId = super.getRequest().getData("id", int.class);
-		tutorial = this.repository.findOneTutorialById(masterId);
-		showCreate = super.getRequest().getPrincipal().hasRole(tutorial.getAssistant());
-
-		super.getResponse().setGlobal("id", masterId);
-		super.getResponse().setGlobal("showCreate", showCreate);
 	}
 
 }
