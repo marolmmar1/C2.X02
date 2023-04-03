@@ -16,8 +16,12 @@ assistant.tutorialSessions.form.label.finalPeriod = Final Period:
 assistant.tutorialSessions.form.label.link = Link:
 
 
-<
-
 assistant.tutorialSessions.list.label.title = Title
 
+
+assistant.tutorialSessions.create.button.tutorialSessions = Create
+assistant.tutorial.form.button.tutorialSessions = Tutorial Sessions
+assistant.tutorialSession.form.button.update = Update
+assistant.tutorialSession.form.button.delete = Delete
+assistant.tutorialSessions.form.button.create = Create
 

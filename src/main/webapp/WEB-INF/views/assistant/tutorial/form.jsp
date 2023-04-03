@@ -21,10 +21,16 @@
 	<acme:input-textbox code="assistant.tutorial.form.label.title" path="title"/>
 	<acme:input-textarea code="assistant.tutorial.form.label.abstracts" path="abstracts"/>
 	<acme:input-textarea code="assistant.tutorial.form.label.goals" path="goals"/>
+	
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'show'}">
-			<acme:button code="assistant.tutorial.form.button.tutorialSessions" action="/assistant/tutorial-sessions/list?id=${id}"/>
-		</jstl:when>	
+			<acme:button code="assistant.tutorial.form.button.tutorialSessions" action="/assistant/tutorial-sessions/list?tutorialId=${id}"/>
+		</jstl:when>
+		<jstl:when test="${acme:anyOf(_command, 'update|delete|publish')}">
+			<acme:submit code="assistant.tutorial.form.button.update" action="/assistant/tutorial/update"/>
+			<acme:submit code="assistant.tutorial.form.button.delete" action="/assistant/tutorial/delete"/>
+			<acme:submit code="assistant.tutorial.form.button.publish" action="/assistant/tutorial/publish"/>
+		</jstl:when>		
 	</jstl:choose>
-	
 </acme:form>
+	 

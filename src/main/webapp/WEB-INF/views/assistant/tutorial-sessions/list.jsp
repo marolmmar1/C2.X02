@@ -19,10 +19,11 @@
 	<acme:list-column code="assistant.tutorialSessions.list.label.title" path="title" width="20%"/>
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'show'}">
-			<acme:button code="assistant.tutorial.form.button.tutorialSessions" action="/assistant/tutorial-sessions/list?id=${id}"/>
-		</jstl:when>	
-	</jstl:choose>
+			<acme:button code="assistant.tutorial.form.button.tutorialSessions" action="/assistant/tutorial-sessions/list?tutorialId=${id}"/>
+		</jstl:when>
+	</jstl:choose>			
 
 </acme:list>
+<acme:button test="${showCreate}" code="assistant.tutorialSessions.create.button.tutorialSessions" action="/assistant/tutorial-sessions/create?tutorialId=${tutorialId}"/>
 
 

@@ -47,8 +47,6 @@ public class TutorialSessions extends AbstractEntity {
 	@URL
 	protected String			link;
 
-	protected boolean			draftMode;
-
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)

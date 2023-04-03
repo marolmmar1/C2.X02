@@ -1,5 +1,5 @@
 /*
- * AuthenticatedAnnouncementShowService.java
+ * AdministratorCompanyDeleteService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,23 +10,23 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.assistant.tutorial;
+package acme.features.administrator.banner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.Tutorial;
+import acme.entities.Banner;
+import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
-import acme.roles.Assistant;
 
 @Service
-public class AssistantTutorialShowService extends AbstractService<Assistant, Tutorial> {
+public class AdministratorBannerDeleteService extends AbstractService<Administrator, Banner> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AssistantTutorialRepository repository;
+	protected AdministratorBannerRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -42,36 +42,46 @@ public class AssistantTutorialShowService extends AbstractService<Assistant, Tut
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int tutorialId;
-		Assistant assistant;
-		Tutorial tutorial;
-
-		tutorialId = super.getRequest().getData("id", int.class);
-		tutorial = this.repository.findOneTutorialById(tutorialId);
-		assistant = tutorial == null ? null : tutorial.getAssistant();
-		status = super.getRequest().getPrincipal().hasRole(assistant);
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
-		Tutorial object;
-		int tutorialId;
+		Banner object;
+		int id;
 
-		tutorialId = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneTutorialById(tutorialId);
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneBannerById(id);
 
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void unbind(final Tutorial object) {
+	public void bind(final Banner object) {
+		assert object != null;
+
+		super.bind(object, "instantiation", "inicialPeriod", "finalPeriod", "slogan", "link", "linkImage");
+	}
+
+	@Override
+	public void validate(final Banner object) {
+		assert object != null;
+	}
+
+	@Override
+	public void perform(final Banner object) {
+		assert object != null;
+
+		this.repository.delete(object);
+	}
+
+	@Override
+	public void unbind(final Banner object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "abstracts", "goals", "draftMode");
+		tuple = super.unbind(object, "instantiation", "inicialPeriod", "finalPeriod", "slogan", "link", "linkImage");
 
 		super.getResponse().setData(tuple);
 	}

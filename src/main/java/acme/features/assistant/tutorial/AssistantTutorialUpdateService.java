@@ -1,5 +1,5 @@
 /*
- * AuthenticatedAnnouncementShowService.java
+ * EmployerJobUpdateService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -21,14 +21,14 @@ import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 
 @Service
-public class AssistantTutorialShowService extends AbstractService<Assistant, Tutorial> {
+public class AssistantTutorialUpdateService extends AbstractService<Assistant, Tutorial> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected AssistantTutorialRepository repository;
 
-	// AbstractService interface ----------------------------------------------
+	// AbstractService<Employer, Job> -------------------------------------
 
 
 	@Override
@@ -44,25 +44,52 @@ public class AssistantTutorialShowService extends AbstractService<Assistant, Tut
 	public void authorise() {
 		boolean status;
 		int tutorialId;
-		Assistant assistant;
 		Tutorial tutorial;
+		Assistant assistant;
 
 		tutorialId = super.getRequest().getData("id", int.class);
 		tutorial = this.repository.findOneTutorialById(tutorialId);
 		assistant = tutorial == null ? null : tutorial.getAssistant();
-		status = super.getRequest().getPrincipal().hasRole(assistant);
+		status = tutorial != null && tutorial.isDraftMode() && super.getRequest().getPrincipal().hasRole(assistant);
+
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
 		Tutorial object;
-		int tutorialId;
+		int id;
 
-		tutorialId = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneTutorialById(tutorialId);
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneTutorialById(id);
 
 		super.getBuffer().setData(object);
+	}
+
+	@Override
+	public void bind(final Tutorial object) {
+
+		super.bind(object, "code", "title", "abstracts", "goals");
+
+	}
+
+	@Override
+	public void validate(final Tutorial object) {
+		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Tutorial existing;
+
+			existing = this.repository.findOneTutorialByCode(object.getCode());
+			super.state(existing == null, "reference", "assistant.tutorial.form.error.duplicated");
+		}
+	}
+
+	@Override
+	public void perform(final Tutorial object) {
+		assert object != null;
+
+		this.repository.save(object);
 	}
 
 	@Override

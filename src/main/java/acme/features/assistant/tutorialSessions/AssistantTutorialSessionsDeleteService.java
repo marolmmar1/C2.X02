@@ -1,5 +1,5 @@
 /*
- * AuthenticatedAnnouncementShowService.java
+ * EmployerDutyDeleteService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -15,16 +15,14 @@ package acme.features.assistant.tutorialSessions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.Nature;
 import acme.entities.Tutorial;
 import acme.entities.TutorialSessions;
-import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 
 @Service
-public class AssistantTutorialSessionsShowService extends AbstractService<Assistant, TutorialSessions> {
+public class AssistantTutorialSessionsDeleteService extends AbstractService<Assistant, TutorialSessions> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -51,7 +49,7 @@ public class AssistantTutorialSessionsShowService extends AbstractService<Assist
 
 		tutorialSessionId = super.getRequest().getData("id", int.class);
 		tutorial = this.repository.findOneTutorialByTutorialSessionId(tutorialSessionId);
-		status = tutorial != null && (!tutorial.isDraftMode() || super.getRequest().getPrincipal().hasRole(tutorial.getAssistant()));
+		status = tutorial != null && tutorial.isDraftMode() && super.getRequest().getPrincipal().hasRole(tutorial.getAssistant());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -68,15 +66,34 @@ public class AssistantTutorialSessionsShowService extends AbstractService<Assist
 	}
 
 	@Override
+	public void bind(final TutorialSessions object) {
+		assert object != null;
+
+		super.bind(object, "title", "abstracts", "nature", "inicialPeriod", "finalPeriod", "link");
+	}
+
+	@Override
+	public void validate(final TutorialSessions object) {
+		assert object != null;
+	}
+
+	@Override
+	public void perform(final TutorialSessions object) {
+		assert object != null;
+
+		this.repository.delete(object);
+	}
+
+	@Override
 	public void unbind(final TutorialSessions object) {
 		assert object != null;
 
-		SelectChoices choices;
 		Tuple tuple;
-		choices = SelectChoices.from(Nature.class, object.getNature());
 
-		tuple = super.unbind(object, "title", "abstracts", "inicialPeriod", "finalPeriod", "nature", "link");
-		tuple.put("natures", choices);
+		tuple = super.unbind(object, "title", "abstracts", "nature", "inicialPeriod", "finalPeriod", "link");
+		tuple.put("tutorialId", object.getTutorial().getId());
+		tuple.put("draftMode", object.getTutorial().isDraftMode());
+
 		super.getResponse().setData(tuple);
 	}
 

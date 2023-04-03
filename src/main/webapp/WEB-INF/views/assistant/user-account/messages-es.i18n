@@ -19,3 +19,4 @@ assistant.user-account.form.label.phone = Teléfono: (Opcional)
 assistant.user-account.form.button.update = Actualizar
 
 assistant.user-account.form.error.confirmation-no-match = La confirmación no cuadra
+

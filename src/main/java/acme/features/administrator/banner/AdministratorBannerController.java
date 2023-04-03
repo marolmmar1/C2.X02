@@ -1,5 +1,5 @@
 /*
- * AuthenticatedAnnouncementController.java
+ * AdministratorCompanyController.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,34 +10,37 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.assistant.tutorialSessions;
+package acme.features.administrator.banner;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import acme.entities.TutorialSessions;
+import acme.entities.Banner;
+import acme.framework.components.accounts.Administrator;
 import acme.framework.controllers.AbstractController;
-import acme.roles.Assistant;
 
 @Controller
-public class AssistantTutorialSessionsController extends AbstractController<Assistant, TutorialSessions> {
+public class AdministratorBannerController extends AbstractController<Administrator, Banner> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AssistantTutorialSessionsListService		listService;
-	@Autowired
-	protected AssistantTutorialSessionsShowService		showService;
-	@Autowired
-	protected AssistantTutorialSessionsCreateService	createService;
+	protected AdministratorBannerListService	listService;
 
 	@Autowired
-	protected AssistantTutorialSessionsUpdateService	updateService;
+	protected AdministratorBannerShowService	showService;
 
 	@Autowired
-	protected AssistantTutorialSessionsDeleteService	deleteService;
+	protected AdministratorBannerCreateService	createService;
+
+	@Autowired
+	protected AdministratorBannerUpdateService	updateService;
+
+	@Autowired
+	protected AdministratorBannerDeleteService	deleteService;
+
 	// Constructors -----------------------------------------------------------
 
 

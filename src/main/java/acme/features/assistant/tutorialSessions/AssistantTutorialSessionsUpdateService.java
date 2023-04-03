@@ -1,5 +1,5 @@
 /*
- * AuthenticatedAnnouncementShowService.java
+ * EmployerDutyUpdateService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,23 +10,24 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.assistant.tutorial;
+package acme.features.assistant.tutorialSessions;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Tutorial;
+import acme.entities.TutorialSessions;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 
 @Service
-public class AssistantTutorialShowService extends AbstractService<Assistant, Tutorial> {
+public class AssistantTutorialSessionsUpdateService extends AbstractService<Assistant, TutorialSessions> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AssistantTutorialRepository repository;
+	protected AssistantTutorialSessionsRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -43,37 +44,55 @@ public class AssistantTutorialShowService extends AbstractService<Assistant, Tut
 	@Override
 	public void authorise() {
 		boolean status;
-		int tutorialId;
-		Assistant assistant;
+		int dutyId;
 		Tutorial tutorial;
 
-		tutorialId = super.getRequest().getData("id", int.class);
-		tutorial = this.repository.findOneTutorialById(tutorialId);
-		assistant = tutorial == null ? null : tutorial.getAssistant();
-		status = super.getRequest().getPrincipal().hasRole(assistant);
+		dutyId = super.getRequest().getData("id", int.class);
+		tutorial = this.repository.findOneTutorialByTutorialSessionId(dutyId);
+		status = tutorial != null && super.getRequest().getPrincipal().hasRole(tutorial.getAssistant());
+
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		Tutorial object;
-		int tutorialId;
+		TutorialSessions object;
+		int id;
 
-		tutorialId = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneTutorialById(tutorialId);
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneTutorialSessionsById(id);
 
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void unbind(final Tutorial object) {
+	public void bind(final TutorialSessions object) {
+		assert object != null;
+
+		super.bind(object, "title", "abstracts", "nature", "inicialPeriod", "finalPeriod", "link");
+	}
+
+	@Override
+	public void validate(final TutorialSessions object) {
+		assert object != null;
+	}
+
+	@Override
+	public void perform(final TutorialSessions object) {
+		assert object != null;
+
+		this.repository.save(object);
+	}
+
+	@Override
+	public void unbind(final TutorialSessions object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "abstracts", "goals", "draftMode");
+		tuple = super.unbind(object, "title", "abstracts", "nature", "inicialPeriod", "finalPeriod", "link");
+		tuple.put("tutorialId", object.getTutorial().getId());
 
-		super.getResponse().setData(tuple);
 	}
 
 }

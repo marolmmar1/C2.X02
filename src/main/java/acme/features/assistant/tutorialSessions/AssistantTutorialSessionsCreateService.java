@@ -1,5 +1,5 @@
 /*
- * AuthenticatedAnnouncementShowService.java
+ * EmployerDutyCreateService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -24,7 +24,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 
 @Service
-public class AssistantTutorialSessionsShowService extends AbstractService<Assistant, TutorialSessions> {
+public class AssistantTutorialSessionsCreateService extends AbstractService<Assistant, TutorialSessions> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -38,7 +38,7 @@ public class AssistantTutorialSessionsShowService extends AbstractService<Assist
 	public void check() {
 		boolean status;
 
-		status = super.getRequest().hasData("id", int.class);
+		status = super.getRequest().hasData("tutorialId", int.class);
 
 		super.getResponse().setChecked(status);
 	}
@@ -46,12 +46,12 @@ public class AssistantTutorialSessionsShowService extends AbstractService<Assist
 	@Override
 	public void authorise() {
 		boolean status;
-		int tutorialSessionId;
+		int tutorialId;
 		Tutorial tutorial;
 
-		tutorialSessionId = super.getRequest().getData("id", int.class);
-		tutorial = this.repository.findOneTutorialByTutorialSessionId(tutorialSessionId);
-		status = tutorial != null && (!tutorial.isDraftMode() || super.getRequest().getPrincipal().hasRole(tutorial.getAssistant()));
+		tutorialId = super.getRequest().getData("tutorialId", int.class);
+		tutorial = this.repository.findOneTutorialById(tutorialId);
+		status = tutorial != null && super.getRequest().getPrincipal().hasRole(tutorial.getAssistant());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -59,12 +59,39 @@ public class AssistantTutorialSessionsShowService extends AbstractService<Assist
 	@Override
 	public void load() {
 		TutorialSessions object;
-		int id;
+		int tutorialId;
+		Tutorial tutorial;
 
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneTutorialSessionsById(id);
+		tutorialId = super.getRequest().getData("tutorialId", int.class);
+		tutorial = this.repository.findOneTutorialById(tutorialId);
+
+		object = new TutorialSessions();
+		object.setTitle("");
+		object.setAbstracts("");
+		object.setNature(Nature.BALANCE);
+
+		object.setTutorial(tutorial);
 
 		super.getBuffer().setData(object);
+	}
+
+	@Override
+	public void bind(final TutorialSessions object) {
+		assert object != null;
+
+		super.bind(object, "title", "abstracts", "nature", "inicialPeriod", "finalPeriod", "link");
+	}
+
+	@Override
+	public void validate(final TutorialSessions object) {
+		assert object != null;
+	}
+
+	@Override
+	public void perform(final TutorialSessions object) {
+		assert object != null;
+
+		this.repository.save(object);
 	}
 
 	@Override
@@ -75,7 +102,8 @@ public class AssistantTutorialSessionsShowService extends AbstractService<Assist
 		Tuple tuple;
 		choices = SelectChoices.from(Nature.class, object.getNature());
 
-		tuple = super.unbind(object, "title", "abstracts", "inicialPeriod", "finalPeriod", "nature", "link");
+		tuple = super.unbind(object, "title", "abstracts", "nature", "inicialPeriod", "finalPeriod", "link");
+		tuple.put("tutorialId", super.getRequest().getData("tutorialId", int.class));
 		tuple.put("natures", choices);
 		super.getResponse().setData(tuple);
 	}

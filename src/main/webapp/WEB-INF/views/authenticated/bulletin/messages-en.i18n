@@ -8,7 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-
+authenticated.bulletin.form.label.instantiation = Instantiation:
 authenticated.bulletin.form.label.title = Title:
 authenticated.bulletin.form.label.message = Message:
 authenticated.bulletin.form.label.critical = Critical:
