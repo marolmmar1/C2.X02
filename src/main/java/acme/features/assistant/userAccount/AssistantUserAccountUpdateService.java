@@ -52,7 +52,7 @@ public class AssistantUserAccountUpdateService extends AbstractService<Assistant
 
 		principalId = super.getRequest().getPrincipal().getAccountId();
 		userAccount = this.repository.findOneUserAccountById(principalId);
-		userAccount.getRoles().size();
+		userAccount.getUserRoles().size();
 
 		super.getBuffer().setData(userAccount);
 	}
