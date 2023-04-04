@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.bulletin;
+package acme.features.administrator.bulletin;
 
 import java.util.Collection;
 
@@ -21,7 +21,7 @@ import acme.entities.Bulletin;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface AuthenticatedBulletinRepository extends AbstractRepository {
+public interface AdministratorBulletinRepository extends AbstractRepository {
 
 	@Query("select b from Bulletin b where b.id = :id")
 	Bulletin findOneBulletinById(int id);
