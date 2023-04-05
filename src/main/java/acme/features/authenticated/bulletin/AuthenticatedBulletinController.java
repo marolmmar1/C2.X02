@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.administrator.bulletin;
+package acme.features.authenticated.bulletin;
 
 import javax.annotation.PostConstruct;
 
@@ -22,14 +22,14 @@ import acme.framework.components.accounts.Authenticated;
 import acme.framework.controllers.AbstractController;
 
 @Controller
-public class AdministratorBulletinController extends AbstractController<Authenticated, Bulletin> {
+public class AuthenticatedBulletinController extends AbstractController<Authenticated, Bulletin> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AdministratorBulletinListAllService	listAllService;
+	protected AuthenticatedBulletinListAllService	listAllService;
 	@Autowired
-	protected AdministratorBulletinShowService		showService;
+	protected AuthenticatedBulletinShowService		showService;
 
 	// Constructors -----------------------------------------------------------
 
