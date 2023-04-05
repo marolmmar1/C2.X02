@@ -44,4 +44,6 @@ public interface AssistantTutorialRepository extends AbstractRepository {
 	@Query("select t from Tutorial t where t.code = :code")
 	Tutorial findOneTutorialByCode(String code);
 
+	@Query("select c from Course c")
+	Collection<Course> findAllCourse();
 }

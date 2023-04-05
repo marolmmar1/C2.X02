@@ -21,6 +21,7 @@
 	<acme:input-textbox code="assistant.tutorial.form.label.title" path="title"/>
 	<acme:input-textarea code="assistant.tutorial.form.label.abstracts" path="abstracts"/>
 	<acme:input-textarea code="assistant.tutorial.form.label.goals" path="goals"/>
+	<acme:input-select code="assistant.tutorial.form.label.course" path="course" choices="${courses}"/>	
 	
 	<jstl:choose>	 
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish')}">

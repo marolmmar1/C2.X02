@@ -23,4 +23,5 @@ assistant.tutorial.form.button.tutorialSessions = Tutorial Sessions
 assistant.tutorial.form.button.update = Update
 assistant.tutorial.form.button.delete = Delete
 assistant.tutorial.form.button.publish = Publish
+assistant.tutorial.list.button.create = Create
 assistant.tutorial.form.error.duplicated = This code is taken; 

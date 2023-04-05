@@ -35,7 +35,9 @@ public class AuthenticatedTutorialListAllService extends AbstractService<Authent
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+		status = super.getRequest().hasData("id", int.class);
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
@@ -45,9 +47,9 @@ public class AuthenticatedTutorialListAllService extends AbstractService<Authent
 
 	@Override
 	public void load() {
-		Collection<Tutorial> objects;
-
-		objects = this.repository.findAllTutorial();
+		final Collection<Tutorial> objects;
+		final int courseId = super.getRequest().getData("id", int.class);
+		objects = this.repository.findManyTutorialByCourseId(courseId);
 
 		super.getBuffer().setData(objects);
 	}
@@ -58,7 +60,7 @@ public class AuthenticatedTutorialListAllService extends AbstractService<Authent
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "course.code");
+		tuple = super.unbind(object, "code", "title");
 
 		super.getResponse().setData(tuple);
 	}
