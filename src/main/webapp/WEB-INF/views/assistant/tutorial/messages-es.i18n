@@ -19,4 +19,5 @@ assistant.tutorial.list.label.code = Código
 assistant.tutorial.list.label.title = Título
 
 
-
+assistant.tutorial.form.button.tutorialSessions = Sesiones de Tutoría
+assistant.tutorial.form.error.duplicated = El código ya está cogido; 

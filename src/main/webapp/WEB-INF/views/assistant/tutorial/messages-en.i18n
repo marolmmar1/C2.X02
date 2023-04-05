@@ -19,3 +19,5 @@ assistant.tutorial.list.label.code = Code
 assistant.tutorial.list.label.title = Title
 
 
+assistant.tutorial.form.button.tutorialSessions = Tutorial Sessions
+assistant.tutorial.form.error.duplicated = This code is taken; 
