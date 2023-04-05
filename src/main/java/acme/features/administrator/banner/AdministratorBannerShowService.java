@@ -1,5 +1,7 @@
+
+package acme.features.administrator.banner;
 /*
- * AuthenticatedAnnouncementShowService.java
+ * AdministratorCompanyShowService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,23 +12,21 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.administrator.bulletin;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.Bulletin;
-import acme.framework.components.accounts.Authenticated;
+import acme.entities.Banner;
+import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AdministratorBulletinShowService extends AbstractService<Authenticated, Bulletin> {
+public class AdministratorBannerShowService extends AbstractService<Administrator, Banner> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AdministratorBulletinRepository repository;
+	protected AdministratorBannerRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -42,28 +42,27 @@ public class AdministratorBulletinShowService extends AbstractService<Authentica
 
 	@Override
 	public void authorise() {
-
 		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
-		Bulletin object;
+		Banner object;
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneBulletinById(id);
+		object = this.repository.findOneBannerById(id);
 
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void unbind(final Bulletin object) {
+	public void unbind(final Banner object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "instantiation", "title", "message", "critical", "link");
+		tuple = super.unbind(object, "instantiation", "inicialPeriod", "finalPeriod", "slogan", "link", "linkImage");
 
 		super.getResponse().setData(tuple);
 	}

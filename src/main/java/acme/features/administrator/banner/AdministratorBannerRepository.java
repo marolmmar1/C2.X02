@@ -1,5 +1,5 @@
 /*
- * AuthenticatedAnnouncementRepository.java
+ * AdministratorCompanyRepository.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,23 +10,26 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.administrator.bulletin;
+package acme.features.administrator.banner;
 
 import java.util.Collection;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import acme.entities.Bulletin;
+import acme.entities.Banner;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface AdministratorBulletinRepository extends AbstractRepository {
+public interface AdministratorBannerRepository extends AbstractRepository {
 
-	@Query("select b from Bulletin b where b.id = :id")
-	Bulletin findOneBulletinById(int id);
+	@Query("select b from Banner b where b.id = :id")
+	Banner findOneBannerById(int id);
 
-	@Query("select b from Bulletin b ")
-	Collection<Bulletin> findAllBulletin();
+	@Query("select b from Banner b")
+	Collection<Banner> findAllBanner();
+
+	//	@Query("select count(j) from Job j where j.contractor.id = :id")
+	//	int findNumberJobsByContractorId(int id);
 
 }

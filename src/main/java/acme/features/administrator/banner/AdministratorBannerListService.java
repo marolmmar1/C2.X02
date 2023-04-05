@@ -1,5 +1,5 @@
 /*
- * AuthenticatedAnnouncementListAllService.java
+ * AdministratorCompanyListService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,25 +10,25 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.administrator.bulletin;
+package acme.features.administrator.banner;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.Bulletin;
-import acme.framework.components.accounts.Authenticated;
+import acme.entities.Banner;
+import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AdministratorBulletinListAllService extends AbstractService<Authenticated, Bulletin> {
+public class AdministratorBannerListService extends AbstractService<Administrator, Banner> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AdministratorBulletinRepository repository;
+	protected AdministratorBannerRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -45,20 +45,20 @@ public class AdministratorBulletinListAllService extends AbstractService<Authent
 
 	@Override
 	public void load() {
-		Collection<Bulletin> objects;
+		Collection<Banner> objects;
 
-		objects = this.repository.findAllBulletin();
+		objects = this.repository.findAllBanner();
 
 		super.getBuffer().setData(objects);
 	}
 
 	@Override
-	public void unbind(final Bulletin object) {
+	public void unbind(final Banner object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title");
+		tuple = super.unbind(object, "instantiation", "slogan", "link", "linkImage");
 
 		super.getResponse().setData(tuple);
 	}
