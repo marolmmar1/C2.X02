@@ -37,7 +37,7 @@ master.menu.administrator.shut-down = Parar el sistema
 # master.menu.assistant ###################################################
 
 master.menu.assistant = Asistente
-master.menu.user-account = Cuenta
+master.menu.assistant.user-account.general-data = Account
 master.menu.authenticated.tutorial.list-all = Lista de Tutoriales
 
 # master.menu.provider ########################################################

@@ -42,7 +42,7 @@
 		
 		<acme:menu-option code="master.menu.assistant" access="hasRole('Assistant')">
 			<acme:menu-suboption code="master.menu.authenticated.tutorial.list-all" action="/assistant/tutorial/list-all"/>
-			<acme:menu-suboption code="master.menu.user-account.general-data" action="/assistant/user-account/update"/>
+			<acme:menu-suboption code="master.menu.assistant.user-account.general-data" action="/assistant/user-account/update"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
