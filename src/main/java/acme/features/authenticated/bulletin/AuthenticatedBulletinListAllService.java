@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.administrator.bulletin;
+package acme.features.authenticated.bulletin;
 
 import java.util.Collection;
 
@@ -23,12 +23,12 @@ import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AdministratorBulletinListAllService extends AbstractService<Authenticated, Bulletin> {
+public class AuthenticatedBulletinListAllService extends AbstractService<Authenticated, Bulletin> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AdministratorBulletinRepository repository;
+	protected AuthenticatedBulletinRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
