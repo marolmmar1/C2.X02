@@ -22,7 +22,7 @@ assistant.tutorial.list.label.title = Título
 
 assistant.tutorialSessions.create.button.tutorialSessions = Crear
 assistant.tutorial.form.button.tutorialSessions = Sesiones de Tutoría
-assistant.tutorialSession.form.button.update = Actualizar
-assistant.tutorialSession.form.button.delete = Eliminar
+assistant.tutorialSessions.form.button.update = Actualizar
+assistant.tutorialSessions.form.button.delete = Eliminar
 assistant.tutorialSessions.form.button.create = Crear
 

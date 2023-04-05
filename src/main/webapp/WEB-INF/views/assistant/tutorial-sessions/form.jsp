@@ -25,7 +25,7 @@
 	<acme:input-url code="assistant.tutorialSessions.form.label.link" path="link"/>
 	
 	<jstl:choose>
-		<jstl:when test="${acme:anyOf(_command, 'update|delete')}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">
 			<acme:submit code="assistant.tutorialSessions.form.button.update" action="/assistant/tutorial-sessions/update"/>
 			<acme:submit code="assistant.tutorialSessions.form.button.delete" action="/assistant/tutorial-sessions/delete"/>
 		</jstl:when>

@@ -106,6 +106,7 @@ public class AssistantTutorialSessionsCreateService extends AbstractService<Assi
 		tuple.put("tutorialId", super.getRequest().getData("tutorialId", int.class));
 		tuple.put("natures", choices);
 		super.getResponse().setData(tuple);
+
 	}
 
 }

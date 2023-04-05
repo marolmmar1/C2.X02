@@ -1,5 +1,5 @@
 /*
- * AuthenticatedAnnouncementShowService.java
+ * EmployerDutyUpdateService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -24,7 +24,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 
 @Service
-public class AssistantTutorialSessionsShowService extends AbstractService<Assistant, TutorialSessions> {
+public class AssistantTutorialSessionsUpdateService extends AbstractService<Assistant, TutorialSessions> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -46,11 +46,11 @@ public class AssistantTutorialSessionsShowService extends AbstractService<Assist
 	@Override
 	public void authorise() {
 		boolean status;
-		int tutorialSessionId;
+		int dutyId;
 		Tutorial tutorial;
 
-		tutorialSessionId = super.getRequest().getData("id", int.class);
-		tutorial = this.repository.findOneTutorialByTutorialSessionId(tutorialSessionId);
+		dutyId = super.getRequest().getData("id", int.class);
+		tutorial = this.repository.findOneTutorialByTutorialSessionId(dutyId);
 		status = tutorial != null && super.getRequest().getPrincipal().hasRole(tutorial.getAssistant());
 
 		super.getResponse().setAuthorised(status);
@@ -65,6 +65,26 @@ public class AssistantTutorialSessionsShowService extends AbstractService<Assist
 		object = this.repository.findOneTutorialSessionsById(id);
 
 		super.getBuffer().setData(object);
+	}
+
+	@Override
+	public void bind(final TutorialSessions object) {
+		assert object != null;
+
+		super.bind(object, "title", "abstracts", "nature", "inicialPeriod", "finalPeriod", "link");
+
+	}
+
+	@Override
+	public void validate(final TutorialSessions object) {
+		assert object != null;
+	}
+
+	@Override
+	public void perform(final TutorialSessions object) {
+		assert object != null;
+
+		this.repository.save(object);
 	}
 
 	@Override
