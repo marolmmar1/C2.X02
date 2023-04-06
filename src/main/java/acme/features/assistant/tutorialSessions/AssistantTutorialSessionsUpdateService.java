@@ -46,12 +46,12 @@ public class AssistantTutorialSessionsUpdateService extends AbstractService<Assi
 	@Override
 	public void authorise() {
 		boolean status;
-		int dutyId;
+		int tutorialSessionsId;
 		Tutorial tutorial;
 
-		dutyId = super.getRequest().getData("id", int.class);
-		tutorial = this.repository.findOneTutorialByTutorialSessionId(dutyId);
-		status = tutorial != null && super.getRequest().getPrincipal().hasRole(tutorial.getAssistant());
+		tutorialSessionsId = super.getRequest().getData("id", int.class);
+		tutorial = this.repository.findOneTutorialByTutorialSessionId(tutorialSessionsId);
+		status = tutorial != null && tutorial.isDraftMode() && super.getRequest().getPrincipal().hasRole(tutorial.getAssistant());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -99,6 +99,7 @@ public class AssistantTutorialSessionsUpdateService extends AbstractService<Assi
 		tuple = super.unbind(object, "title", "abstracts", "inicialPeriod", "finalPeriod", "link");
 		tuple.put("nature", choices.getSelected().getKey());
 		tuple.put("tutorialId", object.getTutorial().getId());
+		tuple.put("draftMode", object.getTutorial().isDraftMode());
 		tuple.put("natures", choices);
 
 		super.getResponse().setData(tuple);

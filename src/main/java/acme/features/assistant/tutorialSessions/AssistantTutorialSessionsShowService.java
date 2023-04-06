@@ -51,7 +51,7 @@ public class AssistantTutorialSessionsShowService extends AbstractService<Assist
 
 		tutorialSessionId = super.getRequest().getData("id", int.class);
 		tutorial = this.repository.findOneTutorialByTutorialSessionId(tutorialSessionId);
-		status = tutorial != null && super.getRequest().getPrincipal().hasRole(tutorial.getAssistant());
+		status = tutorial != null && (!tutorial.isDraftMode() || super.getRequest().getPrincipal().hasRole(tutorial.getAssistant()));
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -80,6 +80,7 @@ public class AssistantTutorialSessionsShowService extends AbstractService<Assist
 		tuple.put("nature", choices.getSelected().getKey());
 		tuple.put("tutorialId", object.getTutorial().getId());
 		tuple.put("natures", choices);
+		tuple.put("draftMode", object.getTutorial().isDraftMode());
 
 		super.getResponse().setData(tuple);
 	}

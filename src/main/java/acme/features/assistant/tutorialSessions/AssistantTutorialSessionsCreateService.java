@@ -69,7 +69,6 @@ public class AssistantTutorialSessionsCreateService extends AbstractService<Assi
 		object.setTitle("");
 		object.setAbstracts("");
 		object.setNature(Nature.BALANCE);
-
 		object.setTutorial(tutorial);
 
 		super.getBuffer().setData(object);
@@ -105,6 +104,7 @@ public class AssistantTutorialSessionsCreateService extends AbstractService<Assi
 		tuple = super.unbind(object, "title", "abstracts", "nature", "inicialPeriod", "finalPeriod", "link");
 		tuple.put("tutorialId", super.getRequest().getData("tutorialId", int.class));
 		tuple.put("natures", choices);
+		tuple.put("draftMode", object.getTutorial().isDraftMode());
 		super.getResponse().setData(tuple);
 
 	}

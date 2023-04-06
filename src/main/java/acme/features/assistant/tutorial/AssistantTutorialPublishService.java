@@ -1,5 +1,5 @@
 /*
- * EmployerJobUpdateService.java
+ * EmployerJobPublishService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -19,20 +19,21 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Course;
 import acme.entities.Tutorial;
+import acme.entities.TutorialSessions;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 
 @Service
-public class AssistantTutorialUpdateService extends AbstractService<Assistant, Tutorial> {
+public class AssistantTutorialPublishService extends AbstractService<Assistant, Tutorial> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected AssistantTutorialRepository repository;
 
-	// AbstractService<Employer, Job> -------------------------------------
+	// AbstractService interface ----------------------------------------------
 
 
 	@Override
@@ -77,8 +78,10 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 
 		courseId = super.getRequest().getData("course", int.class);
 		course = this.repository.findOneCourseById(courseId);
+
 		super.bind(object, "code", "title", "abstracts", "goals");
 		object.setCourse(course);
+
 	}
 
 	@Override
@@ -91,19 +94,22 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 			existing = this.repository.findOneTutorialByCode(object.getCode());
 			super.state(existing == null || existing.equals(object), "code", "assistant.tutorial.form.error.duplicated");
 		}
+
+		final Collection<TutorialSessions> tutorialSessions = this.repository.findManyTutorialSessionsByTutorialId(object.getId());
+
+		super.state(!tutorialSessions.isEmpty(), "*", "assistant.Tutorial.form.error.noSession");
 	}
 
 	@Override
 	public void perform(final Tutorial object) {
 		assert object != null;
 
+		object.setDraftMode(false);
 		this.repository.save(object);
 	}
 
 	@Override
 	public void unbind(final Tutorial object) {
-		assert object != null;
-
 		Collection<Course> course;
 		SelectChoices choices;
 		Tuple tuple;

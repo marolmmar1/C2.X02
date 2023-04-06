@@ -57,6 +57,7 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 		object.setAbstracts("");
 		object.setGoals("");
 		object.setAssistant(assistant);
+		object.setDraftMode(true);
 
 		super.getBuffer().setData(object);
 	}
@@ -84,7 +85,7 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 			Tutorial existing;
 
 			existing = this.repository.findOneTutorialByCode(object.getCode());
-			super.state(existing == null, "reference", "assistant.tutorial.form.error.duplicated");
+			super.state(existing == null, "code", "assistant.tutorial.form.error.duplicated");
 		}
 	}
 
@@ -105,7 +106,7 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 
 		course = this.repository.findAllCourse();
 		choices = SelectChoices.from(course, "title", object.getCourse());
-		tuple = super.unbind(object, "code", "title", "abstracts", "goals");
+		tuple = super.unbind(object, "code", "title", "abstracts", "goals", "draftMode");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
 		super.getResponse().setData(tuple);

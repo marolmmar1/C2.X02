@@ -27,4 +27,3 @@
 	 
 	<acme:submit code="assistant.user-account.form.button.update" action="/assistant/user-account/update"/>
 </acme:form>
-
