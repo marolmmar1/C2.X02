@@ -8,13 +8,19 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.bulletin.form.label.title = Título:
-authenticated.bulletin.form.label.status = Mensaje:
-authenticated.bulletin.form.label.text = Critica:
-authenticated.bulletin.form.label.moreInfo = Link: (Optional)
+authenticated.bulletin.list.label.title = Título
+authenticated.bulletin.list.label.message = Mensaje
+authenticated.bulletin.list.label.critical = Critica
 
 authenticated.bulletin.list.label.instantiation = Instanciación
 authenticated.bulletin.list.label.title = Título
 authenticated.bulletin.list.label.message = Mensaje
 authenticated.bulletin.list.label.critical = Critica
 authenticated.bulletin.list.label.link = Link
+administrator.bulletin.form.label.conf = Confirmar boletín
+administrator.bulletin.form.button.create = Crear boletín
+
+administrator.bulletin.form.error.title = El título debe tener como máximo 75 caracteres.
+administrator.bulletin.form.error.message = El mensaje como máximo debe tener 100 caracteres.
+administrator.bulletin.form.error.critical = El boletín debe ser crítico o no crítico.
+administrator.bulletin.form.error.link = El link no es correcto.
