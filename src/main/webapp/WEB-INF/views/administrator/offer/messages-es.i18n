@@ -8,11 +8,11 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.offer.form.label.heading = Cabecera:
-authenticated.offer.form.label.summary = Resumen:
-authenticated.offer.form.label.inicialPeriod = Comienzo:
-authenticated.offer.form.label.finalPeriod = Fin:
-authenticated.offer.form.label.price = Precio:
-authenticated.offer.form.label.link = Enlace: 
+administrator.offer.form.label.heading = Cabecera:
+administrator.offer.form.label.summary = Resumen:
+administrator.offer.form.label.inicialPeriod = Comienzo:
+administrator.offer.form.label.finalPeriod = Fin:
+administrator.offer.form.label.price = Precio:
+administrator.offer.form.label.link = Enlace: 
 
-authenticated.offer.list.label.heading = Cabecera
+administrator.offer.list.label.heading = Cabecera
