@@ -64,7 +64,7 @@ public class AdministratorBannerDeleteService extends AbstractService<Administra
 	public void bind(final Banner object) {
 		assert object != null;
 
-		super.bind(object, "instantiation", "inicialPeriod", "finalPeriod", "slogan", "link", "linkImage");
+		super.bind(object, "inicialPeriod", "finalPeriod", "slogan", "link", "linkImage");
 	}
 
 	@Override
