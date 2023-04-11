@@ -19,7 +19,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Course;
 import acme.entities.Tutorial;
-import acme.entities.TutorialSessions;
+import acme.entities.TutorialSession;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -85,13 +85,20 @@ public class AssistantTutorialDeleteService extends AbstractService<Assistant, T
 	@Override
 	public void validate(final Tutorial object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Tutorial existing;
+
+			existing = this.repository.findOneTutorialByCode(object.getCode());
+			super.state(existing == null || existing.equals(object), "code", "assistant.tutorial.form.error.duplicated");
+		}
 	}
 
 	@Override
 	public void perform(final Tutorial object) {
 		assert object != null;
 
-		Collection<TutorialSessions> tutorialSessions;
+		Collection<TutorialSession> tutorialSessions;
 
 		tutorialSessions = this.repository.findManyTutorialSessionsByTutorialId(object.getId());
 		this.repository.deleteAll(tutorialSessions);
@@ -105,9 +112,10 @@ public class AssistantTutorialDeleteService extends AbstractService<Assistant, T
 		Collection<Course> course;
 		SelectChoices choices;
 		Tuple tuple;
+		final boolean draft = false;
 
-		course = this.repository.findAllCourse();
-		choices = SelectChoices.from(course, "title", object.getCourse());
+		course = this.repository.findAllCourse(draft);
+		choices = SelectChoices.from(course, "code", object.getCourse());
 		tuple = super.unbind(object, "code", "title", "abstracts", "goals", "draftMode");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);

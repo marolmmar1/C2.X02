@@ -26,3 +26,7 @@ assistant.tutorialSessions.form.button.update = Update
 assistant.tutorialSessions.form.button.delete = Delete
 assistant.tutorialSessions.form.button.create = Create
 
+assistant.tutorialSession.form.error.horaMax = The duration should be a maximum of 5 hours
+assistant.tutorialSession.form.error.horaMin = The duration should be a minimum of 1 hour
+assistant.tutorialSession.form.error.menor = Start date must be earlier than the final date
+assistant.tutorialSession.form.error.antes = The start date should be one day after the local date

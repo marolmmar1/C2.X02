@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.assistant.tutorialSessions;
+package acme.features.assistant.tutorialSession;
 
 import java.util.Collection;
 
@@ -18,13 +18,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Tutorial;
-import acme.entities.TutorialSessions;
+import acme.entities.TutorialSession;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 
 @Service
-public class AssistantTutorialSessionsListService extends AbstractService<Assistant, TutorialSessions> {
+public class AssistantTutorialSessionsListService extends AbstractService<Assistant, TutorialSession> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -56,7 +56,7 @@ public class AssistantTutorialSessionsListService extends AbstractService<Assist
 	@Override
 	public void load() {
 
-		final Collection<TutorialSessions> objects;
+		final Collection<TutorialSession> objects;
 		final int tutorialId = super.getRequest().getData("id", int.class);
 		objects = this.repository.findManyTutorialSessionsByTutorialId(tutorialId);
 
@@ -64,7 +64,7 @@ public class AssistantTutorialSessionsListService extends AbstractService<Assist
 	}
 
 	@Override
-	public void unbind(final TutorialSessions object) {
+	public void unbind(final TutorialSession object) {
 		assert object != null;
 
 		Tuple tuple;
@@ -75,7 +75,7 @@ public class AssistantTutorialSessionsListService extends AbstractService<Assist
 	}
 
 	@Override
-	public void unbind(final Collection<TutorialSessions> objects) {
+	public void unbind(final Collection<TutorialSession> objects) {
 		assert objects != null;
 
 		int tutorialId;

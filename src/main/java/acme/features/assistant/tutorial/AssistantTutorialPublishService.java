@@ -19,7 +19,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Course;
 import acme.entities.Tutorial;
-import acme.entities.TutorialSessions;
+import acme.entities.TutorialSession;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -95,7 +95,7 @@ public class AssistantTutorialPublishService extends AbstractService<Assistant, 
 			super.state(existing == null || existing.equals(object), "code", "assistant.tutorial.form.error.duplicated");
 		}
 
-		final Collection<TutorialSessions> tutorialSessions = this.repository.findManyTutorialSessionsByTutorialId(object.getId());
+		final Collection<TutorialSession> tutorialSessions = this.repository.findManyTutorialSessionsByTutorialId(object.getId());
 
 		super.state(!tutorialSessions.isEmpty(), "*", "assistant.Tutorial.form.error.noSession");
 	}
@@ -113,9 +113,10 @@ public class AssistantTutorialPublishService extends AbstractService<Assistant, 
 		Collection<Course> course;
 		SelectChoices choices;
 		Tuple tuple;
+		final boolean draft = false;
 
-		course = this.repository.findAllCourse();
-		choices = SelectChoices.from(course, "title", object.getCourse());
+		course = this.repository.findAllCourse(draft);
+		choices = SelectChoices.from(course, "code", object.getCourse());
 		tuple = super.unbind(object, "code", "title", "abstracts", "goals", "draftMode");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);

@@ -17,6 +17,8 @@ assistant.tutorial.form.label.goals = Goals:
 
 assistant.tutorial.list.label.code = Code
 assistant.tutorial.list.label.title = Title
+assistant.tutorial.form.label.course = Course Code
+
 
 
 assistant.tutorial.form.button.tutorialSessions = Tutorial Sessions
