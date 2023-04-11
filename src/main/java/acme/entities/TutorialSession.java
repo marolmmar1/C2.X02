@@ -21,7 +21,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class TutorialSessions extends AbstractEntity {
+public class TutorialSession extends AbstractEntity {
 
 	protected static final long	serialVersionUID	= 1L;
 

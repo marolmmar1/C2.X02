@@ -26,4 +26,5 @@ administrator.banner.form.button.update = Actualizar
 administrator.banner.form.button.delete = Eliminar
 
 administrator.banner.form.error.antes = La fecha inicial debe de ser después de la fecha de instanciación
-administrator.banner.form.error.menos = El periodo entre el inicial y el final debe ser de un máximo de 7 días
+administrator.banner.form.error.menos = El periodo entre el inicial y el final debe ser de un minimo de 7 días
+administrator.banner.form.error.menor = La fecha de inicio debe de ser antes a la final

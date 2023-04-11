@@ -25,12 +25,12 @@
 	<acme:input-url code="assistant.tutorialSessions.form.label.link" path="link"/>
 	
 	<jstl:choose>
-		<jstl:when test="${acme:anyOf(_command, 'update|delete')}">
-			<acme:submit code="assistant.tutorialSessions.form.button.update" action="/assistant/tutorial-sessions/update"/>
-			<acme:submit code="assistant.tutorialSessions.form.button.delete" action="/assistant/tutorial-sessions/delete"/>
+	<jstl:when test="${_command == 'create'}">
+			<acme:submit code="assistant.tutorialSessions.form.button.create" action="/assistant/tutorial-session/create?tutorialId=${tutorialId}"/>
 		</jstl:when>
-		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="assistant.tutorialSessions.form.button.create" action="/assistant/tutorial-sessions/create?tutorialId=${tutorialId}"/>
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && draftMode == true}">
+			<acme:submit code="assistant.tutorialSessions.form.button.update" action="/assistant/tutorial-session/update"/>
+			<acme:submit code="assistant.tutorialSessions.form.button.delete" action="/assistant/tutorial-session/delete"/>
 		</jstl:when>		
 	</jstl:choose>	
 	

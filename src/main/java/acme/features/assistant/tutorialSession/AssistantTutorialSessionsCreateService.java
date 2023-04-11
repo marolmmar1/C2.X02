@@ -10,21 +10,25 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.assistant.tutorialSessions;
+package acme.features.assistant.tutorialSession;
+
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Nature;
 import acme.entities.Tutorial;
-import acme.entities.TutorialSessions;
+import acme.entities.TutorialSession;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 
 @Service
-public class AssistantTutorialSessionsCreateService extends AbstractService<Assistant, TutorialSessions> {
+public class AssistantTutorialSessionsCreateService extends AbstractService<Assistant, TutorialSession> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -58,44 +62,75 @@ public class AssistantTutorialSessionsCreateService extends AbstractService<Assi
 
 	@Override
 	public void load() {
-		TutorialSessions object;
+		TutorialSession object;
 		int tutorialId;
 		Tutorial tutorial;
 
 		tutorialId = super.getRequest().getData("tutorialId", int.class);
 		tutorial = this.repository.findOneTutorialById(tutorialId);
 
-		object = new TutorialSessions();
+		object = new TutorialSession();
 		object.setTitle("");
 		object.setAbstracts("");
 		object.setNature(Nature.BALANCE);
-
 		object.setTutorial(tutorial);
 
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void bind(final TutorialSessions object) {
+	public void bind(final TutorialSession object) {
 		assert object != null;
 
 		super.bind(object, "title", "abstracts", "nature", "inicialPeriod", "finalPeriod", "link");
 	}
 
 	@Override
-	public void validate(final TutorialSessions object) {
-		assert object != null;
+	public void validate(final TutorialSession object) {
+
+		if (!super.getBuffer().getErrors().hasErrors("inicialPeriod")) {
+			long diferenciaDias = 0;
+			final long num = 1;
+			final Date moment = MomentHelper.getCurrentMoment();
+			final Date inicialPeriod = object.getInicialPeriod();
+			final long milisegundosInicio = moment.getTime();
+			final long milisegundosFin = inicialPeriod.getTime();
+			final long diferenciaMilisegundos = milisegundosFin - milisegundosInicio;
+
+			if (diferenciaMilisegundos > 0)
+				diferenciaDias = TimeUnit.MILLISECONDS.toDays(diferenciaMilisegundos);
+
+			super.state(diferenciaDias >= num, "inicialPeriod", "assistant.tutorialSession.form.error.antes");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("finalPeriod")) {
+
+			long diferenciaHoras = 0;
+			final Date inicialPeriod = object.getInicialPeriod();
+			final Date finalPeriod = object.getFinalPeriod();
+			final long milisegundosInicio = inicialPeriod.getTime();
+			final long milisegundosFin = finalPeriod.getTime();
+			final long diferenciaMilisegundos = milisegundosFin - milisegundosInicio;
+
+			if (diferenciaMilisegundos > 0)
+				diferenciaHoras = TimeUnit.MILLISECONDS.toHours(diferenciaMilisegundos);
+			final long numMax = 5;
+			final long numMin = 1;
+			super.state(diferenciaHoras < numMax, "finalPeriod", "assistant.tutorialSession.form.error.horaMax");
+			super.state(diferenciaHoras >= numMin, "finalPeriod", "assistant.tutorialSession.form.error.horaMin");
+			super.state(MomentHelper.isAfter(object.getFinalPeriod(), object.getInicialPeriod()), "finalPeriod", "assistant.tutorialSession.form.error.menor");
+		}
 	}
 
 	@Override
-	public void perform(final TutorialSessions object) {
+	public void perform(final TutorialSession object) {
 		assert object != null;
 
 		this.repository.save(object);
 	}
 
 	@Override
-	public void unbind(final TutorialSessions object) {
+	public void unbind(final TutorialSession object) {
 		assert object != null;
 
 		SelectChoices choices;
@@ -105,7 +140,9 @@ public class AssistantTutorialSessionsCreateService extends AbstractService<Assi
 		tuple = super.unbind(object, "title", "abstracts", "nature", "inicialPeriod", "finalPeriod", "link");
 		tuple.put("tutorialId", super.getRequest().getData("tutorialId", int.class));
 		tuple.put("natures", choices);
+		tuple.put("draftMode", object.getTutorial().isDraftMode());
 		super.getResponse().setData(tuple);
+
 	}
 
 }

@@ -10,19 +10,19 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.assistant.tutorialSessions;
+package acme.features.assistant.tutorialSession;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import acme.entities.TutorialSessions;
+import acme.entities.TutorialSession;
 import acme.framework.controllers.AbstractController;
 import acme.roles.Assistant;
 
 @Controller
-public class AssistantTutorialSessionsController extends AbstractController<Assistant, TutorialSessions> {
+public class AssistantTutorialSessionsController extends AbstractController<Assistant, TutorialSession> {
 
 	// Internal state ---------------------------------------------------------
 

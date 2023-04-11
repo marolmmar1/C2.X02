@@ -17,8 +17,10 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.Course;
 import acme.entities.Tutorial;
-import acme.entities.TutorialSessions;
+import acme.entities.TutorialSession;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
@@ -71,9 +73,13 @@ public class AssistantTutorialDeleteService extends AbstractService<Assistant, T
 
 	@Override
 	public void bind(final Tutorial object) {
+		int courseId;
+		Course course;
 
+		courseId = super.getRequest().getData("course", int.class);
+		course = this.repository.findOneCourseById(courseId);
 		super.bind(object, "code", "title", "abstracts", "goals");
-
+		object.setCourse(course);
 	}
 
 	@Override
@@ -85,7 +91,7 @@ public class AssistantTutorialDeleteService extends AbstractService<Assistant, T
 	public void perform(final Tutorial object) {
 		assert object != null;
 
-		Collection<TutorialSessions> tutorialSessions;
+		Collection<TutorialSession> tutorialSessions;
 
 		tutorialSessions = this.repository.findManyTutorialSessionsByTutorialId(object.getId());
 		this.repository.deleteAll(tutorialSessions);
@@ -96,9 +102,16 @@ public class AssistantTutorialDeleteService extends AbstractService<Assistant, T
 	public void unbind(final Tutorial object) {
 		assert object != null;
 
+		Collection<Course> course;
+		SelectChoices choices;
 		Tuple tuple;
+		final boolean draft = false;
 
+		course = this.repository.findAllCourse(draft);
+		choices = SelectChoices.from(course, "code", object.getCourse());
 		tuple = super.unbind(object, "code", "title", "abstracts", "goals", "draftMode");
+		tuple.put("course", choices.getSelected().getKey());
+		tuple.put("courses", choices);
 
 		super.getResponse().setData(tuple);
 	}

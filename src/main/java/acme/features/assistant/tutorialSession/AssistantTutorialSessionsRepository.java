@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.assistant.tutorialSessions;
+package acme.features.assistant.tutorialSession;
 
 import java.util.Collection;
 
@@ -18,7 +18,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.Tutorial;
-import acme.entities.TutorialSessions;
+import acme.entities.TutorialSession;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
@@ -27,13 +27,13 @@ public interface AssistantTutorialSessionsRepository extends AbstractRepository 
 	@Query("select t from Tutorial t where t.id= :id")
 	Tutorial findOneTutorialById(int id);
 
-	@Query("select ts.tutorial from TutorialSessions ts where ts.id = :id")
+	@Query("select ts.tutorial from TutorialSession ts where ts.id = :id")
 	Tutorial findOneTutorialByTutorialSessionId(int id);
 
-	@Query("select t from TutorialSessions t where t.id= :id")
-	TutorialSessions findOneTutorialSessionsById(int id);
+	@Query("select t from TutorialSession t where t.id= :id")
+	TutorialSession findOneTutorialSessionsById(int id);
 
-	@Query("select ts from TutorialSessions ts where ts.tutorial.id = :id")
-	Collection<TutorialSessions> findManyTutorialSessionsByTutorialId(int id);
+	@Query("select ts from TutorialSession ts where ts.tutorial.id = :id")
+	Collection<TutorialSession> findManyTutorialSessionsByTutorialId(int id);
 
 }

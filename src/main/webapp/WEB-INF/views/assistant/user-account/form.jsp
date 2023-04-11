@@ -25,5 +25,5 @@
 	<acme:input-email code="assistant.user-account.form.label.email" path="identity.email"/>
 	
 	 
-	<acme:submit code="assistant.user-account.form.button.update" action="/authenticated/user-account/update"/>
+	<acme:submit code="assistant.user-account.form.button.update" action="/assistant/user-account/update"/>
 </acme:form>

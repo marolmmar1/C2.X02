@@ -20,4 +20,6 @@
 
 
 </acme:list>
-
+<jstl:if test="${_command == 'list-all'}">
+	<acme:button code="assistant.tutorial.list.button.create" action="/assistant/tutorial/create"/>
+</jstl:if>

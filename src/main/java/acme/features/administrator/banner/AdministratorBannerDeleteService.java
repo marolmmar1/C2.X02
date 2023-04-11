@@ -12,12 +12,16 @@
 
 package acme.features.administrator.banner;
 
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Banner;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 
 @Service
@@ -66,6 +70,26 @@ public class AdministratorBannerDeleteService extends AbstractService<Administra
 	@Override
 	public void validate(final Banner object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("inicialPeriod"))
+			super.state(MomentHelper.isAfter(object.getInicialPeriod(), object.getInstantiation()), "inicialPeriod", "administrator.banner.form.error.antes");
+
+		if (!super.getBuffer().getErrors().hasErrors("finalPeriod")) {
+			long diferenciaDias = 0;
+			final long numMax = 7;
+			final Date inicialPeriod = object.getInicialPeriod();
+			final Date finalPeriod = object.getFinalPeriod();
+			final long milisegundosInicio = inicialPeriod.getTime();
+			final long milisegundosFin = finalPeriod.getTime();
+			final long diferenciaMilisegundos = milisegundosFin - milisegundosInicio;
+
+			if (diferenciaMilisegundos > 0)
+				diferenciaDias = TimeUnit.MILLISECONDS.toDays(diferenciaMilisegundos);
+
+			super.state(diferenciaDias >= numMax, "finalPeriod", "administrator.banner.form.error.menos");
+			super.state(MomentHelper.isAfter(object.getFinalPeriod(), object.getInicialPeriod()), "finalPeriod", "administrator.banner.form.error.menor");
+		}
+
 	}
 
 	@Override
