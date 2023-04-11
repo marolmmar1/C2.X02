@@ -32,7 +32,6 @@ public class StudentEnrolmentListAllService extends AbstractService<Student, Enr
 
 	// AbstractService interface ----------------------------------------------
 
-
 	@Override
 	public void check() {
 		super.getResponse().setChecked(true);

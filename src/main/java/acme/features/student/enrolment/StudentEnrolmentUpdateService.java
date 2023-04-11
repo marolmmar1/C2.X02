@@ -34,7 +34,6 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 
 	// AbstractService<Employer, Job> -------------------------------------
 
-
 	@Override
 	public void check() {
 		boolean status;
@@ -110,7 +109,7 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 
 		course = this.repository.findAllCourse();
 		choices = SelectChoices.from(course, "title", object.getCourse());
-		tuple = super.unbind(object, "code", "title", "abstracts", "goals", "draftMode");
+		tuple = super.unbind(object, "code", "motivation", "goals");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
 		super.getResponse().setData(tuple);

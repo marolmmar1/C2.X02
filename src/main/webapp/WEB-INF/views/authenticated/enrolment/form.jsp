@@ -21,6 +21,7 @@
 	<acme:input-textbox code="authenticated.enrolment.form.label.motivation" path="motivation"/>
 	<acme:input-textarea code="authenticated.enrolment.form.label.goals" path="goals"/>
 
+	
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'show'}">
 			<acme:button code="authenticated.enrolment.form.button.student" action="/authenticated/student/show?id=${id}"/>

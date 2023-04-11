@@ -46,7 +46,6 @@ public class StudentEnrolmentController extends AbstractController<Student, Enro
 
 	// Constructors -----------------------------------------------------------
 
-
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("show", this.showService);

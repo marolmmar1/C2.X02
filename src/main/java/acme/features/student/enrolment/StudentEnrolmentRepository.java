@@ -42,4 +42,5 @@ public interface StudentEnrolmentRepository extends AbstractRepository {
 
 	@Query("select c from Course c")
 	Collection<Course> findAllCourse();
+	
 }

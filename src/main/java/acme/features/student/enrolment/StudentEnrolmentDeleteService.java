@@ -34,7 +34,6 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 
 	// AbstractService interface ----------------------------------------------
 
-
 	@Override
 	public void check() {
 		boolean status;
@@ -54,8 +53,6 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 		enrolmentId = super.getRequest().getData("id", int.class);
 		enrolment = this.repository.findOneEnrolmentById(enrolmentId);
 		student = enrolment == null ? null : enrolment.getStudent();
-		status = enrolment != null && enrolment.isDraftMode() && super.getRequest().getPrincipal().hasRole(student);
-
 		super.getResponse().setAuthorised(status);
 	}
 

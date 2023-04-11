@@ -34,7 +34,6 @@ public class StudentEnrolmentPublishService extends AbstractService<Student, Enr
 
 	// AbstractService interface ----------------------------------------------
 
-
 	@Override
 	public void check() {
 		boolean status;
