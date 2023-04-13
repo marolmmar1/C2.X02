@@ -17,4 +17,5 @@
 
 <div class="rounded" style="background: <acme:message code='master.banner.background'/>">
 	<img src="images/banner.png" alt="<acme:message code='master.banner.alt'/>" class="img-fluid rounded"/>
+	<img src="images/favicon.png" alt="<acme:message code='master.banner.alt2'/>" class="img-fluid rounded"/>
 </div>

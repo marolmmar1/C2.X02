@@ -10,3 +10,5 @@
 
 master.banner.background = #D1FF33
 master.banner.alt = Acme-L3-D01, Inc.
+master.banner.alt2 = Banner, Inc.
+
