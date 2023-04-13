@@ -14,6 +14,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.framework.data.AbstractEntity;
+import acme.framework.helpers.MomentHelper;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -48,5 +49,17 @@ public class Banner extends AbstractEntity {
 	@URL
 	@NotNull
 	protected String			linkImage;
+
+
+	public Boolean isActive() {
+		boolean active = false;
+		final Date currentMoment = MomentHelper.getCurrentMoment();
+		if (currentMoment.after(this.inicialPeriod) && currentMoment.before(this.finalPeriod))
+			active = true;
+		else
+			active = false;
+
+		return active;
+	}
 
 }
