@@ -25,8 +25,11 @@ master.menu.administrator.banner = Banner List
 
 
 
-administrator.banner.form.error.antes = The inicial date must be before instantation
-administrator.banner.form.error.menos = The period between initial and final should be a maximum of 7 days
+
+administrator.banner.form.error.antes = The inicial date must be after instantation
+administrator.banner.form.error.menor = The inicial date must be before final date
+administrator.banner.form.error.menos = The period between initial and final should be a minimun of 7 days
+>>>>>>> branch 'pedlopruz' of https://github.com/pedlopruz/C1.04.12.git
 administrator.banner.form.button.create = Create
 administrator.banner.form.button.update = Update
 administrator.banner.form.button.delete = Delete

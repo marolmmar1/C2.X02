@@ -17,6 +17,8 @@ assistant.tutorial.list.button.create = Crear
 
 assistant.tutorial.list.label.code = Código
 assistant.tutorial.list.label.title = Título
+assistant.tutorial.form.label.course = Código del curso
+
 
 
 assistant.tutorial.form.button.tutorialSessions = Sesiones de Tutoría
