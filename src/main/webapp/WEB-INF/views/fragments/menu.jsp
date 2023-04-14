@@ -45,7 +45,6 @@
 		
 		<acme:menu-option code="master.menu.assistant" access="hasRole('Assistant')">
 			<acme:menu-suboption code="master.menu.authenticated.tutorial.list-all" action="/assistant/tutorial/list-all"/>
-			<acme:menu-suboption code="master.menu.assistant.user-account.general-data" action="/assistant/user-account/update"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
@@ -62,6 +61,7 @@
 		<acme:menu-option code="master.menu.sign-in" action="/master/sign-in" access="isAnonymous()"/>
 
 		<acme:menu-option code="master.menu.user-account" access="isAuthenticated()">
+		<acme:menu-suboption code="master.menu.assistant.user-account.general-data" action="/assistant/user-account/update" access="hasRole('Assistant')"/>
 		<acme:menu-suboption code="master.menu.authenticated.bulletin.list-all" action="/authenticated/bulletin/list-all"/>
 		<acme:menu-suboption code="master.menu.authenticated.tutorial.list-all" action="/authenticated/tutorial/list-all"/>
 		<acme:menu-suboption code="master.menu.authenticated.offer.list-all" action="/authenticated/offer/list-all"/>
