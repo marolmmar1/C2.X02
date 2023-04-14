@@ -22,6 +22,8 @@
 	<acme:input-textarea code="assistant.tutorial.form.label.abstracts" path="abstracts"/>
 	<acme:input-textarea code="assistant.tutorial.form.label.goals" path="goals"/>
 	<acme:input-select code="assistant.tutorial.form.label.course" path="course" choices="${courses}"/>	
+	<acme:input-textarea code="assistant.tutorial.form.label.estimatedTime" path="estimatedTime" readonly="true"/>
+	
 	
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish')&& draftMode == true}">

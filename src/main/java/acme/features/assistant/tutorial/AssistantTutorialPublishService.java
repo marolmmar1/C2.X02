@@ -110,6 +110,7 @@ public class AssistantTutorialPublishService extends AbstractService<Assistant, 
 
 	@Override
 	public void unbind(final Tutorial object) {
+		assert object != null;
 		Collection<Course> course;
 		SelectChoices choices;
 		Tuple tuple;

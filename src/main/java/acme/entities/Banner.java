@@ -42,11 +42,11 @@ public class Banner extends AbstractEntity {
 	protected String			slogan;
 
 	@URL
-	@NotNull
+	@NotBlank
 	protected String			link;
 
 	@URL
-	@NotNull
+	@NotBlank
 	protected String			linkImage;
 
 }
