@@ -77,14 +77,14 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 		final Enrolment enrolment = this.repository.findEnrolmentById(enrolmentId);
 		object.setEnrolment(enrolment);
 
-		super.bind(object, "title", "abstracts", "startDate", "endDate","nature", "link");
+		super.bind(object, "title", "abstracts", "startDate", "endDate", "nature", "link");
 	}
 
 	@Override
 	public void validate(final Activity object) {
 		assert object != null;
 		if (!super.getBuffer().getErrors().hasErrors("startDate") && !super.getBuffer().getErrors().hasErrors("endDate")) {
-			final boolean startBeforeEnd = MomentHelper.isAfter(object.getEndDate(), object.getStartDate());
+			final boolean startBeforeEnd = MomentHelper.isAfter(object.getFinalPeriod(), object.getInicialPeriod());
 			super.state(startBeforeEnd, "endDisplayPeriod", "student.workbook.form.error.end-before-start");
 		}
 	}

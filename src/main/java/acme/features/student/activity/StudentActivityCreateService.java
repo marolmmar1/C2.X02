@@ -68,7 +68,7 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 	public void validate(final Activity object) {
 		assert object != null;
 		if (!super.getBuffer().getErrors().hasErrors("startDate") && !super.getBuffer().getErrors().hasErrors("endDate")) {
-			final boolean startBeforeEnd = MomentHelper.isAfter(object.getEndDate(), object.getStartDate());
+			final boolean startBeforeEnd = MomentHelper.isAfter(object.getFinalPeriod(), object.getInicialPeriod());
 			super.state(startBeforeEnd, "endDisplayPeriod", "student.workbook.form.error.end-before-start");
 		}
 
@@ -93,7 +93,7 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 
 		//		final SelectChoices choicesAN = SelectChoices.from(Nature.class, object.getNature());
 
-		tuple = super.unbind(object, "title", "abstracts", "startDate", "endDate", "nature","link", "enrolment.code");
+		tuple = super.unbind(object, "title", "abstracts", "startDate", "endDate", "nature", "link", "enrolment.code");
 		//		tuple.put("activityNatureOptions", choicesAN);
 		tuple.put("enrolments", choicesE);
 		tuple.put("enrolment", choicesE.getSelected().getKey());

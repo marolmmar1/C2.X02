@@ -1,3 +1,4 @@
+
 package acme.features.any.peep;
 
 import java.util.Collection;
@@ -11,7 +12,7 @@ import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AnyPeepListService extends AbstractService<Any, Peep> {
+public class AnyPeepListAllService extends AbstractService<Any, Peep> {
 
 	// Internal state ---------------------------------------------------------
 

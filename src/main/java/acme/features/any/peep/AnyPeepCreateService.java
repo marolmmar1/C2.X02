@@ -1,3 +1,4 @@
+
 package acme.features.any.peep;
 
 import java.util.Date;
@@ -36,7 +37,7 @@ public class AnyPeepCreateService extends AbstractService<Any, Peep> {
 		final Principal principal = super.getRequest().getPrincipal();
 
 		final Date moment = MomentHelper.getCurrentMoment();
-		object.setMoment(moment);
+		object.setInstantiation(moment);
 
 		if (principal.isAuthenticated()) {
 			final String nick = super.getRequest().getPrincipal().getUsername();
@@ -74,6 +75,5 @@ public class AnyPeepCreateService extends AbstractService<Any, Peep> {
 
 		super.getResponse().setData(tuple);
 	}
-	
 
 }

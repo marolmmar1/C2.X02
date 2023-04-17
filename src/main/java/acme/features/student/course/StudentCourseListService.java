@@ -17,13 +17,13 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.Activity;
+import acme.entities.Course;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
 @Service
-public class StudentCourseListService extends AbstractService<Student, Activity> {
+public class StudentCourseListService extends AbstractService<Student, Course> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -45,20 +45,19 @@ public class StudentCourseListService extends AbstractService<Student, Activity>
 
 	@Override
 	public void load() {
-		Collection<Activity> activities;
+		Collection<Course> Courses;
 
-		final int id = super.getRequest().getPrincipal().getAccountId();
-		activities = this.repository.findAllActivitiesByStudentId(id);
-		super.getBuffer().setData(activities);
+		Courses = this.repository.findAllPublishedCourses();
+		super.getBuffer().setData(Courses);
 	}
 
 	@Override
-	public void unbind(final Activity object) {
+	public void unbind(final Course object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "activityNature", "enrolment.code");
+		tuple = super.unbind(object, "code", "title");
 
 		super.getResponse().setData(tuple);
 	}
