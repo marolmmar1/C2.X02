@@ -58,7 +58,7 @@ public class StudentActivityListService extends AbstractService<Student, Activit
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "activityNature", "enrolment.code");
+		tuple = super.unbind(object, "title", "nature", "enrolment.code");
 
 		super.getResponse().setData(tuple);
 	}

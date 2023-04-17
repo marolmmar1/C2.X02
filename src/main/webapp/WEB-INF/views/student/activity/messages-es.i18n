@@ -10,7 +10,7 @@
 
 student.activity.form.label.title = Título
 student.activity.form.label.abstract = Resumen
-student.activity.form.label.activityNature = Tipo de actividad
+student.activity.form.label.nature = Tipo de actividad
 student.activity.form.label.startDate = Fecha inicio
 student.activity.form.label.endDate = Fecha fin
 student.activity.form.label.link = Link
@@ -23,6 +23,6 @@ student.activity.form.button.create = Crear
 
 
 student.activity.list.label.title = Título
-student.activity.list.label.activityNature = Tipo de actividad
+student.activity.list.label.nature = Tipo de actividad
 student.activity.list.button.create = Crear
 student.workbook.form.error.end-before-start = La fecha fin debe ser posterior a la fecha inicial

@@ -15,30 +15,21 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
-<acme:form>
-
-	<acme:input-textbox code="assistant.tutorial.form.label.code" path="code"/>	
-	<acme:input-textbox code="assistant.tutorial.form.label.title" path="title"/>
-	<acme:input-textarea code="assistant.tutorial.form.label.abstracts" path="abstracts"/>
-	<acme:input-textarea code="assistant.tutorial.form.label.goals" path="goals"/>
-	<acme:input-select code="assistant.tutorial.form.label.course" path="course" choices="${courses}"/>	
-	<acme:input-textarea code="assistant.tutorial.form.label.estimatedTime" path="estimatedTime" readonly="true"/>
-	
-	
+<acme:form>	
+			<acme:input-textbox code="student.activity.form.label.title" path="title"/>
+			<acme:input-textbox code="student.activity.form.label.abstracts" path="abstracts"/>
+			<acme:input-moment code="student.activity.form.label.startDate" path="startDate"/>
+			<acme:input-moment code="student.activity.form.label.endDate" path="endDate"/>
+			<acme:input-textbox code="student.activity.form.label.nature" path="nature" />
+			<acme:input-url code="student.activity.form.label.link" path="link"/>
+			<acme:input-select code="student.activity.list.label.enrolment" path="enrolment" choices="${enrolments}"/>	
 	<jstl:choose>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish')&& draftMode == true}">
-			<acme:button code="assistant.tutorial.form.button.tutorialSessions" action="/assistant/tutorial-session/list?id=${id}"/>			
-			<acme:submit code="assistant.tutorial.form.button.update" action="/assistant/tutorial/update"/>
-			<acme:submit code="assistant.tutorial.form.button.delete" action="/assistant/tutorial/delete"/>
-			<acme:submit code="assistant.tutorial.form.button.publish" action="/assistant/tutorial/publish"/>
-		</jstl:when>
-		<jstl:when test="${_command == 'show' && draftMode == false}">
-			<acme:button code="assistant.tutorial.form.button.tutorialSessions" action="/assistant/tutorial-session/list?id=${id}"/>			
+		<jstl:when test="${_command == 'show' || _command == 'update'|| _command == 'delete'}">
+			<acme:submit code="student.activity.form.button.update" action="/student/activity/update"/>
+			<acme:submit code="student.activity.form.button.delete" action="/student/activity/delete"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="assistant.tutorial.form.button.create" action="/assistant/tutorial/create"/>
-		</jstl:when>		
+			<acme:submit code="student.activity.form.button.create" action="/student/activity/create"/>
+		</jstl:when>
 	</jstl:choose>
-	
 </acme:form>
-

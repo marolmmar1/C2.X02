@@ -15,14 +15,14 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
+
 <acme:list>
-	<acme:list-column code="assistant.tutorial.list.label.code" path="code" width="20%"/>
-	<acme:list-column code="assistant.tutorial.list.label.title" path="title" width="20%"/>
-	<acme:list-column code="assistant.tutorial.list.label.estimatedTime" path="estimatedTime" width="20%"/>
+	<acme:list-column code="student.activity.list.label.title" path="title"/>
+	<acme:list-column code="student.activity.list.label.nature" path="nature"/>
+	<acme:list-column code="student.activity.list.label.enrolment" path="enrolment.code"/>
 	
-
-
 </acme:list>
-<jstl:if test="${_command == 'list-all'}">
-	<acme:button code="assistant.tutorial.list.button.create" action="/assistant/tutorial/create"/>
+
+<jstl:if test="${_command == 'list'}">
+	<acme:button code="student.activity.list.button.create" action="/student/activity/create"/>
 </jstl:if>

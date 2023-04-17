@@ -11,9 +11,9 @@
 
 student.activity.form.label.title = Title
 student.activity.form.label.abstract = Abstract
-student.activity.form.label.activityNature = Activity nature
 student.activity.form.label.startDate = Start date
 student.activity.form.label.endDate = End date
+student.activity.form.label.nature = Nature
 student.activity.form.label.link = Link
 student.activity.list.label.enrolment = Enrolment
 
@@ -24,6 +24,6 @@ student.activity.form.button.create = Create
 
 
 student.activity.list.label.title = Title
-student.activity.list.label.activityNature = Activity Nature
+student.activity.list.label.nature = Nature
 student.activity.list.button.create = Create
 student.workbook.form.error.end-before-start = End date must be later than start date

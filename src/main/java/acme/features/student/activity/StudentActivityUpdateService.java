@@ -77,7 +77,7 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 		final Enrolment enrolment = this.repository.findEnrolmentById(enrolmentId);
 		object.setEnrolment(enrolment);
 
-		super.bind(object, "title", "abstract$", "activityNature", "startDate", "endDate", "link");
+		super.bind(object, "title", "abstracts", "startDate", "endDate","nature", "link");
 	}
 
 	@Override
@@ -106,10 +106,10 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 
 		final SelectChoices choicesE = SelectChoices.from(enrolments, "code", object.getEnrolment());
 
-		//		final SelectChoices choicesAN = SelectChoices.from(Nature.class, object.getActivityNature());
+		//		final SelectChoices choicesAN = SelectChoices.from(Nature.class, object.getNature());
 
-		tuple = super.unbind(object, "title", "abstract$", "activityNature", "startDate", "endDate", "link", "enrolment.code");
-		//		tuple.put("activityNatureOptions", choicesAN);
+		tuple = super.unbind(object, "title", "abstracts", "nature", "startDate", "endDate", "link", "enrolment.code");
+		//		tuple.put("natureOptions", choicesAN);
 		tuple.put("enrolments", choicesE);
 		tuple.put("enrolment", choicesE.getSelected().getKey());
 

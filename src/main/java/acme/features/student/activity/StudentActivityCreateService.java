@@ -91,9 +91,9 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 
 		final SelectChoices choicesE = SelectChoices.from(enrolments, "code", object.getEnrolment());
 
-		//		final SelectChoices choicesAN = SelectChoices.from(Nature.class, object.getActivityNature());
+		//		final SelectChoices choicesAN = SelectChoices.from(Nature.class, object.getNature());
 
-		tuple = super.unbind(object, "title", "abstract$", "activityNature", "startDate", "endDate", "link", "enrolment.code");
+		tuple = super.unbind(object, "title", "abstracts", "startDate", "endDate", "nature","link", "enrolment.code");
 		//		tuple.put("activityNatureOptions", choicesAN);
 		tuple.put("enrolments", choicesE);
 		tuple.put("enrolment", choicesE.getSelected().getKey());
