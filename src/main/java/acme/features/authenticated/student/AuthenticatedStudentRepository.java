@@ -12,21 +12,20 @@
 
 package acme.features.authenticated.student;
 
-import java.util.Collection;
-
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import acme.entities.Offer;
+import acme.framework.components.accounts.UserAccount;
 import acme.framework.repositories.AbstractRepository;
+import acme.roles.Student;
 
 @Repository
 public interface AuthenticatedStudentRepository extends AbstractRepository {
 
-	@Query("select o from Offer o where o.id = :id")
-	Offer findOneOfferById(int id);
+	@Query("select s from Student s where s.id = :id")
+	Student findOneStudentById(int id);
 
-	@Query("select o from Offer o ")
-	Collection<Offer> findAllOffer();
+	@Query("select ua from UserAccount ua where ua.id = :id")
+	UserAccount findOneUserAccountById(int id);
 
 }

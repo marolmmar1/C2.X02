@@ -12,39 +12,32 @@
 
 package acme.features.student.course;
 
-import java.util.Collection;
-import java.util.List;
+import javax.annotation.PostConstruct;
 
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.stereotype.Repository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 import acme.entities.Course;
-import acme.entities.CourseLecture;
-import acme.framework.repositories.AbstractRepository;
+import acme.framework.controllers.AbstractController;
 import acme.roles.Student;
 
-@Repository
-public interface StudentCourseRepository extends AbstractRepository {
+@Controller
+public class StudentCourseController extends AbstractController<Student, Course> {
 
-	@Query("SELECT s FROM Student s")
-	List<Student> findAllStudents();
+	// Internal state ---------------------------------------------------------
 
-	@Query("SELECT s FROM Student s WHERE s.id = :id")
-	Student findStudentById(int id);
+	@Autowired
+	protected StudentCourseListService	listService;
 
-	@Query("SELECT c FROM Course c WHERE c.id = :id")
-	Course findCourseById(int id);
+	@Autowired
+	protected StudentCourseShowService	showService;
 
-	@Query("SELECT c FROM Course c")
-	Collection<Course> findCourses();
+	// Constructors -----------------------------------------------------------
 
-	@Query("SELECT e FROM Course e")
-	List<Course> findAllCourses();
 
-	@Query("SELECT e FROM Course e WHERE e.draftMode = FALSE")
-	List<Course> findAllPublishedCourses();
-
-	@Query("SELECT m FROM CourseLectureMapper m WHERE m.course.id = :id")
-	Collection<CourseLecture> findCourseLectureMapperByCourseId(int id);
-
+	@PostConstruct
+	protected void initialise() {
+		super.addBasicCommand("list", this.listService);
+		super.addBasicCommand("show", this.showService);
+	}
 }

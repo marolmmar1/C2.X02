@@ -10,7 +10,6 @@
  * they accept any liabilities with respect to them.
  */
 
-
 package acme.features.authenticated.student;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.accounts.Principal;
+import acme.framework.components.accounts.UserAccount;
 import acme.framework.components.models.Tuple;
 import acme.framework.controllers.HttpMethod;
 import acme.framework.helpers.PrincipalHelper;
@@ -47,13 +47,13 @@ public class AuthenticatedStudentUpdateService extends AbstractService<Authentic
 
 	@Override
 	public void load() {
-		Student object;
+		UserAccount object;
 		Principal principal;
 		int userAccountId;
 
 		principal = super.getRequest().getPrincipal();
 		userAccountId = principal.getAccountId();
-		object = this.repository.findOneStudentByUserAccountId(userAccountId);
+		object = this.repository.findOneUserAccountById(userAccountId);
 
 		super.getBuffer().setData(object);
 	}

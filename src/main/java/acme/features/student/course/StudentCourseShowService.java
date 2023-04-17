@@ -76,7 +76,7 @@ public class StudentCourseShowService extends AbstractService<Student, Course> {
 		final Tuple tuple = super.unbind(object, "code", "title", "abstract$", "price", "link");
 
 		final int id = object.getId();
-		final Collection<CourseLectureMapper> mapper = this.repository.findCourseLectureMapperByCourseId(id);
+		final Collection<CourseLecture> mapper = this.repository.findCourseLectureByCourseId(id);
 		final List<String> lectures = mapper.stream().map(m -> m.getLecture().getTitle()).collect(Collectors.toList());
 
 		final String lecturer = object.getLecturer().getAlmaMater();

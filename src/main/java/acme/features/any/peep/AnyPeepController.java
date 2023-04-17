@@ -1,3 +1,4 @@
+
 package acme.features.any.peep;
 
 import javax.annotation.PostConstruct;
@@ -13,7 +14,7 @@ import acme.framework.controllers.AbstractController;
 public class AnyPeepController extends AbstractController<Any, Peep> {
 
 	@Autowired
-	protected AnyPeepListService	listService;
+	protected AnyPeepListAllService	listService;
 
 	@Autowired
 	protected AnyPeepShowService	showService;

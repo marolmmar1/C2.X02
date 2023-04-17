@@ -13,38 +13,54 @@
 package acme.features.student.enrolment;
 
 import java.util.Collection;
-import java.util.List;
 
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.stereotype.Repository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import acme.entities.Enrolment;
-import acme.entities.Course;
-import acme.framework.repositories.AbstractRepository;
+import acme.framework.components.models.Tuple;
+import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
-@Repository
-public interface StudentEnrolmentRepository extends AbstractRepository {
+@Service
+public class StudentEnrolmentListService extends AbstractService<Student, Enrolment> {
 
-	@Query("SELECT s FROM Student s")
-	List<Student> findAllStudents();
+	// Internal state ---------------------------------------------------------
 
-	@Query("SELECT s FROM Student s WHERE s.id = :id")
-	Student findStudentById(int id);
+	@Autowired
+	protected StudentEnrolmentRepository repository;
 
-	@Query("SELECT c FROM Course c WHERE c.id = :id")
-	Course findCourseById(int id);
+	// AbstractService<Authenticated, Consumer> ---------------------------
 
-	@Query("SELECT c FROM Course c")
-	Collection<Course> findCourses();
 
-	@Query("SELECT e FROM Enrolment e")
-	List<Enrolment> findAllEnrolments();
+	@Override
+	public void check() {
+		super.getResponse().setChecked(true);
+	}
 
-	@Query("SELECT e FROM Enrolment e WHERE e.id = :id")
-	Enrolment findEnrolmentById(int id);
+	@Override
+	public void authorise() {
+		super.getResponse().setAuthorised(true);
+	}
 
-	@Query("SELECT e FROM Enrolment e WHERE e.student.userAccount.id = :id")
-	Collection<Enrolment> findAllEnrolmentsByStudentId(int id);
+	@Override
+	public void load() {
+		Collection<Enrolment> enrolments;
+
+		final int id = super.getRequest().getPrincipal().getAccountId();
+		enrolments = this.repository.findAllEnrolmentsByStudentId(id);
+		super.getBuffer().setData(enrolments);
+	}
+
+	@Override
+	public void unbind(final Enrolment object) {
+		assert object != null;
+
+		Tuple tuple;
+
+		tuple = super.unbind(object, "code", "draftMode", "course.title");
+
+		super.getResponse().setData(tuple);
+	}
 
 }
