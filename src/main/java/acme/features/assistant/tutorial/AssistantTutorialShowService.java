@@ -13,12 +13,16 @@
 package acme.features.assistant.tutorial;
 
 import java.util.Collection;
+import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Course;
 import acme.entities.Tutorial;
+import acme.entities.TutorialSession;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -76,14 +80,40 @@ public class AssistantTutorialShowService extends AbstractService<Assistant, Tut
 		Collection<Course> course;
 		SelectChoices choices;
 		Tuple tuple;
+		TutorialSession tutorialSession;
+		double diferenciaHoras = 0.0;
+		double total = 0.0;
+		final Collection<TutorialSession> ts = this.repository.findManyTutorialSessionsByTutorialId(object.getId());
+		final List<TutorialSession> ListaTutorialSessions = ts.stream().collect(Collectors.toList());
 		final boolean draft = false;
 
 		course = this.repository.findAllCourse(draft);
 		choices = SelectChoices.from(course, "code", object.getCourse());
 
+		if (ListaTutorialSessions == null)
+			total = 0.0;
+
+		for (int i = 0; i < ListaTutorialSessions.size(); i++) {
+			tutorialSession = ListaTutorialSessions.get(i);
+			final Date inicialPeriod = tutorialSession.getInicialPeriod();
+			final Date finalPeriod = tutorialSession.getFinalPeriod();
+			final long milisegundosInicio = inicialPeriod.getTime();
+			final long milisegundosFin = finalPeriod.getTime();
+			final long diferenciaMilisegundos = milisegundosFin - milisegundosInicio;
+			if (diferenciaMilisegundos > 0) {
+				diferenciaHoras = (double) diferenciaMilisegundos / (1000 * 60 * 60);
+				total += diferenciaHoras;
+			}
+
+		}
+		final int hours = (int) total;
+		final int minutes = (int) ((total - hours) * 60);
+		final double diffInHoursWithFormat = Double.parseDouble(hours + "." + minutes);
+
 		tuple = super.unbind(object, "code", "title", "abstracts", "goals", "draftMode");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
+		tuple.put("estimatedTime", diffInHoursWithFormat);
 		super.getResponse().setData(tuple);
 	}
 

@@ -16,10 +16,13 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:form>
-
-	<acme:input-textbox code="any.peep.form.label.title" path="title"/>	
-	<acme:input-textarea code="any.peep.form.label.nick" path="nick"/>
-	<acme:input-textarea code="any.peep.form.label.message" path="message"/>
-	<acme:input-checkbox code="any.peep.form.label.email" path="email"/>
-	<acme:input-url code="any.peep.form.label.link" path="link"/>
+	<acme:input-textbox code="any.peep.list.label.title" path="title"/>
+	<acme:input-textbox code="any.peep.list.label.nick" path="nick"/>
+	<acme:input-textbox code="any.peep.list.label.mail" path="mail"/>
+	<acme:input-textarea code="any.peep.list.label.message" path="message"/>
+	<acme:input-url code="any.peep.list.label.link" path="link"/>
+	
+	<jstl:if test="${_command == 'create'}">
+		<acme:submit code="any.peep.list.button.create" action="/any/peep/create"/>
+	</jstl:if>
 </acme:form>

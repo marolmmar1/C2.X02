@@ -1,5 +1,5 @@
 /*
- * EmployerJobDeleteService.java
+ * AuthenticatedConsumerCreateService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -12,14 +12,11 @@
 
 package acme.features.student.enrolment;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.Course;
 import acme.entities.Enrolment;
-import acme.framework.components.jsp.SelectChoices;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
@@ -32,7 +29,8 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 	@Autowired
 	protected StudentEnrolmentRepository repository;
 
-	// AbstractService interface ----------------------------------------------
+	// AbstractService<Authenticated, Consumer> ---------------------------
+
 
 	@Override
 	public void check() {
@@ -45,37 +43,32 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int enrolmentId;
 		Enrolment enrolment;
-		Student student;
+		int id;
+		id = super.getRequest().getData("id", int.class);
+		enrolment = this.repository.findEnrolmentById(id);
 
-		enrolmentId = super.getRequest().getData("id", int.class);
-		enrolment = this.repository.findOneEnrolmentById(enrolmentId);
-		student = enrolment == null ? null : enrolment.getStudent();
-		super.getResponse().setAuthorised(status);
+		final Principal principal = super.getRequest().getPrincipal();
+		final int userAccountId = principal.getAccountId();
+
+		final boolean authorise = enrolment.getStudent().getUserAccount().getId() == userAccountId && enrolment.isDraftMode();
+
+		super.getResponse().setAuthorised(authorise);
 	}
 
 	@Override
 	public void load() {
-		Enrolment object;
-		int id;
+		final int id = super.getRequest().getData("id", int.class);
+		final Enrolment enrolment = this.repository.findEnrolmentById(id);
 
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneEnrolmentById(id);
-
-		super.getBuffer().setData(object);
+		super.getBuffer().setData(enrolment);
 	}
 
 	@Override
 	public void bind(final Enrolment object) {
-		int courseId;
-		Course course;
+		assert object != null;
 
-		courseId = super.getRequest().getData("course", int.class);
-		course = this.repository.findOneCourseById(courseId);
-		super.bind(object, "code", "motivation", "goals");
-		object.setCourse(course);
+		super.bind(object, "motivation", "goals", "code");
 	}
 
 	@Override
@@ -87,10 +80,6 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 	public void perform(final Enrolment object) {
 		assert object != null;
 
-		Collection<Enrolment> enrolment;
-
-		enrolment = this.repository.findManyEnrolmentByEnrolmentId(object.getId());
-		this.repository.deleteAll(enrolment);
 		this.repository.delete(object);
 	}
 
@@ -98,17 +87,9 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 	public void unbind(final Enrolment object) {
 		assert object != null;
 
-		Collection<Course> course;
-		SelectChoices choices;
 		Tuple tuple;
-
-		course = this.repository.findAllCourse();
-		choices = SelectChoices.from(course, "title", object.getCourse());
-		tuple = super.unbind(object, "code", "motivation", "goals");
-		tuple.put("course", choices.getSelected().getKey());
-		tuple.put("courses", choices);
+		tuple = super.unbind(object, "motivation", "goals", "code");
 
 		super.getResponse().setData(tuple);
 	}
-
 }

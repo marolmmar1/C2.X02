@@ -1,5 +1,5 @@
 /*
- * AuthenticatedAnnouncementRepository.java
+ * AuthenticatedConsumerController.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -13,34 +13,48 @@
 package acme.features.student.enrolment;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import acme.entities.Course;
+import acme.entities.Activity;
 import acme.entities.Enrolment;
+import acme.entities.Course;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Student;
 
 @Repository
 public interface StudentEnrolmentRepository extends AbstractRepository {
 
-	@Query("select e from Enrolment e where e.id= :id")
-	Enrolment findOneEnrolmentById(int id);
+	@Query("SELECT s FROM Student s")
+	List<Student> findAllStudents();
 
-	@Query("select s from Student s where s.id= :id")
-	Student findOneStudentById(int id);
+	@Query("SELECT a FROM Activity a WHERE a.enrolment.student.userAccount.id = :id")
+	Collection<Activity> findAllActivitiesByStudentId(int id);
 
-	@Query("select c from Course c where c.id= :id")
-	Course findOneCourseById(int id);
+	@Query("SELECT s FROM Student s WHERE s.id = :id")
+	Student findStudentById(int id);
 
-	@Query("select e from Enrolment e where e.student.id = :id")
-	Collection<Enrolment> findAllEnrolmentByStudentId(int id);
+	@Query("SELECT a FROM Activity a")
+	Collection<Activity> findAllActivities();
 
-	@Query("select e from Enrolment e where e.code = :code")
-	Enrolment findOneEnrolmentByCode(String code);
+	@Query("SELECT a FROM Activity a WHERE a.id = :id")
+	Activity findActivityById(int id);
 
-	@Query("select c from Course c")
-	Collection<Course> findAllCourse();
-	
+	@Query("SELECT c FROM Course c WHERE c.id = :id")
+	Course findCourseById(int id);
+
+	@Query("SELECT c FROM Course c")
+	Collection<Course> findCourses();
+
+	@Query("SELECT e FROM Enrolment e")
+	List<Enrolment> findAllEnrolments();
+
+	@Query("SELECT e FROM Enrolment e WHERE e.student.userAccount.id = :id")
+	List<Enrolment> findAllEnrolmentsByStudentId(int id);
+
+	@Query("SELECT e FROM Enrolment e WHERE e.id = :id")
+	Enrolment findEnrolmentById(int id);
+
 }

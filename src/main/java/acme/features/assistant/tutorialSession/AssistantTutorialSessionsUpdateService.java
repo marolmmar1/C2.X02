@@ -100,21 +100,27 @@ public class AssistantTutorialSessionsUpdateService extends AbstractService<Assi
 
 		if (!super.getBuffer().getErrors().hasErrors("finalPeriod")) {
 
-			long diferenciaHoras = 0;
+			long diferenciaHorasMax = 0;
+			long diferenciaHorasMin = 0;
 			final Date inicialPeriod = object.getInicialPeriod();
 			final Date finalPeriod = object.getFinalPeriod();
 			final long milisegundosInicio = inicialPeriod.getTime();
 			final long milisegundosFin = finalPeriod.getTime();
-			final long diferenciaMilisegundos = milisegundosFin - milisegundosInicio;
+			long diferenciaMilisegundosMax = milisegundosFin - milisegundosInicio;
+			final long diferenciaMilisegundosMin = milisegundosFin - milisegundosInicio;
 
-			if (diferenciaMilisegundos > 0)
-				diferenciaHoras = TimeUnit.MILLISECONDS.toHours(diferenciaMilisegundos);
+			diferenciaMilisegundosMax -= 60000;
+			diferenciaHorasMax = TimeUnit.MILLISECONDS.toHours(diferenciaMilisegundosMax);
+			diferenciaHorasMin = TimeUnit.MILLISECONDS.toHours(diferenciaMilisegundosMin);
+
 			final long numMax = 5;
 			final long numMin = 1;
-			super.state(diferenciaHoras < numMax, "finalPeriod", "assistant.tutorialSession.form.error.horaMax");
-			super.state(diferenciaHoras >= numMin, "finalPeriod", "assistant.tutorialSession.form.error.horaMin");
 			super.state(MomentHelper.isAfter(object.getFinalPeriod(), object.getInicialPeriod()), "finalPeriod", "assistant.tutorialSession.form.error.menor");
+			super.state(diferenciaHorasMax < numMax, "finalPeriod", "assistant.tutorialSession.form.error.horaMax");
+			super.state(diferenciaHorasMin >= numMin, "finalPeriod", "assistant.tutorialSession.form.error.horaMin");
+
 		}
+
 	}
 
 	@Override

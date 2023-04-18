@@ -1,5 +1,5 @@
 /*
- * AuthenticatedAnnouncementController.java
+ * AuthenticatedConsumerController.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -27,34 +27,35 @@ public class StudentEnrolmentController extends AbstractController<Student, Enro
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected StudentEnrolmentListAllService	listAllService;
+	protected StudentEnrolmentListService		listService;
 
 	@Autowired
 	protected StudentEnrolmentShowService		showService;
 
 	@Autowired
-	protected StudentEnrolmentPublishService	publishService;
+	protected StudentEnrolmentCreateService		createService;
 
 	@Autowired
-	protected StudentEnrolmentCreateService	createService;
+	protected StudentEnrolmentUpdateService		updateService;
 
 	@Autowired
-	protected StudentEnrolmentUpdateService	updateService;
+	protected StudentEnrolmentDeleteService		deleteService;
 
 	@Autowired
-	protected StudentEnrolmentDeleteService	deleteService;
+	protected StudentEnrolmentFinaliseService	finaliseService;
 
 	// Constructors -----------------------------------------------------------
 
+
 	@PostConstruct
 	protected void initialise() {
+		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
-		super.addCustomCommand("list-all", "list", this.listAllService);
 		super.addBasicCommand("create", this.createService);
 		super.addBasicCommand("update", this.updateService);
 		super.addBasicCommand("delete", this.deleteService);
-		super.addCustomCommand("publish", "update", this.publishService);
+
+		super.addCustomCommand("finalise", "update", this.finaliseService);
 
 	}
-
 }

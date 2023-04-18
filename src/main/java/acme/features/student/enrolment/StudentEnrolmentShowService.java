@@ -1,5 +1,5 @@
 /*
- * AuthenticatedAnnouncementShowService.java
+ * AuthenticatedConsumerController.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -17,8 +17,8 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.Course;
 import acme.entities.Enrolment;
+import acme.entities.Course;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -27,12 +27,13 @@ import acme.roles.Student;
 @Service
 public class StudentEnrolmentShowService extends AbstractService<Student, Enrolment> {
 
-	// Internal state ---------------------------------------------------------
+	//Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected StudentEnrolmentRepository repository;
 
-	// AbstractService interface ----------------------------------------------
+	//AbstractService<Authenticated, Consumer> ---------------------------
+
 
 	@Override
 	public void check() {
@@ -45,41 +46,34 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int masterId;
-		Student student;
-		Enrolment enrolment;
-
-		masterId = super.getRequest().getData("id", int.class);
-		enrolment = this.repository.findOneEnrolmentById(masterId);
-		student = enrolment == null ? null : enrolment.getStudent();
-		status = super.getRequest().getPrincipal().hasRole(student);
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
-		Enrolment object;
+		Enrolment enrolment;
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneEnrolmentById(id);
+		enrolment = this.repository.findEnrolmentById(id);
 
-		super.getBuffer().setData(object);
+		super.getBuffer().setData(enrolment);
 	}
 
 	@Override
 	public void unbind(final Enrolment object) {
 		assert object != null;
 
-		SelectChoices choices;
 		Tuple tuple;
+		Collection<Course> courses;
+		SelectChoices choices;
+		courses = this.repository.findCourses();
+		choices = SelectChoices.from(courses, "code", object.getCourse());
 
-		course = this.repository.findAllCourse();
-		choices = SelectChoices.from(course, "title", object.getCourse());
-		tuple = super.unbind(object, "code", "title", "motivation", "goals");
-		tuple.put("course", choices.getSelected().getKey());
+		tuple = super.unbind(object, "code", "motivation", "goals", "course.title");
 		tuple.put("courses", choices);
+		tuple.put("course", choices.getSelected().getKey());
+
 		super.getResponse().setData(tuple);
 	}
 

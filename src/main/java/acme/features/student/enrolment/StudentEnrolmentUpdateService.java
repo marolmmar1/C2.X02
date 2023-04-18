@@ -1,5 +1,5 @@
 /*
- * EmployerJobUpdateService.java
+ * AuthenticatedConsumerController.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -13,12 +13,11 @@
 package acme.features.student.enrolment;
 
 import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import acme.entities.Course;
 import acme.entities.Enrolment;
+import acme.entities.Course;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -26,13 +25,13 @@ import acme.roles.Student;
 
 @Service
 public class StudentEnrolmentUpdateService extends AbstractService<Student, Enrolment> {
-
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected StudentEnrolmentRepository repository;
 
-	// AbstractService<Employer, Job> -------------------------------------
+	// AbstractService<Authenticated, Consumer> ---------------------------
+
 
 	@Override
 	public void check() {
@@ -45,50 +44,45 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int enrolmentId;
 		Enrolment enrolment;
-		Student student;
+		int id;
+		id = super.getRequest().getData("id", int.class);
+		enrolment = this.repository.findEnrolmentById(id);
 
-		enrolmentId = super.getRequest().getData("id", int.class);
-		enrolment = this.repository.findOneEnrolmentById(enrolmentId);
-		student = enrolment == null ? null : enrolment.getStudent();
-		status = enrolment != null && enrolment.isDraftMode() && super.getRequest().getPrincipal().hasRole(student);
+		final Principal principal = super.getRequest().getPrincipal();
+		final int userAccountId = principal.getAccountId();
 
-		super.getResponse().setAuthorised(status);
+		final boolean authorise = enrolment.getStudent().getUserAccount().getId() == userAccountId && enrolment.isDraftMode();
+
+		super.getResponse().setAuthorised(authorise);
 	}
 
 	@Override
 	public void load() {
-		Enrolment object;
-		int id;
+		final int id = super.getRequest().getData("id", int.class);
+		final Enrolment enrolment = this.repository.findEnrolmentById(id);
 
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneEnrolmentById(id);
-
-		super.getBuffer().setData(object);
+		super.getBuffer().setData(enrolment);
 	}
 
 	@Override
 	public void bind(final Enrolment object) {
-		int courseId;
-		Course course;
+		assert object != null;
 
-		courseId = super.getRequest().getData("course", int.class);
-		course = this.repository.findOneCourseById(courseId);
-		super.bind(object, "code", "motivation", "goals");
+		final int courseId = super.getRequest().getData("course", int.class);
+		final Course course = this.repository.findCourseById(courseId);
 		object.setCourse(course);
+
+		super.bind(object, "motivation", "goals", "code");
 	}
 
 	@Override
 	public void validate(final Enrolment object) {
 		assert object != null;
-
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			Enrolment existing;
+			final boolean duplicatedCode = this.repository.findAllEnrolments().stream().filter(e -> e.getId() != object.getId()).anyMatch(e -> e.getCode().equals(object.getCode()));
 
-			existing = this.repository.findOneEnrolmentByCode(object.getCode());
-			super.state(existing == null || existing.equals(object), "code", "student.enrolment.form.error.duplicated");
+			super.state(!duplicatedCode, "code", "student.enrolment.form.error.duplicated-code");
 		}
 	}
 
@@ -103,15 +97,17 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 	public void unbind(final Enrolment object) {
 		assert object != null;
 
-		Collection<Course> course;
+		Collection<Course> courses;
 		SelectChoices choices;
 		Tuple tuple;
 
-		course = this.repository.findAllCourse();
-		choices = SelectChoices.from(course, "title", object.getCourse());
-		tuple = super.unbind(object, "code", "motivation", "goals");
-		tuple.put("course", choices.getSelected().getKey());
+		courses = this.repository.findCourses();
+		choices = SelectChoices.from(courses, "code", object.getCourse());
+
+		tuple = super.unbind(object, "motivation", "goals", "code");
 		tuple.put("courses", choices);
+		tuple.put("course", choices.getSelected().getKey());
+
 		super.getResponse().setData(tuple);
 	}
 

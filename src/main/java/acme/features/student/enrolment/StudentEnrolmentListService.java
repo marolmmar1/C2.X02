@@ -1,5 +1,5 @@
 /*
- * AuthenticatedAnnouncementListAllService.java
+ * AuthenticatedConsumerCreateService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -23,14 +23,15 @@ import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
 @Service
-public class StudentEnrolmentListAllService extends AbstractService<Student, Enrolment> {
+public class StudentEnrolmentListService extends AbstractService<Student, Enrolment> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected StudentEnrolmentRepository repository;
 
-	// AbstractService interface ----------------------------------------------
+	// AbstractService<Authenticated, Consumer> ---------------------------
+
 
 	@Override
 	public void check() {
@@ -39,18 +40,16 @@ public class StudentEnrolmentListAllService extends AbstractService<Student, Enr
 
 	@Override
 	public void authorise() {
-
 		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
-		final Collection<Enrolment> objects;
-		final int studentId = super.getRequest().getPrincipal().getActiveRoleId();
+		Collection<Enrolment> enrolments;
 
-		objects = this.repository.findAllEnrolmentByStudentId(studentId);
-
-		super.getBuffer().setData(objects);
+		final int id = super.getRequest().getPrincipal().getAccountId();
+		enrolments = this.repository.findAllEnrolmentsByStudentId(id);
+		super.getBuffer().setData(enrolments);
 	}
 
 	@Override
@@ -59,7 +58,7 @@ public class StudentEnrolmentListAllService extends AbstractService<Student, Enr
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code");
+		tuple = super.unbind(object, "code", "draftMode", "course.title");
 
 		super.getResponse().setData(tuple);
 	}

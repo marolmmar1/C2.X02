@@ -1,3 +1,4 @@
+
 package acme.features.any.peep;
 
 import javax.annotation.PostConstruct;
@@ -12,21 +13,20 @@ import acme.framework.controllers.AbstractController;
 @Controller
 public class AnyPeepController extends AbstractController<Any, Peep> {
 
-	// Internal state ---------------------------------------------------------
+	@Autowired
+	protected AnyPeepListAllService	listService;
 
 	@Autowired
-	protected AnyPeepListAllService	listAllService;
-	@Autowired
-	protected AnyPeepShowService		showService;
+	protected AnyPeepShowService	showService;
 
-	// Constructors -----------------------------------------------------------
+	@Autowired
+	protected AnyPeepCreateService	createService;
 
 
 	@PostConstruct
 	protected void initialise() {
+		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
-		super.addCustomCommand("list-all", "list", this.listAllService);
-
+		super.addBasicCommand("create", this.createService);
 	}
-
 }
