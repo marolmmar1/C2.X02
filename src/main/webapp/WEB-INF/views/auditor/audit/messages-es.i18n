@@ -1,0 +1,32 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+auditor.audit.form.label.code = Código:
+auditor.audit.form.label.conclusion = Título:
+auditor.audit.form.label.strongPoints = Puntos Fuertes:
+auditor.audit.form.label.weakPoints = Puntos debiles:
+auditor.audit.form.label.modeMark = Moda de las notas:
+auditor.audit.form.label.course = Código del curso
+
+auditor.audit.list.button.create = Crear
+
+auditor.audit.list.label.code = Código
+auditor.audit.list.label.conclusion = Conclusión
+auditor.audit.list.label.modeMark = Moda de las notas
+
+
+auditor.audit.form.button.auditingRecords = Memoria de auditoria
+auditor.audit.form.button.update = Actualizar
+auditor.audit.form.button.delete = Eliminar
+auditor.audit.form.button.publish = Publicar
+auditor.audit.list.button.create = Crear
+auditor.audit.form.button.create = Crear
+auditor.audit.form.error.duplicated = El código ya está cogido; 
+auditor.audit.form.error.noSession = debe de tener una memoria de auditoria asociada

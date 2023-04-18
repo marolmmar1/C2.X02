@@ -1,5 +1,5 @@
 <%--
-- banner.jsp
+- list.jsp
 -
 - Copyright (C) 2012-2023 Rafael Corchuelo.
 -
@@ -15,15 +15,9 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
+<acme:list>
+	<acme:list-column code="auditor.user-account.list.label.username" path="username" width="20%"/>
 
-<div class="rounded" style="background: <acme:message code='master.banner.background'/>">
-	<img src="images/banner.png" alt="<acme:message code='master.banner.alt'/>" class="img-fluid rounded"/>
-</div>
+</acme:list>
 
-<jstl:if test="${banner != null}">
-	<div class="panel-body" style="margin: 1em 0em 1em 0em; text-align: center;">	
-		<a href="${banner.link}" target="_blank">
-			<img src="${banner.linkImage}" alt="${banner.slogan}" class="img-fluid rounded" style="border-style: solid;"/>
-		</a>
-	</div>
-</jstl:if>
+
