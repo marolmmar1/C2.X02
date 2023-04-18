@@ -32,7 +32,7 @@ public interface BannerRepository extends AbstractRepository {
 	List<Banner> findManyBanners(PageRequest pageRequest);
 
 	default Banner findRandomBanner() {
-		Banner result = new Banner();
+		Banner result;
 		int count, index;
 		ThreadLocalRandom random;
 		PageRequest page;
@@ -41,15 +41,14 @@ public interface BannerRepository extends AbstractRepository {
 		count = this.countBanners();
 		if (count == 0)
 			result = null;
-		else
-			while (!result.isActive() || result != null) {
-				random = ThreadLocalRandom.current();
-				index = random.nextInt(0, count);
+		else {
+			random = ThreadLocalRandom.current();
+			index = random.nextInt(0, count);
 
-				page = PageRequest.of(index, 1);
-				list = this.findManyBanners(page);
-				result = list.isEmpty() ? null : list.get(0);
-			}
+			page = PageRequest.of(index, 1);
+			list = this.findManyBanners(page);
+			result = list.isEmpty() ? null : list.get(0);
+		}
 
 		return result;
 	}
