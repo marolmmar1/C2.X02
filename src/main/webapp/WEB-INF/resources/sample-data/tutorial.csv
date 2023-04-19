@@ -1,24 +1,24 @@
-key,code,title,abstracts,goals,key:assistant,key:course,draftMode
-tutorial-01,ABC123,Lorem ipsum,Lorem ipsum,Lorem ipsum,assistant-01,course-02,true
-tutorial-02,ABC124,Lorem ipsum,Lorem ipsum,Lorem ipsum,assistant-02,course-02,true
-tutorial-03,A124,Lorem ipsum,Lorem ipsum,Lorem ipsum,assistant-03,course-06,true
-tutorial-04,AB124,Lorem ipsum,Lorem ipsum,Lorem ipsum,assistant-04,course-15,true
-tutorial-05,ABC000,Lorem ipsum,Lorem ipsum,Lorem ipsum,assistant-05,course-16,true
-tutorial-06,ABC125,L,Lorem ipsum,Lorem ipsum,assistant-01,course-08,true
-tutorial-07,ABC126,Lo ipsum,Lorem ipsum,Lorem ipsum,assistant-02,course-02,true
-tutorial-08,ABC127,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo",Lorem ipsum,Lorem ipsum,assistant-03,course-09,true
-tutorial-09,ABC128,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo.",Lorem ipsum,Lorem ipsum,assistant-04,course-10,true
-tutorial-10,ABC129,سأقوم بتغيير الجناح الخلفي,Lorem ipsum,Lorem ipsum,assistant-09,course-11,true
-tutorial-11,ABC130,<h2></h2>,Lorem ipsum,Lorem ipsum,assistant-05,course-12,true
-tutorial-12,ABC131,"<script> alert(""""hi!"""")</script>",Lorem ipsum,Lorem ipsum,assistant-11,course-13,true
-tutorial-13,ABC132,Lorem ipsum,L,Lorem ipsum,assistant-02,course-14,true
-tutorial-14,ABC133,Lorem ipsum,Lo,Lorem ipsum,assistant-10,course-15,true
-tutorial-15,ABC134,Lorem ipsum,"A medida que el sol se ponía lentamente, el cielo se encendía en una hermosa mezcla de colores rojo",Lorem ipsum,assistant-04,course-16,true
-tutorial-16,ABC135,Lorem ipsum,"A medida que el sol se ponía lentamente, el cielo se encendía en una hermosa mezcla de colores rojos",Lorem ipsum,assistant-05,course-09,true
-tutorial-17,ABC136,Lorem ipsum,"<script> alert(""""hi!"""")</script>",Lorem ipsum,assistant-14,course-10,true
-tutorial-18,ABC137,Lorem ipsum,سأقوم بتغيير الجناح الخلفي,Lorem ipsum,assistant-01,course-11,true
-tutorial-19,ABC138,Lorem ipsum,Lorem ipsum,L,assistant-02,course-14,true
-tutorial-20,ABC139,Lorem ipsum,Lorem ipsum,Lo,assistant-17,course-15,true
-tutorial-21,ABC140,Lorem ipsum,Lorem ipsum,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo",assistant-03,course-07,true
-tutorial-22,ABC141,Lorem ipsum,Lorem ipsum,"<script> alert(""""hi!"""")</script>",assistant-18,course-02,true
-tutorial-23,ABC142,Lorem ipsum,Lorem ipsum,سأقوم بتغيير الجناح الخلفي,assistant-03,course-14,true
+key,code,title,abstracts,goals,key:assistant,key:course,draftMode,estimatedTime
+tutorial-01,ABC123,Lorem ipsum,Lorem ipsum,Lorem ipsum,assistant-01,course-02,true,0.0
+tutorial-02,ABC124,Lorem ipsum,Lorem ipsum,Lorem ipsum,assistant-02,course-02,true,0.0
+tutorial-03,A124,Lorem ipsum,Lorem ipsum,Lorem ipsum,assistant-03,course-06,true,0.0
+tutorial-04,AB124,Lorem ipsum,Lorem ipsum,Lorem ipsum,assistant-04,course-15,true,0.0
+tutorial-05,ABC000,Lorem ipsum,Lorem ipsum,Lorem ipsum,assistant-05,course-16,true,0.0
+tutorial-06,ABC125,L,Lorem ipsum,Lorem ipsum,assistant-01,course-08,true,0.0
+tutorial-07,ABC126,Lo ipsum,Lorem ipsum,Lorem ipsum,assistant-02,course-02,true,0.0
+tutorial-08,ABC127,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo",Lorem ipsum,Lorem ipsum,assistant-03,course-09,true,0.0
+tutorial-09,ABC128,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo.",Lorem ipsum,Lorem ipsum,assistant-04,course-10,true,0.0
+tutorial-10,ABC129,سأقوم بتغيير الجناح الخلفي,Lorem ipsum,Lorem ipsum,assistant-09,course-11,true,0.0
+tutorial-11,ABC130,<h2></h2>,Lorem ipsum,Lorem ipsum,assistant-05,course-12,true,0.0
+tutorial-12,ABC131,"<script> alert(""""hi!"""")</script>",Lorem ipsum,Lorem ipsum,assistant-11,course-13,true,0.0
+tutorial-13,ABC132,Lorem ipsum,L,Lorem ipsum,assistant-02,course-14,true,0.0
+tutorial-14,ABC133,Lorem ipsum,Lo,Lorem ipsum,assistant-10,course-15,true,0.0
+tutorial-15,ABC134,Lorem ipsum,"A medida que el sol se ponía lentamente, el cielo se encendía en una hermosa mezcla de colores rojo",Lorem ipsum,assistant-04,course-16,true,0.0
+tutorial-16,ABC135,Lorem ipsum,"A medida que el sol se ponía lentamente, el cielo se encendía en una hermosa mezcla de colores rojos",Lorem ipsum,assistant-05,course-09,true,0.0
+tutorial-17,ABC136,Lorem ipsum,"<script> alert(""""hi!"""")</script>",Lorem ipsum,assistant-14,course-10,true,0.0
+tutorial-18,ABC137,Lorem ipsum,سأقوم بتغيير الجناح الخلفي,Lorem ipsum,assistant-01,course-11,true,0.0
+tutorial-19,ABC138,Lorem ipsum,Lorem ipsum,L,assistant-02,course-14,true,0.0
+tutorial-20,ABC139,Lorem ipsum,Lorem ipsum,Lo,assistant-17,course-15,true,0.0
+tutorial-21,ABC140,Lorem ipsum,Lorem ipsum,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo",assistant-03,course-07,true,0.0
+tutorial-22,ABC141,Lorem ipsum,Lorem ipsum,"<script> alert(""""hi!"""")</script>",assistant-18,course-02,true,0.0
+tutorial-23,ABC142,Lorem ipsum,Lorem ipsum,سأقوم بتغيير الجناح الخلفي,assistant-03,course-14,true,0.0

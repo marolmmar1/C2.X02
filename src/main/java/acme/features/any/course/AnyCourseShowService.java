@@ -1,21 +1,23 @@
 
-package acme.features.any.peep;
+package acme.features.any.course;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.Peep;
+import acme.entities.Course;
+import acme.entities.Nature;
 import acme.framework.components.accounts.Any;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AnyPeepShowService extends AbstractService<Any, Peep> {
+public class AnyCourseShowService extends AbstractService<Any, Course> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AnyPeepRepository repository;
+	protected AnyCourseRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -37,22 +39,27 @@ public class AnyPeepShowService extends AbstractService<Any, Peep> {
 
 	@Override
 	public void load() {
-		Peep object;
+		Course object;
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOnePeepById(id);
+		object = this.repository.findOneCourseById(id);
 
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void unbind(final Peep object) {
+	public void unbind(final Course object) {
 		assert object != null;
 
+		SelectChoices choices;
 		Tuple tuple;
 
-		tuple = super.unbind(object, "instantiation", "title", "nick", "message", "email", "link");
+		choices = SelectChoices.from(Nature.class, object.getNature());
+
+		tuple = super.unbind(object, "code", "title", "abstracts", "price", "nature", "link");
+		tuple.put("nature", choices.getSelected().getKey());
+		tuple.put("natures", choices);
 
 		super.getResponse().setData(tuple);
 	}

@@ -86,8 +86,9 @@ public class AssistantTutorialListAllService extends AbstractService<Assistant, 
 		}
 		final int hours = (int) total;
 		final int minutes = (int) ((total - hours) * 60);
-		final double diffInHoursWithFormat = Double.parseDouble(hours + "." + minutes);
 
+		final double diffInHoursWithFormat = Double.parseDouble(hours + "." + minutes);
+		object.setEstimatedTime(diffInHoursWithFormat);
 		tuple = super.unbind(object, "code", "title");
 		tuple.put("estimatedTime", diffInHoursWithFormat);
 		super.getResponse().setData(tuple);

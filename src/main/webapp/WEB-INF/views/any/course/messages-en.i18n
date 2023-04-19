@@ -8,15 +8,16 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.tutorial.form.label.code = Code:
-authenticated.tutorial.form.label.title = Title:
-authenticated.tutorial.form.label.supervisor = Assistant Supervisor:
-authenticated.tutorial.form.label.abstracts = Abstracts:
-authenticated.tutorial.form.label.goals = Goals:
-authenticated.tutorial.form.button.assistant = Assistant
 
+any.course.form.label.code = Code:
+any.course.form.label.title = Title:
+any.course.form.label.abstracts = Abstracts:
+any.course.form.label.price = Price:
+any.course.form.label.nature = Nature:
+any.course.form.label.link = Link:
 
-authenticated.tutorial.list.label.code = Code
-authenticated.tutorial.list.label.title = Title
+any.course.list.label.code = Code
+any.course.list.label.title = Title
 
+any.course.form.button.tutorial = Tutorials
 

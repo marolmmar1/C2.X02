@@ -87,8 +87,10 @@ public class AssistantTutorialSessionsCreateService extends AbstractService<Assi
 
 	@Override
 	public void validate(final TutorialSession object) {
+		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("inicialPeriod")) {
+
 			long diferenciaDias = 0;
 			final long num = 1;
 			final Date moment = MomentHelper.getCurrentMoment();
@@ -104,6 +106,7 @@ public class AssistantTutorialSessionsCreateService extends AbstractService<Assi
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("finalPeriod")) {
+			super.state(MomentHelper.isAfter(object.getFinalPeriod(), object.getInicialPeriod()), "finalPeriod", "assistant.tutorialSession.form.error.menor");
 
 			long diferenciaHorasMax = 0;
 			long diferenciaHorasMin = 0;
@@ -120,11 +123,11 @@ public class AssistantTutorialSessionsCreateService extends AbstractService<Assi
 
 			final long numMax = 5;
 			final long numMin = 1;
-			super.state(MomentHelper.isAfter(object.getFinalPeriod(), object.getInicialPeriod()), "finalPeriod", "assistant.tutorialSession.form.error.menor");
-			super.state(diferenciaHorasMax < numMax, "finalPeriod", "assistant.tutorialSession.form.error.horaMax");
 			super.state(diferenciaHorasMin >= numMin, "finalPeriod", "assistant.tutorialSession.form.error.horaMin");
+			super.state(diferenciaHorasMax < numMax, "finalPeriod", "assistant.tutorialSession.form.error.horaMax");
 
 		}
+
 	}
 
 	@Override
@@ -143,6 +146,7 @@ public class AssistantTutorialSessionsCreateService extends AbstractService<Assi
 		choices = SelectChoices.from(Nature.class, object.getNature());
 
 		tuple = super.unbind(object, "title", "abstracts", "nature", "inicialPeriod", "finalPeriod", "link");
+		tuple.put("nature", choices.getSelected().getKey());
 		tuple.put("tutorialId", super.getRequest().getData("tutorialId", int.class));
 		tuple.put("natures", choices);
 		tuple.put("draftMode", object.getTutorial().isDraftMode());

@@ -1,23 +1,23 @@
 
-package acme.features.any.peep;
+package acme.features.any.course;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.Peep;
+import acme.entities.Course;
 import acme.framework.components.accounts.Any;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AnyPeepListAllService extends AbstractService<Any, Peep> {
+public class AnyCourseListAllService extends AbstractService<Any, Course> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AnyPeepRepository repository;
+	protected AnyCourseRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -34,20 +34,20 @@ public class AnyPeepListAllService extends AbstractService<Any, Peep> {
 
 	@Override
 	public void load() {
-		Collection<Peep> objects;
+		Collection<Course> objects;
 
-		objects = this.repository.findAllPeep();
+		objects = this.repository.findAllCouseByDraftMode(false);
 
 		super.getBuffer().setData(objects);
 	}
 
 	@Override
-	public void unbind(final Peep object) {
+	public void unbind(final Course object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title");
+		tuple = super.unbind(object, "code", "title");
 
 		super.getResponse().setData(tuple);
 	}
