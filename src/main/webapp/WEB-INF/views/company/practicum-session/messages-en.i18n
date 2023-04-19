@@ -14,8 +14,8 @@ company.practicumSession.form.label.inicialPeriod = Initial Period:
 company.practicumSession.form.label.finalPeriod = Final Period:
 company.practicumSession.form.label.link = Link:
 
-company.practicum.list.label.code = Code
-company.practicum.list.label.title = Title
+
+company.practicumSession.list.label.title = Title
 
 company.practicumSession.list.button.create = Create
 company.practicumSession.form.button.update = Update

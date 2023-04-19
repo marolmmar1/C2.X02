@@ -70,7 +70,7 @@ public class CompanyPracticumShowService extends AbstractService<Company, Practi
 		double total = 0.0;
 		final Collection<PracticumSession> ps = this.repository.findPracticumSessionsByPracticumId(object.getId());
 		final List<PracticumSession> PracticumSessionsList = ps.stream().collect(Collectors.toList());
-		courses = this.repository.findAllCourses();
+		courses = this.repository.findAllCourse(false);
 		selectChoices = SelectChoices.from(courses, "code", object.getCourse());
 
 		if (PracticumSessionsList == null)

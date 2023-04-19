@@ -101,7 +101,7 @@ public class CompanyPracticumUpdateService extends AbstractService<Company, Prac
 		final Collection<PracticumSession> ps = this.repository.findPracticumSessionsByPracticumId(object.getId());
 		final List<PracticumSession> PracticumSessionsList = ps.stream().collect(Collectors.toList());
 
-		courses = this.repository.findAllCourses();
+		courses = this.repository.findAllCourse(false);
 		choices = SelectChoices.from(courses, "code", object.getCourse());
 		if (PracticumSessionsList == null)
 			total = 0.0;
