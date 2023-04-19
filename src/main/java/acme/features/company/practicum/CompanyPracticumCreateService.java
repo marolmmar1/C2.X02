@@ -61,7 +61,7 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 	public void validate(final Practicum object) {
 		assert object != null;
 		if (!super.getBuffer().getErrors().hasErrors("code"))
-			super.state(this.repository.findPracticumByCode(object.getCode()) == null, "code", "company.practicum.form.error.code");
+			super.state(this.repository.findPracticumByCode(object.getCode()) == null, "code", "company.practicum.form.error.duplicated");
 	}
 
 	@Override

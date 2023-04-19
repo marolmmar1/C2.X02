@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Course;
 import acme.entities.Practicum;
-import acme.entities.PracticumSessions;
+import acme.entities.PracticumSession;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -77,7 +77,7 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 
 	@Override
 	public void perform(final Practicum object) {
-		Collection<PracticumSessions> practicumSessions;
+		Collection<PracticumSession> practicumSessions;
 
 		practicumSessions = this.repository.findPracticumSessionsByPracticumId(object.getId());
 		this.repository.deleteAll(practicumSessions);

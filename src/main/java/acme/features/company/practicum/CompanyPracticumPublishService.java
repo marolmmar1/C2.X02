@@ -2,9 +2,6 @@
 package acme.features.company.practicum;
 
 import java.util.Collection;
-import java.util.Date;
-import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,13 +9,14 @@ import org.springframework.stereotype.Service;
 import acme.entities.Course;
 import acme.entities.Practicum;
 import acme.entities.PracticumSession;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class CompanyPracticumUpdateService extends AbstractService<Company, Practicum> {
+public class CompanyPracticumPublishService extends AbstractService<Company, Practicum> {
 
 	@Autowired
 	protected CompanyPracticumRepository repository;
@@ -36,14 +34,15 @@ public class CompanyPracticumUpdateService extends AbstractService<Company, Prac
 	@Override
 	public void authorise() {
 		boolean status;
+		Practicum object;
+		Principal principal;
 		int practicumId;
-		Practicum practicum;
-		Company company;
 
 		practicumId = super.getRequest().getData("id", int.class);
-		practicum = this.repository.findPracticumById(practicumId);
-		company = practicum == null ? null : practicum.getCompany();
-		status = practicum != null && practicum.isDraftMode() && super.getRequest().getPrincipal().hasRole(company);
+		object = this.repository.findPracticumById(practicumId);
+		principal = super.getRequest().getPrincipal();
+
+		status = object.getCompany().getId() == principal.getActiveRoleId();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -77,14 +76,22 @@ public class CompanyPracticumUpdateService extends AbstractService<Company, Prac
 	public void validate(final Practicum object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("code"))
-			super.state(this.repository.findPracticumByCode(object.getCode()) == null || this.repository.findPracticumByCode(object.getCode()).equals(object), "code", "company.practicum.form.error.duplicated");
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Practicum existing;
+
+			existing = this.repository.findPracticumByCode(object.getCode());
+			super.state(existing == null || existing.equals(object), "code", "company.practicum.form.error.duplicated");
+		}
+		final Collection<PracticumSession> practicumSessions = this.repository.findPracticumSessionsByPracticumId(object.getId());
+
+		super.state(!practicumSessions.isEmpty(), "*", "company.practicum.form.error.noSession");
 	}
 
 	@Override
 	public void perform(final Practicum object) {
 		assert object != null;
 
+		object.setDraftMode(false);
 		this.repository.save(object);
 	}
 
@@ -93,39 +100,16 @@ public class CompanyPracticumUpdateService extends AbstractService<Company, Prac
 		assert object != null;
 
 		Collection<Course> courses;
-		PracticumSession practicumSessions;
 		SelectChoices choices;
 		Tuple tuple;
-		double diferenciaHoras = 0.0;
-		double total = 0.0;
-		final Collection<PracticumSession> ps = this.repository.findPracticumSessionsByPracticumId(object.getId());
-		final List<PracticumSession> PracticumSessionsList = ps.stream().collect(Collectors.toList());
 
 		courses = this.repository.findAllCourses();
 		choices = SelectChoices.from(courses, "code", object.getCourse());
-		if (PracticumSessionsList == null)
-			total = 0.0;
-		for (int i = 0; i < PracticumSessionsList.size(); i++) {
-			practicumSessions = PracticumSessionsList.get(i);
-			final Date initialPeriod = practicumSessions.getInicialPeriod();
-			final Date finalPeriod = practicumSessions.getFinalPeriod();
-			final long milisegundosInicio = initialPeriod.getTime();
-			final long milisengundosFin = finalPeriod.getTime();
-			final long diferenciaMilisegundos = milisengundosFin - milisegundosInicio;
-			if (diferenciaMilisegundos > 0) {
-				diferenciaHoras = (double) diferenciaMilisegundos / (1000 * 60 * 60);
-				total += diferenciaHoras;
-			}
-		}
 
-		final int hours = (int) total;
-		final int minutes = (int) ((total - hours) * 60);
-		final double diffHours = Double.parseDouble(hours + "." + minutes);
-
-		tuple = super.unbind(object, "code", "title", "abstracts", "goals", "draftMode");
+		tuple = super.unbind(object, "code", "title", "abstracts", "goals");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
-		tuple.put("estimatedTime", diffHours);
+
 		super.getResponse().setData(tuple);
 	}
 
