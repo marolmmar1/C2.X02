@@ -17,8 +17,7 @@
 
 <acme:list><acme:list-column code="authenticated.tutorial.list.label.code" path="code" width="20%"/>
 	<acme:list-column code="authenticated.tutorial.list.label.title" path="title" width="20%"/>
-	<acme:list-column code="authenticated.tutorial.list.label.codeCourse" path="course.code" width="80%"/>
-
+	
 </acme:list>
 
 
