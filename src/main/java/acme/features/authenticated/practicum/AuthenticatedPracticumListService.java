@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Practicum;
-import acme.features.company.practicum.CompanyPracticumRepository;
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -16,7 +15,7 @@ import acme.framework.services.AbstractService;
 public class AuthenticatedPracticumListService extends AbstractService<Authenticated, Practicum> {
 
 	@Autowired
-	protected CompanyPracticumRepository repository;
+	protected AuthenticatedPracticumRepository repository;
 
 
 	@Override

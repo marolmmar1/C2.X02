@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Course;
 import acme.entities.Practicum;
-import acme.features.company.practicum.CompanyPracticumRepository;
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
@@ -18,7 +17,7 @@ import acme.framework.services.AbstractService;
 public class AuthenticatedPracticumShowService extends AbstractService<Authenticated, Practicum> {
 
 	@Autowired
-	protected CompanyPracticumRepository repository;
+	protected AuthenticatedPracticumRepository repository;
 
 
 	@Override
