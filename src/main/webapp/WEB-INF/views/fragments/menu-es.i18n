@@ -40,6 +40,12 @@ master.menu.assistant = Asistente
 master.menu.assistant.user-account.general-data = Account
 master.menu.authenticated.tutorial.list-all = Lista de Tutoriales
 
+# master.menu.auditor ###################################################
+
+master.menu.auditor = Auditor
+master.menu.auditor.user-account.general-data = Cuenta
+master.menu.auditor.audit.list-all = Lista de auditorias
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Proveedor
@@ -66,3 +72,5 @@ master.menu.user-account.become-consumer = Hazte consumidor
 master.menu.user-account.auditor = Datos de auditor
 master.menu.user-account.become-auditor = Hazte auditor
 master.menu.authenticated.bulletin.create = Crear boletín
+master.menu.user-account.become-student = Hazte estudiante
+master.menu.user-account.student = Datos de estudiante

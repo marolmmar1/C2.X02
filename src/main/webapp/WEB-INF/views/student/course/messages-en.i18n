@@ -1,4 +1,4 @@
-# messages-es.i18n
+# messages-en.i18n
 #
 # Copyright (C) 2012-2023 Rafael Corchuelo.
 #
@@ -8,12 +8,13 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.enrolment.form.label.code = Código:
-authenticated.enrolment.form.label.motivation = Motivación:
-authenticated.enrolment.form.label.goals = Objetivos:
-authenticated.enrolment.form.button.student = Estudiante
+student.course.list.label.code = Code
+student.course.list.label.title = Title
+student.course.list.label.abstract = Abstract
+student.course.list.label.price = Price
+student.course.list.label.link = Link
+student.course.list.label.lecturer = Lecturer
+student.course.list.label.lecture = Lecture
 
-
-authenticated.enrolment.list.label.code = Código
-authenticated.enrolment.list.label.codeCourse = Código del Curso
-
+student.enrolment.list.label.code = Code
+student.enrolment.list.label.title = Title

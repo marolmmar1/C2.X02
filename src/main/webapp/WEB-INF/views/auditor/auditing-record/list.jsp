@@ -15,10 +15,16 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
-
-<acme:list><acme:list-column code="authenticated.enrolment.list.label.code" path="code" width="20%"/>
-	<acme:list-column code="authenticated.enrolment.list.label.codeCourse" path="course.code" width="80%"/>
+<acme:list>
+	<acme:list-column code="auditor.auditingRecords.list.label.subject" path="subject" width="20%"/>
+	<acme:list-column code="auditor.auditingRecords.list.label.markType" path="markType" width="20%"/>
+	<jstl:choose>	 
+		<jstl:when test="${_command == 'show'}">
+			<acme:button code="auditor.audit.form.button.auditingRecords" action="/auditor/auditing-record/list?auditId=${id}"/>
+		</jstl:when>
+	</jstl:choose>			
 
 </acme:list>
+<acme:button test="${showCreate}" code="auditor.auditingRecords.create.button.auditingRecords" action="/auditor/auditing-record/create?auditId=${auditId}"/>
 
 

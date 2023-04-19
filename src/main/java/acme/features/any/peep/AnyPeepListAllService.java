@@ -19,7 +19,7 @@ public class AnyPeepListAllService extends AbstractService<Any, Peep> {
 	@Autowired
 	protected AnyPeepRepository repository;
 
-	// AbstractService interface ----------------------------------------------
+	// AbstractService<Authenticated, Consumer> ---------------------------
 
 
 	@Override
@@ -36,8 +36,7 @@ public class AnyPeepListAllService extends AbstractService<Any, Peep> {
 	public void load() {
 		Collection<Peep> objects;
 
-		objects = this.repository.findAllPeep();
-
+		objects = this.repository.findAllPeeps();
 		super.getBuffer().setData(objects);
 	}
 
@@ -47,8 +46,9 @@ public class AnyPeepListAllService extends AbstractService<Any, Peep> {
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title");
+		tuple = super.unbind(object, "moment", "title", "nick");
 
 		super.getResponse().setData(tuple);
 	}
+
 }
