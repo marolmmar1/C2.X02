@@ -46,6 +46,12 @@ master.menu.auditor = Auditor
 master.menu.auditor.user-account.general-data = Account
 master.menu.auditor.audit.list-all = Audit List
 
+#master.menu.company ###########################################################
+master.menu.company = Practicum
+master.menu.authenticated.practicum.list-all = List of practicums
+master.menu.company.practicum.create = Create practicum
+master.menu.company.company.dashboard = My dashboard
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Provider
@@ -65,6 +71,7 @@ master.menu.provider.favourite-link = 54183920z: Lorenzo Casas, Angel
 master.menu.user-account = Account
 master.menu.authenticated.bulletin.list-all = Bulletin List
 master.menu.authenticated.tutorial.list-all = Tutorial List
+master.menu.authenticated.practicum.list-all = Practicum List
 master.menu.authenticated.offer.list-all = Offer List
 master.menu.user-account.general-data = General data
 master.menu.user-account.provider = Provider data
