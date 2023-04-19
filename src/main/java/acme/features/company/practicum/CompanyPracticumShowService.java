@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Course;
 import acme.entities.Practicum;
-import acme.entities.PracticumSessions;
+import acme.entities.PracticumSession;
 import acme.framework.components.accounts.Principal;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
@@ -65,11 +65,11 @@ public class CompanyPracticumShowService extends AbstractService<Company, Practi
 		final Tuple tupla;
 		Collection<Course> courses;
 		SelectChoices selectChoices;
-		PracticumSessions practicumSessions;
+		PracticumSession practicumSessions;
 		double diferenciaHoras = 0.0;
 		double total = 0.0;
-		final Collection<PracticumSessions> ps = this.repository.findPracticumSessionsByPracticumId(object.getId());
-		final List<PracticumSessions> PracticumSessionsList = ps.stream().collect(Collectors.toList());
+		final Collection<PracticumSession> ps = this.repository.findPracticumSessionsByPracticumId(object.getId());
+		final List<PracticumSession> PracticumSessionsList = ps.stream().collect(Collectors.toList());
 		courses = this.repository.findAllCourses();
 		selectChoices = SelectChoices.from(courses, "code", object.getCourse());
 
