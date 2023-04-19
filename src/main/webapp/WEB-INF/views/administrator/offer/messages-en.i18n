@@ -8,11 +8,21 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.offer.form.label.heading = Heading:
-authenticated.offer.form.label.summary = Summary:
-authenticated.offer.form.label.inicialPeriod = Start:
-authenticated.offer.form.label.finalPeriod = End:
-authenticated.offer.form.label.price = Price:
-authenticated.offer.form.label.link = Link: 
+administrator.offer.form.label.heading = Heading:
+administrator.offer.form.label.summary = Summary:
+administrator.offer.form.label.inicialPeriod = Start:
+administrator.offer.form.label.finalPeriod = End:
+administrator.offer.form.label.price = Price:
+administrator.offer.form.label.link = Link: 
 
-authenticated.offer.list.label.heading = Heading
+administrator.offer.list.label.heading = Heading
+
+administrator.offer.form.button.create = Crear
+administrator.offer.form.button.update = Actualizar
+administrator.offer.form.button.delete = Eliminar
+
+administrator.offer.form.error.antes = La fecha inicial debe de ser después de la fecha de instanciación
+administrator.offer.form.error.menos = El periodo entre el inicial y el final debe ser de un minimo de 7 días
+administrator.offer.form.error.menor = La fecha de inicio debe de ser antes a la final
+
+administrator.offer.form.error.wrong-price = The price must be positive
