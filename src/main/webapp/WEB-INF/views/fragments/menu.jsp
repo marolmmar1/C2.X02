@@ -52,6 +52,12 @@
 			<acme:menu-suboption code="master.menu.auditor.audit.list-all" action="/auditor/audit/list-all"/>
 		</acme:menu-option>
 
+		<acme:menu-option code="master.menu.company" access="hasRole('Company')">
+			  <acme:menu-suboption code="master.menu.authenticated.practicum.list-all" action="/company/practicum/list-all"/>
+			  <acme:menu-suboption code="master.menu.company.practicum.create" action="/company/practicum/create"/>
+		</acme:menu-option>
+		
+		
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
 			<acme:menu-suboption code="master.menu.provider.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
@@ -68,8 +74,13 @@
 		<acme:menu-option code="master.menu.user-account" access="isAuthenticated()">
 		<acme:menu-suboption code="master.menu.assistant.user-account.general-data" action="/assistant/user-account/update" access="hasRole('Assistant')"/>
 		<acme:menu-suboption code="master.menu.authenticated.bulletin.list-all" action="/authenticated/bulletin/list-all"/>
+
+		<acme:menu-suboption code="master.menu.authenticated.tutorial.list-all" action="/authenticated/tutorial/list-all"/>
+		<acme:menu-suboption code="master.menu.authenticated.practicum.list-all" action="/authenticated/practicum/list-all"/>
+
 		<acme:menu-suboption code="master.menu.any.course.list-all" action="/any/course/list-all"/>
 		<acme:menu-suboption code="master.menu.any.peep.list-all" action="/any/peep/list-all"/>
+    
 		<acme:menu-suboption code="master.menu.authenticated.offer.list-all" action="/authenticated/offer/list-all"/>
 			<acme:menu-suboption code="master.menu.user-account.general-data" action="/authenticated/user-account/update"/>
 			<acme:menu-suboption code="master.menu.user-account.become-assistant" action="/authenticated/assistant/create" access="!hasRole('Assistant')"/>

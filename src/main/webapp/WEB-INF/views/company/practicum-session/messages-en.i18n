@@ -14,14 +14,15 @@ company.practicumSession.form.label.inicialPeriod = Initial Period:
 company.practicumSession.form.label.finalPeriod = Final Period:
 company.practicumSession.form.label.link = Link:
 
-company.practicum.list.label.code = Code
-company.practicum.list.label.title = Title
+
+company.practicumSession.list.label.title = Title
 
 company.practicumSession.list.button.create = Create
 company.practicumSession.form.button.update = Update
 company.practicumSession.form.button.delete = Delete
 company.practicum.form.button.practicumSession = Practicum Session
 company.practicumSession.form.button.create = Create
+company.practicumSession.create.button.practicumSession = Create Practicum Session
 
 company.practicumSession.form.error.horaMax = The duration should be a minimum of 1 week
 company.practicumSession.form.error.horaMin = Must be at least one week ahead

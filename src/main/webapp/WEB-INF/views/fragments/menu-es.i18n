@@ -46,6 +46,13 @@ master.menu.auditor = Auditor
 master.menu.auditor.user-account.general-data = Cuenta
 master.menu.auditor.audit.list-all = Lista de auditorias
 
+#master.menu.company ###########################################################
+
+master.menu.company = Practicas
+master.menu.authenticated.practicum.list-all = Lista de practicas
+master.menu.company.practicum.create = Crear practicas
+master.menu.company.company.dashboard = Mi panel
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Proveedor
@@ -60,8 +67,13 @@ master.menu.consumer.favourite-link = Enlace favorito
 
 master.menu.user-account = Cuenta
 master.menu.authenticated.bulletin.list-all = Lista de boletines
+
+master.menu.authenticated.tutorial.list-all = Lista de tutorias
+master.menu.authenticated.practicum.list-all = Lista de practicas
+
 master.menu.any.course.list-all = Lista de Cursos
 master.menu.any.peep.list-all = Lista de Peep
+
 master.menu.authenticated.offer.list-all = Listas de ofertas
 master.menu.user-account.general-data = Datos generales
 master.menu.user-account.provider = Datos de proveedor

@@ -38,7 +38,7 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 
 		practicumSessionId = super.getRequest().getData("id", int.class);
 		practicum = this.repository.findPracticumByPracticumSessionId(practicumSessionId);
-		status = practicum != null && (!practicum.isDraftMode() || super.getRequest().getPrincipal().hasRole(practicum.getCompany()));
+		status = practicum != null && practicum.isDraftMode() && super.getRequest().getPrincipal().hasRole(practicum.getCompany());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -117,6 +117,7 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 
 		tuple = super.unbind(object, "title", "abstracts", "inicialPeriod", "finalPeriod", "link");
 		tuple.put("practicumId", object.getPracticum().getId());
+		tuple.put("draftMode", object.getPracticum().isDraftMode());
 		super.getResponse().setData(tuple);
 	}
 

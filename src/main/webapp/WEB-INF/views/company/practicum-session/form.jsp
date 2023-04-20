@@ -23,12 +23,12 @@
 	<acme:input-moment code="company.practicumSession.form.label.finalPeriod" path="finalPeriod"/>
 	<acme:input-url code="company.practicumSession.form.label.link" path="link"/>
 	<jstl:choose>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish')&& draftMode == true}">
+	<jstl:when test="${_command == 'create'}">
+			<acme:submit code="company.practicumSession.form.button.create" action="/company/practicum-session/create?practicumId=${practicumId}"/>
+		</jstl:when>
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')&& draftMode == true}">
 			<acme:submit code="company.practicumSession.form.button.update" action="/company/practicum-session/update"/>
 			<acme:submit code="company.practicumSession.form.button.delete" action="/company/practicum-session/delete"/>
-		</jstl:when>
-		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="company.practicumSession.form.button.create" action="/company/practicum-session/create?practicumId=${practicumId}"/>
 		</jstl:when>		
 	</jstl:choose>
 	
