@@ -68,7 +68,7 @@ public class CompanyPracticumSessionListService extends AbstractService<Company,
 
 		practicumId = super.getRequest().getData("id", int.class);
 		practicum = this.repository.findPracticumById(practicumId);
-		showCreate = practicum != null && super.getRequest().getPrincipal().hasRole(practicum.getCompany());
+		showCreate = practicum != null && practicum.isDraftMode() && super.getRequest().getPrincipal().hasRole(practicum.getCompany());
 
 		super.getResponse().setGlobal("practicumId", practicumId);
 		super.getResponse().setGlobal("showCreate", showCreate);

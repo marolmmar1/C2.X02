@@ -20,7 +20,9 @@ public class AuthenticatedPracticumListService extends AbstractService<Authentic
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+		status = super.getRequest().hasData("id", int.class);
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
@@ -30,21 +32,18 @@ public class AuthenticatedPracticumListService extends AbstractService<Authentic
 
 	@Override
 	public void load() {
-		Collection<Practicum> practicums;
-		final int masterId;
-		masterId = super.getRequest().getData("masterId", int.class);
-		practicums = this.repository.findAllPracticaByCourseId(masterId);
-		super.getBuffer().setData(practicums);
+		final Collection<Practicum> objects;
+		final int courseId = super.getRequest().getData("id", int.class);
+		objects = this.repository.findAllPracticaByCourseId(courseId);
+		super.getBuffer().setData(objects);
 	}
 
 	@Override
 	public void unbind(final Practicum object) {
-
 		assert object != null;
 		Tuple tuple;
 
 		tuple = super.unbind(object, "code", "title");
-		tuple.put("courseCode", object.getCourse().getCode());
 		super.getResponse().setData(tuple);
 	}
 

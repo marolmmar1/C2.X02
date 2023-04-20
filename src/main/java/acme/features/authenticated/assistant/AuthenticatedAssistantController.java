@@ -30,6 +30,8 @@ public class AuthenticatedAssistantController extends AbstractController<Authent
 	protected AuthenticatedAssistantShowService		showService;
 	@Autowired
 	protected AuthenticatedAssistantCreateService	createService;
+	@Autowired
+	protected AuthenticatedAssistantUpdateService	updateService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -38,7 +40,7 @@ public class AuthenticatedAssistantController extends AbstractController<Authent
 	protected void initialise() {
 		super.addBasicCommand("create", this.createService);
 		super.addBasicCommand("show", this.showService);
-
+		super.addBasicCommand("update", this.updateService);
 	}
 
 }

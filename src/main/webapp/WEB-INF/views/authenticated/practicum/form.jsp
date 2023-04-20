@@ -17,13 +17,11 @@
 
 <acme:form>
 
-	<acme:input-textbox code="authenticated.assistant.form.label.supervisor" path="supervisor"/>	
-	<acme:input-textarea code="authenticated.assistant.form.label.expertiseField" path="expertiseField"/>
-	<acme:input-textarea code="authenticated.assistant.form.label.resume" path="resume"/>
-	<acme:input-url code="authenticated.assistant.form.label.link" path="link"/>
+	<acme:input-textbox code="authenticated.practicum.form.label.code" path="code"/>	
+	<acme:input-textbox code="authenticated.practicum.form.label.title" path="title"/>
+	<acme:input-textarea code="authenticated.practicum.form.label.abstracts" path="abstracts"/>
+	<acme:input-textarea code="authenticated.practicum.form.label.goals" path="goals"/>
+	<acme:input-textbox code="authenticated.practicum.form.label.name" path="company.name"/>
 	
-	<acme:submit test="${_command == 'create'}" code="authenticated.assistant.form.button.create" action="/authenticated/assistant/create"/>
-	<acme:submit test="${_command == 'update'}" code="authenticated.assistant.form.button.update" action="/authenticated/assistant/update"/>
 
 </acme:form>
-

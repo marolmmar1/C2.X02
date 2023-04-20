@@ -45,7 +45,7 @@ public class AuthenticatedPracticumShowService extends AbstractService<Authentic
 		assert object != null;
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "goals", "abstracts");
+		tuple = super.unbind(object, "code", "title", "goals", "abstracts", "company.name");
 		super.getResponse().setData(tuple);
 	}
 

@@ -8,16 +8,14 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
+authenticated.practicum.form.label.code = Code:
+authenticated.practicum.form.label.title = Title:
+authenticated.practicum.form.label.abstracts = Abstracts:
+authenticated.practicum.form.label.goals = Goals:
+authenticated.practicum.form.button.company = Company
+authenticated.practicum.form.label.name = Company name
 
-any.course.form.label.code = Code:
-any.course.form.label.title = Title:
-any.course.form.label.abstracts = Abstracts:
-any.course.form.label.price = Price:
-any.course.form.label.nature = Nature:
-any.course.form.label.link = Link:
+authenticated.practicum.list.label.code = Code
+authenticated.practicum.list.label.title = Title
 
-any.course.list.label.code = Code
-any.course.list.label.title = Title
 
-any.course.form.button.tutorial = Tutorials
-any.course.form.button.practicum = Practicums
