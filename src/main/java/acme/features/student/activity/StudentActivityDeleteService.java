@@ -70,7 +70,7 @@ public class StudentActivityDeleteService extends AbstractService<Student, Activ
 	public void bind(final Activity object) {
 		assert object != null;
 
-		super.bind(object, "title", "abstracts", "nature", "startDate", "endDate", "link");
+		super.bind(object, "title", "abstracts", "inicialPeriod", "FinalPeriod", "nature", "link");
 	}
 
 	@Override
@@ -90,7 +90,7 @@ public class StudentActivityDeleteService extends AbstractService<Student, Activ
 		assert object != null;
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "abstracts", "startDate", "endDate", "nature", "link", "enrolment.code");
+		tuple = super.unbind(object, "title", "abstracts", "inicialPeriod", "FinalPeriod", "nature", "link", "enrolment.code");
 
 		super.getResponse().setData(tuple);
 	}

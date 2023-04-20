@@ -37,7 +37,7 @@ public class StudentCourseController extends AbstractController<Student, Course>
 
 	@PostConstruct
 	protected void initialise() {
-		super.addBasicCommand("list", this.listService);
+		super.addCustomCommand("list-all", "list", this.listService);
 		super.addBasicCommand("show", this.showService);
 	}
 }

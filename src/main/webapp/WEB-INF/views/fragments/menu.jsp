@@ -63,8 +63,9 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.student" access="hasRole('Student')">
-			<acme:menu-suboption code="master.menu.authenticated.enrolment.list-all" action="/student/enrolment/list-all"/>
-			
+			<acme:menu-suboption code="master.menu.student.enrolment.list-all" action="/student/enrolment/list-all"/>
+			<acme:menu-suboption code="master.menu.student.activity.list-all" action="/student/activity/list-all"/>
+			<acme:menu-suboption code="master.menu.student.course.list-all" action="/student/course/list-all"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">

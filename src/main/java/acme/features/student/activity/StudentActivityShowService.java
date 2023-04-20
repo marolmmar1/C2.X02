@@ -71,7 +71,7 @@ public class StudentActivityShowService extends AbstractService<Student, Activit
 
 		//		final SelectChoices choicesAN = SelectChoices.from(Nature.class, object.getActivityNature());
 
-		tuple = super.unbind(object, "title", "abstracts", "startDate", "endDate", "nature","link", "enrolment.code");
+		tuple = super.unbind(object, "title", "abstracts", "inicialPeriod", "finalPeriod", "nature", "link", "enrolment.code");
 		//		tuple.put("natureOptions", choicesAN);
 		tuple.put("enrolments", choicesE);
 		tuple.put("enrolment", choicesE.getSelected().getKey());
