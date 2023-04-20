@@ -13,6 +13,7 @@
 package acme.features.assistant.tutorialSession;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -35,5 +36,11 @@ public interface AssistantTutorialSessionsRepository extends AbstractRepository 
 
 	@Query("select ts from TutorialSession ts where ts.tutorial.id = :id")
 	Collection<TutorialSession> findManyTutorialSessionsByTutorialId(int id);
+
+	@Query("select ts from TutorialSession ts where ts.inicialPeriod = :inicialPeriod")
+	Tutorial findOneTutorialByInicialPeriod(Date inicialPeriod);
+
+	@Query("select ts from TutorialSession ts where ts.finalPeriod = :finalPeriod")
+	Tutorial findOneTutorialByFinalPeriod(Date finalPeriod);
 
 }
