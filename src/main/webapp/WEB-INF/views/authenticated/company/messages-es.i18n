@@ -1,4 +1,4 @@
-# messages-en.i18n
+# messages-es.i18n
 #
 # Copyright (C) 2012-2023 Rafael Corchuelo.
 #
@@ -8,16 +8,11 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
+authenticated.company.form.label.name = Nombre:
+authenticated.company.form.label.vatNumber = Número Vat:
+authenticated.company.form.label.summary = Curriculum:
+authenticated.company.form.label.link = Link:
 
-any.course.form.label.code = Code:
-any.course.form.label.title = Title:
-any.course.form.label.abstracts = Abstracts:
-any.course.form.label.price = Price:
-any.course.form.label.nature = Nature:
-any.course.form.label.link = Link:
 
-any.course.list.label.code = Code
-any.course.list.label.title = Title
-
-any.course.form.button.tutorial = Tutorials
-any.course.form.button.practicum = Practicums
+authenticated.company.form.button.create = Registro
+authenticated.company.form.button.update = Actualizar
