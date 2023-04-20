@@ -72,7 +72,6 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 		object = new AuditingRecord();
 		object.setSubject("");
 		object.setAssessment("");
-		object.setMarkType(MarkType.B);
 		object.setAudit(audit);
 
 		super.getBuffer().setData(object);
