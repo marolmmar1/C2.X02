@@ -67,7 +67,7 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 
 		if (!super.getBuffer().getErrors().hasErrors("inicialPeriod")) {
 			long diferenciaDias = 0;
-			final long num = 1;
+			final long num = 7;
 			final Date moment = MomentHelper.getCurrentMoment();
 			final Date inicialPeriod = object.getInicialPeriod();
 			final long milisegundosInicio = moment.getTime();
@@ -95,10 +95,8 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 			diferenciaHorasMax = TimeUnit.MILLISECONDS.toHours(diferenciaMilisegundosMax);
 			diferenciaHorasMin = TimeUnit.MILLISECONDS.toHours(diferenciaMilisegundosMin);
 
-			final long numMax = 5;
-			final long numMin = 1;
+			final long numMin = 168;
 			super.state(MomentHelper.isAfter(object.getFinalPeriod(), object.getInicialPeriod()), "finalPeriod", "company.practicumSession.form.error.minor");
-			super.state(diferenciaHorasMax < numMax, "finalPeriod", "company.practicumSession.form.error.horaMax");
 			super.state(diferenciaHorasMin >= numMin, "finalPeriod", "company.practicumSession.form.error.horaMin");
 		}
 	}
