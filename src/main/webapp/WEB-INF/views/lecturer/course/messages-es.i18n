@@ -30,3 +30,4 @@ lecturer.course.form.error.update.draft = Sólo se puede editar en modo borrador
 lecturer.course.form.error.delete.draft = Sólo se puede editar en modo borrador
 lecturer.course.form.error.code.repeated = Este código está en uso
 lecturer.course.form.error.update.code.repeated = Este código está en uso 
+validation.course.code = Formato de código incorrecto

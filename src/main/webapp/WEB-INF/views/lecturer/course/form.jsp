@@ -23,7 +23,7 @@
 	<acme:input-textbox code="lecturer.course.form.label.title" path="title"/>
 	<acme:input-textarea code="lecturer.course.form.label.abstracts" path="abstracts"/>
 	<acme:input-money code="lecturer.course.form.label.price" path="price"/>
-	<acme:input-textbox code="lecturer.course.form.label.nature" path="nature"/>	
+	<acme:input-select code="lecturer.course.form.label.nature" path="nature" choices="${natures }"/>	
 	<acme:input-url code="lecturer.course.form.label.link" path="link"/>
 	
 	
