@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Course;
+import acme.entities.Nature;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -62,9 +64,6 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 		code = super.getRequest().getData("code", String.class);
 		repeatCode = this.repository.findCourseByCode(code);
 
-		if (!super.getBuffer().getErrors().hasErrors("code"))
-			super.state(this.repository.findCourseByCode(object.getCode()) == null, "code", "lecturer.course.form.error.code");
-
 		super.state(!repeatCode.isPresent(), "code", "lecturer.course.form.error.code.repeated");
 	}
 
@@ -79,9 +78,13 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 	public void unbind(final Course object) {
 		assert object != null;
 
+		final SelectChoices choices;
 		Tuple tupla;
 
+		choices = SelectChoices.from(Nature.class, object.getNature());
 		tupla = super.unbind(object, "code", "title", "abstracts", "price", "nature", "link");
+		tupla.put("nature", choices.getSelected().getKey());
+		tupla.put("natures", choices);
 
 		super.getResponse().setData(tupla);
 	}

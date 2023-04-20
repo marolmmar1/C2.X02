@@ -26,8 +26,9 @@ lecturer.course.list.label.title = Title
 lecturer.course.list.label.abstracts = Abstract
 lecturer.course.list.button.create = Create
 
-lecturer.course.form.error.update.draft = This just can be updated in draft mode
-lecturer.course.form.error.delete.draft = This just can be deleted in draft mode
+lecturer.course.form.error.update.draft = It can only be updated in draft mode
+lecturer.course.form.error.delete.draft = It can only be deleted in draft mode
 lecturer.course.form.error.code.repeated = This code is taken 
 lecturer.course.form.error.update.code.repeated = This code is taken 
+validation.course.code = Incorrect format for a code
 
