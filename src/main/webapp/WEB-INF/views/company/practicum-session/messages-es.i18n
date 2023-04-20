@@ -22,6 +22,7 @@ company.practicumSession.form.button.update = Actualizar
 company.practicumSession.form.button.delete = Eliminar
 company.practicum.form.button.practicumSession = Sesiones de Practica
 company.practicumSession.form.button.create = Crear
+company.practicumSession.create.button.practicumSession = Crear sesion de practica
 
 company.practicumSession.form.error.horaMax = La duración debe ser de al menos 1 semana
 company.practicumSession.form.error.horaMin = Debe tener al menos una semana de antelacion
