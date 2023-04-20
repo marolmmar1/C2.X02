@@ -16,3 +16,13 @@ administrator.offer.form.label.price = Precio:
 administrator.offer.form.label.link = Enlace: 
 
 administrator.offer.list.label.heading = Cabecera
+
+administrator.offer.form.button.create = Crear
+administrator.offer.form.button.update = Actualizar
+administrator.offer.form.button.delete = Eliminar
+
+administrator.offer.form.error.antes = La fecha inicial debe de ser después de la fecha de instanciación
+administrator.offer.form.error.menos = El periodo entre el inicial y el final debe ser de un minimo de 7 días
+administrator.offer.form.error.menor = La fecha de inicio debe de ser antes a la final
+
+administrator.offer.form.error.wrong-price = El precio debe ser mayor que cero
