@@ -73,7 +73,7 @@ public class StudentCourseShowService extends AbstractService<Student, Course> {
 	public void unbind(final Course object) {
 		assert object != null;
 
-		final Tuple tuple = super.unbind(object, "code", "title", "abstract$", "price", "link");
+		final Tuple tuple = super.unbind(object, "code", "title", "abstracts", "price", "nature", "link");
 
 		final int id = object.getId();
 		final Collection<CourseLecture> mapper = this.repository.findCourseLectureByCourseId(id);
