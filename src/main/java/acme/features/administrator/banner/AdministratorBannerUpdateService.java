@@ -44,8 +44,15 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 
 	@Override
 	public void authorise() {
+		boolean status;
+		int masterId;
+		Banner banner;
+		masterId = super.getRequest().getData("id", int.class);
+		banner = this.repository.findOneBannerById(masterId);
+		final Date moment = MomentHelper.getCurrentMoment();
+		status = moment.before(banner.getInicialPeriod()) || moment.after(banner.getFinalPeriod());
 
-		super.getResponse().setAuthorised(true);
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -103,9 +110,12 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 		assert object != null;
 
 		Tuple tuple;
+		final boolean showUpdateDelete;
+		final Date moment = MomentHelper.getCurrentMoment();
 
+		showUpdateDelete = moment.before(object.getInicialPeriod()) || moment.after(object.getFinalPeriod());
 		tuple = super.unbind(object, "inicialPeriod", "finalPeriod", "slogan", "link", "linkImage");
-
+		tuple.put("showUpdateDelete", showUpdateDelete);
 		super.getResponse().setData(tuple);
 	}
 

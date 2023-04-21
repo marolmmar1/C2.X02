@@ -84,7 +84,7 @@ public class AssistantTutorialSessionsListService extends AbstractService<Assist
 
 		tutorialId = super.getRequest().getData("id", int.class);
 		tutorial = this.repository.findOneTutorialById(tutorialId);
-		showCreate = tutorial != null && super.getRequest().getPrincipal().hasRole(tutorial.getAssistant());
+		showCreate = tutorial != null && tutorial.isDraftMode() && super.getRequest().getPrincipal().hasRole(tutorial.getAssistant());
 
 		super.getResponse().setGlobal("tutorialId", tutorialId);
 		super.getResponse().setGlobal("showCreate", showCreate);
