@@ -25,7 +25,7 @@ public class Tutorial extends AbstractEntity {
 
 	@NotBlank
 	@Column(unique = true)
-	@Pattern(regexp = "(^[A-Z]{1,3}[0-9]{3}$)", message = "{validation.tutorial.code}")
+	@Pattern(regexp = "(^[A-Z]{1,3}[0-9]{3}$)", message = "{No es el formato adecuado}")
 	protected String			code;
 
 	@NotBlank
@@ -39,6 +39,10 @@ public class Tutorial extends AbstractEntity {
 	@NotBlank
 	@Length(max = 100)
 	protected String			goals;
+
+	protected boolean			draftMode;
+
+	protected double			estimatedTime;
 
 	// Relationships ----------------------------------------------------------
 	@NotNull

@@ -1,0 +1,28 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+administrator.offer.form.label.heading = Heading:
+administrator.offer.form.label.summary = Summary:
+administrator.offer.form.label.inicialPeriod = Start:
+administrator.offer.form.label.finalPeriod = End:
+administrator.offer.form.label.price = Price:
+administrator.offer.form.label.link = Link: 
+
+administrator.offer.list.label.heading = Heading
+
+administrator.offer.form.button.create = Crear
+administrator.offer.form.button.update = Actualizar
+administrator.offer.form.button.delete = Eliminar
+
+administrator.offer.form.error.antes = La fecha inicial debe de ser después de la fecha de instanciación
+administrator.offer.form.error.menos = El periodo entre el inicial y el final debe ser de un minimo de 7 días
+administrator.offer.form.error.menor = La fecha de inicio debe de ser antes a la final
+
+administrator.offer.form.error.wrong-price = The price must be positive

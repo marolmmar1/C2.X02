@@ -40,11 +40,18 @@ public class Audit extends AbstractEntity {
 	@Length(max = 100)
 	protected String			weakPoints;
 
+	protected boolean			draftMode;
+
 	//Relaciones
 
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
 	protected Auditor			auditor;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Course			course;
 
 }

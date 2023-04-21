@@ -1,7 +1,27 @@
 key,code,title,abstracts,price,nature,link,draftMode,key:lecturer
-course-01,GC922,c,Graduado,"EUR 15,000.98",THEORETICAL,http://example.com,true,lecturer-01
-course-02,TN928,cour,"<script> alert(""hi!"")</script>","USD 20,000.00",BALANCE,http://example.com,false,lecturer-02
-course-03,TJP928,courseTitle-02,Graduado en la universidad de Sevilla de Ingeniería de Software comprobando mas,"USD 4.00",BALANCE,http://example.com,true,lecturer-03
-course-04,T672,y5BedXixYknyRfPQAuZuwHL8P,Graduado en la universidad de Sevilla de Ingeniería de Software,"GBP 20,000.00",BALANCE,http://example.com,false,lecturer-04
-course-05,TNJ282,rRtDcMeZu9NPLiqrz7ASEXW6mNANnPPqiiacgKLfKrYpvTxAR3yP8g7i5Hr7XDBxrLaKPQ,こんにちは、私のすべての人々に私たちはお元気ですか,"GBP 20,000.00",THEORETICAL,http://example.com,true,lecturer-05
-course-06,T282,4V4gZES32W4gxYad7ap2RERmL7HeB9nxdDnNk8BQKdB4bJXf6zriKV3Sz4R5GAmfg9DWek,tvAS5xHmNyNKxTxanv2gj98GeShhXkTQbiTatkBnGTTtR7BjLABgR3vWRGG9gJvEhZB5q73xdCXtdBLaMe8T8YqrRfDHXAKDD,"EUR 50.00",BALANCE,http://example.com,false,lecturer-06
+course-01,ABC123,title1,Graduado,"EUR 20.00",THEORETICAL,http://example.com,true,lecturer-01
+course-02,A123,title2,Graduado,"EUR 20.00",THEORETICAL,http://example.com,false,lecturer-02
+course-03,AB123,title3,Graduado,"EUR 20.00",THEORETICAL,http://example.com,true,lecturer-03
+course-04,ABC124,t,Graduado,"EUR 20.00",THEORETICAL,http://example.com,false,lecturer-04
+course-05,ABC125,ti,Graduado,"EUR 20.00",THEORETICAL,http://example.com,true,lecturer-05
+course-06,ABC126,4V4gZES32W4gxYad7ap2RERmL7HeB9nxdDnNk8BQKdB4bJXf6zriKV3Sz4R5GAmfg9DWekfsdr,Graduado,"EUR 20.00",THEORETICAL,http://example.com,false,lecturer-06
+course-07,ABC128,4V4gZES32W4gxYad7ap2RERmL7HeB9nxdDnNk8BQKdB4bJXf6zriKV3Sz4R5GAmfg9DWekfsdrM,Graduado,"EUR 20.00",THEORETICAL,http://example.com,false,lecturer-07
+course-08,ABC129,title1,G,"EUR 20.00",THEORETICAL,http://example.com,false,lecturer-08
+course-09,ABC130,title1,Gr,"EUR 20.00",THEORETICAL,http://example.com,false,lecturer-09
+course-10,ABC131,title1,voy a escribir cien caracteres en esta línea para hacer la prueba de que es válida para los csv okey,"EUR 20.00",THEORETICAL,http://example.com,false,lecturer-10
+course-11,ABC132,title1,voy a escribir 99 caracteres en esta línea para hacer la prueba de que es válida para los csv okeyy,"EUR 20.00",THEORETICAL,http://example.com,false,lecturer-11
+course-12,ABC133,title1,مرحبا لكل شعبي كيف حالالفيزياء الكيميائية,"EUR 20.00",THEORETICAL,http://example.com,false,lecturer-12
+course-13,ABC134,title1,こんにちは、私のすべての人々に私たちはお元気ですか,"EUR 20.00",THEORETICAL,http://example.com,false,lecturer-13
+course-14,ABC135,title1,<h1> hello and welcome to the class!<h1>,"EUR 20.00",THEORETICAL,http://example.com,false,lecturer-14
+course-15,ABC136,title1,"<script> alert(""hi!"")</script>","EUR 20.00",THEORETICAL,http://example.com,false,lecturer-15
+course-16,ABC137,title1,#%&*@¡¿$/`´'€~|ª¨,"EUR 20.00",THEORETICAL,http://example.com,false,lecturer-16
+course-17,ABC138,title1,Graduado,"EUR 0.01",THEORETICAL,http://example.com,true,lecturer-17
+course-18,ABC139,title1,Graduado,"EUR 0.02",THEORETICAL,http://example.com,true,lecturer-18
+course-19,ABC140,title1,Graduado,"EUR 999999.99",THEORETICAL,http://example.com,true,lecturer-01
+course-20,ABC141,title1,Graduado,"EUR 1000000.00",THEORETICAL,http://example.com,true,lecturer-02
+course-21,ABC142,title1,Graduado,"GBP 20.00",THEORETICAL,http://example.com,true,lecturer-03
+course-22,ABC143,title1,Graduado,"USD 20.00",THEORETICAL,http://example.com,true,lecturer-04
+course-23,ABC144,title1,Graduado,"EUR 20.00",BALANCE,http://example.com,true,lecturer-05
+course-24,ABC145,title1,Graduado,"EUR 20.00",HANDS_ON,http://example.com,true,lecturer-06
+course-25,ABC146,title1,Graduado,"EUR 20.00",THEORETICAL,,true,lecturer-07
+course-26,ABC147,title1,Graduado,"EUR 20.00",THEORETICAL,http://example.com,false,lecturer-08

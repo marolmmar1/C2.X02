@@ -1,0 +1,33 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+auditor.auditingRecords.form.label.subject = Tema:
+auditor.auditingRecords.form.label.assessment = Evaluación:
+auditor.auditingRecords.form.label.markType = Nota:
+auditor.auditingRecords.form.label.initialPeriod = Inicio:
+auditor.auditingRecords.form.label.finalPeriod = Final:
+auditor.auditingRecords.form.label.link = Link:
+
+
+
+auditor.audit.list.label.code = Código
+auditor.audit.list.label.subject = Tema
+auditor.auditingRecords.list.label.markType = Nota
+
+auditor.auditingRecords.create.button.auditingRecords = Crear
+auditor.audit.form.button.auditingRecords = Memoria de auditorias
+auditor.auditingRecords.form.button.update = Actualizar
+auditor.auditingRecords.form.button.delete = Eliminar
+auditor.auditingRecords.form.button.create = Crear
+
+
+auditor.auditingRecord.form.error.horaMin = El periodo debe ser de un mínimo de 1 hora
+auditor.auditingRecord.form.error.menor = La fecha de inicio debe ser anterior a la fecha final
+auditor.auditingRecord.form.error.antes = El periodo debe ser de un mínimo de 1 hora

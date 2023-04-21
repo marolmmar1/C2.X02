@@ -31,7 +31,26 @@ master.menu.administrator.dashboard = Dashboard
 master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
+master.menu.administrator.system-configuration = Show system configuration
 master.menu.administrator.shut-down = Shut down
+
+# master.menu.assistant ###################################################
+
+master.menu.assistant = Assistant
+master.menu.assistant.user-account.general-data = Account
+master.menu.authenticated.tutorial.list-all = Tutorial List
+
+# master.menu.auditor ###################################################
+
+master.menu.auditor = Auditor
+master.menu.auditor.user-account.general-data = Account
+master.menu.auditor.audit.list-all = Audit List
+
+#master.menu.company ###########################################################
+master.menu.company = Company
+master.menu.authenticated.practicum.list-all = List of practicums
+master.menu.company.practicum.create = Create practicum
+master.menu.company.company.dashboard = My dashboard
 
 # master.menu.provider ########################################################
 
@@ -47,11 +66,38 @@ master.menu.consumer.favourite-link = 32732059T: López Ruz, Pedro
 master.menu.consumer.favourite-link = 45998672Y: Ortiz Blanco, Manuel
 master.menu.provider.favourite-link = 54183920z: Lorenzo Casas, Angel
 
+# master.menu.student ##########################################################
+
+master.menu.student = Student
+master.menu.student.enrolment.list-all = Enrolment list
+master.menu.student.activity.list-all = Activity list
+master.menu.student.course.list-all = Course list
+
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account
+master.menu.authenticated.bulletin.list-all = Bulletin List
+
+master.menu.authenticated.tutorial.list-all = Tutorial List
+master.menu.authenticated.practicum.list-all = Practicum List
+
+master.menu.any.course.list-all = Course List
+
+master.menu.authenticated.offer.list-all = Offer List
+master.menu.any.peep.list-all= Peep List
 master.menu.user-account.general-data = General data
 master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
+master.menu.user-account.become-assistant = Become a assistant
+master.menu.user-account.become-company = Become a company
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+master.menu.user-account.auditor = Auditor data
+master.menu.user-account.become-auditor = Become a auditor
+master.menu.authenticated.bulletin.create = Create bulletin
+master.menu.user-account.become-consumer = Become a consumer
+master.menu.user-account.become-student = Become a student
+master.menu.user-account.student = Student data
+master.menu.user-account.company = Company data
+master.menu.user-account.assistant = Assistant data

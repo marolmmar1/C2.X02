@@ -1,10 +1,7 @@
 
 package acme.forms;
 
-import java.util.Map;
-
 import acme.datatypes.StatData;
-import acme.entities.Nature;
 import acme.framework.data.AbstractForm;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,12 +10,12 @@ import lombok.Setter;
 @Setter
 public class CompanyDashboard extends AbstractForm {
 
-	protected static final long		serialVersionUID	= 1L;
+	protected static final long	serialVersionUID	= 1L;
 
-	protected Map<Nature, Integer>	naturePerCourseLastYear;
+	protected int[]				naturePerCourseLastYear;
 
-	protected StatData				periodLengthOfSessionsStat;
+	protected StatData			periodLengthOfSessionsStat;
 
-	protected StatData				periodLengthOfPracticaStat;
+	protected StatData			periodLengthOfPracticaStat;
 
 }
