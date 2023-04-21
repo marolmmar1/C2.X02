@@ -19,7 +19,7 @@
 
 <acme:form readonly="${draftMode == false }">
 
-	<acme:input-textbox code="lecturer.course.form.label.code" path="code"/>	
+	<acme:input-textbox code="lecturer.course.form.label.code" path="code" placeholder="ABC123"/>	
 	<acme:input-textbox code="lecturer.course.form.label.title" path="title"/>
 	<acme:input-textarea code="lecturer.course.form.label.abstracts" path="abstracts"/>
 	<acme:input-money code="lecturer.course.form.label.price" path="price"/>
