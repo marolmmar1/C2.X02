@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Course;
+import acme.entities.Nature;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -75,9 +77,6 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 		code = super.getRequest().getData("code", String.class);
 		repeatCode = this.repository.findCourseByCode(code);
 
-		if (!super.getBuffer().getErrors().hasErrors("code"))
-			super.state(this.repository.findCourseByCode(object.getCode()) == null || this.repository.findCourseByCode(object.getCode()).equals(object), "code", "lecturer.course.form.error.code");
-
 		super.state(!repeatCode.isPresent() || object.getId() == repeatCode.get().getId(), "code", "lecturer.course.form.error.update.code.repeated");
 		super.state(inDraftMode, "*", "lecturer.course.form.error.update.draft");
 	}
@@ -96,11 +95,16 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 	@Override
 	public void unbind(final Course object) {
 		assert object != null;
-		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "abstracts", "price", "nature", "link");
+		final SelectChoices choices;
+		Tuple tupla;
 
-		super.getResponse().setData(tuple);
+		choices = SelectChoices.from(Nature.class, object.getNature());
+		tupla = super.unbind(object, "code", "title", "abstracts", "price", "nature", "link");
+		tupla.put("nature", choices.getSelected().getKey());
+		tupla.put("natures", choices);
+
+		super.getResponse().setData(tupla);
 	}
 
 }
