@@ -48,7 +48,7 @@ master.menu.auditor.audit.list-all = Audit List
 
 #master.menu.company ###########################################################
 master.menu.company = Company
-master.menu.authenticated.practicum.list-all = List of practicums
+master.menu.authenticated.practicum.list-all = Practicum List
 master.menu.company.practicum.create = Create practicum
 master.menu.company.company.dashboard = My dashboard
 
@@ -69,10 +69,15 @@ master.menu.provider.favourite-link = 54183920z: Lorenzo Casas, Angel
 # master.menu.student ##########################################################
 
 master.menu.student = Student
-master.menu.student.enrolment.list-all = Enrolment list
-master.menu.student.activity.list-all = Activity list
-master.menu.student.course.list-all = Course list
+master.menu.student.enrolment.list-all = Enrolment List
+master.menu.student.activity.list-all = Activity List
+master.menu.student.course.list-all = Course List
 
+# master.menu.lecturer ##########################################################
+
+master.menu.lecturer = Lecturer
+master.menu.authenticated.course.list-all = Course List
+master.menu.lecturer.course.create = Create course
 
 # master.menu.user-account ####################################################
 
