@@ -14,12 +14,12 @@ lecturer.course.form.label.abstracts = Abstract:
 lecturer.course.form.label.nature = Nature:
 lecturer.course.form.label.price = Price:
 lecturer.course.form.label.link = Link:
-lecturer.course.form.label.draftMode = Draft Mode
 lecturer.course.form.list.lecture = Lecture List
 
 lecturer.course.form.button.create = Create
 lecturer.course.form.button.update = Update
 lecturer.course.form.button.delete = Delete
+lecturer.course.form.button.publish = Publish
 
 lecturer.course.list.label.code = Code
 lecturer.course.list.label.title = Title

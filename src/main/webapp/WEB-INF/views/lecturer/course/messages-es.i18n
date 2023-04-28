@@ -14,12 +14,12 @@ lecturer.course.form.label.abstracts = Resumen:
 lecturer.course.form.label.nature = Tipo:
 lecturer.course.form.label.price = Precio:
 lecturer.course.form.label.link = Enlace:
-lecturer.course.form.label.draftMode = Modo Borrador
 lecturer.course.form.list.lecture = Lista de clases
 
 lecturer.course.form.button.create = Crear
 lecturer.course.form.button.update = Editar
 lecturer.course.form.button.delete = Borrar
+lecturer.course.form.button.publish = Publicar
 
 lecturer.course.list.label.code = Código
 lecturer.course.list.label.title = Título
@@ -27,7 +27,7 @@ lecturer.course.list.label.abstracts = Resumen
 lecturer.course.list.button.create = Crear
 
 lecturer.course.form.error.update.draft = Sólo se puede editar en modo borrador
-lecturer.course.form.error.delete.draft = Sólo se puede editar en modo borrador
+lecturer.course.form.error.delete.draft = Sólo se puede borrar en modo borrador
 lecturer.course.form.error.code.repeated = Este código está en uso
 lecturer.course.form.error.update.code.repeated = Este código está en uso 
 validation.course.code = Formato de código incorrecto
