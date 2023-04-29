@@ -84,6 +84,8 @@
 		<acme:menu-option code="master.menu.user-account" access="isAuthenticated()">
 
 		<acme:menu-suboption code="master.menu.authenticated.bulletin.list-all" action="/authenticated/bulletin/list-all"/>
+		
+		<acme:menu-suboption code="master.menu.authenticated.note.list-all" action="/authenticated/note/list-all"/>
 
 		<acme:menu-suboption code="master.menu.any.course.list-all" action="/any/course/list-all"/>
 		<acme:menu-suboption code="master.menu.any.peep.list-all" action="/any/peep/list-all"/>

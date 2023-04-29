@@ -83,7 +83,7 @@ master.menu.lecturer.course.create = Create course
 
 master.menu.user-account = Account
 master.menu.authenticated.bulletin.list-all = Bulletin List
-
+master.menu.authenticated.note.list-all = Note List
 master.menu.authenticated.tutorial.list-all = Tutorial List
 master.menu.authenticated.practicum.list-all = Practicum List
 
