@@ -80,7 +80,7 @@ master.menu.lecturer.course.create = Crear curso
 
 master.menu.user-account = Cuenta
 master.menu.authenticated.bulletin.list-all = Lista de boletines
-
+master.menu.authenticated.note.list-all = Lista de Notas
 master.menu.authenticated.tutorial.list-all = Lista de tutorias
 master.menu.authenticated.practicum.list-all = Lista de practicas
 
