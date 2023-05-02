@@ -1,5 +1,5 @@
 /*
- * AuthenticatedConsumerRepository.java
+ * AuthenticatedAnnouncementRepository.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,29 +10,26 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.auditor;
+package acme.features.authenticated.audit;
+
+import java.util.Collection;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.Audit;
-import acme.framework.components.accounts.UserAccount;
 import acme.framework.repositories.AbstractRepository;
-import acme.roles.Auditor;
 
 @Repository
-public interface AuthenticatedAuditorRepository extends AbstractRepository {
+public interface AuthenticatedAuditRepository extends AbstractRepository {
 
-	@Query("select ua from UserAccount ua where ua.id = :id")
-	UserAccount findOneUserAccountById(int id);
-
-	@Query("select a from Auditor a where a.userAccount.id = :id")
-	Auditor findOneAuditorByUserAccountId(int id);
-
-	@Query("select a from Audit a where a.id = :id")
+	@Query("select t from Audit t where t.id = :id")
 	Audit findOneAuditById(int id);
 
-	@Query("select a from Auditor a where a.id = :id")
-	Auditor findOneAuditorById(int id);
+	@Query("select t from Audit t ")
+	Collection<Audit> findAllAudit();
+
+	@Query("select t from Audit t where t.course.id = :id")
+	Collection<Audit> findManyAuditByCourseId(int id);
 
 }
