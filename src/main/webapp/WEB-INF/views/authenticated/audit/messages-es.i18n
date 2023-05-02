@@ -8,19 +8,15 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
+authenticated.audit.form.label.code = Código:
+authenticated.audit.form.label.conclusion = Conclusión:
+authenticated.audit.form.label.strongPoints = Puntos fuertes:
+authenticated.audit.form.label.weakPoints = Puntos debiles:
+authenticated.audit.form.button.auditor = Auditor
 
 
-any.course.list.label.code = Código
-any.course.list.label.title = Título
+authenticated.audit.list.label.code = Código
+authenticated.audit.list.label.conclusion = Conclusión
+authenticated.audit.list.label.codeCourse = Código del Curso
 
 
-any.course.form.label.code = Código:
-any.course.form.label.title = Título:
-any.course.form.label.abstracts = Resume:
-any.course.form.label.price = Precio:
-any.course.form.label.nature = Nature:
-any.course.form.label.link = Link:
-
-any.course.form.button.tutorial = Tutoriales
-any.course.form.button.practicum = Practicas
-any.course.form.button.audit = auditorias
