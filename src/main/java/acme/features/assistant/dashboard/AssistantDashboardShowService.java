@@ -45,18 +45,18 @@ public class AssistantDashboardShowService extends AbstractService<Assistant, As
 	@Override
 	public void load() {
 
-		//	final int assistantId = super.getRequest().getPrincipal().getActiveRoleId();
+		//		final int assistantId = super.getRequest().getPrincipal().getActiveRoleId();
 
 		final Double averageTimeTutorialPerAssistant = this.repository.averageTimeTutorialPerAssistant();
 		//		final Double desviationTimeTutorialPerAssistant = this.repository.averageTimeTutorialPerAssistant();
-		final Double maxTimeTutorialPerAssistant = this.repository.maxTimeTutorialPerAssistant();
-		final Double minTimeTutorialPerAssistant = this.repository.minTimeTutorialPerAssistant();
+		//	final Double maxTimeTutorialPerAssistant = this.repository.maxTimeTutorialPerAssistant();
+		//	final Double minTimeTutorialPerAssistant = this.repository.minTimeTutorialPerAssistant();
 
 		final StatData dashboard1 = new StatData();
 		dashboard1.setAverage(averageTimeTutorialPerAssistant);
 		//		dashboard1.setDesviation(desviationTimeTutorialPerAssistant);
-		dashboard1.setMaximum(maxTimeTutorialPerAssistant);
-		dashboard1.setMinimum(minTimeTutorialPerAssistant);
+		//		dashboard1.setMaximum(maxTimeTutorialPerAssistant);
+		//	dashboard1.setMinimum(minTimeTutorialPerAssistant);
 
 		final AssistantDashboard assistantDashboard = new AssistantDashboard();
 		assistantDashboard.setTimeOfTutorialPerAssistant(dashboard1);
@@ -67,7 +67,7 @@ public class AssistantDashboardShowService extends AbstractService<Assistant, As
 	public void unbind(final AssistantDashboard object) {
 		Tuple tuple;
 
-		tuple = super.unbind(object, "timeOfTutorialPerAssistant.average", "timeOfTutorialPerAssistant.minimum");
+		tuple = super.unbind(object, "timeOfTutorialPerAssistant.average", "timeOfTutorialPerAssistant.maximun");
 
 		super.getResponse().setData(tuple);
 	}

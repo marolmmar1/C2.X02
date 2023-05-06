@@ -23,12 +23,12 @@ public interface AssistantDashboardRepository extends AbstractRepository {
 	//	@Query("select count(t) from Tutorial t where t.nature =:nature and t.assistant.id =:id")
 	//	Integer numTutorialByNature(Nature nature, int id);
 
-	@Query("select avg(select sum(t.estimatedTime) from Tutorial t where t.assistant.id = a.id) from Assistant a ")
+	@Query("select avg(select sum(t.estimatedTime) from Tutorial t where t.assistant.id = a.id) from Assistant a")
 	Double averageTimeTutorialPerAssistant();
 	//	@Query("select stddev(select sum(t.estimatedTime) from Tutorial t where t.assistant.id = a.id) from Assistant a")
 	//Double desviationTimeTutorialPerAssistant();
-	@Query("select max(select sum(t.estimatedTime) from Tutorial t where t.assistant.id = a.id) from Assistant a")
-	Double maxTimeTutorialPerAssistant();
-	@Query("select min(select sum(t.estimatedTime) from Tutorial t where t.assistant.id = a.id) from Assistant a")
-	Double minTimeTutorialPerAssistant();
+	//	@Query("select distint max(select t.estimatedTime from Tutorial t where t.assistant.id = a.id) from Assistant a group by a")
+	//	Double maxTimeTutorialPerAssistant();
+	//	@Query("select min(select t.estimatedTime from Tutorial t where t.assistant.id = a.id) from Assistant a")
+	//	Double minTimeTutorialPerAssistant();
 }
