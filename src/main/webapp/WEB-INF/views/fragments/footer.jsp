@@ -10,11 +10,15 @@
 - they accept any liabilities with respect to them.
 --%>
 
-<%@page language="java"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
 
 <acme:footer-panel>
 	<acme:footer-subpanel code="master.footer.title.about">
@@ -39,4 +43,13 @@
 	</acme:footer-logo>		
 
 </acme:footer-panel>
+
+<jstl:if test="${banner != null}">
+	<div class="panel-body" style="margin: 1em 0em 1em 0em; text-align: center;">	
+		<a href="${banner.link}" target="_blank">
+			<img src="${banner.linkImage}" alt="${banner.slogan}" title="${banner.slogan}" class="img-fluid rounded" style="border-style: solid;"/>
+		</a>
+		<div class="banner-footer">${banner.slogan}</div>
+	</div>
+</jstl:if>
 

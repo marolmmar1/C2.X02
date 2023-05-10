@@ -19,10 +19,4 @@
 	<img src="images/banner.png" alt="<acme:message code='master.banner.alt'/>" class="img-fluid rounded"/>
 </div>
 
-<jstl:if test="${banner != null}">
-	<div class="panel-body" style="margin: 1em 0em 1em 0em; text-align: center;">	
-		<a href="${banner.link}" target="_blank">
-			<img src="${banner.linkImage}" alt="${banner.slogan}" class="img-fluid rounded" style="border-style: solid;"/>
-		</a>
-	</div>
-</jstl:if>
+
