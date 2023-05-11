@@ -131,10 +131,10 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 
 		Collection<Course> courses;
 		SelectChoices choices;
-		courses = this.repository.findCourses();
+		courses = this.repository.findAllCourse(false);
 		choices = SelectChoices.from(courses, "code", object.getCourse());
 
-		tuple = super.unbind(object, "code", "motivation", "goals", "holderName", "creditCard", "cvc", "expiryDate");
+		tuple = super.unbind(object, "code", "draftMode", "motivation", "goals", "holderName", "creditCard", "cvc", "expiryDate");
 
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
