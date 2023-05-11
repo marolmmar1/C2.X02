@@ -67,10 +67,10 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 		Tuple tuple;
 		Collection<Course> courses;
 		SelectChoices choices;
-		courses = this.repository.findCourses();
+		courses = this.repository.findAllCourse(false);
 		choices = SelectChoices.from(courses, "code", object.getCourse());
 
-		tuple = super.unbind(object, "code", "motivation", "goals", "course.title", "expiryDate", "cvc", "creditCard", "holderName");
+		tuple = super.unbind(object, "code", "draftMode", "motivation", "goals", "expiryDate", "cvc", "creditCard", "holderName");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
 
