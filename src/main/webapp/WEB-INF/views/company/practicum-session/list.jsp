@@ -17,7 +17,6 @@
 
 <acme:list>
 	<acme:list-column code="company.practicumSession.list.label.title" path="title" width="20%"/>
-	<acme:list-column code="company.practicumSession.list.label.exceptional" path="exceptional" width="20%"/>
 	
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'show'}">

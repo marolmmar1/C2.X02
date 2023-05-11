@@ -26,6 +26,8 @@ student.enrolment.list.label.holderName = Holder name
 student.enrolment.form.button.finalise = Finalise
 student.enrolment.list.label.draftMode = Draft
 
+student.enrolment.form.label.code = Code
+
 student.enrolment.form.error.wrong-expiry-date = Expiricy date's format must be dd/yy
 student.enrolment.form.error.wrong-cvc = CVC format must be 3 numbers
 student.enrolment.form.error.wrong-card = Credit card's format must be xxxx/xxxx/xxxx/xxxx
