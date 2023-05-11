@@ -15,6 +15,8 @@ package acme.features.lecturer.lecture;
 import java.util.Collection;
 import java.util.Optional;
 
+import javax.persistence.Tuple;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -36,15 +38,18 @@ public interface LecturerLectureRepository extends AbstractRepository {
 	@Query("select l from Lecturer l where l.id = :id")
 	Lecturer findLecturerById(int id);
 
-	@Query("select c from Course c where c.id = :id")
-	Course findCourseById(int id);
-
 	@Query("select cl from CourseLecture cl where cl.lecture.id =: lectureId")
 	CourseLecture findCourseLectureByLectureId(int lectureId);
+
+	@Query("select c from Course c where c.id = :id")
+	Course findOneCourseById(int id);
 
 	@Query("select l from Lecturer l")
 	Collection<Lecturer> findAllLecturers();
 
 	@Query("select cl from CourseLecture cl where cl.course.id = :id")
 	Collection<CourseLecture> findManyCourseLectureByCourseId(int id);
+
+	@Query("SELECT cl.lecture.nature, COUNT(cl.lecture) FROM CourseLecture cl WHERE cl.course.id = :id GROUP BY cl.lecture.nature")
+	Collection<Tuple> countLecturesGroupByType(int id);
 }

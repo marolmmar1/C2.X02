@@ -16,6 +16,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Course;
+import acme.entities.Nature;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -74,8 +76,12 @@ public class LecturerCourseShowService extends AbstractService<Lecturer, Course>
 	public void unbind(final Course object) {
 		assert object != null;
 		Tuple tupla;
+		final SelectChoices choices;
 
+		choices = SelectChoices.from(Nature.class, object.getNature());
 		tupla = super.unbind(object, "code", "title", "abstracts", "price", "nature", "link", "draftMode");
+		tupla.put("nature", choices.getSelected().getKey());
+		tupla.put("natures", choices);
 
 		super.getResponse().setData(tupla);
 	}

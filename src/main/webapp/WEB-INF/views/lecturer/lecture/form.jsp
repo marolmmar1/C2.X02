@@ -19,15 +19,15 @@
 	
 	<acme:input-textbox code="lecturer.lecture.form.label.title" path="title"/>
 	<acme:input-textarea code="lecturer.lecture.form.label.abstracts" path="abstracts"/>	
-	<acme:input-textarea code="lecturer.lecture.form.label.estimatedTime" path="estimatedTime"/>
+	<acme:input-textarea code="lecturer.lecture.form.label.estimatedTime" path="estimatedTime" placeholder="0.00"/>
 	<acme:input-textarea code="lecturer.lecture.form.label.body" path="body"/>
 	<acme:input-select code="lecturer.lecture.form.label.nature" path="nature" choices="${natures }"/>
-	<acme:input-url code="lecturer.lecture.form.label.link" path="link"/>
+	<acme:input-url code="lecturer.lecture.form.label.link" path="link" placeholder="www.example.com"/>
 	<jstl:choose>
-	<jstl:when test="${_command == 'create'}">
-			<acme:submit code="lecturer.lecture.form.button.create" action="/lecturer/lecture/create?courseId=${courseId}"/>
+		<jstl:when test="${_command == 'create'}">
+				<acme:submit code="lecturer.lecture.form.button.create" action="/lecturer/lecture/create?courseId=${courseId}"/>
 		</jstl:when>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')&& draftMode == true}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">
 			<acme:submit code="lecturer.lecture.form.button.update" action="/lecturer/lecture/update"/>
 			<acme:submit code="lecturer.lecture.form.button.delete" action="/lecturer/lecture/delete"/>
 		</jstl:when>		
