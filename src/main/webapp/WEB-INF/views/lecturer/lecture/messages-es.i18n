@@ -8,23 +8,25 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-company.practicumSession.form.label.title = Título:
-company.practicumSession.form.label.abstracts = Resumen:
-company.practicumSession.form.label.inicialPeriod = Inicio:
-company.practicumSession.form.label.finalPeriod = Fin:
-company.practicumSession.form.label.link = Link:
+lecturer.lecture.form.label.title = Título:
+lecturer.lecture.form.label.abstracts = Resumen:
+lecturer.lecture.form.label.estimatedTime = Tiempo estimado:
+lecturer.lecture.form.label.body = Descripción:
+lecturer.lecture.form.label.nature = Tipo:
+lecturer.lecture.form.label.link = Enlace:
 
-company.practicum.list.label.code = Código
-company.practicum.list.label.title = Título
+lecturer.lecture.list.label.title = Título
+lecturer.lecture.list.label.estimatedTime = Tiempo estimado: 
+lecturer.lecture.list.label.nature = Tipo:
 
-company.practicumSession.list.button.create = Crear
-company.practicumSession.form.button.update = Actualizar
-company.practicumSession.form.button.delete = Eliminar
-company.practicum.form.button.practicumSession = Sesiones de Practica
-company.practicumSession.form.button.create = Crear
-company.practicumSession.create.button.practicumSession = Crear sesion de practica
+lecturer.lecture.list.button.create = Crear
+lecturer.lecture.form.button.update = Actualizar
+lecturer.lecture.form.button.delete = Borrar
+lecturer.course.form.button.lecture = Lecciones
+lecturer.lecture.form.button.create = Crear
+lecturer.lecture.create.button.lecture = Crear Lección
 
-company.practicumSession.form.error.horaMax = La duración debe ser de al menos 1 semana
-company.practicumSession.form.error.horaMin = Debe tener al menos una semana de antelacion
-company.practicumSession.form.error.menor = La fecha de inicio debe ser anterior a la fecha final
-company.practicumSession.form.error.antes = La fecha de inicio debe ser un día después de la fecha local
+lecturer.lecture.form.error.horaMax = The duration should be a minimum of 1 week
+lecturer.lecture.form.error.horaMin = Must be at least one week ahead
+lecturer.lecture.form.error.menor = Start date must be earlier than the final date
+lecturer.lecture.form.error.antes = The start date should be one day after the local date

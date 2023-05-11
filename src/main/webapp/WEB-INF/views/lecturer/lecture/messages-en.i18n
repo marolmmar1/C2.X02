@@ -8,23 +8,24 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-company.practicumSession.form.label.title = Title:
-company.practicumSession.form.label.abstracts = Abstracts:
-company.practicumSession.form.label.inicialPeriod = Initial Period:
-company.practicumSession.form.label.finalPeriod = Final Period:
-company.practicumSession.form.label.link = Link:
+lecturer.lecture.form.label.title = Title:
+lecturer.lecture.form.label.abstracts = Abstracts:
+lecturer.lecture.form.label.estimatedTime = Estimated time:
+lecturer.lecture.form.label.body = Body:
+lecturer.lecture.form.label.nature = Nature:
+lecturer.lecture.form.label.link = Link:
 
+lecturer.lecture.list.label.title = Title
+lecturer.lecture.list.label.estimatedTime = Estimated time: 
+lecturer.lecture.list.label.nature = Nature:
 
-company.practicumSession.list.label.title = Title
+lecturer.lecture.form.button.update = Update
+lecturer.lecture.form.button.delete = Delete
+lecturer.course.form.button.lecture = Lectures
+lecturer.lecture.form.button.create = Create1
+lecturer.lecture.create.button.lecture = Create Lecture
 
-company.practicumSession.list.button.create = Create
-company.practicumSession.form.button.update = Update
-company.practicumSession.form.button.delete = Delete
-company.practicum.form.button.practicumSession = Practicum Session
-company.practicumSession.form.button.create = Create
-company.practicumSession.create.button.practicumSession = Create Practicum Session
-
-company.practicumSession.form.error.horaMax = The duration should be a minimum of 1 week
-company.practicumSession.form.error.horaMin = Must be at least one week ahead
-company.practicumSession.form.error.menor = Start date must be earlier than the final date
-company.practicumSession.form.error.antes = The start date should be one day after the local date
+lecturer.lecture.form.error.horaMax = The duration should be a minimum of 1 week
+lecturer.lecture.form.error.horaMin = Must be at least one week ahead
+lecturer.lecture.form.error.menor = Start date must be earlier than the final date
+lecturer.lecture.form.error.antes = The start date should be one day after the local date

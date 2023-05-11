@@ -19,7 +19,7 @@
 	<acme:list-column code="lecturer.lecture.list.label.title" path="title" width="20%"/>
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'show'}">
-			<acme:button code="lecturer.course.form.button.lecture" action="/lecturer/lecture/list?courseId=${id}"/>
+			<acme:button code="lecturer.course.form.button.lecture" action="/lecturer/lecture/list-all?courseId=${courseId}"/>
 		</jstl:when>
 	</jstl:choose>		
 

@@ -26,17 +26,31 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		Boolean status;
+		status = super.getRequest().hasData("courseId", int.class);
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
+		//		boolean status;
+		//		int courseId;
+		//		Course course;
+		//
+		//		courseId = super.getRequest().getData("courseId", int.class);
+		//		course = this.repository.findOneCourseById(courseId);
+		//
+		//		status = super.getRequest().getPrincipal().hasRole(course.getLecturer());
+		//		super.getResponse().setAuthorised(status);
 		boolean status;
+		int lecturerId;
+		int courseId;
+		Course course;
 
-		final int ppalId = super.getRequest().getData("ppalId", int.class);
-		final int lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
+		courseId = super.getRequest().getData("courseId", int.class);
+		lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
+		course = this.repository.findOneCourseById(courseId);
 
-		final Course course = this.repository.findCourseById(ppalId);
 		status = course.getLecturer().getId() == lecturerId;
 		super.getResponse().setAuthorised(status);
 	}
@@ -44,8 +58,20 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 	@Override
 	public void load() {
 		Lecture object;
+		final CourseLecture courseLecture;
+		int courseId;
+		Course course;
 
+		courseId = super.getRequest().getData("courseId", int.class);
+		course = this.repository.findOneCourseById(courseId);
+		Lecturer lecturer;
+
+		lecturer = this.repository.findLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
 		object = new Lecture();
+		object.setLecturer(lecturer);
+		courseLecture = new CourseLecture();
+		courseLecture.setCourse(course);
+		courseLecture.setLecture(object);
 
 		super.getBuffer().setData(object);
 	}
@@ -61,7 +87,7 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 	@Override
 	public void validate(final Lecture object) {
 
-		assert object != null;
+		assert object != new Lecture();
 
 	}
 
@@ -69,21 +95,19 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 	public void perform(final Lecture object) {
 		assert object != null;
 
-		int ppalId;
+		int courseId;
 		Course course;
-		CourseLecture courseLecture;
+		final CourseLecture courseLecture = new CourseLecture();
 
-		courseLecture = new CourseLecture();
-		ppalId = super.getRequest().getData("ppalId", int.class);
-		course = this.repository.findCourseById(ppalId);
+		courseId = super.getRequest().getData("id", int.class);
+		course = this.repository.findOneCourseById(courseId);
 
 		courseLecture.setCourse(course);
 		courseLecture.setLecture(object);
 
+		this.repository.save(course);
 		this.repository.save(object);
 		this.lclRepository.save(courseLecture);
-
-		this.repository.save(object);
 	}
 
 	@Override
@@ -95,7 +119,7 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 
 		choices = SelectChoices.from(Nature.class, object.getNature());
 		tupla = super.unbind(object, "title", "abstracts", "estimatedTime", "body", "nature", "link");
-		tupla.put("ppalId", super.getRequest().getData("ppalId", int.class));
+		tupla.put("courseId", super.getRequest().getData("courseId", int.class));
 		tupla.put("nature", choices.getSelected().getKey());
 		tupla.put("natures", choices);
 
