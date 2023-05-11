@@ -66,7 +66,7 @@ public class CompanyPracticumSessionCreateExceptionalService extends AbstractSer
 	public void bind(final PracticumSession object) {
 		assert object != null;
 
-		super.bind(object, "title", "abstracts", "inicialPeriod", "finalPeriod", "link");
+		super.bind(object, "title", "abstracts", "inicialPeriod", "finalPeriod", "exceptional", "link");
 
 	}
 
@@ -105,7 +105,14 @@ public class CompanyPracticumSessionCreateExceptionalService extends AbstractSer
 			final long numMin = 168;
 			super.state(MomentHelper.isAfter(object.getFinalPeriod(), object.getInicialPeriod()), "finalPeriod", "company.practicumSession.form.error.minor");
 			super.state(diferenciaHorasMin >= numMin, "finalPeriod", "company.practicumSession.form.error.horaMin");
+
 		}
+		//		if (!super.getBuffer().getErrors().hasErrors("exceptional")) {
+		//			int practicumId;
+		//			practicumId = super.getRequest().getData("practicumId", int.class);
+		//			final int sessionsExceptional = this.repository.countPracticumSessionWeherExceptional(practicumId, true);
+		//			super.state(sessionsExceptional <= 1, "exceptional", "company.practicummSession.form.error.exceptional");
+		//		}
 
 	}
 

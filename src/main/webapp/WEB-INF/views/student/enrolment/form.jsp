@@ -16,11 +16,10 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:form>	
-			<acme:input-textbox code="student.enrolment.form.label.code" path="code"/>
+			<acme:input-textbox code="student.enrolment.list.label.code" path="code"/>
 			<acme:input-textbox code="student.enrolment.list.label.motivation" path="motivation"/>
 			<acme:input-textbox code="student.enrolment.list.label.goals" path="goals"/>
-			<acme:input-select code="student.enrolment.list.label.course" path="course" choices="${courses}"/>	
-	
+			<acme:input-select code="student.enrolment.list.label.course" path="course" choices="${enrolments}"/>	
 			<acme:input-textbox code="student.enrolment.list.label.expiryDate" path="expiryDate"/>
 			<acme:input-textbox code="student.enrolment.list.label.cvc" path="cvc"/>
 			<acme:input-textbox code="student.enrolment.list.label.creditCard" path="creditCard"/>
