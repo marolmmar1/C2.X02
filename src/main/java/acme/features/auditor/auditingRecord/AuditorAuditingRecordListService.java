@@ -84,7 +84,7 @@ public class AuditorAuditingRecordListService extends AbstractService<Auditor, A
 
 		auditId = super.getRequest().getData("id", int.class);
 		audit = this.repository.findOneAuditById(auditId);
-		showCreate = audit != null && super.getRequest().getPrincipal().hasRole(audit.getAuditor());
+		showCreate = audit != null && audit.isDraftMode() && super.getRequest().getPrincipal().hasRole(audit.getAuditor());
 
 		super.getResponse().setGlobal("auditId", auditId);
 		super.getResponse().setGlobal("showCreate", showCreate);
