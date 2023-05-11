@@ -16,13 +16,19 @@ company.practicumSession.form.label.link = Link:
 
 
 company.practicumSession.list.label.title = Title
+company.practicumSession.form.label.exceptional = Exceptional
+company.practicumSession.list.label.exceptional = Exceptional
 
 company.practicumSession.list.button.create = Create
 company.practicumSession.form.button.update = Update
 company.practicumSession.form.button.delete = Delete
+
 company.practicum.form.button.practicumSession = Practicum Session
 company.practicumSession.form.button.create = Create
 company.practicumSession.create.button.practicumSession = Create Practicum Session
+company.practicumSession.list.button.create-exceptional = Create Exceptional Session
+company.practicumSession.form.button.create-exceptional = Create Exceptional Session
+
 
 company.practicumSession.form.error.horaMax = The duration should be a minimum of 1 week
 company.practicumSession.form.error.horaMin = Must be at least one week ahead
