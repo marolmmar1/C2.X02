@@ -23,6 +23,4 @@
 	
 </acme:list>
 
-<jstl:if test="${_command == 'list'}">
 	<acme:button code="any.peep.list.button.create" action="/any/peep/create"/>
-</jstl:if>

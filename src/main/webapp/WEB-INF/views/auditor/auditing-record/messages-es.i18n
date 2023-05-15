@@ -20,12 +20,16 @@ auditor.auditingRecords.form.label.link = Link:
 auditor.audit.list.label.code = Código
 auditor.audit.list.label.subject = Tema
 auditor.auditingRecords.list.label.markType = Nota
+auditor.auditingRecords.list.label.exceptional = Excepcional
 
+auditor.auditingRecords.list.button.create-exceptional = Crear Excepcional
 auditor.auditingRecords.create.button.auditingRecords = Crear
 auditor.audit.form.button.auditingRecords = Memoria de auditorias
 auditor.auditingRecords.form.button.update = Actualizar
 auditor.auditingRecords.form.button.delete = Eliminar
 auditor.auditingRecords.form.button.create = Crear
+auditor.auditingRecords.form.button.create-exceptional = Crear Excepción
+auditor.auditingRecords.form.label.exceptional = Excepcional
 
 
 auditor.auditingRecord.form.error.horaMin = El periodo debe ser de un mínimo de 1 hora

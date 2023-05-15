@@ -8,7 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-master.banner.background = #D1FF33
-master.banner.alt = Acme-L3-D01, Inc.
+master.banner.background = #3B3D15
+master.banner.alt = Acme-L3-D04, Inc.
 master.banner.alt2 = Banner, Inc.
 

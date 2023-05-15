@@ -19,8 +19,8 @@
 
 	<acme:input-textarea code="assistant.AssistantDashboard.form.label.average" path="timeOfTutorialPerAssistant.average"/>
 	<%-- <acme:input-number code="assistant.AssistantDashboard.form.label.desviation" path="timeOfTutorialPerAssistant.average"/> --%>
-	<%-- <acme:input-number code="assistant.AssistantDashboard.form.label.maximum" path="timeOfTutorialPerAssistant.maximum"/> --%>
-	<acme:input-textarea code="assistant.AssistantDashboard.form.label.minimun" path="timeOfTutorialPerAssistant.minimun"/>
+	<acme:input-number code="assistant.AssistantDashboard.form.label.maximum" path="timeOfTutorialPerAssistant.maximum"/>
+	<%-- <acme:input-textarea code="assistant.AssistantDashboard.form.label.minimun" path="timeOfTutorialPerAssistant.minimun"/> --%>
 	
 	
 	

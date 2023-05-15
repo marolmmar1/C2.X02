@@ -28,11 +28,14 @@
 	
 	
 	<jstl:choose>
-		<jstl:when test="${_command == 'show' ||_command == 'update' || _command == 'delete'}">
-			<acme:input-checkbox code="lecturer.course.form.label.draftMode" path="draftMode"/>			
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')&& draftMode == true}">
+			<acme:button code="lecturer.course.form.button.lecture" action="/lecturer/lecture/list-all?id=${id}"/>			
 			<acme:submit code="lecturer.course.form.button.update" action="/lecturer/course/update"/>
 			<acme:submit code="lecturer.course.form.button.delete" action="/lecturer/course/delete"/>
-			<acme:button code="lecturer.lecture.list.button" action="/lecturer/lecture/list?id=${id }"/>
+			<acme:submit code="lecturer.course.form.button.publish" action="/lecturer/course/publish"/>
+		</jstl:when>
+		<jstl:when test="${_command == 'show' && draftMode == false}">
+			<acme:button code="lecturer.course.form.button.lecture" action="/lecturer/lecture/list-all?id=${id}"/>			
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="lecturer.course.form.button.create" action="/lecturer/course/create"/>

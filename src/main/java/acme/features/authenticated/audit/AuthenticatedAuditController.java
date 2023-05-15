@@ -1,5 +1,5 @@
 /*
- * AdministratorDashboardController.java
+ * AuthenticatedAnnouncementController.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,24 +10,26 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.assistant.dashboard;
+package acme.features.authenticated.audit;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import acme.forms.AssistantDashboard;
+import acme.entities.Audit;
+import acme.framework.components.accounts.Authenticated;
 import acme.framework.controllers.AbstractController;
-import acme.roles.Assistant;
 
 @Controller
-public class AssistantDashboardController extends AbstractController<Assistant, AssistantDashboard> {
+public class AuthenticatedAuditController extends AbstractController<Authenticated, Audit> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AssistantDashboardShowService showService;
+	protected AuthenticatedAuditListAllService	listAllService;
+	@Autowired
+	protected AuthenticatedAuditShowService		showService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -35,6 +37,8 @@ public class AssistantDashboardController extends AbstractController<Assistant, 
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("show", this.showService);
+		super.addCustomCommand("list-all", "list", this.listAllService);
+
 	}
 
 }

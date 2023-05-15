@@ -23,6 +23,6 @@
 	<acme:input-url code="any.peep.list.label.link" path="link"/>
 	
 	<jstl:if test="${_command == 'create'}">
-		<acme:submit code="any.peep.list.button.create" action="/any/peep/create"/>
+		<acme:submit code="any.peep.form.button.create" action="/any/peep/create"/>
 	</jstl:if>
 </acme:form>

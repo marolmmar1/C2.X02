@@ -27,5 +27,5 @@
 
 	<acme:button code="any.course.form.button.tutorial" action="/authenticated/tutorial/list-all?id=${id}"/>
 	<acme:button code="any.course.form.button.practicum" action="/authenticated/practicum/list-all?id=${id}"/>			
-		
+	<acme:button code="any.course.form.button.audit" action="/authenticated/audit/list-all?id=${id}"/>		
 </acme:form>

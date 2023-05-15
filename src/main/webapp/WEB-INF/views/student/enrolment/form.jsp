@@ -16,18 +16,17 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:form>	
-			<acme:input-textbox code="student.enrolment.form.label.code" path="code"/>
+			<acme:input-textbox code="student.enrolment.list.label.code" path="code"/>
 			<acme:input-textbox code="student.enrolment.list.label.motivation" path="motivation"/>
 			<acme:input-textbox code="student.enrolment.list.label.goals" path="goals"/>
 			<acme:input-select code="student.enrolment.list.label.course" path="course" choices="${courses}"/>	
-	
 			<acme:input-textbox code="student.enrolment.list.label.expiryDate" path="expiryDate"/>
 			<acme:input-textbox code="student.enrolment.list.label.cvc" path="cvc"/>
 			<acme:input-textbox code="student.enrolment.list.label.creditCard" path="creditCard"/>
 			<acme:input-textbox code="student.enrolment.list.label.holderName" path="holderName"/>
 
 	<jstl:choose>
-		<jstl:when test="${_command == 'show' || _command == 'update'|| _command == 'delete' || _command == 'finalise'}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|finalise') && draftMode == true}">
 			<acme:submit code="student.enrolment.form.button.update" action="/student/enrolment/update"/>
 			<acme:submit code="student.enrolment.form.button.delete" action="/student/enrolment/delete"/>
 			<acme:submit code="student.enrolment.form.button.finalise" action="/student/enrolment/finalise"/>

@@ -23,6 +23,7 @@
 	<acme:input-moment code="auditor.auditingRecords.form.label.initialPeriod" path="initialPeriod"/>	
 	<acme:input-moment code="auditor.auditingRecords.form.label.finalPeriod" path="finalPeriod"/>
 	<acme:input-url code="auditor.auditingRecords.form.label.link" path="link"/>
+	<acme:input-checkbox code="auditor.auditingRecords.form.label.exceptional" path="exceptional" readonly="true"/>
 	
 	<jstl:choose>
 	<jstl:when test="${_command == 'create'}">
@@ -31,6 +32,9 @@
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && draftMode == true}">
 			<acme:submit code="auditor.auditingRecords.form.button.update" action="/auditor/auditing-record/update"/>
 			<acme:submit code="auditor.auditingRecords.form.button.delete" action="/auditor/auditing-record/delete"/>
+		</jstl:when>
+		<jstl:when test="${_command == 'create-exceptional'}">
+			<acme:submit code="auditor.auditingRecords.form.button.create-exceptional" action="/auditor/auditing-record/create-exceptional?auditId=${auditId}"/>	
 		</jstl:when>		
 	</jstl:choose>	
 	

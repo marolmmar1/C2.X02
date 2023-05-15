@@ -70,11 +70,17 @@ master.menu.student.enrolment.list-all = Lista de matriculas
 master.menu.student.activity.list-all = Lista de actividades
 master.menu.student.course.list-all = Lista de cursos
 
+# master.menu.lecturer ##########################################################
+
+master.menu.lecturer = Profesor
+master.menu.authenticated.course.list-all = Lista de cursos
+master.menu.lecturer.course.create = Crear curso
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta
 master.menu.authenticated.bulletin.list-all = Lista de boletines
-
+master.menu.authenticated.note.list-all = Lista de Notas
 master.menu.authenticated.tutorial.list-all = Lista de tutorias
 master.menu.authenticated.practicum.list-all = Lista de practicas
 
@@ -96,3 +102,4 @@ master.menu.user-account.become-student = Hazte estudiante
 master.menu.user-account.student = Datos de estudiante
 master.menu.user-account.company = Datos de la compañía
 master.menu.user-account.assistant = Datos asistente
+master.menu.user-account.become-lecturer = Hazte profesor

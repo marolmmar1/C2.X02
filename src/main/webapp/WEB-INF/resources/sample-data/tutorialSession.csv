@@ -1,13 +1,19 @@
 key,title,abstracts,nature,inicialPeriod,finalPeriod,link,key:tutorial
-tutorialSessions-01,"content=""width=device-width""initial-scale=1.0"">",Lorem ipsum,BALANCE,2022/07/29 21:00,2030/12/10 22:00,http://www.example.com,tutorial-12
-tutorialSessions-02,T,Lorem ipsum,THEORETICAL,2030/12/10 20:00,2021/12/10 22:00,http://www.example.com,tutorial-02
-tutorialSessions-03,Tu,Lorem ipsum,THEORETICAL,2030/12/10 20:00,2030/12/10 22:00,http://www.example.com,tutorial-03
-tutorialSessions-04,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo",Lorem ipsum,THEORETICAL,2030/12/10 20:00,2030/12/10 22:00,null,tutorial-04
-tutorialSessions-05,它又胖又可爱，喜欢吃鱼和玩毛线球。但是，有一天它不小心把毛线球打破了，于是它决定学会自己编织新的毛线球。,Lorem ipsum,BALANCE,2030/12/10 20:00,2030/12/10 22:00,null,tutorial-04
-tutorialSessions-06,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo.",Lorem ipsum,THEORETICAL,2030/12/10 20:00,2030/12/10 22:00,null,tutorial-04
-tutorialSessions-07,Lorem ipsum,"content=""width=device-width""initial-scale=1.0"">",BALANCE,2022/07/29 21:00,2030/12/10 22:00,http://www.example.com,tutorial-01
-tutorialSessions-08,Lorem ipsum,T,THEORETICAL,2030/12/10 20:00,2021/12/10 22:00,http://www.example.com,tutorial-02
-tutorialSessions-09,Lorem ipsum,Tu,THEORETICAL,2030/12/10 20:00,2030/12/10 22:00,http://www.example.com,tutorial-03
-tutorialSessions-10,Lorem ipsum,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo",THEORETICAL,2030/12/10 20:00,2030/12/10 22:00,null,tutorial-04
-tutorialSessions-11,Lorem ipsum,它又胖又可爱，喜欢吃鱼和玩毛线球。但是，有一天它不小心把毛线球打破了，于是它决定学会自己编织新的毛线球。,BALANCE,2030/12/10 20:00,2030/12/10 22:00,null,tutorial-23
-tutorialSessions-12,Lorem ipsum,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo.",THEORETICAL,2030/12/10 20:00,2030/12/10 22:00,null,tutorial-18
+tutorialSessions-01,"content=""width=device-width""initial-scale=1.0"">",Lorem ipsum,BALANCE,2022/07/30 21:00,2022/07/30 22:00,http://www.example.com,tutorial-12
+tutorialSessions-02,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo",Lorem ipsum,THEORETICAL,2030/12/10 20:00,2030/12/10 22:00,null,tutorial-04
+tutorialSessions-03,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo",Lorem ipsum,BALANCE,2030/12/10 20:00,2030/12/10 22:00,null,tutorial-06
+tutorialSessions-04,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo.",Lorem ipsum,THEORETICAL,2030/12/10 20:00,2030/12/10 22:00,null,tutorial-04
+tutorialSessions-05,Lorem ipsum,"content=""width=device-width""initial-scale=1.0"">",BALANCE,2022/07/29 21:00,2030/12/10 22:00,http://www.example.com,tutorial-01
+tutorialSessions-06,Lorem ipsum,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo",THEORETICAL,2030/12/10 20:00,2030/12/10 22:00,null,tutorial-04
+tutorialSessions-07,Lorem ipsum,它又胖又可爱，喜欢吃鱼和玩毛线球。但是，有一天它不小心把毛线球打破了，于是它决定学会自己编织新的毛线球。,BALANCE,2030/12/10 20:00,2030/12/10 22:00,null,tutorial-23
+tutorialSessions-08,Lorem ipsum,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo.",BALANCE,2030/12/10 09:00,2030/12/10 10:00,null,tutorial-18
+tutorialSessions-09,Lorem ipsum1,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo.",THEORETICAL,2030/12/10 13:00,2030/12/10 14:00,null,tutorial-02
+tutorialSessions-10,Lorem ipsum2,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo.",THEORETICAL,2030/12/10 11:00,2030/12/10 12:00,null,tutorial-07
+tutorialSessions-11,Lorem ipsum3,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo.",BALANCE,2030/12/10 17:00,2030/12/10 19:00,null,tutorial-13
+tutorialSessions-12,Lorem ipsum4,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo.",THEORETICAL,2030/12/10 14:00,2030/12/10 16:00,null,tutorial-19
+tutorialSessions-13,Lorem ipsum5,"La vida es corta, haz lo que te apasiona cada momento al máximo.",THEORETICAL,2030/12/10 20:00,2030/12/10 21:00,null,tutorial-02
+tutorialSessions-14,Lorem ipsum6,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo.",THEORETICAL,2030/12/10 17:00,2030/12/10 19:00,null,tutorial-07
+tutorialSessions-15,Lorem ipsum7,"La vida es corta, haz lo que te apasiona y disfruta al máximo.",THEORETICAL,2030/12/10 18:00,2030/12/10 19:00,null,tutorial-13
+tutorialSessions-16,Lorem ipsum8,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo.",BALANCE,2030/12/10 20:00,2030/12/10 23:00,null,tutorial-14
+tutorialSessions-17,"content=""width=device-width""initial-scale=1.0"">",Lorem ipsum20,BALANCE,2022/07/30 21:00,2022/07/30 22:00,http://www.example.com,tutorial-03
+tutorialSessions-18,Lorem ipsum12,Lorem ipsum23,BALANCE,2022/07/30 21:00,2022/07/30 22:00,http://www.example.com,tutorial-03

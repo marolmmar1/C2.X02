@@ -49,7 +49,6 @@ public class LecturerCourseListAllService extends AbstractService<Lecturer, Cour
 		final int lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
 
 		object = this.repository.findManyCoursesByLecturer(lecturerId);
-
 		super.getBuffer().setData(object);
 	}
 

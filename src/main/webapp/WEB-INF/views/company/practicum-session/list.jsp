@@ -17,6 +17,7 @@
 
 <acme:list>
 	<acme:list-column code="company.practicumSession.list.label.title" path="title" width="20%"/>
+	
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'show'}">
 			<acme:button code="company.practicum.form.button.practicumSession" action="/company/practicum-session/list?practicumId=${id}"/>
@@ -25,4 +26,4 @@
 
 </acme:list>
 <acme:button test="${showCreate}" code="company.practicumSession.create.button.practicumSession" action="/company/practicum-session/create?practicumId=${practicumId}"/>
-
+<acme:button code="company.practicumSession.list.button.create-exceptional" action="/company/practicum-session/create-exceptional?practicumId=${practicumId}"/>
