@@ -74,10 +74,10 @@ public class StudentDashboardShowService extends AbstractService<Student, Studen
 		activityWorkbookTimeMinimum = this.repository.minimumTimeOfActivityWorkbook(id);
 		activityWorkbookTimeMaximum = this.repository.maximumTimeOfActivityWorkbook(id);
 
-		courseEnrolledTimeAverage = this.repository.averageLearningTimeAOfCoursesEnrolled(id);
-		courseEnrolledTimeDeviation = this.repository.deviationLearningTimeAOfCoursesEnrolled(id);
-		courseEnrolledTimeMaximum = this.repository.maximumLearningTimeAOfCoursesEnrolled(id);
-		courseEnrolledTimeMinimum = this.repository.minimumLearningTimeAOfCoursesEnrolled(id);
+		courseEnrolledTimeAverage = this.repository.averageestimatedTimeAOfCoursesEnrolled(id);
+		courseEnrolledTimeDeviation = this.repository.deviationestimatedTimeAOfCoursesEnrolled(id);
+		courseEnrolledTimeMaximum = this.repository.maximumestimatedTimeAOfCoursesEnrolled(id);
+		courseEnrolledTimeMinimum = this.repository.minimumestimatedTimeAOfCoursesEnrolled(id);
 
 		dashboard = new StudentDashboard();
 		dashboard.setTotalNumberTheoryWorkbookActivities(totalNumberTheoryWorkbookActivities);
@@ -98,12 +98,8 @@ public class StudentDashboardShowService extends AbstractService<Student, Studen
 		Tuple tuple;
 
 		tuple = super.unbind(object, //
-			"totalNumberHandsonWorkbookActivities", "totalNumberTheoryWorkbookActivities",  
-			"activityWorkbookTimeAverage", "activityWorkbookTimeDeviation",  
-			"activityWorkbookTimeMaximum", "activityWorkbookTimeMinimum", 
-			"courseEnrolledTimeAverage", "courseEnrolledTimeDeviation", 
-			"courseEnrolledTimeMaximum", "courseEnrolledTimeMinimum" 
-		); 
+			"totalNumberHandsonWorkbookActivities", "totalNumberTheoryWorkbookActivities", "activityWorkbookTimeAverage", "activityWorkbookTimeDeviation", "activityWorkbookTimeMaximum", "activityWorkbookTimeMinimum", "courseEnrolledTimeAverage",
+			"courseEnrolledTimeDeviation", "courseEnrolledTimeMaximum", "courseEnrolledTimeMinimum");
 
 		super.getResponse().setData(tuple);
 	}
