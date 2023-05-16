@@ -1,10 +1,13 @@
 
 package acme.features.lecturer.course;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Course;
+import acme.entities.CourseLecture;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -12,8 +15,12 @@ import acme.roles.Lecturer;
 @Service
 public class LecturerCourseDeleteService extends AbstractService<Lecturer, Course> {
 
+	// Internal state ---------------------------------------------------------
+
 	@Autowired
 	protected LecturerCourseRepository repository;
+
+	// AbstractService interface ----------------------------------------------
 
 
 	@Override
@@ -27,19 +34,16 @@ public class LecturerCourseDeleteService extends AbstractService<Lecturer, Cours
 
 	@Override
 	public void authorise() {
+
 		boolean status;
-		int lecturerId;
-		int courseId;
-		Course object;
-		boolean lecturer;
+		int masterId;
+		Course course;
+		Lecturer lecturer;
 
-		lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
-		courseId = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneCourseById(courseId);
-		lecturer = object.getLecturer().getId() == lecturerId;
-
-		status = super.getRequest().getPrincipal().hasRole(Lecturer.class) && lecturer;
-
+		masterId = super.getRequest().getData("id", int.class);
+		course = this.repository.findOneCourseById(masterId);
+		lecturer = course == null ? null : course.getLecturer();
+		status = course != null && course.isDraftMode() && super.getRequest().getPrincipal().hasRole(lecturer);
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -58,32 +62,31 @@ public class LecturerCourseDeleteService extends AbstractService<Lecturer, Cours
 	public void bind(final Course object) {
 		assert object != null;
 
-		super.bind(object, "code", "title", "abstracts", "price", "nature", "link");
+		super.bind(object, "id", "code", "title", "abstracts", "price", "link");
 	}
 
 	@Override
 	public void validate(final Course object) {
 		assert object != null;
-		final boolean inDraftMode = object.isDraftMode();
 
-		super.state(inDraftMode, "*", "lecturer.course.form.error.delete.draft");
 	}
 
 	@Override
 	public void perform(final Course object) {
 		assert object != null;
-
+		final Collection<CourseLecture> courseLectures = this.repository.findManyCourseLectureByCourse(object);
+		for (final CourseLecture cl : courseLectures)
+			this.repository.delete(cl);
 		this.repository.delete(object);
 	}
 
 	@Override
 	public void unbind(final Course object) {
 		assert object != null;
-		Tuple tupla;
 
-		tupla = super.unbind(object, "code", "title", "abstracts", "price", "nature", "link");
-
-		super.getResponse().setData(tupla);
+		Tuple tuple;
+		tuple = super.unbind(object, "code", "title", "abstracts", "price", "link");
+		super.getResponse().setData(tuple);
 	}
 
 }

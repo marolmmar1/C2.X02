@@ -2,7 +2,8 @@
 package acme.features.lecturer.course;
 
 import java.util.Collection;
-import java.util.Optional;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,9 +11,6 @@ import org.springframework.stereotype.Service;
 import acme.entities.Course;
 import acme.entities.Lecture;
 import acme.entities.Nature;
-import acme.features.lecturer.courseLecture.LecturerCourseLectureRepository;
-import acme.framework.components.accounts.Principal;
-import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -20,69 +18,69 @@ import acme.roles.Lecturer;
 @Service
 public class LecturerCoursePublishService extends AbstractService<Lecturer, Course> {
 
-	@Autowired
-	protected LecturerCourseRepository			repository;
+	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected LecturerCourseLectureRepository	lclRepository;
+	protected LecturerCourseRepository repository;
+
+	// AbstractService interface ----------------------------------------------
 
 
 	@Override
 	public void check() {
 		boolean status;
-
 		status = super.getRequest().hasData("id", int.class);
-
 		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
 		boolean status;
-		Course object;
-		Principal principal;
 		int courseId;
+		Course course;
+		Lecturer lecturer;
 
 		courseId = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneCourseById(courseId);
-		principal = super.getRequest().getPrincipal();
-
-		status = object.getLecturer().getId() == principal.getActiveRoleId();
+		course = this.repository.findOneCourseById(courseId);
+		lecturer = course == null ? null : course.getLecturer();
+		status = course != null && course.isDraftMode() && super.getRequest().getPrincipal().hasRole(lecturer);
 
 		super.getResponse().setAuthorised(status);
+
 	}
 
 	@Override
 	public void load() {
 		Course object;
 		int id;
-
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneCourseById(id);
-
 		super.getBuffer().setData(object);
 	}
 
 	@Override
 	public void bind(final Course object) {
 		assert object != null;
-
-		super.bind(object, "code", "title", "abstracts", "price", "nature", "link");
+		super.bind(object, "code", "title", "abstracts", "price", "link");
 	}
 
 	@Override
 	public void validate(final Course object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			Optional<Course> existing;
+		final Collection<Lecture> lectures = this.repository.findManyLecturesByCourseId(object.getId());
+		super.state(!lectures.isEmpty(), "nature", "lecturer.course.form.error.nolecture");
 
-			existing = this.repository.findCourseByCode(object.getCode());
-			super.state(existing == null || existing.equals(object), "code", "lecturer.course.form.error.update.code.repeated");
+		if (!lectures.isEmpty()) {
+
+			boolean handOnLectureInCourse;
+			handOnLectureInCourse = lectures.stream().anyMatch(x -> x.getNature().equals(Nature.HANDS_ON));
+			super.state(handOnLectureInCourse, "nature", "lecturer.course.form.error.nohandson");
+
+			boolean publishedLectures;
+			publishedLectures = lectures.stream().allMatch(x -> x.getDraftMode() == false);
+			super.state(publishedLectures, "nature", "lecturer.course.form.error.lecturenp");
 		}
-		final Collection<Lecture> lectures = this.lclRepository.findLecturesByCourseId(object.getId());
-
-		super.state(!lectures.isEmpty(), "*", "lecturer.course.form.error.noSession");
 	}
 
 	@Override
@@ -96,16 +94,11 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 	@Override
 	public void unbind(final Course object) {
 		assert object != null;
-
-		SelectChoices choices;
-		Tuple tupla;
-
-		choices = SelectChoices.from(Nature.class, object.getNature());
-		tupla = super.unbind(object, "code", "title", "abstracts", "price", "nature", "link", "draftMode");
-		tupla.put("nature", choices.getSelected().getKey());
-		tupla.put("natures", choices);
-
-		super.getResponse().setData(tupla);
+		Tuple tuple;
+		tuple = super.unbind(object, "code", "title", "abstracts", "price", "link", "draftMode");
+		final List<Lecture> lectures = this.repository.findManyLecturesByCourseId(object.getId()).stream().collect(Collectors.toList());
+		final Nature nature = object.nature(lectures);
+		tuple.put("nature", nature);
+		super.getResponse().setData(tuple);
 	}
-
 }

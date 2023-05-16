@@ -8,25 +8,18 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-lecturer.lecture.form.label.title = Título:
-lecturer.lecture.form.label.abstracts = Resumen:
-lecturer.lecture.form.label.estimatedTime = Tiempo estimado:
-lecturer.lecture.form.label.body = Descripción:
-lecturer.lecture.form.label.nature = Tipo:
-lecturer.lecture.form.label.link = Enlace:
+lecturer.lecture.form.label.title = Título
+lecturer.lecture.form.label.abstracts = Resumen
+lecturer.lecture.form.label.body = Descripción
+lecturer.lecture.form.label.estimatedTime = Tiempo estimado
+lecturer.lecture.form.label.link = Enlace (opcional)
+lecturer.lecture.form.label.nature = Tipo
+lecturer.lecture.form.label.draftMode = Modo borrador
 
-lecturer.lecture.list.label.title = Título
-lecturer.lecture.list.label.estimatedTime = Tiempo estimado: 
-lecturer.lecture.list.label.nature = Tipo:
-
-lecturer.lecture.list.button.create = Crear
+lecturer.lecture.form.button.create = Crear lección
 lecturer.lecture.form.button.update = Actualizar
 lecturer.lecture.form.button.delete = Borrar
-lecturer.course.form.button.lecture = Lecciones
-lecturer.lecture.form.button.create = Crear
-lecturer.lecture.create.button.lecture = Crear Lección
-
-lecturer.lecture.form.error.horaMax = The duration should be a minimum of 1 week
-lecturer.lecture.form.error.horaMin = Must be at least one week ahead
-lecturer.lecture.form.error.menor = Start date must be earlier than the final date
-lecturer.lecture.form.error.antes = The start date should be one day after the local date
+lecturer.lecture.form.button.publish = Publicar
+lecturer.lecture.form.button.add = Añadir al curso
+lecturer.lecture.form.button.deleteFromCourse = Borrar del curso
+lecturer.lecture.form.error.estimatedTime = Debe ser un tiempo positivo

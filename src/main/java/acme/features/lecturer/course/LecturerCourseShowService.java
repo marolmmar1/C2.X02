@@ -1,23 +1,15 @@
-/*
- * WorkerJobShowService.java
- *
- * Copyright (C) 2012-2023 Rafael Corchuelo.
- *
- * In keeping with the traditional purpose of furthering education and research, it is
- * the policy of the copyright owner to permit non-commercial use and redistribution of
- * this software. It has been tested carefully, but it is not guaranteed for any particular
- * purposes. The copyright owner does not offer any warranties or representations, nor do
- * they accept any liabilities with respect to them.
- */
 
 package acme.features.lecturer.course;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Course;
+import acme.entities.Lecture;
 import acme.entities.Nature;
-import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -25,7 +17,7 @@ import acme.roles.Lecturer;
 @Service
 public class LecturerCourseShowService extends AbstractService<Lecturer, Course> {
 
-	// Internal state ---------------------------------------------------------
+	// Internal state --------------------------------------------------
 
 	@Autowired
 	protected LecturerCourseRepository repository;
@@ -35,7 +27,6 @@ public class LecturerCourseShowService extends AbstractService<Lecturer, Course>
 
 	@Override
 	public void check() {
-
 		boolean status;
 
 		status = super.getRequest().hasData("id", int.class);
@@ -45,45 +36,43 @@ public class LecturerCourseShowService extends AbstractService<Lecturer, Course>
 
 	@Override
 	public void authorise() {
+
 		boolean status;
-		int lecturerId;
-		int courseId;
-		Course object;
-		boolean lecturer;
+		int masterId;
+		Course course;
+		Lecturer lecturer;
 
-		lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
-		courseId = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneCourseById(courseId);
-		lecturer = object.getLecturer().getId() == lecturerId;
-
-		status = super.getRequest().getPrincipal().hasRole(Lecturer.class) && lecturer;
+		masterId = super.getRequest().getData("id", int.class);
+		course = this.repository.findOneCourseById(masterId);
+		lecturer = course == null ? null : course.getLecturer();
+		status = super.getRequest().getPrincipal().hasRole(lecturer) || course != null && !course.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
+
 	}
 
 	@Override
 	public void load() {
-		Course object;
+		Course course;
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneCourseById(id);
+		course = this.repository.findOneCourseById(id);
 
-		super.getBuffer().setData(object);
+		super.getBuffer().setData(course);
 	}
 
 	@Override
 	public void unbind(final Course object) {
 		assert object != null;
-		Tuple tupla;
-		final SelectChoices choices;
 
-		choices = SelectChoices.from(Nature.class, object.getNature());
-		tupla = super.unbind(object, "code", "title", "abstracts", "price", "nature", "link", "draftMode");
-		tupla.put("nature", choices.getSelected().getKey());
-		tupla.put("natures", choices);
+		Tuple tuple;
 
-		super.getResponse().setData(tupla);
+		tuple = super.unbind(object, "code", "title", "abstracts", "price", "link", "draftMode", "lecturer");
+		final List<Lecture> lectures = this.repository.findManyLecturesByCourseId(object.getId()).stream().collect(Collectors.toList());
+		final Nature nature = object.nature(lectures);
+		tuple.put("nature", nature);
+		super.getResponse().setData(tuple);
 	}
 
 }
