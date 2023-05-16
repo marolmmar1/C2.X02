@@ -1,9 +1,14 @@
 
 package acme.entities;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -41,18 +46,42 @@ public class Course extends AbstractEntity {
 	@NotNull
 	protected Money				price;
 
-	@NotNull
-	protected Nature			nature;
-
 	@URL
 	protected String			link;
 
 	protected boolean			draftMode;
 
+
+	@Transient
+	public Nature nature(final List<Lecture> lectures) {
+		Nature res = Nature.BALANCE;
+		if (!lectures.isEmpty()) {
+			final Map<Nature, Integer> lecturesByNature = new HashMap<>();
+			for (final Lecture lecture : lectures) {
+				final Nature nature = lecture.getNature();
+				if (lecturesByNature.containsKey(nature))
+					lecturesByNature.put(nature, lecturesByNature.get(nature) + 1);
+				else
+					lecturesByNature.put(nature, 1);
+			}
+			if (lecturesByNature.containsKey(Nature.HANDS_ON) && lecturesByNature.containsKey(Nature.THEORETICAL))
+				if (lecturesByNature.get(Nature.HANDS_ON) > lecturesByNature.get(Nature.THEORETICAL))
+					res = Nature.HANDS_ON;
+				else if (lecturesByNature.get(Nature.THEORETICAL) > lecturesByNature.get(Nature.HANDS_ON))
+					res = Nature.THEORETICAL;
+			if (lecturesByNature.containsKey(Nature.HANDS_ON) && !lecturesByNature.containsKey(Nature.THEORETICAL))
+				res = Nature.HANDS_ON;
+			if (!lecturesByNature.containsKey(Nature.HANDS_ON) && lecturesByNature.containsKey(Nature.THEORETICAL))
+				res = Nature.THEORETICAL;
+		}
+		return res;
+	}
+
+
 	// Relationships ----------------------------------------------------------
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	protected Lecturer			lecturer;
+	protected Lecturer lecturer;
 
 }

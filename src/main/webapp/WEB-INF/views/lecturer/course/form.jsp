@@ -17,25 +17,23 @@
 
 <jslt:set var=draftMode" value"${draftMode }"/>
 
-<acme:form readonly="${draftMode == false }">
-
+<acme:form>
 	<acme:input-textbox code="lecturer.course.form.label.code" path="code" placeholder="ABC123"/>	
-	<acme:input-textbox code="lecturer.course.form.label.title" path="title"/>
-	<acme:input-textarea code="lecturer.course.form.label.abstracts" path="abstracts"/>
+	<acme:input-textbox code="lecturer.course.form.label.title" path="title"/>	
 	<acme:input-money code="lecturer.course.form.label.price" path="price"/>
-	<acme:input-select code="lecturer.course.form.label.nature" path="nature" choices="${natures }"/>	
-	<acme:input-url code="lecturer.course.form.label.link" path="link"/>
+	<acme:input-textbox code="lecturer.course.form.label.abstracts" path="abstracts"/>	
+	<acme:input-textbox code="lecturer.course.form.label.link" path="link"/>
+	<acme:input-textbox code="lecturer.course.form.label.nature" path="nature" readonly="true"/>
 	
-	
-	<jstl:choose>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')&& draftMode == true}">
-			<acme:button code="lecturer.course.form.button.lecture" action="/lecturer/lecture/list-all?id=${id}"/>			
+	<jstl:choose>	 
+		<jstl:when test="${_command == 'show' && draftMode == false}">
+			<acme:button code="lecturer.course.form.button.lectures" action="/lecturer/lecture/list?masterId=${id}"/>			
+		</jstl:when>
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
+			<acme:button code="lecturer.course.form.button.lectures" action="/lecturer/lecture/list?masterId=${id}"/>
 			<acme:submit code="lecturer.course.form.button.update" action="/lecturer/course/update"/>
 			<acme:submit code="lecturer.course.form.button.delete" action="/lecturer/course/delete"/>
 			<acme:submit code="lecturer.course.form.button.publish" action="/lecturer/course/publish"/>
-		</jstl:when>
-		<jstl:when test="${_command == 'show' && draftMode == false}">
-			<acme:button code="lecturer.course.form.button.lecture" action="/lecturer/lecture/list-all?id=${id}"/>			
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="lecturer.course.form.button.create" action="/lecturer/course/create"/>

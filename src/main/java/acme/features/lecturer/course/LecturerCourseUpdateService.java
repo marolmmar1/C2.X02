@@ -1,14 +1,15 @@
 
 package acme.features.lecturer.course;
 
-import java.util.Optional;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Course;
+import acme.entities.Lecture;
 import acme.entities.Nature;
-import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -16,8 +17,12 @@ import acme.roles.Lecturer;
 @Service
 public class LecturerCourseUpdateService extends AbstractService<Lecturer, Course> {
 
+	// Internal state ---------------------------------------------------------
+
 	@Autowired
 	protected LecturerCourseRepository repository;
+
+	// AbstractService interface ----------------------------------------------
 
 
 	@Override
@@ -32,25 +37,22 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 	@Override
 	public void authorise() {
 		boolean status;
-		int lecturerId;
 		int courseId;
-		Course object;
-		boolean lecturer;
+		Course course;
+		Lecturer lecturer;
 
-		lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
 		courseId = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneCourseById(courseId);
-		lecturer = object.getLecturer().getId() == lecturerId;
-
-		status = super.getRequest().getPrincipal().hasRole(Lecturer.class) && lecturer;
+		course = this.repository.findOneCourseById(courseId);
+		lecturer = course == null ? null : course.getLecturer();
+		status = course != null && course.isDraftMode() && super.getRequest().getPrincipal().hasRole(lecturer);
 
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		int id;
 		Course object;
+		int id;
 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneCourseById(id);
@@ -62,44 +64,38 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 	public void bind(final Course object) {
 		assert object != null;
 
-		super.bind(object, "code", "title", "abstracts", "price", "nature", "link");
+		super.bind(object, "code", "title", "abstracts", "price", "link");
 	}
 
 	@Override
 	public void validate(final Course object) {
 		assert object != null;
+		if (!super.getBuffer().getErrors().hasErrors("price"))
+			super.state(object.getPrice().getAmount() > 0, "price", "lecturer.course.form.error.negative-price");
 
-		boolean inDraftMode;
-		String code;
-		Optional<Course> repeatCode;
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Course existing;
 
-		inDraftMode = object.isDraftMode();
-		code = super.getRequest().getData("code", String.class);
-		repeatCode = this.repository.findCourseByCode(code);
-
-		super.state(!repeatCode.isPresent() || object.getId() == repeatCode.get().getId(), "code", "lecturer.course.form.error.update.code.repeated");
-		super.state(inDraftMode, "*", "lecturer.course.form.error.update.draft");
+			existing = this.repository.findOneCourseByCode(object.getCode());
+			super.state(existing == null || existing.equals(object), "code", "lecturer.course.form.error.duplicated");
+		}
 	}
 
 	@Override
 	public void perform(final Course object) {
 		assert object != null;
-
 		this.repository.save(object);
 	}
 
 	@Override
 	public void unbind(final Course object) {
 		assert object != null;
-		Tuple tupla;
-		final SelectChoices choices;
+		Tuple tuple;
 
-		choices = SelectChoices.from(Nature.class, object.getNature());
-		tupla = super.unbind(object, "code", "title", "abstracts", "price", "nature", "link", "draftMode");
-		tupla.put("nature", choices.getSelected().getKey());
-		tupla.put("natures", choices);
-
-		super.getResponse().setData(tupla);
+		tuple = super.unbind(object, "code", "title", "abstracts", "price", "link", "draftMode", "lecturer");
+		final List<Lecture> lectures = this.repository.findManyLecturesByCourseId(object.getId()).stream().collect(Collectors.toList());
+		final Nature nature = object.nature(lectures);
+		tuple.put("nature", nature);
+		super.getResponse().setData(tuple);
 	}
-
 }

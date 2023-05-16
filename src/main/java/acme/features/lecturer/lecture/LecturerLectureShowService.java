@@ -1,14 +1,3 @@
-/*
- * WorkerJobShowService.java
- * 
- * Copyright (C) 2012-2023 Rafael Corchuelo.
- * 
- * In keeping with the traditional purpose of furthering education and research, it is
- * the policy of the copyright owner to permit non-commercial use and redistribution of
- * this software. It has been tested carefully, but it is not guaranteed for any particular
- * purposes. The copyright owner does not offer any warranties or representations, nor do
- * they accept any liabilities with respect to them.
- */
 
 package acme.features.lecturer.lecture;
 
@@ -25,7 +14,7 @@ import acme.roles.Lecturer;
 @Service
 public class LecturerLectureShowService extends AbstractService<Lecturer, Lecture> {
 
-	// Internal state ---------------------------------------------------------
+	// Internal state --------------------------------------------------
 
 	@Autowired
 	protected LecturerLectureRepository repository;
@@ -35,7 +24,6 @@ public class LecturerLectureShowService extends AbstractService<Lecturer, Lectur
 
 	@Override
 	public void check() {
-
 		boolean status;
 
 		status = super.getRequest().hasData("id", int.class);
@@ -46,35 +34,42 @@ public class LecturerLectureShowService extends AbstractService<Lecturer, Lectur
 	@Override
 	public void authorise() {
 		boolean status;
+		int masterId;
+		Lecture lecture;
+		Lecturer lecturer;
 
-		status = super.getRequest().getPrincipal().hasRole(Lecturer.class);
+		masterId = super.getRequest().getData("id", int.class);
+		lecture = this.repository.findLectureById(masterId);
+		lecturer = lecture == null ? null : lecture.getLecturer();
+		status = super.getRequest().getPrincipal().hasRole(lecturer) || lecture != null && !lecture.getDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		Lecture object;
+		Lecture lecture;
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneLectureById(id);
+		lecture = this.repository.findLectureById(id);
 
-		super.getBuffer().setData(object);
+		super.getBuffer().setData(lecture);
 	}
 
 	@Override
 	public void unbind(final Lecture object) {
 		assert object != null;
+		Tuple tuple;
 
-		Tuple tupla;
+		tuple = super.unbind(object, "title", "abstracts", "body", "estimatedTime", "nature", "link");
 		final SelectChoices choices;
-
 		choices = SelectChoices.from(Nature.class, object.getNature());
-		tupla = super.unbind(object, "title", "abstracts", "estimatedTime", "body", "nature", "link");
-		tupla.put("nature", choices.getSelected().getKey());
-		tupla.put("natures", choices);
-		super.getResponse().setData(tupla);
+		tuple.put("nature", choices.getSelected().getKey());
+		tuple.put("natures", choices);
+		tuple.put("draftMode", object.getDraftMode());
+
+		super.getResponse().setData(tuple);
 	}
 
 }

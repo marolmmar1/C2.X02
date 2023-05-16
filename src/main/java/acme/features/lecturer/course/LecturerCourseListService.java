@@ -1,49 +1,42 @@
 
-package acme.features.any.course;
+package acme.features.lecturer.course;
+
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Course;
-import acme.framework.components.accounts.Any;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
+import acme.roles.Lecturer;
 
 @Service
-public class AnyCourseShowService extends AbstractService<Any, Course> {
+public class LecturerCourseListService extends AbstractService<Lecturer, Course> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AnyCourseRepository repository;
+	protected LecturerCourseRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
 
 	@Override
 	public void check() {
-		boolean status;
-
-		status = super.getRequest().hasData("id", int.class);
-
-		super.getResponse().setChecked(status);
+		super.getResponse().setChecked(true);
 	}
 
 	@Override
 	public void authorise() {
-
 		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
-		Course object;
-		int id;
-
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneCourseById(id);
-
-		super.getBuffer().setData(object);
+		Collection<Course> objects;
+		objects = this.repository.findManyCoursesByLecturerId(super.getRequest().getPrincipal().getActiveRoleId());
+		super.getBuffer().setData(objects);
 	}
 
 	@Override
@@ -52,8 +45,7 @@ public class AnyCourseShowService extends AbstractService<Any, Course> {
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "abstracts", "price", "nature", "link");
-
+		tuple = super.unbind(object, "code", "title", "abstracts");
 		super.getResponse().setData(tuple);
 	}
 

@@ -1,47 +1,47 @@
 
 package acme.features.lecturer.course;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Course;
-import acme.entities.Nature;
-import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
 
 @Service
 public class LecturerCourseCreateService extends AbstractService<Lecturer, Course> {
+	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected LecturerCourseRepository repository;
 
+	// AbstractService interface ----------------------------------------------
+
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		final boolean status = true;
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
 		boolean status;
+
 		status = super.getRequest().getPrincipal().hasRole(Lecturer.class);
+
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
 		Course object;
-		Lecturer lecturer;
-
-		lecturer = this.repository.findLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
 		object = new Course();
-		object.setDraftMode(true);
+		final Lecturer lecturer = this.repository.findOneLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
 		object.setLecturer(lecturer);
-
+		object.setDraftMode(true);
 		super.getBuffer().setData(object);
 	}
 
@@ -49,44 +49,35 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 	public void bind(final Course object) {
 		assert object != null;
 
-		super.bind(object, "code", "title", "abstracts", "price", "nature", "link");
-
+		super.bind(object, "code", "title", "abstracts", "price", "link");
 	}
 
 	@Override
 	public void validate(final Course object) {
-
 		assert object != null;
 
-		String code;
-		Optional<Course> repeatCode;
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Course existing;
 
-		code = super.getRequest().getData("code", String.class);
-		repeatCode = this.repository.findCourseByCode(code);
-
-		super.state(!repeatCode.isPresent(), "code", "lecturer.course.form.error.code.repeated");
+			existing = this.repository.findOneCourseByCode(object.getCode());
+			super.state(existing == null, "code", "lecturer.course.form.error.duplicated");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("price"))
+			super.state(object.getPrice().getAmount() > 0, "price", "lecturer.course.form.error.negative-price");
 	}
 
 	@Override
 	public void perform(final Course object) {
 		assert object != null;
-
 		this.repository.save(object);
 	}
 
 	@Override
 	public void unbind(final Course object) {
 		assert object != null;
+		Tuple tuple;
 
-		final SelectChoices choices;
-		Tuple tupla;
-
-		choices = SelectChoices.from(Nature.class, object.getNature());
-		tupla = super.unbind(object, "code", "title", "abstracts", "price", "nature", "link");
-		tupla.put("nature", choices.getSelected().getKey());
-		tupla.put("natures", choices);
-
-		super.getResponse().setData(tupla);
+		tuple = super.unbind(object, "code", "title", "abstracts", "price", "link", "draftMode", "lecturer");
+		super.getResponse().setData(tuple);
 	}
-
 }

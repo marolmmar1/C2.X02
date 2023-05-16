@@ -1,14 +1,3 @@
-/*
- * WorkerJobController.java
- *
- * Copyright (C) 2012-2023 Rafael Corchuelo.
- *
- * In keeping with the traditional purpose of furthering education and research, it is
- * the policy of the copyright owner to permit non-commercial use and redistribution of
- * this software. It has been tested carefully, but it is not guaranteed for any particular
- * purposes. The copyright owner does not offer any warranties or representations, nor do
- * they accept any liabilities with respect to them.
- */
 
 package acme.features.lecturer.course;
 
@@ -24,36 +13,32 @@ import acme.roles.Lecturer;
 @Controller
 public class LecturerCourseController extends AbstractController<Lecturer, Course> {
 
-	// Internal state ---------------------------------------------------------
+	@Autowired
+	protected LecturerCourseListService		listAllService;
 
 	@Autowired
 	protected LecturerCourseShowService		showService;
 
 	@Autowired
-	protected LecturerCourseListAllService	listAllService;
-
-	@Autowired
 	protected LecturerCourseCreateService	createService;
-
-	@Autowired
-	protected LecturerCourseUpdateService	updateService;
 
 	@Autowired
 	protected LecturerCourseDeleteService	deleteService;
 
 	@Autowired
-	protected LecturerCoursePublishService	publishService;
+	protected LecturerCourseUpdateService	updateService;
 
-	// Constructors -----------------------------------------------------------
+	@Autowired
+	protected LecturerCoursePublishService	publishService;
 
 
 	@PostConstruct
 	protected void initialise() {
+		super.addBasicCommand("list", this.listAllService);
 		super.addBasicCommand("show", this.showService);
-		super.addCustomCommand("list-all", "list", this.listAllService);
 		super.addBasicCommand("create", this.createService);
-		super.addBasicCommand("update", this.updateService);
 		super.addBasicCommand("delete", this.deleteService);
+		super.addBasicCommand("update", this.updateService);
 		super.addCustomCommand("publish", "update", this.publishService);
 	}
 

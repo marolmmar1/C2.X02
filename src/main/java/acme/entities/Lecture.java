@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -33,6 +34,7 @@ public class Lecture extends AbstractEntity {
 
 	@Digits(integer = 3, fraction = 2)
 	@NotNull
+	@Positive
 	protected Double			estimatedTime;
 
 	@NotBlank
@@ -44,6 +46,8 @@ public class Lecture extends AbstractEntity {
 
 	@URL
 	protected String			link;
+
+	protected Boolean			draftMode;
 
 	// Relationships ----------------------------------------------------------
 	@NotNull

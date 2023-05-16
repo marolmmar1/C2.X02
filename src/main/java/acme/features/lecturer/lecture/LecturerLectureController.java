@@ -1,16 +1,4 @@
 
-/*
- * WorkerJobController.java
- * 
- * Copyright (C) 2012-2023 Rafael Corchuelo.
- * 
- * In keeping with the traditional purpose of furthering education and research, it is
- * the policy of the copyright owner to permit non-commercial use and redistribution of
- * this software. It has been tested carefully, but it is not guaranteed for any particular
- * purposes. The copyright owner does not offer any warranties or representations, nor do
- * they accept any liabilities with respect to them.
- */
-
 package acme.features.lecturer.lecture;
 
 import javax.annotation.PostConstruct;
@@ -28,6 +16,9 @@ public class LecturerLectureController extends AbstractController<Lecturer, Lect
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
+	protected LecturerLectureListService	listService;
+
+	@Autowired
 	protected LecturerLectureShowService	showService;
 
 	@Autowired
@@ -40,18 +31,22 @@ public class LecturerLectureController extends AbstractController<Lecturer, Lect
 	protected LecturerLectureUpdateService	updateService;
 
 	@Autowired
-	protected LecturerLectureDeleteService	deleteService;
+	protected LecturerLecturePublishService	publishService;
 
-	// Constructors -----------------------------------------------------------
+	@Autowired
+	protected LecturerLectureDeleteService	deleteService;
 
 
 	@PostConstruct
 	protected void initialise() {
+		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
 		super.addCustomCommand("list-all", "list", this.listAllService);
 		super.addBasicCommand("create", this.createService);
-		super.addBasicCommand("update", this.updateService);
 		super.addBasicCommand("delete", this.deleteService);
+		super.addBasicCommand("update", this.updateService);
+		super.addCustomCommand("publish", "update", this.publishService);
+
 	}
 
 }
