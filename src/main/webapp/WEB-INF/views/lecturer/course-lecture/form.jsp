@@ -16,7 +16,7 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <jstl:choose>	 
-	<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
+	<jstl:when test="${_command == 'delete'}">
 		<h2>
 			<acme:message code="lecturer.courseLecture.form.lecture.delete.info"/>
 		</h2>
@@ -34,7 +34,7 @@
 		<jstl:when test="${acme:anyOf(_command, 'delete')}">
 			<acme:submit code="lecturer.courseLecture.form.button.delete" action="/lecturer/course-lecture/delete?lectureId=${lectureId}"/>
 		</jstl:when>
-		<jstl:when test="${_command == 'create'}">
+		<jstl:when test="${acme:anyOf(_command, 'create')}">
 			<acme:submit code="lecturer.courseLecture.form.button.create" action="/lecturer/course-lecture/create?lectureId=${lectureId}"/>
 		</jstl:when>		
 	</jstl:choose>

@@ -46,8 +46,7 @@ public class LecturerCourseLectureCreateService extends AbstractService<Lecturer
 
 	@Override
 	public void load() {
-		CourseLecture object;
-		object = new CourseLecture();
+		final CourseLecture object = new CourseLecture();
 		final Lecture lecture;
 		int lectureId;
 		lectureId = super.getRequest().getData("lectureId", int.class);
@@ -59,6 +58,7 @@ public class LecturerCourseLectureCreateService extends AbstractService<Lecturer
 	@Override
 	public void bind(final CourseLecture object) {
 		assert object != null;
+
 		int courseId;
 		Course course;
 		courseId = super.getRequest().getData("course", int.class);

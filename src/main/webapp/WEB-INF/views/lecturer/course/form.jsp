@@ -15,7 +15,7 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
-<jslt:set var=draftMode" value"${draftMode }"/>
+<jslt:set var=draftMode" value"${draftMode}"/>
 
 <acme:form>
 	<acme:input-textbox code="lecturer.course.form.label.code" path="code" placeholder="ABC123"/>	
