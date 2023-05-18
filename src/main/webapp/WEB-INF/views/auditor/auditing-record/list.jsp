@@ -27,5 +27,5 @@
 
 </acme:list>
 <acme:button test="${showCreate}" code="auditor.auditingRecords.create.button.auditingRecords" action="/auditor/auditing-record/create?auditId=${auditId}"/>
-<acme:button code="auditor.auditingRecords.list.button.create-exceptional" action="/auditor/auditing-record/create-exceptional?auditId=${auditId}"/>
+<acme:button test="${!showCreate}" code="auditor.auditingRecords.list.button.create-exceptional" action="/auditor/auditing-record/create-exceptional?auditId=${auditId}"/>
 
