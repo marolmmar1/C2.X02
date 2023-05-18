@@ -18,10 +18,10 @@
 <acme:form>	
 			<acme:input-textbox code="student.activity.form.label.title" path="title"/>
 			<acme:input-textbox code="student.activity.form.label.abstracts" path="abstracts"/>
-			<acme:input-moment code="student.activity.form.label.startDate" path="inicialPeriod"/>
-			<acme:input-moment code="student.activity.form.label.endDate" path="finalPeriod"/>
-			<acme:input-textbox code="student.activity.form.label.nature" path="nature" />
-			<acme:input-url code="student.activity.form.label.link" path="link"/>
+			<acme:input-moment code="student.activity.form.label.inicialPeriod" path="inicialPeriod"/>
+			<acme:input-moment code="student.activity.form.label.finalPeriod" path="finalPeriod"/>
+<%-- 			<acme:input-select code="student.activity.form.label.nature" path="nature" choices="${natures}"/>
+ --%>			<acme:input-url code="student.activity.form.label.link" path="link"/>
 			<acme:input-select code="student.activity.list.label.enrolment" path="enrolment" choices="${enrolments}"/>	
 	<jstl:choose>
 		<jstl:when test="${_command == 'show' || _command == 'update'|| _command == 'delete'}">
