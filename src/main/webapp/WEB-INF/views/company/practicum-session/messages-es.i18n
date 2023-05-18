@@ -28,6 +28,8 @@ company.practicumSession.create.button.practicumSession = Crear sesion de práct
 company.practicumSession.list.button.create-exceptional = Crear sesión de práctica excepcional
 company.practicumSession.form.button.create-exceptional = Crear sesión de práctica excepcional
 
+company.practicummSession.form.error.exceptional = Solo se puede añadir una sesion de práctica excepcional
+company.practicumSession.form.error.before = Debe tener al menos una semana de antelacion
 company.practicumSession.form.error.horaMax = La duración debe ser de al menos 1 semana
 company.practicumSession.form.error.horaMin = Debe tener al menos una semana de antelacion
 company.practicumSession.form.error.menor = La fecha de inicio debe ser anterior a la fecha final
