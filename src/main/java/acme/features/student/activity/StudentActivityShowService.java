@@ -66,14 +66,15 @@ public class StudentActivityShowService extends AbstractService<Student, Activit
 		Tuple tuple;
 
 		final int id = super.getRequest().getPrincipal().getAccountId();
-		final Collection<Enrolment> enrolments = this.repository.findAllEnrolmentsByStudentId(id);
+		final Collection<Enrolment> enrolments = this.repository.findAllEnrolmentsByStudentId(id, false);
 
 		final SelectChoices choicesE = SelectChoices.from(enrolments, "code", object.getEnrolment());
+
+		tuple = super.unbind(object, "title", "abstracts", "inicialPeriod", "finalPeriod", "link", "nature", "enrolment.code");
 		final SelectChoices choices;
 		choices = SelectChoices.from(Nature.class, object.getNature());
-
-		tuple = super.unbind(object, "title", "abstracts", "inicialPeriod", "finalPeriod", "link", "enrolment.code");
-
+		tuple.put("nature", choices.getSelected().getKey());
+		tuple.put("natures", choices);
 		tuple.put("enrolments", choicesE);
 		tuple.put("enrolment", choicesE.getSelected().getKey());
 

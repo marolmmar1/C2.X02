@@ -19,8 +19,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.Activity;
-import acme.entities.Enrolment;
 import acme.entities.Course;
+import acme.entities.Enrolment;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Student;
 
@@ -51,10 +51,13 @@ public interface StudentActivityRepository extends AbstractRepository {
 	@Query("SELECT e FROM Enrolment e")
 	List<Enrolment> findAllEnrolments();
 
-	@Query("SELECT e FROM Enrolment e WHERE e.student.userAccount.id = :id")
-	List<Enrolment> findAllEnrolmentsByStudentId(int id);
+	@Query("SELECT e FROM Enrolment e WHERE e.student.userAccount.id = :id AND e.draftMode =:boo")
+	List<Enrolment> findAllEnrolmentsByStudentId(int id, boolean boo);
 
-	@Query("SELECT e FROM Enrolment e WHERE e.id = :id")
+	@Query("select e from Enrolment e where e.id= :id")
 	Enrolment findEnrolmentById(int id);
+
+	@Query("select s from Student s where s.id= :id")
+	Student findOneStudentById(int id);
 
 }

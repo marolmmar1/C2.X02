@@ -64,10 +64,11 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 
 	@Override
 	public void load() {
+		Activity object;
 		final int id = super.getRequest().getData("id", int.class);
-		final Activity activity = this.repository.findActivityById(id);
+		object = this.repository.findActivityById(id);
 
-		super.getBuffer().setData(activity);
+		super.getBuffer().setData(object);
 	}
 
 	@Override
@@ -77,9 +78,8 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 		final int enrolmentId = super.getRequest().getData("enrolment", int.class);
 		final Enrolment enrolment = this.repository.findEnrolmentById(enrolmentId);
 		object.setEnrolment(enrolment);
-		object.setNature(Nature.BALANCE);
 
-		super.bind(object, "title", "abstracts", "inicialPeriod", "finalPeriod", "link");
+		super.bind(object, "title", "abstracts", "inicialPeriod", "nature", "finalPeriod", "link");
 	}
 
 	@Override
@@ -102,18 +102,15 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 		Tuple tuple;
 
 		final int id = super.getRequest().getPrincipal().getAccountId();
-		final Collection<Enrolment> enrolments = this.repository.findAllEnrolmentsByStudentId(id);
+		final Collection<Enrolment> enrolments = this.repository.findAllEnrolmentsByStudentId(id, false);
 
 		final SelectChoices choicesE = SelectChoices.from(enrolments, "code", object.getEnrolment());
 
-		//		final SelectChoices choicesAN = SelectChoices.from(Nature.class, object.getNature());
-
-		tuple = super.unbind(object, "title", "abstracts", "inicialPeriod", "finalPeriod", "link", "enrolment.code");
-		//		tuple.put("natureOptions", choicesAN);
-		//		final SelectChoices choices;
-		//		choices = SelectChoices.from(Nature.class, object.getNature());
-		//		tuple.put("nature", choices.getSelected().getKey());
-		//		tuple.put("natures", choices);
+		tuple = super.unbind(object, "title", "abstracts", "inicialPeriod", "finalPeriod", "link", "nature", "enrolment.code");
+		final SelectChoices choices;
+		choices = SelectChoices.from(Nature.class, object.getNature());
+		tuple.put("nature", choices.getSelected().getKey());
+		tuple.put("natures", choices);
 		tuple.put("enrolments", choicesE);
 		tuple.put("enrolment", choicesE.getSelected().getKey());
 
