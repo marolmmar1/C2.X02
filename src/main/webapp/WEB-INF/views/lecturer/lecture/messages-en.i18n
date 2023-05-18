@@ -22,4 +22,3 @@ lecturer.lecture.form.button.delete = Delete
 lecturer.lecture.form.button.publish = Publish
 lecturer.lecture.form.button.add = Add to course
 lecturer.lecture.form.button.deleteFromCourse = Delete from course
-lecturer.lecture.form.error.estimatedTime = The time must be positive
