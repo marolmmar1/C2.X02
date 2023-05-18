@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Activity;
 import acme.entities.Enrolment;
+import acme.entities.Nature;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -68,8 +69,11 @@ public class StudentActivityShowService extends AbstractService<Student, Activit
 		final Collection<Enrolment> enrolments = this.repository.findAllEnrolmentsByStudentId(id);
 
 		final SelectChoices choicesE = SelectChoices.from(enrolments, "code", object.getEnrolment());
+		final SelectChoices choices;
+		choices = SelectChoices.from(Nature.class, object.getNature());
 
-		tuple = super.unbind(object, "title", "abstracts", "inicialPeriod", "finalPeriod", "nature", "link", "enrolment.code");
+		tuple = super.unbind(object, "title", "abstracts", "inicialPeriod", "finalPeriod", "link", "enrolment.code");
+
 		tuple.put("enrolments", choicesE);
 		tuple.put("enrolment", choicesE.getSelected().getKey());
 

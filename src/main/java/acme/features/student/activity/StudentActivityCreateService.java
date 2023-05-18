@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Activity;
 import acme.entities.Enrolment;
+import acme.entities.Nature;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
@@ -59,18 +60,17 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 		final int enrolmentId = super.getRequest().getData("enrolment", int.class);
 		final Enrolment enrolment = this.repository.findEnrolmentById(enrolmentId);
 		object.setEnrolment(enrolment);
+		object.setNature(Nature.BALANCE);
 
-		super.bind(object, "title", "abstract$", "activityNature", "startDate", "endDate", "link");
+		super.bind(object, "title", "abstracts", "inicialPeriod", "finalPeriod", "link");
 
 	}
 
 	@Override
 	public void validate(final Activity object) {
 		assert object != null;
-		if (!super.getBuffer().getErrors().hasErrors("startDate") && !super.getBuffer().getErrors().hasErrors("endDate")) {
-			final boolean startBeforeEnd = MomentHelper.isAfter(object.getFinalPeriod(), object.getInicialPeriod());
-			super.state(startBeforeEnd, "endDisplayPeriod", "student.workbook.form.error.end-before-start");
-		}
+		if (!super.getBuffer().getErrors().hasErrors("finalPeriod"))
+			super.state(MomentHelper.isAfter(object.getFinalPeriod(), object.getInicialPeriod()), "finalPeriod", "student.activity.form.error.menor");
 
 	}
 
@@ -91,10 +91,14 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 
 		final SelectChoices choicesE = SelectChoices.from(enrolments, "code", object.getEnrolment());
 
-		//		final SelectChoices choicesAN = SelectChoices.from(Nature.class, object.getNature());
+		//		SelectChoices choices;
+		//		choices = SelectChoices.from(Nature.class, object.getNature());
 
-		tuple = super.unbind(object, "title", "abstracts", "startDate", "endDate", "nature", "link", "enrolment.code");
-		//		tuple.put("activityNatureOptions", choicesAN);
+		tuple = super.unbind(object, "title", "abstracts", "inicialPeriod", "finalPeriod", "link");
+
+		//		tuple.put("natures", choices);
+		//		tuple.put("nature", choices.getSelected().getKey());
+
 		tuple.put("enrolments", choicesE);
 		tuple.put("enrolment", choicesE.getSelected().getKey());
 

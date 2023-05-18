@@ -23,6 +23,6 @@
 	
 </acme:list>
 
-<jstl:if test="${_command == 'list'}">
+<jstl:if test="${_command == 'list-all'}">
 	<acme:button code="student.activity.list.button.create" action="/student/activity/create"/>
 </jstl:if>

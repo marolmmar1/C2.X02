@@ -1,10 +1,15 @@
 
 package acme.features.any.course;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Course;
+import acme.entities.Lecture;
+import acme.entities.Nature;
 import acme.framework.components.accounts.Any;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -52,8 +57,10 @@ public class AnyCourseShowService extends AbstractService<Any, Course> {
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "abstracts", "price", "nature", "link");
-
+		tuple = super.unbind(object, "code", "title", "abstracts", "price", "link");
+		final List<Lecture> lectures = this.repository.findManyLecturesByCourseId(object.getId()).stream().collect(Collectors.toList());
+		final Nature nature = object.nature(lectures);
+		tuple.put("nature", nature);
 		super.getResponse().setData(tuple);
 	}
 
