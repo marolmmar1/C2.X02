@@ -110,6 +110,7 @@ public class AssistantTutorialShowService extends AbstractService<Assistant, Tut
 		final int minutes = (int) ((total - hours) * 60);
 		final double diffInHoursWithFormat = Double.parseDouble(hours + "." + minutes);
 		object.setEstimatedTime(diffInHoursWithFormat);
+
 		tuple = super.unbind(object, "code", "title", "abstracts", "goals", "draftMode");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);

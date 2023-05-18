@@ -95,19 +95,19 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 	public void perform(final Lecture object) {
 		assert object != null;
 
-		int courseId;
-		Course course;
-		final CourseLecture courseLecture = new CourseLecture();
+		//		int courseId;
+		//		Course course;
+		//		final CourseLecture courseLecture = new CourseLecture();
+		//
+		//		courseId = super.getRequest().getData("id", int.class);
+		//		course = this.repository.findOneCourseById(courseId);
+		//
+		//		courseLecture.setCourse(course);
+		//		courseLecture.setLecture(object);
 
-		courseId = super.getRequest().getData("id", int.class);
-		course = this.repository.findOneCourseById(courseId);
-
-		courseLecture.setCourse(course);
-		courseLecture.setLecture(object);
-
-		this.repository.save(course);
+		//		this.repository.save(course);
 		this.repository.save(object);
-		this.lclRepository.save(courseLecture);
+		//		this.lclRepository.save(courseLecture);
 	}
 
 	@Override

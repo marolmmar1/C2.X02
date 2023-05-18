@@ -21,7 +21,7 @@
 	<acme:input-textarea code="lecturer.lecture.form.label.abstracts" path="abstracts"/>	
 	<acme:input-textarea code="lecturer.lecture.form.label.estimatedTime" path="estimatedTime" placeholder="0.00"/>
 	<acme:input-textarea code="lecturer.lecture.form.label.body" path="body"/>
-	<acme:input-select code="lecturer.lecture.form.label.nature" path="nature" choices="${natures }"/>
+	<acme:input-select code="lecturer.lecture.form.label.nature" path="nature" choices="${natures}"/>
 	<acme:input-url code="lecturer.lecture.form.label.link" path="link" placeholder="www.example.com"/>
 	<jstl:choose>
 		<jstl:when test="${_command == 'create'}">

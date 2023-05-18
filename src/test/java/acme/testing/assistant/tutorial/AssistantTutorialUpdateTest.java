@@ -35,7 +35,6 @@
 //	@ParameterizedTest
 //	@CsvFileSource(resources = "/assistant/tutorial/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 //	public void test100Positive(final int tutorialIndex, final String code, final String title, final String abstracts, final String goals, final String course, final String estimatedTime) {
-//	
 //
 //		super.signIn("assistant18", "assistant18");
 //
@@ -73,7 +72,6 @@
 //	@ParameterizedTest
 //	@CsvFileSource(resources = "/assistant/tutorial/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 //	public void test200Negative(final int tutorialIndex, final String code, final String title, final String abstracts, final String goals, final String course, final String estimatedTime) {
-//		
 //
 //		super.signIn("assistant18", "assistant18");
 //
@@ -97,7 +95,6 @@
 //
 //	@Test
 //	public void test300Hacking() {
-//		
 //
 //		Collection<Tutorial> tutorials;
 //		String param;

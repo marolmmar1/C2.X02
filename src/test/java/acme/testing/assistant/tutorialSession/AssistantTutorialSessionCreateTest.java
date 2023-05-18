@@ -122,8 +122,6 @@ class AssistantTutorialSessionCreateTest extends TestHarness {
 
 	@Test
 	public void test301Hacking() {
-		// HINT: this test tries to create a duty for a published job created by 
-		// HINT+ the principal.
 
 		final Collection<Tutorial> tutorials;
 		String param;
@@ -141,8 +139,6 @@ class AssistantTutorialSessionCreateTest extends TestHarness {
 
 	@Test
 	public void test302Hacking() {
-		// HINT: this test tries to create duties for jobs that weren't created 
-		// HINT+ by the principal.
 
 		final Collection<Tutorial> tutorials;
 		String param;
