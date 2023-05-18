@@ -18,7 +18,7 @@ lecturer.courseLecture.form.lecture.title = Title of the lecture
 lecturer.courseLecture.form.lecture.abstractLecture = Summary of the lecture
 
 lecturer.courseLecture.form.lecture.info = Link this lecture to a course
-lecturer.courseLecture.form.lecture.delete.info = Delete lecture with the following code from a course
+lecturer.courseLecture.form.lecture.delete.info = Delete the lecture from a course
 
 
 

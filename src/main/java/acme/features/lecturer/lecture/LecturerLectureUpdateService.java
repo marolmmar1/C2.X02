@@ -64,8 +64,6 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 	@Override
 	public void validate(final Lecture object) {
 		assert object != null;
-		if (!super.getBuffer().getErrors().hasErrors("estimatedTime"))
-			super.state(object.getEstimatedTime() >= 0.01, "estimatedTime", "lecturer.lecture.form.error.estimatedTime");
 	}
 
 	@Override
