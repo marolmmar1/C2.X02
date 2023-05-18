@@ -1,14 +1,3 @@
-/*
- * WorkerJobRepository.java
- * 
- * Copyright (C) 2012-2023 Rafael Corchuelo.
- * 
- * In keeping with the traditional purpose of furthering education and research, it is
- * the policy of the copyright owner to permit non-commercial use and redistribution of
- * this software. It has been tested carefully, but it is not guaranteed for any particular
- * purposes. The copyright owner does not offer any warranties or representations, nor do
- * they accept any liabilities with respect to them.
- */
 
 package acme.features.lecturer.courseLecture;
 
@@ -18,16 +7,32 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.Course;
+import acme.entities.CourseLecture;
 import acme.entities.Lecture;
 import acme.framework.repositories.AbstractRepository;
+import acme.roles.Lecturer;
 
 @Repository
 public interface LecturerCourseLectureRepository extends AbstractRepository {
 
-	@Query("select cl.lecture from CourseLecture cl where cl.course.id = :id")
-	Collection<Lecture> findLecturesByCourseId(int id);
+	@Query("select cl from CourseLecture cl where cl.id = :id")
+	CourseLecture findOneLectureCourseById(int id);
 
-	@Query("select cl.course from CourseLecture cl where cl.lecture.id = :id")
-	Collection<Course> findCoursesByLectureId(int id);
+	@Query("select l from Lecturer l where l.id = :id")
+	Lecturer findOneLecturerById(int id);
 
+	@Query("select c from Course c where c.lecturer = :lecturer")
+	Collection<Course> findManyCoursesByLecturer(Lecturer lecturer);
+
+	@Query("select c from Course c where c.id = :id")
+	Course findOneCourseById(int id);
+
+	@Query("select l from Lecture l where l.id = :id")
+	Lecture findOneLectureById(int id);
+
+	@Query("select l from Lecture l inner join CourseLecture cl on l = cl.lecture inner join Course c on cl.course = c where c.id = :masterId")
+	Collection<Lecture> findManyLecturesByMasterId(int masterId);
+
+	@Query("select cl from CourseLecture cl where cl.lecture = :lecture and cl.course = :course")
+	CourseLecture findOneCourseLectureByLectureAndCourse(Lecture lecture, Course course);
 }

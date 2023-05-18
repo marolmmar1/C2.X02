@@ -8,24 +8,18 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-lecturer.lecture.form.label.title = Title:
-lecturer.lecture.form.label.abstracts = Abstracts:
-lecturer.lecture.form.label.estimatedTime = Estimated time:
-lecturer.lecture.form.label.body = Body:
-lecturer.lecture.form.label.nature = Nature:
-lecturer.lecture.form.label.link = Link:
+lecturer.lecture.form.label.title = Title
+lecturer.lecture.form.label.abstracts = Abstract
+lecturer.lecture.form.label.body = Body
+lecturer.lecture.form.label.estimatedTime = Estimated time
+lecturer.lecture.form.label.link = Link (optional)
+lecturer.lecture.form.label.nature = Nature
+lecturer.lecture.form.label.draftMode = Draft Mode
 
-lecturer.lecture.list.label.title = Title
-lecturer.lecture.list.label.estimatedTime = Estimated time: 
-lecturer.lecture.list.label.nature = Nature:
-
+lecturer.lecture.form.button.create = Create lecture
 lecturer.lecture.form.button.update = Update
 lecturer.lecture.form.button.delete = Delete
-lecturer.course.form.button.lecture = Lectures
-lecturer.lecture.form.button.create = Create1
-lecturer.lecture.create.button.lecture = Create Lecture
-
-lecturer.lecture.form.error.horaMax = The duration should be a minimum of 1 week
-lecturer.lecture.form.error.horaMin = Must be at least one week ahead
-lecturer.lecture.form.error.menor = Start date must be earlier than the final date
-lecturer.lecture.form.error.antes = The start date should be one day after the local date
+lecturer.lecture.form.button.publish = Publish
+lecturer.lecture.form.button.add = Add to course
+lecturer.lecture.form.button.deleteFromCourse = Delete from course
+lecturer.lecture.form.error.estimatedTime = The time must be positive

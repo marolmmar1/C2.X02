@@ -73,8 +73,10 @@ master.menu.student.course.list-all = Lista de cursos
 # master.menu.lecturer ##########################################################
 
 master.menu.lecturer = Profesor
-master.menu.authenticated.course.list-all = Lista de cursos
+master.menu.lecturer.lecture.create = Crear lección
+master.menu.lecturer.lecture.list = Lista de lecciones
 master.menu.lecturer.course.create = Crear curso
+master.menu.lecturer.course.list = Lista de cursos
 
 # master.menu.user-account ####################################################
 

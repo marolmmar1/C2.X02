@@ -10,7 +10,7 @@
 
 
 student.activity.form.label.title = Title
-student.activity.form.label.abstract = Abstract
+student.activity.form.label.abstracts = Abstract
 student.activity.form.label.startDate = Start date
 student.activity.form.label.endDate = End date
 student.activity.form.label.nature = Nature

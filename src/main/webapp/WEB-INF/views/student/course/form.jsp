@@ -18,23 +18,10 @@
 <acme:form>	
 	<acme:input-textbox code="student.course.list.label.code" path="code" />
 	<acme:input-textbox code="student.course.list.label.title" path="title" />
-	<acme:input-textbox code="student.course.list.label.abstract" path="abstract$" />
+	<acme:input-textbox code="student.course.list.label.abstract" path="abstracts" />
 	<acme:input-money code="student.course.list.label.price" path="price"/>
 	<acme:input-url code="student.course.list.label.link" path="link" />
-	<acme:input-textbox code="student.course.list.label.lecturer" path="lecturer" />
-	
-    <c:forEach var="lec" items="${lectures}">
-		<div class="form-group">
-			<label for="${lec}">
-				<acme:message code="student.course.list.label.lecture"/>
-			</label>		
-		   	<input 
-		   		id="${lec}"
-		   		name="${lec}"
-		       	value="<acme:print value="${lec}"/>"
-		       	type="text" 
-		       	class="form-control"
-			/>
-		</div>
-    </c:forEach>
+	<acme:input-textbox code="lecturer.course.form.label.nature" path="nature" readonly="true"/>
+
+    
 </acme:form>

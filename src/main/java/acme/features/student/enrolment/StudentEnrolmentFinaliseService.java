@@ -17,9 +17,8 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.Enrolment;
 import acme.entities.Course;
-import acme.framework.components.accounts.Principal;
+import acme.entities.Enrolment;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -47,16 +46,16 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 	@Override
 	public void authorise() {
 		Enrolment enrolment;
+		Student student;
 		int id;
+		boolean status;
+
 		id = super.getRequest().getData("id", int.class);
 		enrolment = this.repository.findEnrolmentById(id);
+		student = enrolment == null ? null : enrolment.getStudent();
+		status = enrolment != null && enrolment.isDraftMode() && super.getRequest().getPrincipal().hasRole(student);
 
-		final Principal principal = super.getRequest().getPrincipal();
-		final int userAccountId = principal.getAccountId();
-
-		final boolean authorise = enrolment.getStudent().getUserAccount().getId() == userAccountId && enrolment.isDraftMode();
-
-		super.getResponse().setAuthorised(authorise);
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -69,14 +68,12 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 
 	@Override
 	public void bind(final Enrolment object) {
-		assert object != null;
 
 		final int courseId = super.getRequest().getData("course", int.class);
 		final Course course = this.repository.findCourseById(courseId);
-		object.setCourse(course);
 
 		super.bind(object, "motivation", "goals", "code", "holderName", "creditCard", "cvc", "expiryDate");
-
+		object.setCourse(course);
 	}
 
 	@Override
@@ -134,12 +131,13 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 
 		Collection<Course> courses;
 		SelectChoices choices;
-		courses = this.repository.findCourses();
+		courses = this.repository.findAllCourse(false);
 		choices = SelectChoices.from(courses, "code", object.getCourse());
 
-		tuple = super.unbind(object, "code", "motivation", "goals", "holderName", "creditCard", "cvc", "expiryDate");
-		tuple.put("courses", choices);
+		tuple = super.unbind(object, "code", "draftMode", "motivation", "goals", "holderName", "creditCard", "cvc", "expiryDate");
+
 		tuple.put("course", choices.getSelected().getKey());
+		tuple.put("courses", choices);
 
 		super.getResponse().setData(tuple);
 	}

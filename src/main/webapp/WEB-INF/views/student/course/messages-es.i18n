@@ -16,5 +16,6 @@ student.course.list.label.link = Link
 student.course.list.label.lecturer = Profesor
 student.course.list.label.lecture = Clase
 
+
 student.enrolment.list.label.code = Código
 student.enrolment.list.label.title = Título

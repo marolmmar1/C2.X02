@@ -17,6 +17,7 @@
 
 <acme:list>
 	<acme:list-column code="auditor.auditingRecords.list.label.subject" path="subject" width="20%"/>
+	<acme:list-column code="auditor.auditingRecords.list.label.exceptional" path="exceptional" width="20%"/>
 	<acme:list-column code="auditor.auditingRecords.list.label.markType" path="markType" width="20%"/>
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'show'}">
@@ -26,5 +27,5 @@
 
 </acme:list>
 <acme:button test="${showCreate}" code="auditor.auditingRecords.create.button.auditingRecords" action="/auditor/auditing-record/create?auditId=${auditId}"/>
-
+<acme:button test="${!showCreate}" code="auditor.auditingRecords.list.button.create-exceptional" action="/auditor/auditing-record/create-exceptional?auditId=${auditId}"/>
 

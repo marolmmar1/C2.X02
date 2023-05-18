@@ -1,13 +1,13 @@
-key,subject,assessment,markType,initialPeriod,finalPeriod,link,key:audit
-auditingRecord-01,A,assesment1,B,2010/12/10 21:00,2012/12/10 22:00,http://www.example.com,audit-01
-auditingRecord-02,mcbcKYFK34JuqkPQG2G9GcSwKcQvVtkqaq5vdFadRAqidyHYf6z4vCuu6AaX8y32bDDYEvcWVJd,assesment2,C,2011/12/10 20:00,2013/12/10 22:00,http://www.example.com,audit-02
-auditingRecord-03,AuditingRecord3,a,B,2010/12/10 21:00,2012/12/10 22:00,http://www.example.com,audit-03
-auditingRecord-04,AuditingRecord4,Mibi2fkFFi2nWKqj5DDyixpWEKVDjziFmAnwEDHbyyPaVgShqVt2NCLa75bPJTyi7Tkmhz3jyZiPkpbMb6dHUkANCWTjDvvrmNrw,C,2011/12/10 20:00,2013/12/10 22:00,http://www.example.com,audit-04
-auditingRecord-05,AuditingRecord5,assesment5,B,2010/12/10 21:00,2012/12/10 22:00,http://www.example.com,audit-05
-auditingRecord-06,AuditingRecord6,assesment6,C,2011/12/10 20:00,2013/12/10 22:00,http://www.example.com,audit-06
-auditingRecord-07,Ae,assesment7,B,2010/12/10 21:00,2012/12/10 22:00,http://www.example.com,audit-07
-auditingRecord-08,cbcKYFK34JuqkPQG2G9GcSwKcQvVtkqaq5vdFadRAqidyHYf6z4vCuu6AaX8y32bDDYEvcWVJd,assesment2,C,2011/12/10 20:00,2013/12/10 22:00,http://www.example.com,audit-08
-auditingRecord-09,AuditingRecord9,ae,B,2010/12/10 21:00,2012/12/10 22:00,http://www.example.com,audit-09
-auditingRecord-10,AuditingRecord10,ibi2fkFFi2nWKqj5DDyixpWEKVDjziFmAnwEDHbyyPaVgShqVt2NCLa75bPJTyi7Tkmhz3jyZiPkpbMb6dHUkANCWTjDvvrmNrw,C,2011/12/10 20:00,2013/12/10 22:00,http://www.example.com,audit-10
-auditingRecord-11,AuditingRecord11,assesment11,B,2010/12/10 21:00,2012/12/10 22:00,http://www.example.com,audit-11
-auditingRecord-12,AuditingRecord12,assesment12,C,2011/12/10 20:00,2013/12/10 22:00,http://www.example.com,audit-12
+key,subject,assessment,markType,initialPeriod,finalPeriod,link,exceptional,key:audit
+auditingRecord-01,A,assesment1,B,2010/12/10 21:00,2012/12/10 22:00,http://www.example.com,false,audit-01
+auditingRecord-02,mcbcKYFK34JuqkPQG2G9GcSwKcQvVtkqaq5vdFadRAqidyHYf6z4vCuu6AaX8y32bDDYEvcWVJd,assesment2,C,2011/12/10 20:00,2013/12/10 22:00,http://www.example.com,false,audit-02
+auditingRecord-03,AuditingRecord3,a,B,2010/12/10 21:00,2012/12/10 22:00,http://www.example.com,false,audit-03
+auditingRecord-04,AuditingRecord4,Mibi2fkFFi2nWKqj5DDyixpWEKVDjziFmAnwEDHbyyPaVgShqVt2NCLa75bPJTyi7Tkmhz3jyZiPkpbMb6dHUkANCWTjDvvrmNrw,C,2011/12/10 20:00,2013/12/10 22:00,http://www.example.com,false,audit-04
+auditingRecord-05,AuditingRecord5,assesment5,B,2010/12/10 21:00,2012/12/10 22:00,http://www.example.com,false,audit-05
+auditingRecord-06,AuditingRecord6,assesment6,C,2011/12/10 20:00,2013/12/10 22:00,http://www.example.com,false,audit-06
+auditingRecord-07,Ae,assesment7,B,2010/12/10 21:00,2012/12/10 22:00,http://www.example.com,false,audit-07
+auditingRecord-08,cbcKYFK34JuqkPQG2G9GcSwKcQvVtkqaq5vdFadRAqidyHYf6z4vCuu6AaX8y32bDDYEvcWVJd,assesment2,C,2011/12/10 20:00,2013/12/10 22:00,http://www.example.com,false,audit-08
+auditingRecord-09,AuditingRecord9,ae,B,2010/12/10 21:00,2012/12/10 22:00,http://www.example.com,false,audit-09
+auditingRecord-10,AuditingRecord10,ibi2fkFFi2nWKqj5DDyixpWEKVDjziFmAnwEDHbyyPaVgShqVt2NCLa75bPJTyi7Tkmhz3jyZiPkpbMb6dHUkANCWTjDvvrmNrw,C,2011/12/10 20:00,2013/12/10 22:00,http://www.example.com,false,audit-10
+auditingRecord-11,AuditingRecord11,assesment11,B,2010/12/10 21:00,2012/12/10 22:00,http://www.example.com,false,audit-11
+auditingRecord-12,AuditingRecord12,assesment12,C,2011/12/10 20:00,2013/12/10 22:00,http://www.example.com,false,audit-12

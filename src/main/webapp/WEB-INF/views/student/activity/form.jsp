@@ -18,8 +18,8 @@
 <acme:form>	
 			<acme:input-textbox code="student.activity.form.label.title" path="title"/>
 			<acme:input-textbox code="student.activity.form.label.abstracts" path="abstracts"/>
-			<acme:input-moment code="student.activity.form.label.startDate" path="startDate"/>
-			<acme:input-moment code="student.activity.form.label.endDate" path="endDate"/>
+			<acme:input-moment code="student.activity.form.label.startDate" path="inicialPeriod"/>
+			<acme:input-moment code="student.activity.form.label.endDate" path="finalPeriod"/>
 			<acme:input-textbox code="student.activity.form.label.nature" path="nature" />
 			<acme:input-url code="student.activity.form.label.link" path="link"/>
 			<acme:input-select code="student.activity.list.label.enrolment" path="enrolment" choices="${enrolments}"/>	

@@ -20,6 +20,7 @@ import org.springframework.stereotype.Repository;
 
 import acme.entities.Course;
 import acme.entities.CourseLecture;
+import acme.entities.Lecture;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Student;
 
@@ -46,5 +47,7 @@ public interface StudentCourseRepository extends AbstractRepository {
 
 	@Query("SELECT m FROM CourseLecture m WHERE m.course.id = :id")
 	Collection<CourseLecture> findCourseLectureByCourseId(int id);
+	@Query("select l from Lecture l inner join CourseLecture cl on l = cl.lecture inner join Course c on cl.course = c where c.id = :id")
+	Collection<Lecture> findManyLecturesByCourseId(int id);
 
 }

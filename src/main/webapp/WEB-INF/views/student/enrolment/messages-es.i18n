@@ -26,6 +26,8 @@ student.enrolment.list.label.holderName = Nombre
 student.enrolment.form.button.finalise = Finalizar
 student.enrolment.list.label.draftMode = Borrador
 
+student.enrolment.form.label.code= Codigo
+
 student.enrolment.form.error.wrong-expiry-date = Fecha de caducidad debe seguir el formato dd/yy
 student.enrolment.form.error.wrong-cvc = CVC deben tener 3 números
 student.enrolment.form.error.wrong-card = La tarjeta de crédito tiene que seguir el formato xxxx/xxxx/xxxx/xxxx
