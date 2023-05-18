@@ -26,4 +26,4 @@
 
 </acme:list>
 <acme:button test="${showCreate}" code="company.practicumSession.create.button.practicumSession" action="/company/practicum-session/create?practicumId=${practicumId}"/>
-<acme:button code="company.practicumSession.list.button.create-exceptional" action="/company/practicum-session/create-exceptional?practicumId=${practicumId}"/>
+<acme:button test="${!showCreate}" code="company.practicumSession.list.button.create-exceptional" action="/company/practicum-session/create-exceptional?practicumId=${practicumId}"/>

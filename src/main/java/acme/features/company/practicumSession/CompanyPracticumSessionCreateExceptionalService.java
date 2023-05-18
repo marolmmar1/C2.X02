@@ -1,6 +1,7 @@
 
 package acme.features.company.practicumSession;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -107,12 +108,17 @@ public class CompanyPracticumSessionCreateExceptionalService extends AbstractSer
 			super.state(diferenciaHorasMin >= numMin, "finalPeriod", "company.practicumSession.form.error.horaMin");
 
 		}
-		//		if (!super.getBuffer().getErrors().hasErrors("exceptional")) {
-		//			int practicumId;
-		//			practicumId = super.getRequest().getData("practicumId", int.class);
-		//			final int sessionsExceptional = this.repository.countPracticumSessionWeherExceptional(practicumId, true);
-		//			super.state(sessionsExceptional <= 1, "exceptional", "company.practicummSession.form.error.exceptional");
-		//		}
+		if (!super.getBuffer().getErrors().hasErrors("exceptional")) {
+			int practicumId;
+			int count = 0;
+			practicumId = super.getRequest().getData("practicumId", int.class);
+			final Collection<PracticumSession> sessions = this.repository.findPracticumSessionByPracticumlId(practicumId);
+			for (final PracticumSession ps : sessions)
+				if (ps.isExceptional())
+					count += 1;
+			super.state(count < 1, "exceptional", "company.practicummSession.form.error.exceptional");
+
+		}
 
 	}
 
