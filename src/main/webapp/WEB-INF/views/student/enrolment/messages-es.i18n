@@ -27,6 +27,8 @@ student.enrolment.list.label.holderName = Nombre
 student.enrolment.form.button.finalise = Finalizar
 student.enrolment.list.label.draftMode = Borrador
 
+student.activity.list.label.workTime = Timpo de Trabajo
+
 student.enrolment.form.label.code= Codigo
 
 student.enrolment.form.error.wrong-expiry-date = Fecha de caducidad debe seguir el formato dd/yy

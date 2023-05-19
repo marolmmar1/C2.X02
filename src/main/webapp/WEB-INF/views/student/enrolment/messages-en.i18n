@@ -26,6 +26,7 @@ student.enrolment.list.label.cardNumber = Credit card number
 student.enrolment.list.label.holderName = Holder name
 student.enrolment.form.button.finalise = Finalise
 student.enrolment.list.label.draftMode = Draft
+student.activity.list.label.workTime = Work Time
 
 student.enrolment.form.label.code = Code
 

@@ -19,6 +19,7 @@
 <acme:list>
 	<acme:list-column code="student.activity.list.label.title" path="title"/>
 	<acme:list-column code="student.activity.list.label.nature" path="nature"/>
+	
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'show'}">
 			<acme:button code="student.enrolment.form.button.activity" action="/student/activity/list?enrolmentId=${id}"/>

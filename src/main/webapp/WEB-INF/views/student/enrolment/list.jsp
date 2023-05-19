@@ -19,6 +19,7 @@
 	<acme:list-column code="student.enrolment.list.label.code" path="code"/>
 	<acme:list-column code="student.enrolment.list.label.course" path="course.title"/>
 	<acme:list-column code="student.enrolment.list.label.draftMode" path="draftMode"/>
+	<acme:list-column code="student.activity.list.label.workTime" path="workTime" width="20%"/>
 	
 </acme:list>
 

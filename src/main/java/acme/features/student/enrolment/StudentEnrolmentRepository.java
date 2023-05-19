@@ -60,4 +60,7 @@ public interface StudentEnrolmentRepository extends AbstractRepository {
 	@Query("select c from Course c where c.draftMode =:bo")
 	Collection<Course> findAllCourse(boolean bo);
 
+	@Query("select a from Activity a where a.enrolment.id = :id")
+	Collection<Activity> findManyActivityByEnrolmentId(int id);
+
 }
