@@ -33,12 +33,12 @@ public class Activity extends AbstractEntity {
 	@Length(max = 100)
 	protected String			abstracts;
 
-	@Temporal(TemporalType.DATE)
 	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				inicialPeriod;
 
-	@Temporal(TemporalType.DATE)
 	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				finalPeriod;
 
 	@NotNull
