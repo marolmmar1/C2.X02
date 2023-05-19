@@ -15,6 +15,7 @@ student.enrolment.list.label.goals = Objetivos
 student.enrolment.list.label.creditCard = Tarjeta de crédito
 student.enrolment.list.label.course = Curso
 
+student.enrolment.form.button.activity = Actividades
 student.enrolment.form.button.update = Actualizar
 student.enrolment.form.button.delete = Eliminar
 student.enrolment.form.button.create = Crear

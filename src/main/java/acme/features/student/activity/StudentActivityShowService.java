@@ -12,8 +12,6 @@
 
 package acme.features.student.activity;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -47,38 +45,41 @@ public class StudentActivityShowService extends AbstractService<Student, Activit
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int activityId;
+		Enrolment enrolment;
+
+		activityId = super.getRequest().getData("id", int.class);
+		enrolment = this.repository.findOneEnrolmentByActivityId(activityId);
+		status = enrolment != null && (!enrolment.isDraftMode() || super.getRequest().getPrincipal().hasRole(enrolment.getStudent()));
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		Activity enrolment;
-		final int id = super.getRequest().getData("id", int.class);
+		Activity object;
+		int id;
 
-		enrolment = this.repository.findActivityById(id);
+		id = super.getRequest().getData("id", int.class);
 
-		super.getBuffer().setData(enrolment);
+		object = this.repository.findActivityById(id);
+
+		super.getBuffer().setData(object);
 	}
 
 	@Override
 	public void unbind(final Activity object) {
 		assert object != null;
+
+		SelectChoices choices;
 		Tuple tuple;
-
-		final int id = super.getRequest().getPrincipal().getAccountId();
-		final Collection<Enrolment> enrolments = this.repository.findAllEnrolmentsByStudentId(id, false);
-
-		final SelectChoices choicesE = SelectChoices.from(enrolments, "code", object.getEnrolment());
-
-		tuple = super.unbind(object, "title", "abstracts", "inicialPeriod", "finalPeriod", "link", "nature", "enrolment.code");
-		final SelectChoices choices;
 		choices = SelectChoices.from(Nature.class, object.getNature());
-		tuple.put("nature", choices.getSelected().getKey());
-		tuple.put("natures", choices);
-		tuple.put("enrolments", choicesE);
-		tuple.put("enrolment", choicesE.getSelected().getKey());
 
+		tuple = super.unbind(object, "title", "abstracts", "inicialPeriod", "finalPeriod", "link", "nature");
+		tuple.put("nature", choices.getSelected().getKey());
+		tuple.put("enrolmentId", object.getEnrolment().getId());
+		tuple.put("natures", choices);
 		super.getResponse().setData(tuple);
 	}
-
 }

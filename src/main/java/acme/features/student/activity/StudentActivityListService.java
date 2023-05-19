@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Activity;
+import acme.entities.Enrolment;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
@@ -35,21 +36,31 @@ public class StudentActivityListService extends AbstractService<Student, Activit
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+		status = super.getRequest().hasData("id", int.class);
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean result;
+		int enrolmentId;
+		Enrolment enrolment;
+
+		enrolmentId = super.getRequest().getData("id", int.class);
+		enrolment = this.repository.findEnrolmentById(enrolmentId);
+		result = enrolment != null && (!enrolment.isDraftMode() || super.getRequest().getPrincipal().hasRole(enrolment.getStudent()));
+		super.getResponse().setAuthorised(result);
 	}
 
 	@Override
 	public void load() {
-		Collection<Activity> activities;
+		final Collection<Activity> objects;
 
-		final int id = super.getRequest().getPrincipal().getAccountId();
-		activities = this.repository.findAllActivitiesByStudentId(id);
-		super.getBuffer().setData(activities);
+		final int enrolmentId = super.getRequest().getData("id", int.class);
+		objects = this.repository.findManyActivityByEnrolmentId(enrolmentId);
+
+		super.getBuffer().setData(objects);
 	}
 
 	@Override
@@ -58,9 +69,25 @@ public class StudentActivityListService extends AbstractService<Student, Activit
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "nature", "enrolment.code");
+		tuple = super.unbind(object, "title", "nature");
 
 		super.getResponse().setData(tuple);
+	}
+
+	@Override
+	public void unbind(final Collection<Activity> objects) {
+		assert objects != null;
+
+		final int enrolmentId;
+		final Enrolment enrolment;
+		final boolean showCreate;
+
+		enrolmentId = super.getRequest().getData("id", int.class);
+		enrolment = this.repository.findEnrolmentById(enrolmentId);
+		showCreate = enrolment != null && !enrolment.isDraftMode() && super.getRequest().getPrincipal().hasRole(enrolment.getStudent());
+
+		super.getResponse().setGlobal("enrolmentId", enrolmentId);
+		super.getResponse().setGlobal("showCreate", showCreate);
 	}
 
 }

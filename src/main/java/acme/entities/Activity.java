@@ -53,4 +53,5 @@ public class Activity extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	protected Enrolment			enrolment;
+
 }

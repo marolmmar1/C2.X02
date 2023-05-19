@@ -12,8 +12,6 @@
 
 package acme.features.student.activity;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,23 +37,42 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+
+		status = super.getRequest().hasData("enrolmentId", int.class);
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int enrolmentId;
+		Enrolment enrolment;
+
+		enrolmentId = super.getRequest().getData("enrolmentId", int.class);
+		enrolment = this.repository.findEnrolmentById(enrolmentId);
+		status = enrolment != null && !enrolment.isDraftMode() && super.getRequest().getPrincipal().hasRole(enrolment.getStudent());
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-
 		Activity object;
+		int enrolmentId;
+		Enrolment enrolment;
+
+		enrolmentId = super.getRequest().getData("enrolmentId", int.class);
+		enrolment = this.repository.findEnrolmentById(enrolmentId);
+
 		object = new Activity();
 
 		object.setTitle("");
 		object.setAbstracts("");
 		object.setNature(Nature.BALANCE);
+		object.setEnrolment(enrolment);
+
 		super.getBuffer().setData(object);
 	}
 
@@ -64,14 +81,8 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 
 		assert object != null;
 
-		final int enrolmentId;
-		final Enrolment enrolment;
-
-		enrolmentId = super.getRequest().getData("enrolment", int.class);
-		enrolment = this.repository.findEnrolmentById(enrolmentId);
-
 		super.bind(object, "title", "abstracts", "inicialPeriod", "finalPeriod", "nature", "link");
-		object.setEnrolment(enrolment);
+
 	}
 
 	@Override
@@ -93,22 +104,17 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 	@Override
 	public void unbind(final Activity object) {
 		assert object != null;
-		Tuple tuple;
+
 		SelectChoices choices;
+		Tuple tuple;
 		choices = SelectChoices.from(Nature.class, object.getNature());
-		tuple = super.unbind(object, "title", "abstracts", "inicialPeriod", "finalPeriod", "link");
+
+		tuple = super.unbind(object, "title", "abstracts", "inicialPeriod", "finalPeriod", "link", "nature");
 		tuple.put("nature", choices.getSelected().getKey());
+		tuple.put("enrolmentId", super.getRequest().getData("enrolmentId", int.class));
 		tuple.put("natures", choices);
-
-		final int id = super.getRequest().getPrincipal().getAccountId();
-		final Collection<Enrolment> enrolments = this.repository.findAllEnrolmentsByStudentId(id, false);
-
-		final SelectChoices choicesE = SelectChoices.from(enrolments, "code", object.getEnrolment());
-
-		tuple.put("enrolment", choicesE.getSelected().getKey());
-		tuple.put("enrolments", choicesE);
-
 		super.getResponse().setData(tuple);
+
 	}
 
 }

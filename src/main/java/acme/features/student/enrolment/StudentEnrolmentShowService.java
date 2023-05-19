@@ -46,7 +46,16 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int masterId;
+		final Student student;
+		final Enrolment enrolment;
+
+		masterId = super.getRequest().getData("id", int.class);
+		enrolment = this.repository.findEnrolmentById(masterId);
+		student = enrolment == null ? null : enrolment.getStudent();
+		status = super.getRequest().getPrincipal().hasRole(student);
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
