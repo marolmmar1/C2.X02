@@ -55,7 +55,7 @@ public class AssistantTutorialSessionsCreateService extends AbstractService<Assi
 
 		tutorialId = super.getRequest().getData("tutorialId", int.class);
 		tutorial = this.repository.findOneTutorialById(tutorialId);
-		status = tutorial != null && super.getRequest().getPrincipal().hasRole(tutorial.getAssistant());
+		status = tutorial != null && tutorial.isDraftMode() && super.getRequest().getPrincipal().hasRole(tutorial.getAssistant());
 
 		super.getResponse().setAuthorised(status);
 	}
