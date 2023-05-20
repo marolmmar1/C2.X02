@@ -4,11 +4,8 @@ package acme.features.lecturer.lecture;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.Course;
-import acme.entities.CourseLecture;
 import acme.entities.Lecture;
 import acme.entities.Nature;
-import acme.features.lecturer.courseLecture.LecturerCourseLectureRepository;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -17,36 +14,37 @@ import acme.roles.Lecturer;
 @Service
 public class LecturerLectureCreateService extends AbstractService<Lecturer, Lecture> {
 
-	@Autowired
-	protected LecturerLectureRepository			repository;
+	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected LecturerCourseLectureRepository	lclRepository;
+	protected LecturerLectureRepository repository;
+
+	// AbstractService interface ----------------------------------------------
 
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		final boolean status = true;
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
 		boolean status;
 
-		final int ppalId = super.getRequest().getData("ppalId", int.class);
-		final int lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
+		status = super.getRequest().getPrincipal().hasRole(Lecturer.class);
 
-		final Course course = this.repository.findCourseById(ppalId);
-		status = course.getLecturer().getId() == lecturerId;
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
 		Lecture object;
-
 		object = new Lecture();
-
+		object.setDraftMode(true);
+		final Lecturer lecturer = this.repository.findOneLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
+		object.setLecturer(lecturer);
 		super.getBuffer().setData(object);
 	}
 
@@ -55,51 +53,31 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 		assert object != null;
 
 		super.bind(object, "title", "abstracts", "estimatedTime", "body", "nature", "link");
-
 	}
 
 	@Override
 	public void validate(final Lecture object) {
-
 		assert object != null;
-
 	}
 
 	@Override
 	public void perform(final Lecture object) {
 		assert object != null;
-
-		int ppalId;
-		Course course;
-		CourseLecture courseLecture;
-
-		courseLecture = new CourseLecture();
-		ppalId = super.getRequest().getData("ppalId", int.class);
-		course = this.repository.findCourseById(ppalId);
-
-		courseLecture.setCourse(course);
-		courseLecture.setLecture(object);
-
-		this.repository.save(object);
-		this.lclRepository.save(courseLecture);
-
 		this.repository.save(object);
 	}
 
 	@Override
 	public void unbind(final Lecture object) {
 		assert object != null;
+		final Tuple tuple;
 
-		Tuple tupla;
+		tuple = super.unbind(object, "title", "abstracts", "estimatedTime", "body", "nature", "link", "lecturer");
 		final SelectChoices choices;
-
 		choices = SelectChoices.from(Nature.class, object.getNature());
-		tupla = super.unbind(object, "title", "abstracts", "estimatedTime", "body", "nature", "link");
-		tupla.put("ppalId", super.getRequest().getData("ppalId", int.class));
-		tupla.put("nature", choices.getSelected().getKey());
-		tupla.put("natures", choices);
+		tuple.put("nature", choices.getSelected().getKey());
+		tuple.put("natures", choices);
+		tuple.put("draftMode", object.getDraftMode());
 
-		super.getResponse().setData(tupla);
+		super.getResponse().setData(tuple);
 	}
-
 }

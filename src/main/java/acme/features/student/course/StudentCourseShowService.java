@@ -12,7 +12,6 @@
 
 package acme.features.student.course;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,7 +19,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Course;
-import acme.entities.CourseLecture;
+import acme.entities.Lecture;
+import acme.entities.Nature;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
@@ -73,17 +73,17 @@ public class StudentCourseShowService extends AbstractService<Student, Course> {
 	public void unbind(final Course object) {
 		assert object != null;
 
-		final Tuple tuple = super.unbind(object, "code", "title", "abstracts", "price", "nature", "link");
-
-		final int id = object.getId();
-		final Collection<CourseLecture> mapper = this.repository.findCourseLectureByCourseId(id);
-		final List<String> lectures = mapper.stream().map(m -> m.getLecture().getTitle()).collect(Collectors.toList());
-
-		final String lecturer = object.getLecturer().getAlmaMater();
-
-		tuple.put("lectures", lectures);
-		tuple.put("lecturer", lecturer);
-
+		//		final int id = object.getId();
+		//		final Collection<CourseLecture> mapper = this.repository.findCourseLectureByCourseId(id);
+		//		final List<String> lectures = mapper.stream().map(m -> m.getLecture().getTitle()).collect(Collectors.toList());
+		//
+		//		final String lecturer = object.getLecturer().getAlmaMater();
+		//		tuple.put("lectures", lectures);
+		//		tuple.put("lecturer", lecturer);
+		final Tuple tuple = super.unbind(object, "code", "title", "abstracts", "price", "link");
+		final List<Lecture> lectures = this.repository.findManyLecturesByCourseId(object.getId()).stream().collect(Collectors.toList());
+		final Nature nature = object.nature(lectures);
+		tuple.put("nature", nature);
 		super.getResponse().setData(tuple);
 	}
 

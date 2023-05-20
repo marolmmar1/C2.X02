@@ -45,7 +45,7 @@
 		
 		<acme:menu-option code="master.menu.assistant" access="hasRole('Assistant')">
 			<acme:menu-suboption code="master.menu.authenticated.tutorial.list-all" action="/assistant/tutorial/list-all"/>
-			<acme:menu-suboption code="master.menu.assistant.assistantDashboard" action="/assistant/assistant-dashboard/show"/>
+		<%-- 	<acme:menu-suboption code="master.menu.assistant.assistantDashboard" action="/assistant/assistant-dashboard/show"/> --%>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
@@ -58,13 +58,16 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.lecturer" access="hasRole('Lecturer')">
-			  <acme:menu-suboption code="master.menu.authenticated.course.list-all" action="/lecturer/course/list-all"/>
-			  <acme:menu-suboption code="master.menu.lecturer.course.create" action="/lecturer/course/create"/>
+			<acme:menu-suboption code="master.menu.lecturer.course.create" action="/lecturer/course/create"/>
+			<acme:menu-suboption code="master.menu.lecturer.course.list" action="/lecturer/course/list"/>	
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.lecturer.lecture.create" action="/lecturer/lecture/create"/>
+			<acme:menu-suboption code="master.menu.lecturer.lecture.list" action="/lecturer/lecture/list-all"/>
+			<acme:menu-separator/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.student" access="hasRole('Student')">
 			<acme:menu-suboption code="master.menu.student.enrolment.list-all" action="/student/enrolment/list-all"/>
-			<acme:menu-suboption code="master.menu.student.activity.list-all" action="/student/activity/list-all"/>
 			<acme:menu-suboption code="master.menu.student.course.list-all" action="/student/course/list-all"/>
 		</acme:menu-option>
 		

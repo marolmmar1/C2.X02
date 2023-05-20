@@ -17,7 +17,8 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Activity;
 import acme.entities.Enrolment;
-import acme.framework.components.accounts.Principal;
+import acme.entities.Nature;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
@@ -44,33 +45,33 @@ public class StudentActivityDeleteService extends AbstractService<Student, Activ
 
 	@Override
 	public void authorise() {
-		Activity activity;
-		int id;
-		id = super.getRequest().getData("id", int.class);
-		activity = this.repository.findActivityById(id);
+		boolean status;
+		int enrolmentId;
+		Enrolment enrolment;
 
-		final Principal principal = super.getRequest().getPrincipal();
-		final int userAccountId = principal.getAccountId();
+		enrolmentId = super.getRequest().getData("id", int.class);
+		enrolment = this.repository.findOneEnrolmentByActivityId(enrolmentId);
+		status = enrolment != null && !enrolment.isDraftMode() && super.getRequest().getPrincipal().hasRole(enrolment.getStudent());
 
-		final Enrolment enrolment = activity.getEnrolment();
-		final boolean authorise = enrolment.getStudent().getUserAccount().getId() == userAccountId && !enrolment.isDraftMode();
-
-		super.getResponse().setAuthorised(authorise);
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		final int id = super.getRequest().getData("id", int.class);
-		final Activity activity = this.repository.findActivityById(id);
+		Activity object;
+		int id;
 
-		super.getBuffer().setData(activity);
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findActivityById(id);
+
+		super.getBuffer().setData(object);
 	}
 
 	@Override
 	public void bind(final Activity object) {
 		assert object != null;
 
-		super.bind(object, "title", "abstracts", "inicialPeriod", "FinalPeriod", "nature", "link");
+		super.bind(object, "title", "abstracts", "inicialPeriod", "FinalPeriod", "link");
 	}
 
 	@Override
@@ -88,10 +89,15 @@ public class StudentActivityDeleteService extends AbstractService<Student, Activ
 	@Override
 	public void unbind(final Activity object) {
 		assert object != null;
+
+		SelectChoices choices;
 		Tuple tuple;
+		choices = SelectChoices.from(Nature.class, object.getNature());
 
-		tuple = super.unbind(object, "title", "abstracts", "inicialPeriod", "FinalPeriod", "nature", "link", "enrolment.code");
-
+		tuple = super.unbind(object, "title", "abstracts", "inicialPeriod", "finalPeriod", "link", "nature");
+		tuple.put("nature", choices.getSelected().getKey());
+		tuple.put("enrolmentId", object.getEnrolment().getId());
+		tuple.put("natures", choices);
 		super.getResponse().setData(tuple);
 	}
 }

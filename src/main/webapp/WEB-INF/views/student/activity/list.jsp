@@ -19,10 +19,14 @@
 <acme:list>
 	<acme:list-column code="student.activity.list.label.title" path="title"/>
 	<acme:list-column code="student.activity.list.label.nature" path="nature"/>
-	<acme:list-column code="student.activity.list.label.enrolment" path="enrolment.code"/>
+	
+	<jstl:choose>	 
+		<jstl:when test="${_command == 'show'}">
+			<acme:button code="student.enrolment.form.button.activity" action="/student/activity/list?enrolmentId=${id}"/>
+		</jstl:when>
+	</jstl:choose>
+	
 	
 </acme:list>
 
-<jstl:if test="${_command == 'list'}">
-	<acme:button code="student.activity.list.button.create" action="/student/activity/create"/>
-</jstl:if>
+<acme:button test="${showCreate}" code="student.activity.create.button.activity" action="/student/activity/create?enrolmentId=${enrolmentId}"/>

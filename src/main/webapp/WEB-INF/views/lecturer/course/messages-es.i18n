@@ -8,26 +8,23 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-lecturer.course.form.label.code = Código:
-lecturer.course.form.label.title = Título:
-lecturer.course.form.label.abstracts = Resumen:
-lecturer.course.form.label.nature = Tipo:
-lecturer.course.form.label.price = Precio:
-lecturer.course.form.label.link = Enlace:
-lecturer.course.form.list.lecture = Lista de clases
+lecturer.course.form.label.title = Título
+lecturer.course.form.label.abstracts = Resumen
+lecturer.course.form.label.code = Código
+lecturer.course.form.label.price = Precio
+lecturer.course.form.label.link = Enlace (opcional)
+lecturer.course.form.label.nature = Tipo
 
-lecturer.course.form.button.create = Crear
-lecturer.course.form.button.update = Editar
+lecturer.course.form.button.create = Crear curso
+lecturer.course.form.button.update = Actualizar
 lecturer.course.form.button.delete = Borrar
+lecturer.course.form.button.lectures = Lecciones
 lecturer.course.form.button.publish = Publicar
 
-lecturer.course.list.label.code = Código
-lecturer.course.list.label.title = Título
-lecturer.course.list.label.abstracts = Resumen
-lecturer.course.list.button.create = Crear
+lecturer.course.form.error.duplicated = Este código ya está en uso
+lecturer.course.form.error.negative-price = La cantidad de dinero debe ser positiva
+validation.course.code = Formato incorrecto(XXX111)
 
-lecturer.course.form.error.update.draft = Sólo se puede editar en modo borrador
-lecturer.course.form.error.delete.draft = Sólo se puede borrar en modo borrador
-lecturer.course.form.error.code.repeated = Este código está en uso
-lecturer.course.form.error.update.code.repeated = Este código está en uso 
-validation.course.code = Formato de código incorrecto
+lecturer.course.form.error.nolecture = Este curso necesita lecciones
+lecturer.course.form.error.nohandson = Faltan clases prácticas
+lecturer.course.form.error.lecturenp = Algunas lecciones no están publicadas

@@ -13,17 +13,23 @@ company.practicumSession.form.label.abstracts = Resumen:
 company.practicumSession.form.label.inicialPeriod = Inicio:
 company.practicumSession.form.label.finalPeriod = Fin:
 company.practicumSession.form.label.link = Link:
+company.practicumSession.form.label.exceptional = Excepcional
 
 company.practicum.list.label.code = Código
 company.practicum.list.label.title = Título
+company.practicumSession.list.label.exceptional = Excepcional
 
 company.practicumSession.list.button.create = Crear
 company.practicumSession.form.button.update = Actualizar
 company.practicumSession.form.button.delete = Eliminar
 company.practicum.form.button.practicumSession = Sesiones de Practica
 company.practicumSession.form.button.create = Crear
-company.practicumSession.create.button.practicumSession = Crear sesion de practica
+company.practicumSession.create.button.practicumSession = Crear sesion de práctica
+company.practicumSession.list.button.create-exceptional = Crear sesión de práctica excepcional
+company.practicumSession.form.button.create-exceptional = Crear sesión de práctica excepcional
 
+company.practicummSession.form.error.exceptional = Solo se puede añadir una sesion de práctica excepcional
+company.practicumSession.form.error.before = Debe tener al menos una semana de antelacion
 company.practicumSession.form.error.horaMax = La duración debe ser de al menos 1 semana
 company.practicumSession.form.error.horaMin = Debe tener al menos una semana de antelacion
 company.practicumSession.form.error.menor = La fecha de inicio debe ser anterior a la fecha final

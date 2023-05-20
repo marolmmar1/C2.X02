@@ -16,13 +16,9 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="lecturer.lecture.list.label.title" path="title" width="20%"/>
-	<jstl:choose>	 
-		<jstl:when test="${_command == 'show'}">
-			<acme:button code="lecturer.course.form.button.lecture" action="/lecturer/lecture/list?courseId=${id}"/>
-		</jstl:when>
-	</jstl:choose>		
-
+	<acme:list-column code="lecturer.lecture.form.label.title" path="title"  width="40%"/>
+	<acme:list-column code="lecturer.lecture.form.label.abstracts" path="abstracts" width="40%" />
+	<acme:list-column code="lecturer.lecture.form.label.estimatedTime" path="estimatedTime" width="20%" />
 </acme:list>
-<acme:button test="${showCreate}" code="lecturer.lecture.create.button.lecture" action="/lecturer/lecture/create?courseId=${courseId}"/>
 
+<acme:button code="lecturer.lecture.form.button.create" action="/lecturer/lecture/create"/>

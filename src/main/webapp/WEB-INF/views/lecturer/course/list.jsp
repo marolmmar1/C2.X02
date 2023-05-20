@@ -16,10 +16,9 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="lecturer.course.list.label.code" path="code" width="20%"/>
-	<acme:list-column code="lecturer.course.list.label.title" path="title" width="20%"/>
-	<acme:list-column code="lecturer.course.list.label.abstracts" path="abstracts" width="20%"/>
+	<acme:list-column code="lecturer.course.form.label.code" path="code"  width="40%"/>
+	<acme:list-column code="lecturer.course.form.label.title" path="title"  width="40%"/>
+	<acme:list-column code="lecturer.course.form.label.abstracts" path="abstracts" width="40%" />
 </acme:list>
-<jstl:if test="${_command == 'list-all'}">
-	<acme:button code="lecturer.course.list.button.create" action="/lecturer/course/create"/>
-</jstl:if>
+
+<acme:button code="lecturer.course.form.button.create" action="/lecturer/course/create"/>

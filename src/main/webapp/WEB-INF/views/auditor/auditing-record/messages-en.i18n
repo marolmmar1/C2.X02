@@ -18,15 +18,17 @@ auditor.auditingRecords.form.label.link = Link:
 
 auditor.auditingRecords.list.label.subject = Subject
 auditor.auditingRecords.list.label.markType = Mark
+auditor.auditingRecords.list.label.exceptional = Exceptional
 
-
+auditor.auditingRecords.list.button.create-exceptional = Create Exceptional
 auditor.auditingRecords.create.button.auditingRecords = Create
 auditor.audit.form.button.auditingRecords = Audit Records
 
 auditor.auditingRecords.form.button.update = Update
 auditor.auditingRecords.form.button.delete = Delete
 auditor.auditingRecords.form.button.create = Create
-
+auditor.auditingRecords.form.button.create-exceptional = Create Exception
+auditor.auditingRecords.form.label.exceptional = Exceptional
 
 auditor.auditingRecord.form.error.horaMin = The period should be a minimum of 1 hour
 auditor.auditingRecord.form.error.menor = Start date must be earlier than the final date

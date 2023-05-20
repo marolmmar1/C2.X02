@@ -12,14 +12,12 @@
 
 package acme.features.student.activity;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Activity;
 import acme.entities.Enrolment;
-import acme.framework.components.accounts.Principal;
+import acme.entities.Nature;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
@@ -47,46 +45,38 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 
 	@Override
 	public void authorise() {
-		Activity activity;
-		int id;
-		id = super.getRequest().getData("id", int.class);
-		activity = this.repository.findActivityById(id);
+		boolean status;
+		int enrolmentId;
+		Enrolment enrolment;
 
-		final Principal principal = super.getRequest().getPrincipal();
-		final int userAccountId = principal.getAccountId();
+		enrolmentId = super.getRequest().getData("id", int.class);
+		enrolment = this.repository.findOneEnrolmentByActivityId(enrolmentId);
+		status = enrolment != null && !enrolment.isDraftMode() && super.getRequest().getPrincipal().hasRole(enrolment.getStudent());
 
-		final Enrolment enrolment = activity.getEnrolment();
-		final boolean authorise = enrolment.getStudent().getUserAccount().getId() == userAccountId && !enrolment.isDraftMode();
-
-		super.getResponse().setAuthorised(authorise);
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
+		Activity object;
 		final int id = super.getRequest().getData("id", int.class);
-		final Activity activity = this.repository.findActivityById(id);
+		object = this.repository.findActivityById(id);
 
-		super.getBuffer().setData(activity);
+		super.getBuffer().setData(object);
 	}
 
 	@Override
 	public void bind(final Activity object) {
 		assert object != null;
 
-		final int enrolmentId = super.getRequest().getData("enrolment", int.class);
-		final Enrolment enrolment = this.repository.findEnrolmentById(enrolmentId);
-		object.setEnrolment(enrolment);
-
-		super.bind(object, "title", "abstracts", "startDate", "endDate", "nature", "link");
+		super.bind(object, "title", "abstracts", "inicialPeriod", "nature", "finalPeriod", "link");
 	}
 
 	@Override
 	public void validate(final Activity object) {
 		assert object != null;
-		if (!super.getBuffer().getErrors().hasErrors("startDate") && !super.getBuffer().getErrors().hasErrors("endDate")) {
-			final boolean startBeforeEnd = MomentHelper.isAfter(object.getFinalPeriod(), object.getInicialPeriod());
-			super.state(startBeforeEnd, "endDisplayPeriod", "student.workbook.form.error.end-before-start");
-		}
+		if (!super.getBuffer().getErrors().hasErrors("finalPeriod"))
+			super.state(MomentHelper.isAfter(object.getFinalPeriod(), object.getInicialPeriod()), "finalPeriod", "student.activity.form.error.menor");
 	}
 
 	@Override
@@ -99,21 +89,17 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 	@Override
 	public void unbind(final Activity object) {
 		assert object != null;
+
+		SelectChoices choices;
 		Tuple tuple;
+		choices = SelectChoices.from(Nature.class, object.getNature());
 
-		final int id = super.getRequest().getPrincipal().getAccountId();
-		final Collection<Enrolment> enrolments = this.repository.findAllEnrolmentsByStudentId(id);
-
-		final SelectChoices choicesE = SelectChoices.from(enrolments, "code", object.getEnrolment());
-
-		//		final SelectChoices choicesAN = SelectChoices.from(Nature.class, object.getNature());
-
-		tuple = super.unbind(object, "title", "abstracts", "nature", "startDate", "endDate", "link", "enrolment.code");
-		//		tuple.put("natureOptions", choicesAN);
-		tuple.put("enrolments", choicesE);
-		tuple.put("enrolment", choicesE.getSelected().getKey());
-
+		tuple = super.unbind(object, "title", "abstracts", "inicialPeriod", "finalPeriod", "link", "nature");
+		tuple.put("nature", choices.getSelected().getKey());
+		tuple.put("enrolmentId", object.getEnrolment().getId());
+		tuple.put("natures", choices);
 		super.getResponse().setData(tuple);
+
 	}
 
 }

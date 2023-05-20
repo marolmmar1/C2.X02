@@ -4,11 +4,9 @@ package acme.features.lecturer.lecture;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.Course;
-import acme.entities.CourseLecture;
 import acme.entities.Lecture;
 import acme.entities.Nature;
-import acme.features.lecturer.courseLecture.LecturerCourseLectureRepository;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -17,11 +15,12 @@ import acme.roles.Lecturer;
 @Service
 public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lecture> {
 
-	@Autowired
-	protected LecturerLectureRepository			repository;
+	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected LecturerCourseLectureRepository	lclRepository;
+	protected LecturerLectureRepository repository;
+
+	// AbstractService interface ----------------------------------------------
 
 
 	@Override
@@ -35,29 +34,22 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int lecturerId;
-		final int lectureId;
-		CourseLecture object;
-		boolean lecturer;
-
-		lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
-		lectureId = super.getRequest().getData("id", int.class);
-		object = this.repository.findCourseLectureByLectureId(lectureId);
-		lecturer = object.getCourse().getLecturer().getId() == lecturerId;
-
-		status = super.getRequest().getPrincipal().hasRole(Lecturer.class) && lecturer;
-
-		super.getResponse().setAuthorised(status);
+		Lecture object;
+		int id;
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findLectureById(id);
+		final Principal principal = super.getRequest().getPrincipal();
+		final int userAccountId = principal.getAccountId();
+		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId && object.getDraftMode());
 	}
 
 	@Override
 	public void load() {
-		int id;
 		Lecture object;
+		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneLectureById(id);
+		object = this.repository.findLectureById(id);
 
 		super.getBuffer().setData(object);
 	}
@@ -66,53 +58,30 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 	public void bind(final Lecture object) {
 		assert object != null;
 
-		super.bind(object, "title", "abstracts", "estimatedTime", "body", "nature", "link");
+		super.bind(object, "title", "abstracts", "estimatedTime", "body", "nature", "link", "published");
 	}
 
 	@Override
 	public void validate(final Lecture object) {
 		assert object != null;
-
-		boolean inDraftMode;
-		CourseLecture cl;
-
-		cl = this.repository.findCourseLectureByLectureId(object.getId());
-		inDraftMode = cl.getCourse().isDraftMode();
-		super.state(inDraftMode, "title", "lecturer.lecture.form.error.draft.update");
 	}
 
 	@Override
 	public void perform(final Lecture object) {
 		assert object != null;
-
-		int ppalId;
-		Course course;
-		CourseLecture cl;
-
-		cl = new CourseLecture();
-		ppalId = super.getRequest().getData("ppalId", int.class);
-		course = this.repository.findCourseById(ppalId);
-
-		cl.setCourse(course);
-		cl.setLecture(object);
-
 		this.repository.save(object);
-		this.lclRepository.save(cl);
 	}
 
 	@Override
 	public void unbind(final Lecture object) {
 		assert object != null;
-		Tuple tupla;
+		Tuple tuple;
+		tuple = super.unbind(object, "title", "abstracts", "estimatedTime", "body", "nature", "link", "lecturer");
 		final SelectChoices choices;
-
 		choices = SelectChoices.from(Nature.class, object.getNature());
-		tupla = super.unbind(object, "title", "abstracts", "estimatedTime", "body", "nature", "link");
-		tupla.put("ppalId", super.getRequest().getData("ppalId", int.class));
-		tupla.put("nature", choices.getSelected().getKey());
-		tupla.put("natures", choices);
-
-		super.getResponse().setData(tupla);
+		tuple.put("nature", choices.getSelected().getKey());
+		tuple.put("natures", choices);
+		tuple.put("draftMode", object.getDraftMode());
+		super.getResponse().setData(tuple);
 	}
-
 }

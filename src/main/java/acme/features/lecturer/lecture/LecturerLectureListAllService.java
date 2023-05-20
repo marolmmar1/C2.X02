@@ -1,14 +1,3 @@
-/*
- * WorkerJobListAllService.java
- * 
- * Copyright (C) 2012-2023 Rafael Corchuelo.
- * 
- * In keeping with the traditional purpose of furthering education and research, it is
- * the policy of the copyright owner to permit non-commercial use and redistribution of
- * this software. It has been tested carefully, but it is not guaranteed for any particular
- * purposes. The copyright owner does not offer any warranties or representations, nor do
- * they accept any liabilities with respect to them.
- */
 
 package acme.features.lecturer.lecture;
 
@@ -18,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Lecture;
-import acme.features.lecturer.courseLecture.LecturerCourseLectureRepository;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -29,10 +17,7 @@ public class LecturerLectureListAllService extends AbstractService<Lecturer, Lec
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected LecturerLectureRepository			repository;
-
-	@Autowired
-	protected LecturerCourseLectureRepository	lclRepository;
+	protected LecturerLectureRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -49,22 +34,20 @@ public class LecturerLectureListAllService extends AbstractService<Lecturer, Lec
 
 	@Override
 	public void load() {
-		Collection<Lecture> object;
-		final int courseId = super.getRequest().getData("id", int.class);
-
-		object = this.lclRepository.findLecturesByCourseId(courseId);
-
-		super.getBuffer().setData(object);
+		Collection<Lecture> objects;
+		final Lecturer lecturer = this.repository.findOneLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
+		objects = this.repository.findLecturesByLecturer(lecturer);
+		super.getBuffer().setData(objects);
 	}
 
 	@Override
 	public void unbind(final Lecture object) {
 		assert object != null;
+
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "abstracts", "estimatedTime", "body", "nature", "link");
-
+		tuple = super.unbind(object, "title", "abstracts", "estimatedTime");
+		super.getResponse().setGlobal("showCreate", false);
 		super.getResponse().setData(tuple);
 	}
-
 }

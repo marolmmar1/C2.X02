@@ -15,6 +15,7 @@ student.enrolment.list.label.goals = Objetivos
 student.enrolment.list.label.creditCard = Tarjeta de crédito
 student.enrolment.list.label.course = Curso
 
+student.enrolment.form.button.activity = Actividades
 student.enrolment.form.button.update = Actualizar
 student.enrolment.form.button.delete = Eliminar
 student.enrolment.form.button.create = Crear
@@ -25,6 +26,10 @@ student.enrolment.list.label.cardNumber = Tarjeta de crédito
 student.enrolment.list.label.holderName = Nombre 
 student.enrolment.form.button.finalise = Finalizar
 student.enrolment.list.label.draftMode = Borrador
+
+student.activity.list.label.workTime = Timpo de Trabajo
+
+student.enrolment.form.label.code= Codigo
 
 student.enrolment.form.error.wrong-expiry-date = Fecha de caducidad debe seguir el formato dd/yy
 student.enrolment.form.error.wrong-cvc = CVC deben tener 3 números

@@ -76,8 +76,10 @@ master.menu.student.course.list-all = Course List
 # master.menu.lecturer ##########################################################
 
 master.menu.lecturer = Lecturer
-master.menu.authenticated.course.list-all = Course List
+master.menu.lecturer.lecture.create = Create lecture
+master.menu.lecturer.lecture.list = List of lectures
 master.menu.lecturer.course.create = Create course
+master.menu.lecturer.course.list = List of courses
 
 # master.menu.user-account ####################################################
 
@@ -106,3 +108,4 @@ master.menu.user-account.become-student = Become a student
 master.menu.user-account.student = Student data
 master.menu.user-account.company = Company data
 master.menu.user-account.assistant = Assistant data
+master.menu.user-account.lecturer = Become a lecturer

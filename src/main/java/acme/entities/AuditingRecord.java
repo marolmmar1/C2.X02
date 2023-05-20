@@ -50,6 +50,8 @@ public class AuditingRecord extends AbstractEntity {
 	@URL
 	protected String			link;
 
+	protected boolean			exceptional;
+
 	//Relaciones
 	@NotNull
 	@Valid
