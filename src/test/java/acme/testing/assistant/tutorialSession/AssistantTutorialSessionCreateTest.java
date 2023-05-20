@@ -102,7 +102,7 @@ class AssistantTutorialSessionCreateTest extends TestHarness {
 
 		tutorials = this.repository.findManyTutorialsByAssistantUsername("assistant1");
 		for (final Tutorial tutorial : tutorials) {
-			param = String.format("masterId=%d", tutorial.getId());
+			param = String.format("tutorialId=%d", tutorial.getId());
 
 			super.checkLinkExists("Sign in");
 			super.request("/assistant/tutorial-session/create", param);
