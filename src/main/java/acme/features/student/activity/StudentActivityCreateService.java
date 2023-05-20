@@ -12,8 +12,6 @@
 
 package acme.features.student.activity;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,36 +37,58 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+
+		status = super.getRequest().hasData("enrolmentId", int.class);
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int enrolmentId;
+		Enrolment enrolment;
+
+		enrolmentId = super.getRequest().getData("enrolmentId", int.class);
+		enrolment = this.repository.findEnrolmentById(enrolmentId);
+		status = enrolment != null && !enrolment.isDraftMode() && super.getRequest().getPrincipal().hasRole(enrolment.getStudent());
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		final Activity activity = new Activity();
+		Activity object;
+		int enrolmentId;
+		Enrolment enrolment;
 
-		super.getBuffer().setData(activity);
+		enrolmentId = super.getRequest().getData("enrolmentId", int.class);
+		enrolment = this.repository.findEnrolmentById(enrolmentId);
+
+		object = new Activity();
+
+		object.setTitle("");
+		object.setAbstracts("");
+		object.setNature(Nature.BALANCE);
+		object.setEnrolment(enrolment);
+
+		super.getBuffer().setData(object);
 	}
+
 	@Override
 	public void bind(final Activity object) {
+
 		assert object != null;
 
-		final int enrolmentId = super.getRequest().getData("enrolment", int.class);
-		final Enrolment enrolment = this.repository.findEnrolmentById(enrolmentId);
-		object.setEnrolment(enrolment);
-		object.setNature(Nature.BALANCE);
-
-		super.bind(object, "title", "abstracts", "inicialPeriod", "finalPeriod", "link");
+		super.bind(object, "title", "abstracts", "inicialPeriod", "finalPeriod", "nature", "link");
 
 	}
 
 	@Override
 	public void validate(final Activity object) {
 		assert object != null;
+
 		if (!super.getBuffer().getErrors().hasErrors("finalPeriod"))
 			super.state(MomentHelper.isAfter(object.getFinalPeriod(), object.getInicialPeriod()), "finalPeriod", "student.activity.form.error.menor");
 
@@ -84,25 +104,17 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 	@Override
 	public void unbind(final Activity object) {
 		assert object != null;
+
+		SelectChoices choices;
 		Tuple tuple;
+		choices = SelectChoices.from(Nature.class, object.getNature());
 
-		final int id = super.getRequest().getPrincipal().getAccountId();
-		final Collection<Enrolment> enrolments = this.repository.findAllEnrolmentsByStudentId(id);
-
-		final SelectChoices choicesE = SelectChoices.from(enrolments, "code", object.getEnrolment());
-
-		//		SelectChoices choices;
-		//		choices = SelectChoices.from(Nature.class, object.getNature());
-
-		tuple = super.unbind(object, "title", "abstracts", "inicialPeriod", "finalPeriod", "link");
-
-		//		tuple.put("natures", choices);
-		//		tuple.put("nature", choices.getSelected().getKey());
-
-		tuple.put("enrolments", choicesE);
-		tuple.put("enrolment", choicesE.getSelected().getKey());
-
+		tuple = super.unbind(object, "title", "abstracts", "inicialPeriod", "finalPeriod", "link", "nature");
+		tuple.put("nature", choices.getSelected().getKey());
+		tuple.put("enrolmentId", super.getRequest().getData("enrolmentId", int.class));
+		tuple.put("natures", choices);
 		super.getResponse().setData(tuple);
+
 	}
 
 }

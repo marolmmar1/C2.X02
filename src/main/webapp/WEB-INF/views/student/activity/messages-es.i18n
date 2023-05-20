@@ -17,6 +17,7 @@ student.activity.form.label.link = Link
 student.activity.list.label.enrolment = Inscripción
 
 
+student.activity.create.button.activity= Crear
 student.activity.form.button.update = Actualizar
 student.activity.form.button.delete = Eliminar
 student.activity.form.button.create = Crear

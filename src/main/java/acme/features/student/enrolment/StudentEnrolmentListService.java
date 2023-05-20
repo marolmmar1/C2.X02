@@ -13,10 +13,14 @@
 package acme.features.student.enrolment;
 
 import java.util.Collection;
+import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.Activity;
 import acme.entities.Enrolment;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -57,9 +61,35 @@ public class StudentEnrolmentListService extends AbstractService<Student, Enrolm
 		assert object != null;
 
 		Tuple tuple;
+		Activity activity;
+		double diferenciaHoras = 0.0;
+		double total = 0.0;
+		final Collection<Activity> a = this.repository.findManyActivityByEnrolmentId(object.getId());
+		final List<Activity> ListaActivities = a.stream().collect(Collectors.toList());
+
+		if (ListaActivities == null)
+			total = 0.0;
+
+		for (int i = 0; i < ListaActivities.size(); i++) {
+			activity = ListaActivities.get(i);
+			final Date inicialPeriod = activity.getInicialPeriod();
+			final Date finalPeriod = activity.getFinalPeriod();
+			final long milisegundosInicio = inicialPeriod.getTime();
+			final long milisegundosFin = finalPeriod.getTime();
+			final long diferenciaMilisegundos = milisegundosFin - milisegundosInicio;
+			if (diferenciaMilisegundos > 0) {
+				diferenciaHoras = (double) diferenciaMilisegundos / (1000 * 60 * 60);
+				total += diferenciaHoras;
+			}
+
+		}
+		final int hours = (int) total;
+		final int minutes = (int) ((total - hours) * 60);
+
+		final double diffInHoursWithFormat = Double.parseDouble(hours + "." + minutes);
 
 		tuple = super.unbind(object, "code", "draftMode", "course.title");
-
+		tuple.put("workTime", diffInHoursWithFormat);
 		super.getResponse().setData(tuple);
 	}
 

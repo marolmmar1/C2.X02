@@ -34,5 +34,8 @@
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="student.enrolment.form.button.create" action="/student/enrolment/create"/>
 		</jstl:when>
+		<jstl:when test="${_command == 'show' && draftMode == false}">
+			<acme:button code="student.enrolment.form.button.activity" action="/student/activity/list?id=${id}"/>			
+		</jstl:when>
 	</jstl:choose>
 </acme:form>

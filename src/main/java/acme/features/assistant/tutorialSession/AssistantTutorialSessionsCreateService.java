@@ -145,7 +145,7 @@ public class AssistantTutorialSessionsCreateService extends AbstractService<Assi
 		Tuple tuple;
 		choices = SelectChoices.from(Nature.class, object.getNature());
 
-		tuple = super.unbind(object, "title", "abstracts", "nature", "inicialPeriod", "finalPeriod", "link");
+		tuple = super.unbind(object, "title", "abstracts", "inicialPeriod", "finalPeriod", "nature", "link");
 		tuple.put("nature", choices.getSelected().getKey());
 		tuple.put("tutorialId", super.getRequest().getData("tutorialId", int.class));
 		tuple.put("natures", choices);
