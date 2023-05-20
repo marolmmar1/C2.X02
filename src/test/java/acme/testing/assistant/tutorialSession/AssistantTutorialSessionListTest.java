@@ -68,7 +68,7 @@ class AssistantTutorialSessionListTest extends TestHarness {
 		tutorials = this.repository.findManyTutorialsByAssistantUsername("assistant1");
 		for (final Tutorial tutorial : tutorials)
 			if (tutorial.isDraftMode()) {
-				param = String.format("masterId=%d", tutorial.getId());
+				param = String.format("id=%d", tutorial.getId());
 
 				super.checkLinkExists("Sign in");
 				super.request("/assistant/tutorial-session/list", param);
