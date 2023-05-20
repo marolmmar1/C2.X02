@@ -14,7 +14,7 @@ auditor.audit.form.label.strongPoints = Puntos Fuertes:
 auditor.audit.form.label.weakPoints = Puntos debiles:
 auditor.audit.form.label.modeMark = Moda de las notas:
 auditor.audit.form.label.course = Código del curso
-
+validation.audit.code = No es el formato adecuado, ejemplo: ABC123
 auditor.audit.list.button.create = Crear
 
 auditor.audit.list.label.code = Código

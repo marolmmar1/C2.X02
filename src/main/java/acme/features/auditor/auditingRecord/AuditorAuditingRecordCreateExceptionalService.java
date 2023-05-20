@@ -41,7 +41,7 @@ public class AuditorAuditingRecordCreateExceptionalService extends AbstractServi
 
 		auditId = super.getRequest().getData("auditId", int.class);
 		audit = this.repository.findOneAuditById(auditId);
-		status = audit != null && super.getRequest().getPrincipal().hasRole(audit.getAuditor());
+		status = audit != null && !audit.isDraftMode() && super.getRequest().getPrincipal().hasRole(audit.getAuditor());
 
 		super.getResponse().setAuthorised(status);
 	}
