@@ -63,5 +63,7 @@ user-account-auditor-12,true,"UserIdentity{name: 'Auditor12Name', surname: 'Audi
 user-account-auditor-13,true,"UserIdentity{name: 'Auditor13Name', surname: 'Auditor13Surname', email: 'auditor13@acme.com'}",auditor13,auditor13
 user-account-auditor-14,true,"UserIdentity{name: 'Auditor14Name', surname: 'Auditor14Surname', email: 'auditor14@acme.com'}",auditor14,auditor14
 user-account-auditor-15,true,"UserIdentity{name: 'Auditor15Name', surname: 'Auditor15Surname', email: 'auditor15@acme.com'}",auditor15,auditor15
+user-account-auditor-16,true,"UserIdentity{name: 'Auditor16Name', surname: 'Auditor16Surname', email: 'auditor16@acme.com'}",auditor16,auditor16
+user-account-auditor-17,true,"UserIdentity{name: 'Auditor17Name', surname: 'Auditor17Surname', email: 'auditor17@acme.com'}",auditor17,auditor17
 user-account-lecturer-01,true,"UserIdentity{name: 'Lecturer1Name', surname: 'Lecturer1Surname', email: 'lecturer1@acme.com'}",lecturer1,lecturer1
 user-account-lecturer-02,true,"UserIdentity{name: 'Lecturer2Name', surname: 'Lecturer2Surname', email: 'lecturer2@acme.com'}",lecturer2,lecturer2

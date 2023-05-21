@@ -22,7 +22,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import acme.entities.Audit;
 import acme.testing.TestHarness;
 
-class AuditorAuditingRecordCreateTest extends TestHarness {
+class AuditorAuditingRecordCreateExceptionTest extends TestHarness {
 
 	// Internal state ---------------------------------------------------------
 
@@ -33,10 +33,10 @@ class AuditorAuditingRecordCreateTest extends TestHarness {
 
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/auditor/auditing-record/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/auditor/auditing-record/create-exception-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int auditRecordIndex, final int auditingRecordRecordIndex, final String subject, final String assessment, final String markType, final String initialPeriod, final String finalPeriod, final String link) {
 
-		super.signIn("auditor15", "auditor15");
+		super.signIn("auditor16", "auditor16");
 
 		super.clickOnMenu("Auditor", "Audit List");
 		super.checkListingExists();
@@ -45,14 +45,14 @@ class AuditorAuditingRecordCreateTest extends TestHarness {
 		super.clickOnListingRecord(auditRecordIndex);
 		super.clickOnButton("Audit Records");
 
-		super.clickOnButton("Create");
+		super.clickOnButton("Create Exceptional");
 		super.fillInputBoxIn("subject", subject);
 		super.fillInputBoxIn("assessment", assessment);
 		super.fillInputBoxIn("markType", markType);
 		super.fillInputBoxIn("initialPeriod", initialPeriod);
 		super.fillInputBoxIn("finalPeriod", finalPeriod);
 		super.fillInputBoxIn("link", link);
-		super.clickOnSubmit("Create");
+		super.clickOnSubmit("Create Exception");
 
 		super.checkListingExists();
 		super.sortListing(0, "asc");
@@ -69,10 +69,10 @@ class AuditorAuditingRecordCreateTest extends TestHarness {
 	}
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/auditor/auditing-record/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/auditor/auditing-record/create-exception-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test200Negative(final int auditRecordIndex, final int auditingRecordRecordIndex, final String subject, final String assessment, final String markType, final String initialPeriod, final String finalPeriod, final String link) {
 
-		super.signIn("auditor15", "auditor15");
+		super.signIn("auditor16", "auditor16");
 
 		super.clickOnMenu("Auditor", "Audit List");
 		super.checkListingExists();
@@ -81,14 +81,14 @@ class AuditorAuditingRecordCreateTest extends TestHarness {
 		super.clickOnListingRecord(auditRecordIndex);
 		super.clickOnButton("Audit Records");
 
-		super.clickOnButton("Create");
+		super.clickOnButton("Create Exceptional");
 		super.fillInputBoxIn("subject", subject);
 		super.fillInputBoxIn("assessment", assessment);
 		super.fillInputBoxIn("markType", markType);
 		super.fillInputBoxIn("initialPeriod", initialPeriod);
 		super.fillInputBoxIn("finalPeriod", finalPeriod);
 		super.fillInputBoxIn("link", link);
-		super.clickOnSubmit("Create");
+		super.clickOnSubmit("Create Exception");
 		super.checkErrorsExist();
 
 		super.signOut();
@@ -105,31 +105,31 @@ class AuditorAuditingRecordCreateTest extends TestHarness {
 			param = String.format("auditId=%d", audit.getId());
 
 			super.checkLinkExists("Sign in");
-			super.request("/auditor/auditing-record/create", param);
+			super.request("/auditor/auditing-record/create-exceptional", param);
 			super.checkPanicExists();
 
 			super.signIn("administrator", "administrator");
-			super.request("/auditor/auditing-record/create", param);
+			super.request("/auditor/auditing-record/create-exceptional", param);
 			super.checkPanicExists();
 			super.signOut();
 
 			super.signIn("lecturer1", "lecturer1");
-			super.request("/auditor/auditing-record/create", param);
+			super.request("/auditor/auditing-record/create-exceptional", param);
 			super.checkPanicExists();
 			super.signOut();
 
 			super.signIn("student1", "student1");
-			super.request("/auditor/auditing-record/create", param);
+			super.request("/auditor/auditing-record/create-exceptional", param);
 			super.checkPanicExists();
 			super.signOut();
 
 			super.signIn("company1", "company1");
-			super.request("/auditor/auditing-record/create", param);
+			super.request("/auditor/auditing-record/create-exceptional", param);
 			super.checkPanicExists();
 			super.signOut();
 
 			super.signIn("assistant1", "assistant1");
-			super.request("/auditor/auditing-record/create", param);
+			super.request("/auditor/auditing-record/create-exceptional", param);
 			super.checkPanicExists();
 			super.signOut();
 		}
@@ -142,12 +142,12 @@ class AuditorAuditingRecordCreateTest extends TestHarness {
 		String param;
 
 		super.checkLinkExists("Sign in");
-		super.signIn("auditor14", "auditor14");
-		audits = this.repository.findManyAuditsByAuditorUsername("auditor14");
+		super.signIn("auditor15", "auditor15");
+		audits = this.repository.findManyAuditsByAuditorUsername("auditor15");
 		for (final Audit audit : audits)
-			if (!audit.isDraftMode()) {
+			if (audit.isDraftMode()) {
 				param = String.format("auditId=%d", audit.getId());
-				super.request("/auditor/auditing-record/create", param);
+				super.request("/auditor/auditing-record/create-exceptional", param);
 				super.checkPanicExists();
 			}
 	}
@@ -160,10 +160,10 @@ class AuditorAuditingRecordCreateTest extends TestHarness {
 
 		super.checkLinkExists("Sign in");
 		super.signIn("auditor11", "auditor11");
-		audits = this.repository.findManyAuditsByAuditorUsername("auditor14");
+		audits = this.repository.findManyAuditsByAuditorUsername("auditor16");
 		for (final Audit audit : audits) {
 			param = String.format("auditId=%d", audit.getId());
-			super.request("/auditor/auditing-record/create", param);
+			super.request("/auditor/auditing-record/create-exceptional", param);
 			super.checkPanicExists();
 		}
 	}
