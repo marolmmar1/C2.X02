@@ -1,5 +1,7 @@
 key,code,conclusion,strongPoints,weakPoints,draftMode,key:auditor,key:course
 audit-01,ABC123,a,complejidad,simplesa,true,auditor-01,course-02
+audit-01.1,ABC224,a,complejidad,simplesa,true,auditor-01,course-02
+audit-01.2,ABC225,a,complejidad,simplesa,true,auditor-01,course-02
 audit-02,ABC125,Audit2,s,complejidad,true,auditor-02,course-02
 audit-03,ABC126,Audit3,ok,o,true,auditor-03,course-02
 audit-04,ABC127,HHWjSTaz48zyp9xvrwVv4pbfGeyiAcjdppfQnCDTZVJtVGH6TDTyiEye25HJDUManEkKScu8cNrAGSb9R7jpJ89ccqagyGRp8A5d,ok,ok,true,auditor-04,course-06
@@ -16,3 +18,5 @@ audit-15,ABC137,a,complejidad,simplesa,true,auditor-15,course-15
 audit-16,ABC138,a,complejidad,simplesa,true,auditor-15,course-15
 audit-17,ABC139,a,complejidad,simplesa,true,auditor-15,course-15
 audit-18,ABC140,a,complejidad,simplesa,true,auditor-15,course-15
+audit-19,ABC141,a,complejidad,simplesa,false,auditor-16,course-16
+audit-20,ABC142,a,complejidad,simplesa,true,auditor-17,course-16
