@@ -1,0 +1,13 @@
+courseIndex,code,title,price,abstracts,link,nature
+0,,,,,,BALANCE
+1,ABC9,Lorem ipsum,EUR 10.00,Lorem ipsum,,BALANCE
+2,ABC98,Lorem ipsum,EUR 10.00,Lorem ipsum,,BALANCE
+3,ABC9876,Lorem ipsum,EUR 10.00,Lorem ipsum,,BALANCE
+4,AB98,Lorem ipsum,EUR 10.00,Lorem ipsum,,BALANCE
+5,ABC902,En el mundo tecnológico actual todos utilizamos o formamos parte de una pred,EUR 10.00,Lorem ipsum,,BALANCE
+6,ABC903,Lorem ipsum,,Lorem ipsum,,BALANCE
+7,ABC904,Lorem ipsum,EUR -10.00,Lorem ipsum,,BALANCE
+8,ABC905,Lorem ipsum,"EUR 1,000,000.01",Lorem ipsum,,BALANCE
+9,ABC906,Lorem ipsum,EUR 10.00,,,BALANCE
+10,ABC907,Lorem ipsum,EUR 10.00,En el mundo tecnológico actual todos utilizamos o formamos parte de una prediccion de que la sociedad,,BALANCE
+11,ABC908,Lorem ipsum,EUR 0.01,Lorem ipsum,Lorem ipsum,BALANCE

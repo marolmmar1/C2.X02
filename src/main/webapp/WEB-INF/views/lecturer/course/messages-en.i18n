@@ -22,7 +22,8 @@ lecturer.course.form.button.lectures = Lectures
 lecturer.course.form.button.publish = Publish
 
 lecturer.course.form.error.duplicated = This code is taken
-lecturer.course.form.error.negative-price = The amount of money must be positive
+lecturer.course.form.error.negative-price = The price must be positive
+lecturer.course.form.error.upper-price = The price must at most one million
 validation.course.code = Incorrect format(XXX111)
 
 lecturer.course.form.error.nolecture = This course needs lectures

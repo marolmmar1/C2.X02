@@ -70,8 +70,10 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 	@Override
 	public void validate(final Course object) {
 		assert object != null;
-		if (!super.getBuffer().getErrors().hasErrors("price"))
-			super.state(object.getPrice().getAmount() > 0, "price", "lecturer.course.form.error.negative-price");
+		if (!super.getBuffer().getErrors().hasErrors("price")) {
+			super.state(object.getPrice().getAmount() >= 0, "price", "lecturer.course.form.error.negative-price");
+			super.state(object.getPrice().getAmount() <= 1000000, "price", "lecturer.course.form.error.upper-price");
+		}
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Course existing;

@@ -62,8 +62,10 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 			existing = this.repository.findOneCourseByCode(object.getCode());
 			super.state(existing == null, "code", "lecturer.course.form.error.duplicated");
 		}
-		if (!super.getBuffer().getErrors().hasErrors("price"))
-			super.state(object.getPrice().getAmount() > 0, "price", "lecturer.course.form.error.negative-price");
+		if (!super.getBuffer().getErrors().hasErrors("price")) {
+			super.state(object.getPrice().getAmount() >= 0, "price", "lecturer.course.form.error.negative-price");
+			super.state(object.getPrice().getAmount() <= 1000000, "price", "lecturer.course.form.error.upper-price");
+		}
 	}
 
 	@Override

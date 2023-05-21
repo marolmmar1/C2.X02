@@ -41,7 +41,7 @@ public class LecturerLectureShowService extends AbstractService<Lecturer, Lectur
 		masterId = super.getRequest().getData("id", int.class);
 		lecture = this.repository.findLectureById(masterId);
 		lecturer = lecture == null ? null : lecture.getLecturer();
-		status = super.getRequest().getPrincipal().hasRole(lecturer) || lecture != null && !lecture.getDraftMode();
+		status = super.getRequest().getPrincipal().hasRole(lecturer) || lecture != null && !lecture.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -62,12 +62,11 @@ public class LecturerLectureShowService extends AbstractService<Lecturer, Lectur
 		assert object != null;
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "abstracts", "body", "estimatedTime", "nature", "link");
+		tuple = super.unbind(object, "title", "abstracts", "body", "estimatedTime", "nature", "link", "draftMode");
 		final SelectChoices choices;
 		choices = SelectChoices.from(Nature.class, object.getNature());
 		tuple.put("nature", choices.getSelected().getKey());
 		tuple.put("natures", choices);
-		tuple.put("draftMode", object.getDraftMode());
 
 		super.getResponse().setData(tuple);
 	}
