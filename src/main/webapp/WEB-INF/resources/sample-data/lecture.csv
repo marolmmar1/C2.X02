@@ -2,18 +2,18 @@ key,title,abstracts,body,nature,link,estimatedTime,draftMode,key:lecturer
 lecture-01,t,Graduado,body,THEORETICAL,http://example.com,5.00,false,lecturer-01
 lecture-02,ti,Graduado,body,THEORETICAL,http://example.com,5.00,false,lecturer-02
 lecture-03,4V4gZES32W4gxYad7ap2RERmL7HeB9nxdDnNk8BQKdB4bJXf6zriKV3Sz4R5GAmfg9DWekfsdr,Graduado,body,THEORETICAL,http://example.com,5.00,false,lecturer-03
-lecture-04,4V4gZES32W4gxYad7ap2RERmL7HeB9nxdDnNk8BQKdB4bJXf6zriKV3Sz4R5GAmfg9DWekfsdrM,Graduado,body,THEORETICAL,http://example.com,5.00,false,lecturer-04
-lecture-05,title,G,body,THEORETICAL,http://example.com,5.00,false,lecturer-05
+lecture-04,4V4gZES32W4gxYad7ap2RERmL7HeB9nxdDnNk8BQKdB4bJXf6zriKV3Sz4R5GAmfg9DWekfsdrM,Graduado,body,THEORETICAL,http://example.com,5.00,true,lecturer-04
+lecture-05,title,G,body,HANDS_ON,http://example.com,5.00,true,lecturer-04
 lecture-06,title,Gr,body,THEORETICAL,http://example.com,5.00,false,lecturer-06
 lecture-07,title,voy a escribir 99 caracteres en esta línea para hacer la prueba de que es válida para los csv okeyy,body,THEORETICAL,http://example.com,5.00,false,lecturer-07
 lecture-08,title,voy a escribir cien caracteres en esta línea para hacer la prueba de que es válida para los csv okey,body,THEORETICAL,http://example.com,5.00,false,lecturer-08
-lecture-09,title,Graduado,b,THEORETICAL,http://example.com,5.00,false,lecturer-09
-lecture-10,title,Graduado,bo,THEORETICAL,http://example.com,5.00,false,lecturer-10
+lecture-09,title,Graduado,b,HANDS_ON,http://example.com,5.00,false,lecturer-09
+lecture-10,title,Graduado,bo,THEORETICAL,http://example.com,5.00,true,lecturer-10
 lecture-11,title,Graduado,voy a escribir 99 caracteres en esta línea para hacer la prueba de que es válida para los csv okeyy,THEORETICAL,http://example.com,5.00,false,lecturer-11
 lecture-12,title,Graduado,voy a escribir cien caracteres en esta línea para hacer la prueba de que es válida para los csv okey,THEORETICAL,http://example.com,5.00,false,lecturer-12
-lecture-13,title,Graduado,مرحبا لكل شعبي كيف حالالفيزياء الكيميائية,THEORETICAL,http://example.com,5.00,false,lecturer-13
+lecture-13,title,Graduado,مرحبا لكل شعبي كيف حالالفيزياء الكيميائية,THEORETICAL,http://example.com,5.00,false,lecturer-05
 lecture-14,title,Graduado,こんにちは、私のすべての人々に私たちはお元気ですか,THEORETICAL,http://example.com,5.00,false,lecturer-14
-lecture-15,title,Graduado,<h1> hello and welcome to the class!<h1>,THEORETICAL,http://example.com,5.00,false,lecturer-15
+lecture-15,title,Graduado,<h1> hello and welcome to the class!<h1>,HANDS_ON,http://example.com,5.00,true,lecturer-15
 lecture-16,title,Graduado,"<script> alert(""hi!"")</script>",THEORETICAL,http://example.com,5.00,false,lecturer-16
 lecture-17,title,Graduado,#%&*@¡¿$/`´'€~|ª¨,THEORETICAL,http://example.com,5.00,false,lecturer-17
 lecture-18,title,Graduado,body,BALANCE,http://example.com,5.00,false,lecturer-18
@@ -21,5 +21,5 @@ lecture-19,title,Graduado,body,HANDS_ON,http://example.com,5.00,false,lecturer-0
 lecture-20,title,Graduado,body,THEORETICAL,,5.00,false,lecturer-02
 lecture-21,title,Graduado,body,THEORETICAL,http://example.com,0.01,false,lecturer-03
 lecture-22,title,Graduado,body,THEORETICAL,http://example.com,0.02,false,lecturer-04
-lecture-23,title,Graduado,body,THEORETICAL,http://example.com,999.98,false,lecturer-05
+lecture-23,title,Graduado,body,THEORETICAL,http://example.com,999.98,true,lecturer-05
 lecture-24,title,Graduado,body,THEORETICAL,http://example.com,999.99,false,lecturer-06
