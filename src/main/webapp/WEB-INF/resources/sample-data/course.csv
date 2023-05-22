@@ -1,6 +1,6 @@
 key,code,title,abstracts,price,link,draftMode,key:lecturer
 course-01,ABC123,title1,Graduado,"EUR 20.00",http://example.com,true,lecturer-01
-course-02,A123,title2,Graduado,"EUR 20.00",http://example.com,false,lecturer-02
+course-02,Z123,title2,Graduado,"EUR 20.00",http://example.com,false,lecturer-02
 course-03,AB123,title3,Graduado,"EUR 20.00",http://example.com,true,lecturer-03
 course-04,ABC124,t,Graduado,"EUR 20.00",http://example.com,true,lecturer-04
 course-05,ABC125,ti,Graduado,"EUR 20.00",http://example.com,true,lecturer-05
@@ -17,8 +17,8 @@ course-15,ABC136,title1,"<script> alert(""hi!"")</script>","EUR 20.00",http://ex
 course-16,ABC137,title1,#%&*@¡¿$/`´'€~|ª¨,"EUR 20.00",http://example.com,false,lecturer-16
 course-17,ABC138,title1,Graduado,"EUR 0.01",http://example.com,true,lecturer-17
 course-18,ABC139,title1,Graduado,"EUR 0.02",http://example.com,true,lecturer-18
-course-19,ABC140,title1,Graduado,"EUR 999999.99",http://example.com,true,lecturer-01
-course-20,ABC141,title1,Graduado,"EUR 1000000.00",http://example.com,true,lecturer-02
+course-19,MMM140,title1,Graduado,"EUR 999999.99",http://example.com,true,lecturer-01
+course-20,ZBC141,title1,Graduado,"EUR 1000000.00",http://example.com,true,lecturer-02
 course-21,ABC142,title1,Lorem ipsum,"GBP 20.00",http://example.com,true,lecturer-03
 course-22,ABC143,title1,Graduado,"USD 20.00",http://example.com,true,lecturer-04
 course-23,ABC144,title1,Graduado,"EUR 20.00",http://example.com,true,lecturer-05
