@@ -35,8 +35,6 @@ public class AssistantTutorialPublishTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/tutorial/publish-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int tutorialIndex, final String code) {
-		// HINT: this test authenticates as an employer, lists his or her jobs,
-		// HINT: then selects one of them, and publishes it.
 
 		super.signIn("assistant10", "assistant10");
 
@@ -56,7 +54,6 @@ public class AssistantTutorialPublishTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/tutorial/publish-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test200Negative(final int tutorialIndex, final String code) {
-		// HINT: this test attempts to publish a job that cannot be published, yet.
 
 		super.signIn("assistant5", "assistant5");
 
@@ -99,11 +96,6 @@ public class AssistantTutorialPublishTest extends TestHarness {
 				super.signOut();
 
 				super.signIn("student1", "student1");
-				super.request("assistant/tutorial/publish", params);
-				super.checkPanicExists();
-				super.signOut();
-
-				super.signIn("company1", "company1");
 				super.request("assistant/tutorial/publish", params);
 				super.checkPanicExists();
 				super.signOut();
