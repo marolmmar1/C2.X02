@@ -12,10 +12,14 @@
 
 package acme.testing.lecturer.lecture;
 
+import java.util.Collection;
+
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import acme.entities.Lecture;
 import acme.testing.TestHarness;
 
 public class LecturerLecturePublishTest extends TestHarness {
@@ -49,78 +53,78 @@ public class LecturerLecturePublishTest extends TestHarness {
 
 	// HINT: there is no case in which you can not publish a lecture once filled
 
-	//	@Test
-	//	public void test300Hacking() {
-	//
-	//		Collection<Lecture> lectures;
-	//		String params;
-	//
-	//		lectures = this.repository.findManyLecturesByLecturerUsername("lecturer2");
-	//		for (final Lecture lecture : lectures)
-	//			if (lecture.isDraftMode()) {
-	//				params = String.format("id=%d", lecture.getId());
-	//
-	//				super.checkLinkExists("Sign in");
-	//				super.request("/lecturer/lecture/publish", params);
-	//				super.checkPanicExists();
-	//
-	//				super.signIn("administrator", "administrator");
-	//				super.request("/lecturer/lecture/publish", params);
-	//				super.checkPanicExists();
-	//				super.signOut();
-	//
-	//				super.signIn("assistant1", "assistant1");
-	//				super.request("/lecturer/lecture/publish", params);
-	//				super.checkPanicExists();
-	//				super.signOut();
-	//
-	//				super.signIn("student1", "student1");
-	//				super.request("/lecturer/lecture/publish", params);
-	//				super.checkPanicExists();
-	//				super.signOut();
-	//
-	//				super.signIn("company1", "company1");
-	//				super.request("/lecturer/lecture/publish", params);
-	//				super.checkPanicExists();
-	//				super.signOut();
-	//
-	//				super.signIn("auditor1", "auditor1");
-	//				super.request("/lecturer/lecture/publish", params);
-	//				super.checkPanicExists();
-	//				super.signOut();
-	//			}
-	//	}
-	//
-	//	@Test
-	//	public void test301Hacking() {
-	//
-	//		Collection<Lecture> lectures;
-	//		String params;
-	//
-	//		super.signIn("lecturer1", "lecturer1");
-	//		lectures = this.repository.findManyLecturesByLecturerUsername("lecturer1");
-	//		for (final Lecture lecture : lectures)
-	//			if (!lecture.isDraftMode()) {
-	//				params = String.format("id=%d", lecture.getId());
-	//				super.request("/lecturer/lecture/publish", params);
-	//			}
-	//		super.signOut();
-	//	}
-	//
-	//	@Test
-	//	public void test302Hacking() {
-	//
-	//		Collection<Lecture> lectures;
-	//		String params;
-	//
-	//		super.signIn("lecturer1", "lecturer1");
-	//		lectures = this.repository.findManyLecturesByLecturerUsername("lecturer2");
-	//		for (final Lecture lecture : lectures) {
-	//			params = String.format("id=%d", lecture.getId());
-	//			super.request("/lecturer/lecture/publish", params);
-	//
-	//		}
-	//		super.signOut();
-	//	}
+	@Test
+	public void test300Hacking() {
+
+		Collection<Lecture> lectures;
+		String params;
+
+		lectures = this.repository.findManyLecturesByLecturerUsername("lecturer2");
+		for (final Lecture lecture : lectures)
+			if (lecture.isDraftMode()) {
+				params = String.format("id=%d", lecture.getId());
+
+				super.checkLinkExists("Sign in");
+				super.request("/lecturer/lecture/publish", params);
+				super.checkPanicExists();
+
+				super.signIn("administrator", "administrator");
+				super.request("/lecturer/lecture/publish", params);
+				super.checkPanicExists();
+				super.signOut();
+
+				super.signIn("assistant1", "assistant1");
+				super.request("/lecturer/lecture/publish", params);
+				super.checkPanicExists();
+				super.signOut();
+
+				super.signIn("student1", "student1");
+				super.request("/lecturer/lecture/publish", params);
+				super.checkPanicExists();
+				super.signOut();
+
+				super.signIn("company1", "company1");
+				super.request("/lecturer/lecture/publish", params);
+				super.checkPanicExists();
+				super.signOut();
+
+				super.signIn("auditor1", "auditor1");
+				super.request("/lecturer/lecture/publish", params);
+				super.checkPanicExists();
+				super.signOut();
+			}
+	}
+
+	@Test
+	public void test301Hacking() {
+
+		Collection<Lecture> lectures;
+		String params;
+
+		super.signIn("lecturer1", "lecturer1");
+		lectures = this.repository.findManyLecturesByLecturerUsername("lecturer1");
+		for (final Lecture lecture : lectures)
+			if (!lecture.isDraftMode()) {
+				params = String.format("id=%d", lecture.getId());
+				super.request("/lecturer/lecture/publish", params);
+			}
+		super.signOut();
+	}
+
+	@Test
+	public void test302Hacking() {
+
+		Collection<Lecture> lectures;
+		String params;
+
+		super.signIn("lecturer1", "lecturer1");
+		lectures = this.repository.findManyLecturesByLecturerUsername("lecturer2");
+		for (final Lecture lecture : lectures) {
+			params = String.format("id=%d", lecture.getId());
+			super.request("/lecturer/lecture/publish", params);
+
+		}
+		super.signOut();
+	}
 
 }

@@ -1,4 +1,3 @@
-courseIndex,code,title,price,abstracts,link,nature
-0,AB123,title3,EUR 20.00,Graduado,http://example.com,THEORETICAL
-1,ABC142,title1,GBP 20.00,Lorem ipsum,http://example.com,THEORETICAL
-2,ABC147,hola buenas tardes,EUR 20.00,esto es una prueba,http://example.com,THEORETICAL
+lectureIndex,title,abstracts,estimatedTime,body,nature,link
+0,4V4gZES32W4gxYad7ap2RERmL7HeB9nxdDnNk8BQKdB4bJXf6zriKV3Sz4R5GAmfg9DWekfsdr,Graduado,5.00,body,THEORETICAL,http://example.com
+1,title,Graduado,0.01,body,THEORETICAL,http://example.com
