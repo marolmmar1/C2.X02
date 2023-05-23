@@ -1,7 +1,5 @@
-enrolmentRecordIndex,code,course
-0,A001,course-02
-0,AB012,course-01
-0,ABC023,course-02
-0,AAA111,course-01
-0,AZZ546,course-02
-0,A098,course-01
+enrolmentRecordIndex,code,workTime
+0,A001,27.00
+1,ABC023,0.00
+2,ABC053,0.00
+3,ABC111,0.00

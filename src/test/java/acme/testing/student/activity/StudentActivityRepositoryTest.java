@@ -16,12 +16,12 @@ import java.util.Collection;
 
 import org.springframework.data.jpa.repository.Query;
 
+import acme.entities.Activity;
 import acme.framework.repositories.AbstractRepository;
-import acme.roles.Student;
 
 public interface StudentActivityRepositoryTest extends AbstractRepository {
 
-	@Query("select a from Student a where a.student.userAccount.username = :username")
-	Collection<Student> findManyActivitiesByStudentUsername(String username);
+	@Query("select a from Activity a where a.enrolment.student.userAccount.username = :username")
+	Collection<Activity> findManyActivitiesByStudentUsername(String username);
 
 }

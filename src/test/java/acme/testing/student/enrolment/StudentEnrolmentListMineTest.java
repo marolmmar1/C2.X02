@@ -1,3 +1,4 @@
+
 package acme.testing.student.enrolment;
 
 import org.junit.jupiter.api.Test;
@@ -10,25 +11,23 @@ public class StudentEnrolmentListMineTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/student/enrolment/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int enrolmentRecordIndex, final String code, final String course) {
-		
-		
-		super.signIn("student3", "student3");
+	public void test100Positive(final int enrolmentRecordIndex, final String code, final String workTime) {
 
-		super.clickOnMenu("Student", "List of enrolments");
+		super.signIn("student1", "student1");
+
+		super.clickOnMenu("Student", "Enrolment List");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 
 		super.checkColumnHasValue(enrolmentRecordIndex, 0, code);
-		super.checkColumnHasValue(enrolmentRecordIndex, 1, course);
+		super.checkColumnHasValue(enrolmentRecordIndex, 1, workTime);
 
 		super.signOut();
 	}
 
 	@Test
 	public void test200Negative() {
-		// HINT: there aren't any negative tests for this feature since it's a listing that
-		// HINT+ doesn't involve entering any data into any forms.
+
 	}
 
 	@Test

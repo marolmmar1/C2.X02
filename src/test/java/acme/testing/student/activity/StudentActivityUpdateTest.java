@@ -1,3 +1,4 @@
+
 package acme.testing.student.activity;
 
 import java.util.Collection;
@@ -7,8 +8,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import acme.entities.Lecture;
-import acme.roles.Student;
+import acme.entities.Activity;
 import acme.testing.TestHarness;
 
 public class StudentActivityUpdateTest extends TestHarness {
@@ -23,9 +23,8 @@ public class StudentActivityUpdateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/student/activity/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int activityIndex, final String title, final String abstracts,
-			final String inicialPeriod, final String finalPeriod, final String nature, final String link) {
-		
+	public void test100Positive(final int activityIndex, final String title, final String abstracts, final String inicialPeriod, final String finalPeriod, final String nature, final String link) {
+
 		super.signIn("student10", "student10");
 
 		super.clickOnMenu("Student", "List of activities");
@@ -61,8 +60,7 @@ public class StudentActivityUpdateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/student/activity/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int activityIndex, final String title, final String abstracts,
-			final String inicialPeriod, final String finalPeriod, final String nature, final String link) {
+	public void test200Negative(final int activityIndex, final String title, final String abstracts, final String inicialPeriod, final String finalPeriod, final String nature, final String link) {
 		super.signIn("student10", "student10");
 
 		super.clickOnMenu("Student", "List of activities");
@@ -87,11 +85,11 @@ public class StudentActivityUpdateTest extends TestHarness {
 	@Test
 	public void test300Hacking() {
 
-		Collection<Student> activities;
+		Collection<Activity> activities;
 		String param;
 
 		activities = this.repository.findManyActivitiesByStudentUsername("student10");
-		for (final Student activity : activities) {
+		for (final Activity activity : activities) {
 			param = String.format("id=%d", activity.getId());
 
 			super.checkLinkExists("Sign in");

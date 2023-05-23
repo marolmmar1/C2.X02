@@ -34,16 +34,15 @@ public class AnyPeepShowTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/any/peep/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int peepIndex, final String instantiation, final String title, final String nick, 
-			final String message, final String email, final String link) {
-		
+	public void test100Positive(final int peepIndex, final String instantiation, final String title, final String nick, final String message, final String email, final String link) {
+
 		super.signIn("any4", "any4");
 
 		super.clickOnMenu("Any", "Peep List");
 		super.sortListing(0, "asc");
 		super.clickOnListingRecord(peepIndex);
 		super.checkFormExists();
-		
+
 		super.checkInputBoxHasValue("instantiation", instantiation);
 		super.checkInputBoxHasValue("title", title);
 		super.checkInputBoxHasValue("nick", nick);
@@ -60,50 +59,50 @@ public class AnyPeepShowTest extends TestHarness {
 		Collection<Peep> peeps;
 		String param;
 
-		peeps = this.repository.findManyPeepsByAnyUsername("any3");
-		for (final Peep peep : peeps)
-			if (peep.isDraftMode()) {
-				param = String.format("id=%d", peep.getId());
+		peeps = this.repository.findManyPeeps();
+		for (final Peep peep : peeps) {
 
-				super.checkLinkExists("Sign in");
-				super.request("/any/peep/show", param);
-				super.checkPanicExists();
+			param = String.format("id=%d", peep.getId());
 
-				super.signIn("administrator", "administrator");
-				super.request("/any/peep/show", param);
-				super.checkPanicExists();
-				super.signOut();
+			super.checkLinkExists("Sign in");
+			super.request("/any/peep/show", param);
+			super.checkPanicExists();
 
-				super.signIn("any5", "any5");
-				super.request("/any/peep/show", param);
-				super.checkPanicExists();
-				super.signOut();
+			super.signIn("administrator", "administrator");
+			super.request("/any/peep/show", param);
+			super.checkPanicExists();
+			super.signOut();
 
-				super.signIn("lecturer1", "lecturer1");
-				super.request("/any/peep/show", param);
-				super.checkPanicExists();
-				super.signOut();
+			super.signIn("any5", "any5");
+			super.request("/any/peep/show", param);
+			super.checkPanicExists();
+			super.signOut();
 
-				super.signIn("assistant1", "assistant1");
-				super.request("/any/peep/show", param);
-				super.checkPanicExists();
-				super.signOut();
+			super.signIn("lecturer1", "lecturer1");
+			super.request("/any/peep/show", param);
+			super.checkPanicExists();
+			super.signOut();
 
-				super.signIn("student1", "student1");
-				super.request("/any/peep/show", param);
-				super.checkPanicExists();
-				super.signOut();
+			super.signIn("assistant1", "assistant1");
+			super.request("/any/peep/show", param);
+			super.checkPanicExists();
+			super.signOut();
 
-				super.signIn("company1", "company1");
-				super.request("/any/peep/show", param);
-				super.checkPanicExists();
-				super.signOut();
+			super.signIn("student1", "student1");
+			super.request("/any/peep/show", param);
+			super.checkPanicExists();
+			super.signOut();
 
-				super.signIn("auditor1", "auditor1");
-				super.request("/any/peep/show", param);
-				super.checkPanicExists();
-				super.signOut();
-			}
+			super.signIn("company1", "company1");
+			super.request("/any/peep/show", param);
+			super.checkPanicExists();
+			super.signOut();
+
+			super.signIn("auditor1", "auditor1");
+			super.request("/any/peep/show", param);
+			super.checkPanicExists();
+			super.signOut();
+		}
 	}
 
 }

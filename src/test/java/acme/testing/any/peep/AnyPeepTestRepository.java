@@ -16,12 +16,12 @@ import java.util.Collection;
 
 import org.springframework.data.jpa.repository.Query;
 
-import acme.entities.Tutorial;
+import acme.entities.Peep;
 import acme.framework.repositories.AbstractRepository;
 
 public interface AnyPeepTestRepository extends AbstractRepository {
 
-	@Query("select p from Peep p where p.any.userAccount.username = :username")
-	Collection<Peep> findManyPeepsByAnyUsername(String username);
+	@Query("select p from Peep p ")
+	Collection<Peep> findManyPeeps();
 
 }

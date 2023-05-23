@@ -22,8 +22,7 @@ public class AnyPeepCreateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/any/peep/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int peepIndex, final String instantiation, final String title, final String nick, 
-			final String message, final String email, final String link) {
+	public void test100Positive(final int peepIndex, final String instantiation, final String title, final String nick, final String message, final String email, final String link) {
 
 		super.signIn("any6", "any6");
 
@@ -49,7 +48,7 @@ public class AnyPeepCreateTest extends TestHarness {
 
 		super.clickOnListingRecord(peepIndex);
 		super.checkFormExists();
-		super.checkInputBoxHasValue("instantiation", code);
+		super.checkInputBoxHasValue("instantiation", instantiation);
 		super.checkInputBoxHasValue("title", title);
 		super.checkInputBoxHasValue("nick", nick);
 		super.checkInputBoxHasValue("message", message);
@@ -61,8 +60,7 @@ public class AnyPeepCreateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/any/peep/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int peepIndex, final String instantiation, final String title, final String nick, 
-			final String message, final String email, final String link) {
+	public void test200Negative(final int peepIndex, final String instantiation, final String title, final String nick, final String message, final String email, final String link) {
 
 		super.signIn("any6", "any6");
 
@@ -76,7 +74,7 @@ public class AnyPeepCreateTest extends TestHarness {
 		super.fillInputBoxIn("message", message);
 		super.fillInputBoxIn("email", email);
 		super.fillInputBoxIn("link", link);
-		
+
 		super.clickOnSubmit("Publish");
 		super.checkErrorsExist();
 

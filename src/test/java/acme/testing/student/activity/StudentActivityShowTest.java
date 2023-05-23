@@ -1,5 +1,5 @@
-package acme.testing.student.activity;
 
+package acme.testing.student.activity;
 
 import java.util.Collection;
 
@@ -8,8 +8,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import acme.entities.Lecture;
-import acme.roles.Student;
+import acme.entities.Activity;
 import acme.testing.TestHarness;
 
 public class StudentActivityShowTest extends TestHarness {
@@ -24,8 +23,7 @@ public class StudentActivityShowTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/student/activity/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int activityIndex, final String title, final String abstracts,
-			final String inicialPeriod, final String finalPeriod, final String nature, final String link) {
+	public void test100Positive(final int activityIndex, final String title, final String abstracts, final String inicialPeriod, final String finalPeriod, final String nature, final String link) {
 		super.signIn("student3", "student3");
 
 		super.clickOnMenu("Student", "List of activities");
@@ -46,47 +44,47 @@ public class StudentActivityShowTest extends TestHarness {
 	@Test
 	public void test300Hacking() {
 
-		Collection<Student> activities;
+		Collection<Activity> activities;
 		String param;
 
 		activities = this.repository.findManyActivitiesByStudentUsername("student3");
-		for (final Student activity : activities) {
-			
-				param = String.format("id=%d", activity.getId());
+		for (final Activity activity : activities) {
 
-				super.checkLinkExists("Sign in");
-				super.request("/student/activity/show", param);
-				super.checkPanicExists();
+			param = String.format("id=%d", activity.getId());
 
-				super.signIn("administrator", "administrator");
-				super.request("/student/activity/show", param);
-				super.checkPanicExists();
-				super.signOut();
+			super.checkLinkExists("Sign in");
+			super.request("/student/activity/show", param);
+			super.checkPanicExists();
 
-				super.signIn("assistant5", "assistant5");
-				super.request("/student/activity/show", param);
-				super.checkPanicExists();
-				super.signOut();
+			super.signIn("administrator", "administrator");
+			super.request("/student/activity/show", param);
+			super.checkPanicExists();
+			super.signOut();
 
-				super.signIn("student1", "student1");
-				super.request("/student/activity/show", param);
-				super.checkPanicExists();
-				super.signOut();
+			super.signIn("assistant5", "assistant5");
+			super.request("/student/activity/show", param);
+			super.checkPanicExists();
+			super.signOut();
 
-				super.signIn("lecturer1", "lecturer1");
-				super.request("/student/activity/show", param);
-				super.checkPanicExists();
-				super.signOut();
+			super.signIn("student1", "student1");
+			super.request("/student/activity/show", param);
+			super.checkPanicExists();
+			super.signOut();
 
-				super.signIn("company1", "company1");
-				super.request("/student/activity/show", param);
-				super.checkPanicExists();
-				super.signOut();
+			super.signIn("lecturer1", "lecturer1");
+			super.request("/student/activity/show", param);
+			super.checkPanicExists();
+			super.signOut();
 
-				super.signIn("auditor1", "auditor1");
-				super.request("/student/activity/show", param);
-				super.checkPanicExists();
-				super.signOut();
+			super.signIn("company1", "company1");
+			super.request("/student/activity/show", param);
+			super.checkPanicExists();
+			super.signOut();
+
+			super.signIn("auditor1", "auditor1");
+			super.request("/student/activity/show", param);
+			super.checkPanicExists();
+			super.signOut();
 		}
 	}
 
