@@ -1,0 +1,11 @@
+activityIndex,title,abstracts,inicialPeriod,finalPeriod,nature,link
+1,title3,Lorem ipsum,2025/12/01 20:00,2025/12/02 23:00,BALANCE, http://example3.com
+2,title4,Lorem ipsum,2025/12/01 22:00,2025/12/02 23:00,BALANCE, http://example2.com
+3,title5,Lorem ipsum,2025/12/02 20:00,2025/12/04 23:00,BALANCE, http://example5.com
+4,title6,Lorem ipsum,2025/01/01 20:00,2025/02/02 23:00,THEORETICAL, http://example1.com
+5,title7,Lorem ipsum,2025/12/01 20:00,2025/12/02 23:00,BALANCE, http://example6.com
+6,title10,Lorem ipsum,2025/12/01 20:00,2025/12/02 23:00,THEORETICAL, http://example8.com
+7,title11,Lorem ipsum,2025/02/11 20:00,2025/04/02 23:00,THEORETICAL, http://example7.com
+8,title13,Lorem ipsum,2025/11/11 20:00,2025/12/11 23:00,BALANCE, http://example9.com
+
+
