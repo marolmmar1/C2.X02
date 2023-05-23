@@ -1,30 +1,29 @@
 key,code,title,abstracts,goals,draft_mode,key:company,key:course
-practicum-01,ABC999,Practicum,Practica,conseguir aprobar,false,company-01,course-01
-practicum-02,AB999,Practicum,Practica,conseguir aprobar,false,company-01,course-14
-practicum-03,A999,Practicum,Practica,conseguir aprobar,false,company-01,course-14
-practicum-04,A100,P,Practica,conseguir aprobar con buena nota,false,company-04,course-14
-practicum-05,A101,Pr,Practica,conseguir aprobar,false,company-01,course-14
-practicum-06,A102,Pra,Practica,conseguir aprobar,false,company-01,course-02
-practicum-07,A103,Título de setenta y cinco caracteres exactos para esta práctica profesional,Practica,conseguir aprobar,false,company-01,course-14
-practicum-08,A104,Soy un título de setenta y cuatro caracteres para la práctica profesional,Practica,conseguir aprobar,false,company-01,course-14
-practicum-09,A105,مرحبا لكل شعبي كيف حالالفيزياء الكيميائية,Practica,conseguir aprobar,false,company-01,course-14
-practicum-10,A106,<h1> welcome to the class!<h1>,Practica,conseguir aprobar,false,company-01,course-14
-practicum-11,A107,"<script>alert(""hi!"")</script>",Practica,conseguir aprobar,false,company-01,course-14
-practicum-12,A108,Practicum1,P,conseguir aprobar,false,company-01,course-14
-practicum-13,A109,Practicum1,Pr,conseguir aprobar,false,company-01,course-14
-practicum-14,A110,Practicum1,voy a escribir cien caracteres en esta línea para hacer la prueba de que es válida para los csv okey,conseguir aprobar,false,company-01,course-14
-practicum-15,A111,Practicum1,voy a escribir 99 caracteres en esta línea para hacer la prueba de que es válida para los csvs okey,conseguir aprobar,false,company-01,course-14
-practicum-16,A112,Practicum1,مرحبا لكل شعبي كيف حالالفيزياء الكيميائية,conseguir aprobar,false,company-01,course-14
-practicum-17,A113,Practicum1,<h1> welcome to the class!<h1>,conseguir aprobar,false,company-01,course-14
-practicum-18,A114,Practicum1,"<script>alert(""hi!"")</script>",conseguir aprobar,false,company-01,course-14
-practicum-19,A115,Practicum1,Practica,c,false,company-01,course-14
-practicum-20,A116,Practicum1,Practica,co,false,company-01,course-14
-practicum-21,A117,Practicum1,Practica,voy a escribir cien caracteres en esta línea para hacer la prueba de que es válida para los csv okey,false,company-01,course-14
-practicum-22,A118,Practicum1,Practica,voy a escribir 99 caracteres en esta línea para hacer la prueba de que es válida para los csvs okey,false,company-01,course-14
-practicum-23,A119,Practicum1,Practica,مرحبا لكل شعبي كيف حالالفيزياء الكيميائية,false,company-01,course-14
-practicum-24,A120,Practicum1,Practica,<h1> welcome to the class!<h1>,false,company-01,course-14
-practicum-25,A121,Practicum1,Practica,"<script>alert(""hi!"")</script>",false,company-01,course-14
-practicum-26,A122,Practicum1,Practica,conseguir aprobar,false,company-01,course-14
-practicum-27,A123,Practicum1,Practica,conseguir aprobar,true,company-01,course-14
-practicum-28,A124,Practicum1,Practica,conseguir aprobar,false,company-02,course-14
-practicum-29,A125,Practicum1,Practica,conseguir aprobar,false,company-01,course-02
+practicum-01,AB999,Practicum,Practica,conseguir aprobar,false,company-01,course-14
+practicum-02,A999,Practicum,Practica,conseguir aprobar,false,company-01,course-14
+practicum-03,A100,P,Practica,conseguir aprobar con buena nota,false,company-04,course-14
+practicum-04,A101,Pr,Practica,conseguir aprobar,false,company-01,course-14
+practicum-05,A102,Pra,Practica,conseguir aprobar,false,company-01,course-02
+practicum-06,A103,Título de setenta y cinco caracteres exactos para esta práctica profesional,Practica,conseguir aprobar,false,company-01,course-14
+practicum-07,A104,Soy un título de setenta y cuatro caracteres para la práctica profesional,Practica,conseguir aprobar,false,company-01,course-14
+practicum-08,A105,مرحبا لكل شعبي كيف حالالفيزياء الكيميائية,Practica,conseguir aprobar,false,company-01,course-14
+practicum-09,A106,<h1> welcome to the class!<h1>,Practica,conseguir aprobar,false,company-01,course-14
+practicum-10,A107,"<script>alert(""hi!"")</script>",Practica,conseguir aprobar,false,company-01,course-14
+practicum-11,A108,Practicum1,P,conseguir aprobar,false,company-01,course-14
+practicum-12,A109,Practicum1,Pr,conseguir aprobar,false,company-01,course-14
+practicum-13,A110,Practicum1,voy a escribir cien caracteres en esta línea para hacer la prueba de que es válida para los csv okey,conseguir aprobar,false,company-01,course-14
+practicum-14,A111,Practicum1,voy a escribir 99 caracteres en esta línea para hacer la prueba de que es válida para los csvs okey,conseguir aprobar,false,company-01,course-14
+practicum-15,A112,Practicum1,مرحبا لكل شعبي كيف حالالفيزياء الكيميائية,conseguir aprobar,false,company-01,course-14
+practicum-16,A113,Practicum1,<h1> welcome to the class!<h1>,conseguir aprobar,false,company-01,course-14
+practicum-17,A114,Practicum1,"<script>alert(""hi!"")</script>",conseguir aprobar,false,company-01,course-14
+practicum-18,A115,Practicum1,Practica,c,false,company-01,course-14
+practicum-19,A116,Practicum1,Practica,co,false,company-01,course-14
+practicum-20,A117,Practicum1,Practica,voy a escribir cien caracteres en esta línea para hacer la prueba de que es válida para los csv okey,false,company-01,course-14
+practicum-21,A118,Practicum1,Practica,voy a escribir 99 caracteres en esta línea para hacer la prueba de que es válida para los csvs okey,false,company-01,course-14
+practicum-22,A119,Practicum1,Practica,مرحبا لكل شعبي كيف حالالفيزياء الكيميائية,false,company-01,course-14
+practicum-23,A120,Practicum1,Practica,<h1> welcome to the class!<h1>,false,company-01,course-14
+practicum-24,A121,Practicum1,Practica,"<script>alert(""hi!"")</script>",false,company-01,course-14
+practicum-25,A122,Practicum1,Practica,conseguir aprobar,false,company-01,course-14
+practicum-26,A123,Practicum1,Practica,conseguir aprobar,true,company-01,course-14
+practicum-27,A124,Practicum1,Practica,conseguir aprobar,false,company-02,course-14
+practicum-28,A125,Practicum1,Practica,conseguir aprobar,false,company-01,course-02
