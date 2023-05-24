@@ -20,6 +20,9 @@ import acme.entities.Activity;
 import acme.framework.repositories.AbstractRepository;
 
 public interface StudentActivityRepositoryTest extends AbstractRepository {
+	
+	@Query("select e from Enrolment t where e.student.userAccount.username = :username")
+	Collection<Enrolment> findManyEnrolmentsByStudentUsername(String username);
 
 	@Query("select a from Activity a where a.enrolment.student.userAccount.username = :username")
 	Collection<Activity> findManyActivitiesByStudentUsername(String username);

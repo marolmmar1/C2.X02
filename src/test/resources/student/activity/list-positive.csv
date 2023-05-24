@@ -1,7 +1,7 @@
-activityRecordIndex,title,nature
-0,title1,BALANCE
-1,title2,BALANCE
-2,title21,THEORETICAL
-3,title3,BALANCE
-4,title4,THEORETICAL
-5,title11,BALANCE
+enrolmentRecordIndex,code,activityRecordIndex, title
+0,ABC123,1,title1
+0,ABC129,2,title2
+0,ABC125,1,title3
+0,ABC137,3,title4
+
+

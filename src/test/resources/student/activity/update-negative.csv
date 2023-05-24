@@ -1,8 +1,7 @@
-activityIndex,title,abstracts,inicialPeriod,finalPeriod,nature,link
-0,Activity,Lorem ipsum,,2025/12/02 23:00,THEORETICAL,http://activity1-example.com
-1,Lorem ipsum,Lorem ipsum,2025/12/05 00:00,,THEORETICAL,http://activity22-example.com
-2,L,Lorem ipsum,2025/12/11 00:00,2025/12/12 23:00,,http://activity22-example.com
-3,Lorem ipsum,Lorem ipsum,2025/01/05 00:10,2025/02/10 23:00,BALANCE,
-4,,Lorem ipsum,2025/12/05 00:00,2025/12/06 23:00,THEORETICAL,www.example.com
-5,Hola,,2025/12/05 22:22,2025/12/06 23:00,BALANCE,http://activity22-example.com
-
+enrolmentRecordIndex,activityIndex,title,abstracts,startDate,endDate,nature,link
+0,1,ACTIVITY1,Lorem ipsum,2025/12/01 20:00,2025/12/02 23:00,,http://activity1-example.com
+1,2,Lorem ipsum,Lorem ipsum,2025/12/05 11:2020/12/04 22:22,THEORETICAL,http://activity22-example.com
+2,3,Lorem ipsum,2025/12/11 00:00,,BALANCE,http://activity1111111-example.com
+1,2,Lorem ipsum,Lorem ipsum,2025/02/10 23:00,,BALANCE,http://activity12-example.com
+2,3,LOREM,LOREM,2025/12/05 00:00,2025/12/06 23:00,THEORETICAL,AAAAAAAAAAA
+3,2,LLLL,Lorem ipsum,2025/12/10 10:10,2020/11/05 11:11,BALANCE,http://activity-example.com
