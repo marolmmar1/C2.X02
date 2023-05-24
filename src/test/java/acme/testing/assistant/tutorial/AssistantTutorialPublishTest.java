@@ -82,31 +82,31 @@
 //				params = String.format("id=%d", tutorial.getId());
 //
 //				super.checkLinkExists("Sign in");
-//				super.request("assistant/tutorial/publish", params);
+//				super.request("/assistant/tutorial/publish", params);
 //				super.checkPanicExists();
 //
 //				super.signIn("administrator", "administrator");
-//				super.request("assistant/tutorial/publish", params);
+//				super.request("/assistant/tutorial/publish", params);
 //				super.checkPanicExists();
 //				super.signOut();
 //
 //				super.signIn("lecturer1", "lecturer1");
-//				super.request("assistant/tutorial/publish", params);
+//				super.request("/assistant/tutorial/publish", params);
 //				super.checkPanicExists();
 //				super.signOut();
 //
 //				super.signIn("student1", "student1");
-//				super.request("assistant/tutorial/publish", params);
+//				super.request("/assistant/tutorial/publish", params);
 //				super.checkPanicExists();
 //				super.signOut();
 //
 //				super.signIn("company1", "company1");
-//				super.request("assistant/tutorial/publish", params);
+//				super.request("/assistant/tutorial/publish", params);
 //				super.checkPanicExists();
 //				super.signOut();
 //
 //				super.signIn("auditor1", "auditor1");
-//				super.request("assistant/tutorial/publish", params);
+//				super.request("/assistant/tutorial/publish", params);
 //				super.checkPanicExists();
 //				super.signOut();
 //			}
