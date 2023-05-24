@@ -10,22 +10,18 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.testing.assistant.tutorialSession;
+package acme.testing.student.activity;
 
 import java.util.Collection;
 
 import org.springframework.data.jpa.repository.Query;
 
-import acme.entities.Tutorial;
-import acme.entities.TutorialSession;
+import acme.entities.Activity;
 import acme.framework.repositories.AbstractRepository;
 
-public interface AssistantTutorialSessionTestRepository extends AbstractRepository {
+public interface StudentActivityRepositoryTest extends AbstractRepository {
 
-	@Query("select t from Tutorial t where t.assistant.userAccount.username = :username")
-	Collection<Tutorial> findManyTutorialsByAssistantUsername(String username);
-
-	@Query("select ts from TutorialSession ts where ts.tutorial.assistant.userAccount.username = :username")
-	Collection<TutorialSession> findManyTutorialSessionByAssistantUsername(String username);
+	@Query("select a from Activity a where a.enrolment.student.userAccount.username = :username")
+	Collection<Activity> findManyActivitiesByStudentUsername(String username);
 
 }

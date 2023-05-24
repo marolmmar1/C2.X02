@@ -56,7 +56,10 @@ public class AnyPeepCreateService extends AbstractService<Any, Peep> {
 
 	@Override
 	public void validate(final Peep object) {
-		assert object != null;
+		if (!super.getBuffer().getErrors().hasErrors("nick")) {
+			final boolean anonymous = this.getRequest().getPrincipal().isAnonymous();
+			super.state(!anonymous && object.getNick() != null, "nick", "any.peep.form.error.null");
+		}
 	}
 
 	@Override

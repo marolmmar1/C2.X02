@@ -10,22 +10,18 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.testing.assistant.tutorialSession;
+package acme.testing.any.peep;
 
 import java.util.Collection;
 
 import org.springframework.data.jpa.repository.Query;
 
-import acme.entities.Tutorial;
-import acme.entities.TutorialSession;
+import acme.entities.Peep;
 import acme.framework.repositories.AbstractRepository;
 
-public interface AssistantTutorialSessionTestRepository extends AbstractRepository {
+public interface AnyPeepTestRepository extends AbstractRepository {
 
-	@Query("select t from Tutorial t where t.assistant.userAccount.username = :username")
-	Collection<Tutorial> findManyTutorialsByAssistantUsername(String username);
-
-	@Query("select ts from TutorialSession ts where ts.tutorial.assistant.userAccount.username = :username")
-	Collection<TutorialSession> findManyTutorialSessionByAssistantUsername(String username);
+	@Query("select p from Peep p ")
+	Collection<Peep> findManyPeeps();
 
 }
