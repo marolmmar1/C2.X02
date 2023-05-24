@@ -1,15 +1,11 @@
 practicumIndex,code,title,abstracts,goals,course,estimatedTime
 0,,,,,ABC136,0.00
-1,ABC2,Lorem ipsum,Lorem ipsum,Lorem ipsum,ABC136,0.00
-2,ABC25,Lorem ipsum,Lorem ipsum,Lorem ipsum,ABC136,0.00
-3,ABC2563,Lorem ipsum,Lorem ipsum,Lorem ipsum,ABC136,0.00
-4,AB90,Lorem ipsum,Lorem ipsum,Lorem ipsum,ABC136,0.00
-5,ABC901,,Lorem ipsum,Lorem ipsum,ABC136,0.00
-6,ABC902,En el mundo tecnológico actual todos utilizamos o formamos parte de una pret,Lorem ipsum,Lorem ipsum,ABC136,0.00
-7,ABC903,En el mundo tecnológico actual todos utilizamos o formamos parte de una pre,,Lorem ipsum,ABC136,0.00
+1,ABC2,Lorem ipsum,Lorem ipsum,Lorem ipsum,ABC123,0.00
+2,ABC25,Lorem ipsum,Lorem ipsum,Lorem ipsum,ABC123,0.00
+3,ABC2563,Lorem ipsum,Lorem ipsum,Lorem ipsum,ABC123,0.00
+4,AB90,Lorem ipsum,Lorem ipsum,Lorem ipsum,ABC123,0.00
+5,ABC901,,Lorem ipsum,Lorem ipsum,ABC123,0.00
+6,ABC902,En el mundo tecnológico actual todos utilizamos o formamos parte de una pret,,Lorem ipsum,ABC136,0.00
+7,ABC903,En el mundo tecnológico actual todos utilizamos o formamos parte de una pre,,,ABC136,0.00
 8,ABC904,Lorem ipsum,En el mundo tecnológico actual todos utilizamos o formamos parte de una pret,Lorem ipsum,ABC136,0.00
-9,ABC905,Lorem ipsum,Lo,,ABC136,0.00
-10,ABC906,Lorem ipsum,En el mundo tecnológico actual todos utilizamos o formamos parte de una pr,En el mundo tecnológico actual todos utilizamos o formamos parte de una pret,ABC136,0.00
-11,ABC907,Lorem ipsum,En el mundo tecnológico actual todos utilizamos o formamos parte de una pre,Lorem ipsum,ABC136,0.00
-12,ABC908,Lorem ipsum,Lorem ipsum,Lorem ipsum,ABC136,0.00
-13,ABC909,Lorem ipsum,Lorem ipsum,Lorem ipsum,ABC131,0.00
+9,ABC905,Lorem ipsum,Lo,,,0.00

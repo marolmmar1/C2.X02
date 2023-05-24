@@ -36,34 +36,34 @@ public class CompanyPracticumUpdateTest extends TestHarness {
 	@CsvFileSource(resources = "/company/practicum/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int practicumIndex, final String code, final String title, final String abstracts, final String goals, final String course, final String estimatedTime) {
 
-		super.signIn("company4", "company4");
+		super.signIn("company2", "company2");
 
 		super.clickOnMenu("Company", "Practicum List");
 		super.checkListingExists();
-		super.sortListing(0, "desc");
+		super.sortListing(0, "asc");
 
 		super.clickOnListingRecord(practicumIndex);
 		super.checkFormExists();
-		super.fillInputBoxIn("code", code);
-		super.fillInputBoxIn("title", title);
-		super.fillInputBoxIn("abstracts", abstracts);
-		super.fillInputBoxIn("goals", goals);
-		super.fillInputBoxIn("course", course);
+		super.fillInputBoxIn("Code", code);
+		super.fillInputBoxIn("Title", title);
+		super.fillInputBoxIn("Abstract", abstracts);
+		super.fillInputBoxIn("Goals", goals);
+		super.fillInputBoxIn("Course", course);
 		super.clickOnSubmit("Update");
 
 		super.checkListingExists();
-		super.sortListing(0, "desc");
+		super.sortListing(0, "asc");
 		super.checkColumnHasValue(practicumIndex, 0, code);
 		super.checkColumnHasValue(practicumIndex, 1, title);
 
 		super.clickOnListingRecord(practicumIndex);
 		super.checkFormExists();
-		super.checkInputBoxHasValue("code", code);
-		super.checkInputBoxHasValue("title", title);
-		super.checkInputBoxHasValue("abstracts", abstracts);
-		super.checkInputBoxHasValue("goals", goals);
-		super.checkInputBoxHasValue("course", course);
-		super.checkInputBoxHasValue("estimatedTime", estimatedTime);
+		super.checkInputBoxHasValue("Code", code);
+		super.checkInputBoxHasValue("Title", title);
+		super.checkInputBoxHasValue("Abstract", abstracts);
+		super.checkInputBoxHasValue("Goals", goals);
+		super.checkInputBoxHasValue("Course", course);
+		super.checkInputBoxHasValue("EstimatedTime", estimatedTime);
 
 		super.signOut();
 	}
@@ -72,19 +72,19 @@ public class CompanyPracticumUpdateTest extends TestHarness {
 	@CsvFileSource(resources = "/company/practicum/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test200Negative(final int practicumIndex, final String code, final String title, final String abstracts, final String goals, final String course, final String estimatedTime) {
 
-		super.signIn("company4", "company4");
+		super.signIn("company2", "company2");
 
 		super.clickOnMenu("Company", "Practicum List");
 		super.checkListingExists();
-		super.sortListing(0, "desc");
+		super.sortListing(0, "asc");
 
 		super.clickOnListingRecord(practicumIndex);
 		super.checkFormExists();
-		super.fillInputBoxIn("code", code);
-		super.fillInputBoxIn("title", title);
-		super.fillInputBoxIn("abstracts", abstracts);
-		super.fillInputBoxIn("goals", goals);
-		super.fillInputBoxIn("course", course);
+		super.fillInputBoxIn("Code", code);
+		super.fillInputBoxIn("Title", title);
+		super.fillInputBoxIn("Abstract", abstracts);
+		super.fillInputBoxIn("Goals", goals);
+		super.fillInputBoxIn("Course", course);
 		super.clickOnSubmit("Update");
 
 		super.checkErrorsExist();
@@ -126,7 +126,7 @@ public class CompanyPracticumUpdateTest extends TestHarness {
 			super.checkPanicExists();
 			super.signOut();
 
-			super.signIn("company2", "company2");
+			super.signIn("company1", "company1");
 			super.request("/company/practicum/update", param);
 			super.checkPanicExists();
 			super.signOut();

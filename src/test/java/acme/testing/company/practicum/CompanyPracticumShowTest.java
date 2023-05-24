@@ -36,19 +36,19 @@ public class CompanyPracticumShowTest extends TestHarness {
 	@CsvFileSource(resources = "/company/practicum/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int practicumIndex, final String code, final String title, final String abstracts, final String goals, final String course, final String estimatedTime) {
 
-		super.signIn("company1", "company1");
+		super.signIn("company2", "company2");
 
 		super.clickOnMenu("Company", "Practicum List");
 		super.sortListing(0, "asc");
 		super.clickOnListingRecord(practicumIndex);
 		super.checkFormExists();
 
-		super.checkInputBoxHasValue("code", code);
-		super.checkInputBoxHasValue("title", title);
-		super.checkInputBoxHasValue("abstracts", abstracts);
-		super.checkInputBoxHasValue("goals", goals);
-		super.checkInputBoxHasValue("course", course);
-		super.checkInputBoxHasValue("estimatedTime", estimatedTime);
+		super.checkInputBoxHasValue("Code", code);
+		super.checkInputBoxHasValue("Title", title);
+		super.checkInputBoxHasValue("Abstract", abstracts);
+		super.checkInputBoxHasValue("Goals", goals);
+		super.checkInputBoxHasValue("Course", course);
+		super.checkInputBoxHasValue("EstimatedTime", estimatedTime);
 
 		super.signOut();
 	}
@@ -88,7 +88,7 @@ public class CompanyPracticumShowTest extends TestHarness {
 				super.checkPanicExists();
 				super.signOut();
 
-				super.signIn("assistant1", "assistant1");
+				super.signIn("company1", "company1");
 				super.request("/company/practicum/show", param);
 				super.checkPanicExists();
 				super.signOut();

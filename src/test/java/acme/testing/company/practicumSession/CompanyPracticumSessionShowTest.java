@@ -37,9 +37,9 @@ public class CompanyPracticumSessionShowTest extends TestHarness {
 	@CsvFileSource(resources = "/company/practicum-session/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int practicumIndex, final String code, final int practicumSessionRecordIndex, final String title, final String abstracts, final String inicialPeriod, final String finalPeriod, final String link) {
 
-		super.signIn("company1", "company1");
+		super.signIn("company2", "company2");
 
-		super.clickOnMenu("Company1", "Practicum List");
+		super.clickOnMenu("Company", "Practicum List");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.clickOnListingRecord(practicumIndex);
@@ -48,11 +48,11 @@ public class CompanyPracticumSessionShowTest extends TestHarness {
 		super.clickOnListingRecord(practicumSessionRecordIndex);
 		super.checkFormExists();
 
-		super.checkInputBoxHasValue("title", title);
-		super.checkInputBoxHasValue("abstracts", abstracts);
-		super.checkInputBoxHasValue("inicialPeriod", inicialPeriod);
-		super.checkInputBoxHasValue("finalPeriod", finalPeriod);
-		super.checkInputBoxHasValue("link", link);
+		super.checkInputBoxHasValue("Title", title);
+		super.checkInputBoxHasValue("Abstracts", abstracts);
+		super.checkInputBoxHasValue("Initial Period", inicialPeriod);
+		super.checkInputBoxHasValue("Final Period", finalPeriod);
+		super.checkInputBoxHasValue("Link", link);
 
 		super.signOut();
 	}
@@ -69,8 +69,8 @@ public class CompanyPracticumSessionShowTest extends TestHarness {
 		Collection<PracticumSession> practicumSessions;
 		String param;
 
-		super.signIn("assistant1", "assistant1");
-		practicumSessions = this.repository.findManyPracticumSessionByCompanyUsername("company1");
+		super.signIn("company2", "company2");
+		practicumSessions = this.repository.findManyPracticumSessionByCompanyUsername("company2");
 		for (final PracticumSession ps : practicumSessions)
 			if (ps.getPracticum().isDraftMode()) {
 				param = String.format("id=%d", ps.getPracticum().getId());
@@ -99,7 +99,7 @@ public class CompanyPracticumSessionShowTest extends TestHarness {
 				super.checkPanicExists();
 				super.signOut();
 
-				super.signIn("company2", "company2");
+				super.signIn("company1", "company1");
 				super.request("/company/practicum-session/show", param);
 				super.checkPanicExists();
 				super.signOut();

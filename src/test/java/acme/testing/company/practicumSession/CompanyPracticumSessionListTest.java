@@ -36,7 +36,7 @@ class AssistantTutorialSessionListTest extends TestHarness {
 	@CsvFileSource(resources = "/company/practicum-session/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int practicumRecordIndex, final String code, final int practicumSessionRecordIndex, final String title) {
 
-		super.signIn("company1", "company1");
+		super.signIn("company2", "company2");
 
 		super.clickOnMenu("Company", "Practicum List");
 		super.checkListingExists();
@@ -65,7 +65,7 @@ class AssistantTutorialSessionListTest extends TestHarness {
 		Collection<Practicum> practicums;
 		String param;
 
-		practicums = this.repository.findManyPracticumsByCompanyUsername("company1");
+		practicums = this.repository.findManyPracticumsByCompanyUsername("company2");
 		for (final Practicum p : practicums)
 			if (p.isDraftMode()) {
 				param = String.format("id=%d", p.getId());
@@ -94,7 +94,7 @@ class AssistantTutorialSessionListTest extends TestHarness {
 				super.checkPanicExists();
 				super.signOut();
 
-				super.signIn("company2", "company2");
+				super.signIn("company1", "company1");
 				super.request("/company/practicum-session/list", param);
 				super.checkPanicExists();
 				super.signOut();

@@ -24,17 +24,17 @@ public class CompanyPracticumCreateTest extends TestHarness {
 	@CsvFileSource(resources = "/company/practicum/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int practicumIndex, final String code, final String title, final String abstracts, final String goals, final String course, final String estimatedTime) {
 
-		super.signIn("company1", "company1");
+		super.signIn("company2", "company2");
 
 		super.clickOnMenu("Company", "Practicum List");
 		super.checkListingExists();
 
 		super.clickOnButton("Create");
-		super.fillInputBoxIn("code", code);
-		super.fillInputBoxIn("title", title);
-		super.fillInputBoxIn("abstracts", abstracts);
-		super.fillInputBoxIn("goals", goals);
-		super.fillInputBoxIn("course", course);
+		super.fillInputBoxIn("Code", code);
+		super.fillInputBoxIn("Title", title);
+		super.fillInputBoxIn("Abstract", abstracts);
+		super.fillInputBoxIn("Goals", goals);
+		super.fillInputBoxIn("Course", course);
 		super.clickOnSubmit("Create");
 
 		super.clickOnMenu("Company", "Practicum List");
@@ -45,12 +45,12 @@ public class CompanyPracticumCreateTest extends TestHarness {
 
 		super.clickOnListingRecord(practicumIndex);
 		super.checkFormExists();
-		super.checkInputBoxHasValue("code", code);
-		super.checkInputBoxHasValue("title", title);
-		super.checkInputBoxHasValue("abstracts", abstracts);
-		super.checkInputBoxHasValue("goals", goals);
-		super.checkInputBoxHasValue("course", course);
-		super.checkInputBoxHasValue("estimatedTime", estimatedTime);
+		super.checkInputBoxHasValue("Code", code);
+		super.checkInputBoxHasValue("Title", title);
+		super.checkInputBoxHasValue("Abstract", abstracts);
+		super.checkInputBoxHasValue("Goals", goals);
+		super.checkInputBoxHasValue("Course", course);
+		super.checkInputBoxHasValue("EstimatedTime", estimatedTime);
 
 		super.clickOnButton("Practicum Session");
 		super.checkListingExists();
@@ -63,16 +63,16 @@ public class CompanyPracticumCreateTest extends TestHarness {
 	@CsvFileSource(resources = "/company/practicum/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test200Negative(final int practicumIndex, final String code, final String title, final String abstracts, final String goals, final String course, final String estimatedTime) {
 
-		super.signIn("company1", "company1");
+		super.signIn("company2", "company2");
 
 		super.clickOnMenu("Company", "Practicum List");
 		super.clickOnButton("Create");
 		super.checkFormExists();
-		super.fillInputBoxIn("code", code);
-		super.fillInputBoxIn("title", title);
-		super.fillInputBoxIn("abstracts", abstracts);
-		super.fillInputBoxIn("goals", goals);
-		super.fillInputBoxIn("course", course);
+		super.fillInputBoxIn("Code", code);
+		super.fillInputBoxIn("Title", title);
+		super.fillInputBoxIn("Abstract", abstracts);
+		super.fillInputBoxIn("Goals", goals);
+		super.fillInputBoxIn("Course", course);
 		super.clickOnSubmit("Create");
 		super.checkErrorsExist();
 

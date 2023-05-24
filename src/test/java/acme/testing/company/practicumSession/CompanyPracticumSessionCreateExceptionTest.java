@@ -36,7 +36,7 @@ class CompanyPracticumSessionCreateExceptionTest extends TestHarness {
 	@CsvFileSource(resources = "/company/practicum-session/create-exception-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int practicumRecordIndex, final int practicumSessionRecordIndex, final String title, final String abstracts, final String inicialPeriod, final String finalPeriod, final String link) {
 
-		super.signIn("company1", "company1");
+		super.signIn("company2", "company2");
 
 		super.clickOnMenu("Company", "Practicum List");
 		super.checkListingExists();
@@ -46,11 +46,11 @@ class CompanyPracticumSessionCreateExceptionTest extends TestHarness {
 		super.clickOnButton("Practicum Session");
 
 		super.clickOnButton("Create Exceptional Session");
-		super.fillInputBoxIn("title", title);
-		super.fillInputBoxIn("abstracts", abstracts);
-		super.fillInputBoxIn("initialPeriod", inicialPeriod);
-		super.fillInputBoxIn("finalPeriod", finalPeriod);
-		super.fillInputBoxIn("link", link);
+		super.fillInputBoxIn("Title", title);
+		super.fillInputBoxIn("Abstracts", abstracts);
+		super.fillInputBoxIn("Initial Period", inicialPeriod);
+		super.fillInputBoxIn("Final Period", finalPeriod);
+		super.fillInputBoxIn("Link", link);
 		super.clickOnSubmit("Create Exceptional Session");
 
 		super.checkListingExists();
@@ -58,11 +58,11 @@ class CompanyPracticumSessionCreateExceptionTest extends TestHarness {
 		super.checkColumnHasValue(practicumSessionRecordIndex, 0, title);
 
 		super.clickOnListingRecord(practicumSessionRecordIndex);
-		super.fillInputBoxIn("title", title);
-		super.fillInputBoxIn("abstracts", abstracts);
-		super.fillInputBoxIn("initialPeriod", inicialPeriod);
-		super.fillInputBoxIn("finalPeriod", finalPeriod);
-		super.fillInputBoxIn("link", link);
+		super.fillInputBoxIn("Title", title);
+		super.fillInputBoxIn("Abstracts", abstracts);
+		super.fillInputBoxIn("Initial Period", inicialPeriod);
+		super.fillInputBoxIn("Final Period", finalPeriod);
+		super.fillInputBoxIn("Link", link);
 		super.signOut();
 	}
 
@@ -70,7 +70,7 @@ class CompanyPracticumSessionCreateExceptionTest extends TestHarness {
 	@CsvFileSource(resources = "/company/practicum-session/create-exception-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test200Negative(final int practicumRecordIndex, final int practicumSessionRecordIndex, final String title, final String abstracts, final String inicialPeriod, final String finalPeriod, final String link) {
 
-		super.signIn("company1", "company1");
+		super.signIn("company2", "company2");
 
 		super.clickOnMenu("Company", "Practicum List");
 		super.checkListingExists();
@@ -80,11 +80,11 @@ class CompanyPracticumSessionCreateExceptionTest extends TestHarness {
 		super.clickOnButton("Practicum Session");
 
 		super.clickOnButton("Create Exceptional Session");
-		super.fillInputBoxIn("title", title);
-		super.fillInputBoxIn("abstracts", abstracts);
-		super.fillInputBoxIn("initialPeriod", inicialPeriod);
-		super.fillInputBoxIn("finalPeriod", finalPeriod);
-		super.fillInputBoxIn("link", link);
+		super.fillInputBoxIn("Title", title);
+		super.fillInputBoxIn("Abstracts", abstracts);
+		super.fillInputBoxIn("Initial Period", inicialPeriod);
+		super.fillInputBoxIn("Final Period", finalPeriod);
+		super.fillInputBoxIn("Link", link);
 		super.clickOnSubmit("Create Exceptional Session");
 		super.checkErrorsExist();
 
@@ -97,7 +97,7 @@ class CompanyPracticumSessionCreateExceptionTest extends TestHarness {
 		final Collection<Practicum> practicums;
 		String param;
 
-		practicums = this.repository.findManyPracticumsByCompanyUsername("company1");
+		practicums = this.repository.findManyPracticumsByCompanyUsername("company2");
 		for (final Practicum p : practicums) {
 			param = String.format("companyId=%d", p.getId());
 
@@ -139,8 +139,8 @@ class CompanyPracticumSessionCreateExceptionTest extends TestHarness {
 		String param;
 
 		super.checkLinkExists("Sign in");
-		super.signIn("company1", "company1");
-		practicums = this.repository.findManyPracticumsByCompanyUsername("company1");
+		super.signIn("company2", "company2");
+		practicums = this.repository.findManyPracticumsByCompanyUsername("company2");
 		for (final Practicum p : practicums)
 			if (p.isDraftMode()) {
 				param = String.format("practicumId=%d", p.getId());
@@ -156,8 +156,8 @@ class CompanyPracticumSessionCreateExceptionTest extends TestHarness {
 		String param;
 
 		super.checkLinkExists("Sign in");
-		super.signIn("company1", "company1");
-		practicums = this.repository.findManyPracticumsByCompanyUsername("company1");
+		super.signIn("company2", "company2");
+		practicums = this.repository.findManyPracticumsByCompanyUsername("company2");
 		for (final Practicum p : practicums) {
 			param = String.format("practicumId=%d", p.getId());
 			super.request("/company/practicum-session/create-exceptional", param);

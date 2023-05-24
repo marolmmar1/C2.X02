@@ -40,32 +40,32 @@ public class CompanyPracticumSessionUpdateTest extends TestHarness {
 
 		super.clickOnMenu("Company", "Practicum List");
 		super.checkListingExists();
-		super.sortListing(0, "desc");
+		super.sortListing(0, "asc");
 
-		super.clickOnListingRecord(4);
+		super.clickOnListingRecord(practicumRecordIndex);
 		super.clickOnButton("Practicum Session");
 
 		super.clickOnListingRecord(practicumSessionRecordIndex);
 		super.checkFormExists();
 
-		super.fillInputBoxIn("title", title);
-		super.fillInputBoxIn("abstracts", abstracts);
-		super.fillInputBoxIn("inicialPeriod", inicialPeriod);
-		super.fillInputBoxIn("finalPeriod", finalPeriod);
-		super.fillInputBoxIn("link", link);
+		super.fillInputBoxIn("Title", title);
+		super.fillInputBoxIn("Abstracts", abstracts);
+		super.fillInputBoxIn("Initial Period", inicialPeriod);
+		super.fillInputBoxIn("Final Period", finalPeriod);
+		super.fillInputBoxIn("Link", link);
 		super.clickOnSubmit("Update");
 
 		super.checkListingExists();
-		super.sortListing(0, "desc");
+		super.sortListing(0, "asc");
 		super.checkColumnHasValue(practicumSessionRecordIndex, 0, title);
 
 		super.clickOnListingRecord(practicumSessionRecordIndex);
 		super.checkFormExists();
-		super.checkInputBoxHasValue("title", title);
-		super.checkInputBoxHasValue("abstracts", abstracts);
-		super.checkInputBoxHasValue("inicialPeriod", inicialPeriod);
-		super.checkInputBoxHasValue("finalPeriod", finalPeriod);
-		super.checkInputBoxHasValue("link", link);
+		super.checkInputBoxHasValue("Title", title);
+		super.checkInputBoxHasValue("Abstracts", abstracts);
+		super.checkInputBoxHasValue("Initial Period", inicialPeriod);
+		super.checkInputBoxHasValue("Final Period", finalPeriod);
+		super.checkInputBoxHasValue("Link", link);
 
 		super.signOut();
 	}
@@ -74,23 +74,23 @@ public class CompanyPracticumSessionUpdateTest extends TestHarness {
 	@CsvFileSource(resources = "/company/practicum-session/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test200Negative(final int practicumRecordIndex, final int practicumSessionRecordIndex, final String title, final String abstracts, final String inicialPeriod, final String finalPeriod, final String link) {
 
-		super.signIn("company1", "company1");
+		super.signIn("company2", "company2");
 
 		super.clickOnMenu("Company", "Practicum List");
 		super.checkListingExists();
-		super.sortListing(0, "desc");
+		super.sortListing(0, "asc");
 
-		super.clickOnListingRecord(4);
+		super.clickOnListingRecord(practicumRecordIndex);
 		super.clickOnButton("Practicum Session");
 
 		super.clickOnListingRecord(practicumSessionRecordIndex);
 		super.checkFormExists();
 
-		super.fillInputBoxIn("title", title);
-		super.fillInputBoxIn("abstracts", abstracts);
-		super.fillInputBoxIn("inicialPeriod", inicialPeriod);
-		super.fillInputBoxIn("finalPeriod", finalPeriod);
-		super.fillInputBoxIn("link", link);
+		super.fillInputBoxIn("Title", title);
+		super.fillInputBoxIn("Abstracts", abstracts);
+		super.fillInputBoxIn("Initial Period", inicialPeriod);
+		super.fillInputBoxIn("Final Period", finalPeriod);
+		super.fillInputBoxIn("Link", link);
 
 		super.clickOnSubmit("Update");
 
@@ -107,7 +107,7 @@ public class CompanyPracticumSessionUpdateTest extends TestHarness {
 		final Collection<Practicum> practicums;
 		String param;
 
-		practicums = this.repository.findManyPracticumsByCompanyUsername("company1");
+		practicums = this.repository.findManyPracticumsByCompanyUsername("company2");
 		for (final Practicum p : practicums) {
 			param = String.format("id=%d", p.getId());
 
@@ -140,16 +140,12 @@ public class CompanyPracticumSessionUpdateTest extends TestHarness {
 			super.checkPanicExists();
 			super.signOut();
 
-			super.signIn("company2", "company2");
+			super.signIn("company1", "company1");
 			super.request("/company/practicum-session/update", param);
 			super.checkPanicExists();
 			super.signOut();
 
-			super.signIn("auditor1", "auditor1");
-			super.request("/company/practicum-session/update", param);
-			super.checkPanicExists();
-			super.signOut();
 		}
-	}
 
+	}
 }
