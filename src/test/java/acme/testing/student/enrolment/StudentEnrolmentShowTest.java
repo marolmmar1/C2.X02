@@ -23,7 +23,7 @@ public class StudentEnrolmentShowTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/student/enrolment/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int enrolmentIndex, final String code, final String motivation, final String goals, final String course, final String holderName, final String expiryDate, final String creditCard, final String cvc) {
+	public void test100Positive(final int enrolmentIndex, final String code, final String motivation, final String goals, final String course, final String expiryDate, final String cvc, final String creditCard, final String holderName) {
 
 		super.signIn("student1", "student1");
 

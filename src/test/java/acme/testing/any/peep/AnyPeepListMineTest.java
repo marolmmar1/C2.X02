@@ -22,19 +22,16 @@ public class AnyPeepListMineTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/any/peep/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int peepIndex, final String instantiation, final String title, final String nick, final String message, final String email, final String link) {
+	public void test100Positive(final int peepIndex, final String instantiation, final String title, final String nick) {
 
-		super.signIn("any4", "any4");
-
-		super.clickOnMenu("Any", "Peep List");
+		super.clickOnMenu("Anonymous", "Peep List");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 
-		super.checkColumnHasValue(peepIndex, 0, title);
-		super.checkColumnHasValue(peepIndex, 1, nick);
-		super.checkColumnHasValue(peepIndex, 2, message);
+		super.checkColumnHasValue(peepIndex, 0, instantiation);
+		super.checkColumnHasValue(peepIndex, 1, title);
+		super.checkColumnHasValue(peepIndex, 2, nick);
 
-		super.signOut();
 	}
 
 	@Test
@@ -44,40 +41,6 @@ public class AnyPeepListMineTest extends TestHarness {
 
 	@Test
 	public void test300Hacking() {
-
-		super.checkLinkExists("Sign in");
-		super.request("/any/peep/list-all");
-		super.checkPanicExists();
-
-		super.signIn("administrator", "administrator");
-		super.request("/any/peep/list-all");
-		super.checkPanicExists();
-		super.signOut();
-
-		super.signIn("lecturer1", "lecturer1");
-		super.request("/any/peep/list-all");
-		super.checkPanicExists();
-		super.signOut();
-
-		super.signIn("student1", "student1");
-		super.request("/any/peep/list-all");
-		super.checkPanicExists();
-		super.signOut();
-
-		super.signIn("assistant1", "assistant1");
-		super.request("/any/peep/list-all");
-		super.checkPanicExists();
-		super.signOut();
-
-		super.signIn("company1", "company1");
-		super.request("/any/peep/list-all");
-		super.checkPanicExists();
-		super.signOut();
-
-		super.signIn("auditor1", "auditor1");
-		super.request("/any/peep/list-all");
-		super.checkPanicExists();
-		super.signOut();
 
 	}
 

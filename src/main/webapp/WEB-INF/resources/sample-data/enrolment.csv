@@ -1,13 +1,13 @@
-key,code,motivation,goals,key:student,key:course
-enrolment-01,A001,Acudir a clase,aprobar,student-01,course-02
-enrolment-02,A012,Estudiar diariamente,aprender conocimientos nuevos,student-02,course-02
-enrolment-03,A021,Acudir a clasehjkashduahdjkahde,aprobar,student-03,course-02
-enrolment-04,A042,Estudiaroaksk93058alskdmkjlasdasdsd,prueba de rellenar muchos muchos datos,student-04,course-02
-enrolment-05,A420,Motivation,Goals,student-02,course-02
-enrolment-06,ABC923,2,Goals,student-02,course-02
-enrolment-07,A440,Motivation,4,student-02,course-02
-enrolment-08,A410,??,Goals,student-03,course-02
-enrolment-09,A411,Motivation,??,student-03,course-02
-enrolment-10,ABC023,<h1>hello</h1>,Goals,student-01,course-02
-enrolment-11,ABC053,Motivation,<h1>hello</h1>,student-01,course-02
-enrolment-12,ABC111,Motivation,"<script>alert(""""hi"""")</script>",student-01,course-02
+key,code,motivation,goals,draftMode,key:student,key:course
+enrolment-01,A001,Acudir a clase,aprobar,false,student-01,course-02
+enrolment-02,A012,Estudiar diariamente,aprender conocimientos nuevos,false,student-02,course-02
+enrolment-03,A021,Acudir a clasehjkashduahdjkahde,aprobar,false,student-03,course-02
+enrolment-04,A042,Estudiaroaksk93058alskdmkjlasdasdsd,prueba de rellenar muchos muchos datos,false,student-04,course-02
+enrolment-05,A420,Motivation,Goals,false,student-02,course-02
+enrolment-06,ABC923,2,Goals,false,student-02,course-02
+enrolment-07,A440,Motivation,4,false,student-02,course-02
+enrolment-08,A410,??,Goals,true,student-05,course-02
+enrolment-09,A411,Motivation,??,false,student-03,course-02
+enrolment-10,ABC023,<h1>hello</h1>,Goals,false,student-01,course-02
+enrolment-11,ABC053,Motivation,<h1>hello</h1>,false,student-01,course-02
+enrolment-12,ABC111,Motivation,"<script>alert(""""hi"""")</script>",false,student-01,course-02

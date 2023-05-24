@@ -1,8 +1,4 @@
-enrolmentIndex,code
-0,A9
-2,AB3
-3,090
-4,A
-5,B0
-6,A80
-7,ZZ
+enrolmentIndex,code,motivation,goals,course,expiryDate,cvc,creditCard,holderName
+0,A410,Acudir a clase,aprobar,Z123,dfdv6,143,"3333/3333/3333/3333",pedro
+0,A410,Acudir a clase,aprobar,Z123,09/26,143000000000,"3333/3333/3333/3333",pedro
+0,A410,Acudir a clase,aprobar,Z123,09/26,143,"3333333333333333",pedro

@@ -22,25 +22,68 @@ public class StudentEnrolmentFinaliseTest extends TestHarness {
 
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/student/enrolment/finalise-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int enrolmentIndex, final String code) {
+	@CsvFileSource(resources = "/student/enrolment/finalise-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test100Negative(final int enrolmentIndex, final String code, final String motivation, final String goals, final String course, final String expiryDate, final String cvc, final String creditCard, final String holderName) {
 
 		super.signIn("student5", "student5");
 
-		super.clickOnMenu("Enrolmentr", "Enrolment List");
+		super.clickOnMenu("Student", "Enrolment List");
+		super.checkListingExists();
+		super.sortListing(0, "asc");
+
+		super.clickOnListingRecord(enrolmentIndex);
+		super.checkFormExists();
+		super.fillInputBoxIn("code", code);
+		super.fillInputBoxIn("motivation", motivation);
+		super.fillInputBoxIn("goals", goals);
+		super.fillInputBoxIn("course", course);
+		super.fillInputBoxIn("expiryDate", expiryDate);
+		super.fillInputBoxIn("creditCard", creditCard);
+		super.fillInputBoxIn("cvc", cvc);
+		super.fillInputBoxIn("holderName", holderName);
+		super.clickOnSubmit("Finalise");
+		super.checkErrorsExist();
+
+		super.signOut();
+	}
+
+	@ParameterizedTest
+	@CsvFileSource(resources = "/student/enrolment/finalise-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test200Positive(final int enrolmentIndex, final String code, final String motivation, final String goals, final String course, final String expiryDate, final String cvc, final String creditCard, final String holderName) {
+
+		super.signIn("student5", "student5");
+
+		super.clickOnMenu("Student", "Enrolment List");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.checkColumnHasValue(enrolmentIndex, 0, code);
 
 		super.clickOnListingRecord(enrolmentIndex);
 		super.checkFormExists();
+		super.fillInputBoxIn("code", code);
+		super.fillInputBoxIn("motivation", motivation);
+		super.fillInputBoxIn("goals", goals);
+		super.fillInputBoxIn("course", course);
+		super.fillInputBoxIn("expiryDate", expiryDate);
+		super.fillInputBoxIn("creditCard", creditCard);
+		super.fillInputBoxIn("cvc", cvc);
+		super.fillInputBoxIn("holderName", holderName);
 		super.clickOnSubmit("Finalise");
 		super.checkNotErrorsExist();
 
+		super.checkListingExists();
+		super.sortListing(0, "asc");
+		super.checkColumnHasValue(enrolmentIndex, 0, code);
+
+		super.clickOnListingRecord(enrolmentIndex);
+		super.checkFormExists();
+
+		super.clickOnButton("Activities");
+		super.checkListingExists();
+		super.checkListingEmpty();
+
 		super.signOut();
 	}
-
-	// HINT: there is no case in which you can not finalise a enrolment once filled
 
 	@Test
 	public void test300Hacking() {

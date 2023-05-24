@@ -16,17 +16,15 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
-import acme.entities.Course;
 import acme.testing.TestHarness;
 
 public class StudentEnrolmentCreateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/student/enrolment/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int enrolmentIndex, final String code, final String course, final String motivation, final String goals, final String holderName, final String lowerNibble, final String creditCard, final String cvc,
-		final String expiryDate, final String workTime) {
+	public void test100Positive(final int enrolmentIndex, final String code, final String motivation, final String goals, final String course, final String expiryDate, final String cvc, final String creditCard, final String holderName) {
 
-		super.signIn("student2", "student2");
+		super.signIn("student6", "student6");
 
 		super.clickOnMenu("Student", "Enrolment List");
 		super.checkListingExists();
@@ -35,56 +33,50 @@ public class StudentEnrolmentCreateTest extends TestHarness {
 		super.fillInputBoxIn("code", code);
 		super.fillInputBoxIn("motivation", motivation);
 		super.fillInputBoxIn("goals", goals);
-		super.fillInputBoxIn("holderName", holderName);
-		super.fillInputBoxIn("lowerNibble", lowerNibble);
-		super.fillInputBoxIn("creditCard", creditCard);
-		super.fillInputBoxIn("cvc", cvc);
+		super.fillInputBoxIn("course", course);
 		super.fillInputBoxIn("expiryDate", expiryDate);
-		super.clickOnSubmit("Create ");
+		super.fillInputBoxIn("cvc", cvc);
+		super.fillInputBoxIn("creditCard", creditCard);
+		super.fillInputBoxIn("holderName", holderName);
+		super.clickOnSubmit("Create");
 
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.checkColumnHasValue(enrolmentIndex, 0, code);
-		super.checkColumnHasValue(enrolmentIndex, 1, workTime);
 
 		super.clickOnListingRecord(enrolmentIndex);
 		super.checkFormExists();
 		super.checkInputBoxHasValue("code", code);
 		super.checkInputBoxHasValue("motivation", motivation);
 		super.checkInputBoxHasValue("goals", goals);
-		super.checkInputBoxHasValue("holderName", holderName);
-		super.checkInputBoxHasValue("lowerNibble", lowerNibble);
-		super.checkInputBoxHasValue("creditCard", creditCard);
-		super.checkInputBoxHasValue("cvc", cvc);
+		super.checkInputBoxHasValue("course", course);
 		super.checkInputBoxHasValue("expiryDate", expiryDate);
-
-		super.clickOnButton("Activities");
-		super.checkListingExists();
-		super.checkListingEmpty();
+		super.checkInputBoxHasValue("cvc", cvc);
+		super.checkInputBoxHasValue("creditCard", creditCard);
+		super.checkInputBoxHasValue("holderName", holderName);
 
 		super.signOut();
 	}
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/student/enrolment/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int enrolmentIndex, final String code, final Course course, final String motivation, final String goals, final String holderName, final String lowerNibble, final String creditCard, final String cvc,
-		final String expiryDate) {
+	public void test200Negative(final int enrolmentIndex, final String code, final String motivation, final String goals, final String course, final String expiryDate, final String cvc, final String creditCard, final String holderName) {
 
-		super.signIn("student2", "student2");
+		super.signIn("student6", "student6");
 
-		super.clickOnMenu("Student", "List of enrolments");
-		super.clickOnButton("Create ");
+		super.clickOnMenu("Student", "Enrolment List");
+		super.clickOnButton("Create");
 		super.checkFormExists();
 
 		super.fillInputBoxIn("code", code);
 		super.fillInputBoxIn("motivation", motivation);
 		super.fillInputBoxIn("goals", goals);
-		super.fillInputBoxIn("holderName", holderName);
-		super.fillInputBoxIn("lowerNibble", lowerNibble);
-		super.fillInputBoxIn("creditCard", creditCard);
-		super.fillInputBoxIn("cvc", cvc);
+		super.fillInputBoxIn("course", course);
 		super.fillInputBoxIn("expiryDate", expiryDate);
-		super.clickOnSubmit("Create ");
+		super.fillInputBoxIn("cvc", cvc);
+		super.fillInputBoxIn("creditCard", creditCard);
+		super.fillInputBoxIn("holderName", holderName);
+		super.clickOnSubmit("Create");
 		super.checkErrorsExist();
 
 		super.signOut();
@@ -103,7 +95,7 @@ public class StudentEnrolmentCreateTest extends TestHarness {
 		super.signOut();
 
 		super.signIn("lecturer1", "lecturer1");
-		super.request("/lecturer/course/create");
+		super.request("/student/enrolment/create");
 		super.checkPanicExists();
 		super.signOut();
 
