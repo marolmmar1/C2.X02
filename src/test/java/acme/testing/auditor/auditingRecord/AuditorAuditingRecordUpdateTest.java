@@ -128,11 +128,6 @@
 //			super.checkPanicExists();
 //			super.signOut();
 //
-//			super.signIn("assistant1", "assistant1");
-//			super.request("/auditor/auditing-record/update", param);
-//			super.checkPanicExists();
-//			super.signOut();
-//
 //			super.signIn("lecturer1", "lecturer1");
 //			super.request("/auditor/auditing-record/update", param);
 //			super.checkPanicExists();
