@@ -34,7 +34,7 @@ public class ComanyPracticumPublishTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/company/practicum/publish-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int practicumIndex, final String code, final String title) {
+	public void test100Positive(final int practicumIndex, final String code) {
 
 		super.signIn("company2", "company2");
 
@@ -42,7 +42,6 @@ public class ComanyPracticumPublishTest extends TestHarness {
 		super.checkListingExists();
 		super.sortListing(0, "desc");
 		super.checkColumnHasValue(practicumIndex, 0, code);
-		super.checkColumnHasValue(practicumIndex, 1, title);
 
 		super.clickOnListingRecord(practicumIndex);
 		super.checkFormExists();
@@ -54,16 +53,15 @@ public class ComanyPracticumPublishTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/company/practicum/publish-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int practicumIndex, final String code, final String title) {
+	public void test200Negative(final int practicumIndex, final String code) {
 
-		super.signIn("company2", "company2");
+		super.signIn("company7", "company7");
 
 		super.clickOnMenu("Company", "Practicum List");
 		super.checkListingExists();
 		super.sortListing(0, "desc");
 
 		super.checkColumnHasValue(practicumIndex, 0, code);
-		super.checkColumnHasValue(practicumIndex, 1, title);
 
 		super.clickOnListingRecord(practicumIndex);
 		super.checkFormExists();

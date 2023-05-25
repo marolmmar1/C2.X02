@@ -43,12 +43,12 @@ public class CompanyPracticumShowTest extends TestHarness {
 		super.clickOnListingRecord(practicumIndex);
 		super.checkFormExists();
 
-		super.checkInputBoxHasValue("Code", code);
-		super.checkInputBoxHasValue("Title", title);
-		super.checkInputBoxHasValue("Abstract", abstracts);
-		super.checkInputBoxHasValue("Goals", goals);
-		super.checkInputBoxHasValue("Course", course);
-		super.checkInputBoxHasValue("EstimatedTime", estimatedTime);
+		super.checkInputBoxHasValue("code", code);
+		super.checkInputBoxHasValue("title", title);
+		super.checkInputBoxHasValue("abstracts", abstracts);
+		super.checkInputBoxHasValue("goals", goals);
+		super.checkInputBoxHasValue("course", course);
+		super.checkInputBoxHasValue("estimatedTime", estimatedTime);
 
 		super.signOut();
 	}
