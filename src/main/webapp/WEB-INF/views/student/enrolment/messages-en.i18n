@@ -9,11 +9,11 @@
 # they accept any liabilities with respect to them.
 
 student.enrolment.list.label.code = Code
-
 student.enrolment.list.label.motivation = Motivation
 student.enrolment.list.label.goals = Goals
 student.enrolment.list.label.creditCard = Credit card
 student.enrolment.list.label.course = Course
+
 
 student.enrolment.form.button.activity = Activities
 student.enrolment.form.button.update = Update
@@ -29,7 +29,7 @@ student.enrolment.list.label.draftMode = Draft
 student.activity.list.label.workTime = Work Time
 
 student.enrolment.form.label.code = Code
-
+validation.enrolment.code = Incorrect format(XXX111)
 student.enrolment.form.error.wrong-expiry-date = Expiricy date's format must be dd/yy
 student.enrolment.form.error.wrong-cvc = CVC format must be 3 numbers
 student.enrolment.form.error.wrong-card = Credit card's format must be xxxx/xxxx/xxxx/xxxx
