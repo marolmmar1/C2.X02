@@ -128,7 +128,7 @@
 //			super.checkPanicExists();
 //			super.signOut();
 //
-//			super.signIn("auditor1", "auditor1");
+//			super.signIn("assistant1", "assistant1");
 //			super.request("/auditor/auditing-record/update", param);
 //			super.checkPanicExists();
 //			super.signOut();
@@ -148,7 +148,7 @@
 //			super.checkPanicExists();
 //			super.signOut();
 //
-//			super.signIn("auditor1", "auditor1");
+//			super.signIn("assistant1", "assistant1");
 //			super.request("/auditor/auditing-record/update", param);
 //			super.checkPanicExists();
 //			super.signOut();
