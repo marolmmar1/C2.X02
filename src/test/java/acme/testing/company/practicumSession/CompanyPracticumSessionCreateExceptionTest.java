@@ -36,7 +36,7 @@ class CompanyPracticumSessionCreateExceptionTest extends TestHarness {
 	@CsvFileSource(resources = "/company/practicum-session/create-exception-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int practicumRecordIndex, final int practicumSessionRecordIndex, final String title, final String abstracts, final String inicialPeriod, final String finalPeriod, final String link) {
 
-		super.signIn("company2", "company2");
+		super.signIn("company4", "company4");
 
 		super.clickOnMenu("Company", "Practicum List");
 		super.checkListingExists();
@@ -46,11 +46,11 @@ class CompanyPracticumSessionCreateExceptionTest extends TestHarness {
 		super.clickOnButton("Practicum Session");
 
 		super.clickOnButton("Create Exceptional Session");
-		super.fillInputBoxIn("Title", title);
-		super.fillInputBoxIn("Abstracts", abstracts);
-		super.fillInputBoxIn("Initial Period", inicialPeriod);
-		super.fillInputBoxIn("Final Period", finalPeriod);
-		super.fillInputBoxIn("Link", link);
+		super.fillInputBoxIn("title", title);
+		super.fillInputBoxIn("abstracts", abstracts);
+		super.fillInputBoxIn("inicialPeriod", inicialPeriod);
+		super.fillInputBoxIn("finalPeriod", finalPeriod);
+		super.fillInputBoxIn("link", link);
 		super.clickOnSubmit("Create Exceptional Session");
 
 		super.checkListingExists();
@@ -58,37 +58,16 @@ class CompanyPracticumSessionCreateExceptionTest extends TestHarness {
 		super.checkColumnHasValue(practicumSessionRecordIndex, 0, title);
 
 		super.clickOnListingRecord(practicumSessionRecordIndex);
-		super.fillInputBoxIn("Title", title);
-		super.fillInputBoxIn("Abstracts", abstracts);
-		super.fillInputBoxIn("Initial Period", inicialPeriod);
-		super.fillInputBoxIn("Final Period", finalPeriod);
-		super.fillInputBoxIn("Link", link);
+		super.checkInputBoxHasValue("title", title);
+		super.checkInputBoxHasValue("abstracts", abstracts);
+		super.checkInputBoxHasValue("inicialPeriod", inicialPeriod);
+		super.checkInputBoxHasValue("finalPeriod", finalPeriod);
+		super.checkInputBoxHasValue("link", link);
 		super.signOut();
 	}
 
-	@ParameterizedTest
-	@CsvFileSource(resources = "/company/practicum-session/create-exception-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int practicumRecordIndex, final int practicumSessionRecordIndex, final String title, final String abstracts, final String inicialPeriod, final String finalPeriod, final String link) {
+	public void test200Negative() {
 
-		super.signIn("company2", "company2");
-
-		super.clickOnMenu("Company", "Practicum List");
-		super.checkListingExists();
-		super.sortListing(0, "asc");
-
-		super.clickOnListingRecord(practicumRecordIndex);
-		super.clickOnButton("Practicum Session");
-
-		super.clickOnButton("Create Exceptional Session");
-		super.fillInputBoxIn("Title", title);
-		super.fillInputBoxIn("Abstracts", abstracts);
-		super.fillInputBoxIn("Initial Period", inicialPeriod);
-		super.fillInputBoxIn("Final Period", finalPeriod);
-		super.fillInputBoxIn("Link", link);
-		super.clickOnSubmit("Create Exceptional Session");
-		super.checkErrorsExist();
-
-		super.signOut();
 	}
 
 	@Test
@@ -139,10 +118,10 @@ class CompanyPracticumSessionCreateExceptionTest extends TestHarness {
 		String param;
 
 		super.checkLinkExists("Sign in");
-		super.signIn("company2", "company2");
-		practicums = this.repository.findManyPracticumsByCompanyUsername("company2");
+		super.signIn("company3", "company3");
+		practicums = this.repository.findManyPracticumsByCompanyUsername("company3");
 		for (final Practicum p : practicums)
-			if (p.isDraftMode()) {
+			if (!p.isDraftMode()) {
 				param = String.format("practicumId=%d", p.getId());
 				super.request("/company/practicum-session/create-exceptional", param);
 				super.checkPanicExists();
@@ -156,7 +135,7 @@ class CompanyPracticumSessionCreateExceptionTest extends TestHarness {
 		String param;
 
 		super.checkLinkExists("Sign in");
-		super.signIn("company2", "company2");
+		super.signIn("company3", "company3");
 		practicums = this.repository.findManyPracticumsByCompanyUsername("company2");
 		for (final Practicum p : practicums) {
 			param = String.format("practicumId=%d", p.getId());

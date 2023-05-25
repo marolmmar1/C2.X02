@@ -48,11 +48,11 @@ public class CompanyPracticumSessionShowTest extends TestHarness {
 		super.clickOnListingRecord(practicumSessionRecordIndex);
 		super.checkFormExists();
 
-		super.checkInputBoxHasValue("Title", title);
-		super.checkInputBoxHasValue("Abstracts", abstracts);
-		super.checkInputBoxHasValue("Initial Period", inicialPeriod);
-		super.checkInputBoxHasValue("Final Period", finalPeriod);
-		super.checkInputBoxHasValue("Link", link);
+		super.checkInputBoxHasValue("title", title);
+		super.checkInputBoxHasValue("abstracts", abstracts);
+		super.checkInputBoxHasValue("inicialPeriod", inicialPeriod);
+		super.checkInputBoxHasValue("finalPeriod", finalPeriod);
+		super.checkInputBoxHasValue("link", link);
 
 		super.signOut();
 	}
@@ -69,7 +69,6 @@ public class CompanyPracticumSessionShowTest extends TestHarness {
 		Collection<PracticumSession> practicumSessions;
 		String param;
 
-		super.signIn("company2", "company2");
 		practicumSessions = this.repository.findManyPracticumSessionByCompanyUsername("company2");
 		for (final PracticumSession ps : practicumSessions)
 			if (ps.getPracticum().isDraftMode()) {

@@ -22,7 +22,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import acme.entities.Practicum;
 import acme.testing.TestHarness;
 
-class AssistantTutorialSessionListTest extends TestHarness {
+class CompanyPracticumSessionListTest extends TestHarness {
 
 	// Internal state ---------------------------------------------------------
 

@@ -48,11 +48,11 @@ public class CompanyPracticumSessionUpdateTest extends TestHarness {
 		super.clickOnListingRecord(practicumSessionRecordIndex);
 		super.checkFormExists();
 
-		super.fillInputBoxIn("Title", title);
-		super.fillInputBoxIn("Abstracts", abstracts);
-		super.fillInputBoxIn("Initial Period", inicialPeriod);
-		super.fillInputBoxIn("Final Period", finalPeriod);
-		super.fillInputBoxIn("Link", link);
+		super.fillInputBoxIn("title", title);
+		super.fillInputBoxIn("abstracts", abstracts);
+		super.fillInputBoxIn("inicialPeriod", inicialPeriod);
+		super.fillInputBoxIn("finalPeriod", finalPeriod);
+		super.fillInputBoxIn("link", link);
 		super.clickOnSubmit("Update");
 
 		super.checkListingExists();
@@ -61,11 +61,11 @@ public class CompanyPracticumSessionUpdateTest extends TestHarness {
 
 		super.clickOnListingRecord(practicumSessionRecordIndex);
 		super.checkFormExists();
-		super.checkInputBoxHasValue("Title", title);
-		super.checkInputBoxHasValue("Abstracts", abstracts);
-		super.checkInputBoxHasValue("Initial Period", inicialPeriod);
-		super.checkInputBoxHasValue("Final Period", finalPeriod);
-		super.checkInputBoxHasValue("Link", link);
+		super.checkInputBoxHasValue("title", title);
+		super.checkInputBoxHasValue("abstracts", abstracts);
+		super.checkInputBoxHasValue("inicialPeriod", inicialPeriod);
+		super.checkInputBoxHasValue("finalPeriod", finalPeriod);
+		super.checkInputBoxHasValue("link", link);
 
 		super.signOut();
 	}
@@ -86,11 +86,11 @@ public class CompanyPracticumSessionUpdateTest extends TestHarness {
 		super.clickOnListingRecord(practicumSessionRecordIndex);
 		super.checkFormExists();
 
-		super.fillInputBoxIn("Title", title);
-		super.fillInputBoxIn("Abstracts", abstracts);
-		super.fillInputBoxIn("Initial Period", inicialPeriod);
-		super.fillInputBoxIn("Final Period", finalPeriod);
-		super.fillInputBoxIn("Link", link);
+		super.fillInputBoxIn("title", title);
+		super.fillInputBoxIn("abstracts", abstracts);
+		super.fillInputBoxIn("inicialPeriod", inicialPeriod);
+		super.fillInputBoxIn("finalPeriod", finalPeriod);
+		super.fillInputBoxIn("link", link);
 
 		super.clickOnSubmit("Update");
 
@@ -101,8 +101,6 @@ public class CompanyPracticumSessionUpdateTest extends TestHarness {
 
 	@Test
 	public void test300Hacking() {
-		// HINT: this test tries to update a job with a role other than "Employer",
-		// HINT+ or using an employer who is not the owner.
 
 		final Collection<Practicum> practicums;
 		String param;
