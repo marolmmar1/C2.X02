@@ -1,6 +1,7 @@
 
 package acme.features.lecturer.course;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -71,8 +72,13 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 	public void validate(final Course object) {
 		assert object != null;
 		if (!super.getBuffer().getErrors().hasErrors("price")) {
+			final List<String> currencies = new ArrayList<>();
+			currencies.add("EUR");
+			currencies.add("USD");
+			currencies.add("GBP");
 			super.state(object.getPrice().getAmount() >= 0, "price", "lecturer.course.form.error.negative-price");
 			super.state(object.getPrice().getAmount() <= 1000000, "price", "lecturer.course.form.error.upper-price");
+			super.state(currencies.contains(object.getPrice().getCurrency()), "price", "lecturer.course.form.error.currency");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
