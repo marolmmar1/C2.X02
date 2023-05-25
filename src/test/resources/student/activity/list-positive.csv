@@ -1,7 +1,5 @@
-activityRecordIndex,title,nature
-0,title1,BALANCE
-1,title2,BALANCE
-2,title21,THEORETICAL
-3,title3,BALANCE
-4,title4,THEORETICAL
-5,title11,BALANCE
+enrolmentRecordIndex,code,activityRecordIndex,title
+0,A001,0,Activity01
+1,ABC023,0,A
+2,ABC053,0,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo."
+3,ABC111,0,Activity04
