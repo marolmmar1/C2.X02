@@ -20,7 +20,7 @@ import acme.entities.Enrolment;
 import acme.framework.repositories.AbstractRepository;
 
 public interface StudentEnrolmentRepositoryTest extends AbstractRepository {
-	
+
 	@Query("select e from Enrolment e where e.student.userAccount.username = :username")
 
 	Collection<Enrolment> findManyEnrolmentsByStudentUsername(String username);
