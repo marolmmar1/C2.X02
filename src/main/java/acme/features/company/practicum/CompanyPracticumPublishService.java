@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import acme.entities.Course;
 import acme.entities.Practicum;
 import acme.entities.PracticumSession;
-import acme.framework.components.accounts.Principal;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -34,15 +33,14 @@ public class CompanyPracticumPublishService extends AbstractService<Company, Pra
 	@Override
 	public void authorise() {
 		boolean status;
-		Practicum object;
-		Principal principal;
 		int practicumId;
+		Practicum practicum;
+		Company company;
 
 		practicumId = super.getRequest().getData("id", int.class);
-		object = this.repository.findPracticumById(practicumId);
-		principal = super.getRequest().getPrincipal();
-
-		status = object.getCompany().getId() == principal.getActiveRoleId();
+		practicum = this.repository.findPracticumById(practicumId);
+		company = practicum == null ? null : practicum.getCompany();
+		status = practicum != null && practicum.isDraftMode() && super.getRequest().getPrincipal().hasRole(company);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -98,15 +96,15 @@ public class CompanyPracticumPublishService extends AbstractService<Company, Pra
 	@Override
 	public void unbind(final Practicum object) {
 		assert object != null;
-
 		Collection<Course> courses;
 		SelectChoices choices;
 		Tuple tuple;
+		final boolean draft = false;
 
-		courses = this.repository.findAllCourse(false);
+		courses = this.repository.findAllCourse(draft);
 		choices = SelectChoices.from(courses, "code", object.getCourse());
 
-		tuple = super.unbind(object, "code", "title", "abstracts", "goals");
+		tuple = super.unbind(object, "code", "title", "abstracts", "goals", "draftMode");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
 
