@@ -13,6 +13,7 @@ authenticated.bulletin.list.label.title = Title
 authenticated.bulletin.list.label.message = Message
 authenticated.bulletin.list.label.critical = Critical
 
+administrator.banner.form.label.instantiation = Instantiation:
 authenticated.bulletin.list.label.instantiation = instantiation
 authenticated.bulletin.list.label.title = Title
 authenticated.bulletin.list.label.message = Message

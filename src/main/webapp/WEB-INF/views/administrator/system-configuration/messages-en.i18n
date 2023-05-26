@@ -10,3 +10,4 @@
 
 administrator.system-configuration.form.label.systemCurrency = Divisa del sistema:
 administrator.system-configuration.form.label.aceptedCurrencies = Divisas aceptadas:
+administrator.system-configuration.form.button.update = Update

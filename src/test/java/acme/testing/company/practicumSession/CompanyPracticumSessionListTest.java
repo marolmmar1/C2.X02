@@ -1,7 +1,7 @@
 
 package acme.testing.company.practicumSession;
 /*
- * EmployerDutyListTest.java
+ * 
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *

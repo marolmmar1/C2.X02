@@ -20,4 +20,4 @@
 
 </acme:list>
 
-
+<acme:button test="${showCreate}" code="administrator.offer.list.button.create" action="/administrator/offer/create"/>

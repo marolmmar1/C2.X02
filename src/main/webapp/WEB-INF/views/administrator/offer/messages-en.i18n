@@ -26,3 +26,4 @@ administrator.offer.form.error.menos = El periodo entre el inicial y el final de
 administrator.offer.form.error.menor = La fecha de inicio debe de ser antes a la final
 
 administrator.offer.form.error.wrong-price = The price must be positive
+administrator.offer.list.button.create = Create

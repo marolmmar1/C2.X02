@@ -34,7 +34,6 @@ public class Peep extends AbstractEntity {
 	@Length(max = 75)
 	protected String			title;
 
-	@NotBlank
 	@Length(max = 75)
 	protected String			nick;
 

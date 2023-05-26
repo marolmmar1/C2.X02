@@ -12,4 +12,7 @@ public interface AdministratorSystemConfigurationRepository extends AbstractRepo
 
 	@Query("select s from SystemConfiguration s")
 	SystemConfiguration currentConfiguration();
+
+	@Query("select s from SystemConfiguration s where s.id = :id")
+	SystemConfiguration findcurrentConfiguration(int id);
 }

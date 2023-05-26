@@ -21,3 +21,8 @@
 	<acme:input-textbox code="administrator.system-configuration.form.label.aceptedCurrencies" path="acceptedCurrencies"/>
 	
 </acme:form>
+<jstl:choose>
+		<jstl:when test="${acme:anyOf(_command, 'show|update')}">
+			<acme:submit code="administrator.system-configuration.form.button.update" action="/administrator/system-configuration/update"/>
+		</jstl:when>		
+	</jstl:choose>	

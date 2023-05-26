@@ -21,17 +21,17 @@
 	<acme:input-textarea code="administrator.offer.form.label.summary" path="summary"/>
 	<acme:input-moment code="administrator.offer.form.label.inicialPeriod" path="inicialPeriod"/>
 	<acme:input-moment code="administrator.offer.form.label.finalPeriod" path="finalPeriod"/>
-	<acme:input-textarea code="administrator.offer.form.label.price" path="price"/>
+	<acme:input-money code="administrator.offer.form.label.price" path="price"/>
 	<acme:input-url code="administrator.offer.form.label.link" path="link"/>
 	
 	<jstl:choose>
-		<jstl:when test="${_command == 'show' || _command == 'update' || _command == 'delete'}">
-			<acme:submit code="administrator.offer.form.button.show" action="/administrator/offer/update"/>
+	<jstl:when test="${_command == 'create'}">
+			<acme:submit code="administrator.offer.form.button.create" action="/administrator/offer/create"/>
+		</jstl:when>
+		<jstl:when test="${acme:anyOf(_command, 'show|update')}">
 			<acme:submit code="administrator.offer.form.button.update" action="/administrator/offer/update"/>
 			<acme:submit code="administrator.offer.form.button.delete" action="/administrator/offer/delete"/>
 		</jstl:when>
-		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="administrator.offer.form.button.create" action="/administrator/offer/create"/>
-		</jstl:when>		
+				
 	</jstl:choose>
 </acme:form>
