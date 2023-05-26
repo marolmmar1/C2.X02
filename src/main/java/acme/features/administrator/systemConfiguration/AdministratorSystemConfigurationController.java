@@ -14,15 +14,11 @@ import acme.framework.controllers.AbstractController;
 public class AdministratorSystemConfigurationController extends AbstractController<Administrator, SystemConfiguration> {
 
 	@Autowired
-	protected AdministratorSystemConfigurationShowService	showService;
-
-	@Autowired
-	protected AdministratorSystemConfigurationUpdateService	updateService;
+	protected AdministratorSystemConfigurationUpdateService updateService;
 
 
 	@PostConstruct
 	protected void initialise() {
-		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("update", this.updateService);
 	}
 }

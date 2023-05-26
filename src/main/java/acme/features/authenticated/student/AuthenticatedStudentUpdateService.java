@@ -17,10 +17,7 @@ import org.springframework.stereotype.Service;
 
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.accounts.Principal;
-import acme.framework.components.accounts.UserAccount;
 import acme.framework.components.models.Tuple;
-import acme.framework.controllers.HttpMethod;
-import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
@@ -36,24 +33,23 @@ public class AuthenticatedStudentUpdateService extends AbstractService<Authentic
 
 
 	@Override
+	public void check() {
+		super.getResponse().setChecked(true);
+	}
+	@Override
 	public void authorise() {
 		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
-	public void check() {
-		super.getResponse().setChecked(true);
-	}
-
-	@Override
 	public void load() {
-		UserAccount object;
+		Student object;
 		Principal principal;
 		int userAccountId;
 
 		principal = super.getRequest().getPrincipal();
 		userAccountId = principal.getAccountId();
-		object = this.repository.findOneUserAccountById(userAccountId);
+		object = this.repository.findOneStudentByUserAccountId(userAccountId);
 
 		super.getBuffer().setData(object);
 	}
@@ -85,12 +81,6 @@ public class AuthenticatedStudentUpdateService extends AbstractService<Authentic
 
 		tuple = super.unbind(object, "statement", "strongFeatures", "weakFeatures", "link");
 		super.getResponse().setData(tuple);
-	}
-
-	@Override
-	public void onSuccess() {
-		if (super.getRequest().getMethod().equals(HttpMethod.POST))
-			PrincipalHelper.handleUpdate();
 	}
 
 }

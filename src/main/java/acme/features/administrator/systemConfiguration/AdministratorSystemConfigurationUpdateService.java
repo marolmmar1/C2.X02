@@ -33,11 +33,9 @@ public class AdministratorSystemConfigurationUpdateService extends AbstractServi
 
 	@Override
 	public void check() {
-		boolean status;
-		status = super.getRequest().hasData("id", int.class);
-
-		super.getResponse().setChecked(status);
+		super.getResponse().setChecked(true);
 	}
+
 	@Override
 	public void authorise() {
 		super.getResponse().setAuthorised(true);
@@ -46,10 +44,7 @@ public class AdministratorSystemConfigurationUpdateService extends AbstractServi
 	@Override
 	public void load() {
 		SystemConfiguration object;
-		int id;
-
-		id = super.getRequest().getData("id", int.class);
-		object = this.systemConfigurationRepository.findcurrentConfiguration(id);
+		object = this.systemConfigurationRepository.currentConfiguration();
 		super.getBuffer().setData(object);
 	}
 
