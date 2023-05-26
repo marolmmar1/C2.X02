@@ -43,7 +43,7 @@ public class LecturerLectureDeleteService extends AbstractService<Lecturer, Lect
 		object = this.repository.findLectureById(id);
 		final Principal principal = super.getRequest().getPrincipal();
 		final int userAccountId = principal.getAccountId();
-		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId && object.getDraftMode());
+		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId && object.isDraftMode());
 	}
 
 	@Override
@@ -89,7 +89,7 @@ public class LecturerLectureDeleteService extends AbstractService<Lecturer, Lect
 		choices = SelectChoices.from(Nature.class, object.getNature());
 		tuple.put("nature", choices.getSelected().getKey());
 		tuple.put("natures", choices);
-		tuple.put("draftMode", object.getDraftMode());
+		tuple.put("draftMode", object.isDraftMode());
 
 		super.getResponse().setData(tuple);
 	}

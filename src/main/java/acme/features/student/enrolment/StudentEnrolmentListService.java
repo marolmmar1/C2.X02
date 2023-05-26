@@ -88,7 +88,7 @@ public class StudentEnrolmentListService extends AbstractService<Student, Enrolm
 
 		final double diffInHoursWithFormat = Double.parseDouble(hours + "." + minutes);
 
-		tuple = super.unbind(object, "code", "draftMode", "course.title");
+		tuple = super.unbind(object, "code");
 		tuple.put("workTime", diffInHoursWithFormat);
 		super.getResponse().setData(tuple);
 	}

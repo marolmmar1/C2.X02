@@ -29,3 +29,4 @@ auditor.audit.list.button.create = Create
 auditor.audit.form.button.create = Create
 auditor.audit.form.error.duplicated = This code is taken;
 auditor.audit.form.error.noSession = must have a auditing record associated
+validation.audit.code = Not adecuated format, example: ABC123

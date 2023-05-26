@@ -78,7 +78,7 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 			super.state(handOnLectureInCourse, "nature", "lecturer.course.form.error.nohandson");
 
 			boolean publishedLectures;
-			publishedLectures = lectures.stream().allMatch(x -> x.getDraftMode() == false);
+			publishedLectures = lectures.stream().allMatch(x -> x.isDraftMode() == false);
 			super.state(publishedLectures, "nature", "lecturer.course.form.error.lecturenp");
 		}
 	}

@@ -56,11 +56,14 @@ public class AnyCourseShowService extends AbstractService<Any, Course> {
 		assert object != null;
 
 		Tuple tuple;
+		final boolean anonymous;
+		anonymous = this.getRequest().getPrincipal().isAuthenticated();
 
 		tuple = super.unbind(object, "code", "title", "abstracts", "price", "link");
 		final List<Lecture> lectures = this.repository.findManyLecturesByCourseId(object.getId()).stream().collect(Collectors.toList());
 		final Nature nature = object.nature(lectures);
 		tuple.put("nature", nature);
+		super.getResponse().setGlobal("anonymous", anonymous);
 		super.getResponse().setData(tuple);
 	}
 

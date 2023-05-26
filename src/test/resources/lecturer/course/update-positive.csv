@@ -1,0 +1,17 @@
+courseIndex,code,title,price,abstracts,link,nature
+0,A800,Lorem ipsum,EUR 10.00,Lorem ipsum,,THEORETICAL
+0,AB800,Lorem ipsum,EUR 10.00,Lorem ipsum,,THEORETICAL
+0,ABC800,Lorem ipsum,EUR 10.00,Lorem ipsum,,THEORETICAL
+0,ABC900,L,EUR 10.00,Lorem ipsum,,THEORETICAL
+0,ABC901,Lo,EUR 10.00,Lorem ipsum,,THEORETICAL
+0,ABC902,En el mundo tecnológico actual todos utilizamos o formamos parte de una pr,EUR 10.00,Lorem ipsum,,THEORETICAL
+0,ABC903,En el mundo tecnológico actual todos utilizamos o formamos parte de una pre,EUR 10.00,Lorem ipsum,,THEORETICAL
+0,ABC904,Lorem ipsum,EUR 10.00,L,,THEORETICAL
+0,ABC905,Lorem ipsum,EUR 10.00,Lo,,THEORETICAL
+0,ABC906,Lorem ipsum,EUR 10.00,En el mundo tecnológico actual todos utilizamos o formamos parte de una prediccion de que la socied,,THEORETICAL
+0,ABC907,Lorem ipsum,EUR 10.00,En el mundo tecnológico actual todos utilizamos o formamos parte de una prediccion de que la socieda,,THEORETICAL
+0,ABC908,Lorem ipsum,EUR 0.00,Lorem ipsum,,THEORETICAL
+0,ABC909,Lorem ipsum,EUR 0.01,Lorem ipsum,,THEORETICAL
+0,ABC910,Lorem ipsum,EUR 999.99,Lorem ipsum,,THEORETICAL
+0,ABC911,Lorem ipsum,"EUR 1,000,000.00",Lorem ipsum,,THEORETICAL
+0,ABC912,Lorem ipsum,EUR 10.00,Lorem ipsum,http://www.example.com,THEORETICAL

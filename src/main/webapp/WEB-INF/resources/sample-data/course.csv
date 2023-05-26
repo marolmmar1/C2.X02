@@ -1,27 +1,27 @@
 key,code,title,abstracts,price,link,draftMode,key:lecturer
 course-01,ABC123,title1,Graduado,"EUR 20.00",http://example.com,true,lecturer-01
-course-02,A123,title2,Graduado,"EUR 20.00",http://example.com,false,lecturer-02
+course-02,Z123,title2,Graduado,"EUR 20.00",http://example.com,false,lecturer-02
 course-03,AB123,title3,Graduado,"EUR 20.00",http://example.com,true,lecturer-03
-course-04,ABC124,t,Graduado,"EUR 20.00",http://example.com,false,lecturer-04
+course-04,ABC124,t,Graduado,"EUR 20.00",http://example.com,true,lecturer-04
 course-05,ABC125,ti,Graduado,"EUR 20.00",http://example.com,true,lecturer-05
 course-06,ABC126,4V4gZES32W4gxYad7ap2RERmL7HeB9nxdDnNk8BQKdB4bJXf6zriKV3Sz4R5GAmfg9DWekfsdr,Graduado,"EUR 20.00",http://example.com,false,lecturer-06
 course-07,ABC128,4V4gZES32W4gxYad7ap2RERmL7HeB9nxdDnNk8BQKdB4bJXf6zriKV3Sz4R5GAmfg9DWekfsdrM,Graduado,"EUR 20.00",http://example.com,false,lecturer-07
 course-08,ABC129,title1,G,"EUR 20.00",http://example.com,false,lecturer-08
-course-09,ABC130,title1,Gr,"EUR 20.00",http://example.com,false,lecturer-09
+course-09,ABC999,title1,Gr,"EUR 20.00",http://example.com,true,lecturer-09
 course-10,ABC131,title1,voy a escribir cien caracteres en esta línea para hacer la prueba de que es válida para los csv okey,"EUR 20.00",http://example.com,false,lecturer-10
 course-11,ABC132,title1,voy a escribir 99 caracteres en esta línea para hacer la prueba de que es válida para los csv okeyy,"EUR 20.00",http://example.com,false,lecturer-11
 course-12,ABC133,title1,مرحبا لكل شعبي كيف حالالفيزياء الكيميائية,"EUR 20.00",http://example.com,false,lecturer-12
 course-13,ABC134,title1,こんにちは、私のすべての人々に私たちはお元気ですか,"EUR 20.00",http://example.com,false,lecturer-13
 course-14,ABC135,title1,<h1> hello and welcome to the class!<h1>,"EUR 20.00",http://example.com,false,lecturer-14
-course-15,ABC136,title1,"<script> alert(""hi!"")</script>","EUR 20.00",http://example.com,false,lecturer-15
+course-15,ABC136,title1,"<script> alert(""hi!"")</script>","EUR 20.00",http://example.com,true,lecturer-04
 course-16,ABC137,title1,#%&*@¡¿$/`´'€~|ª¨,"EUR 20.00",http://example.com,false,lecturer-16
 course-17,ABC138,title1,Graduado,"EUR 0.01",http://example.com,true,lecturer-17
 course-18,ABC139,title1,Graduado,"EUR 0.02",http://example.com,true,lecturer-18
-course-19,ABC140,title1,Graduado,"EUR 999999.99",http://example.com,true,lecturer-01
-course-20,ABC141,title1,Graduado,"EUR 1000000.00",http://example.com,true,lecturer-02
-course-21,ABC142,title1,Graduado,"GBP 20.00",http://example.com,true,lecturer-03
+course-19,MMM140,title1,Graduado,"EUR 999999.99",http://example.com,true,lecturer-01
+course-20,ZBC141,title1,Graduado,"EUR 1000000.00",http://example.com,true,lecturer-02
+course-21,ABC142,title1,Lorem ipsum,"GBP 20.00",http://example.com,true,lecturer-03
 course-22,ABC143,title1,Graduado,"USD 20.00",http://example.com,true,lecturer-04
 course-23,ABC144,title1,Graduado,"EUR 20.00",http://example.com,true,lecturer-05
 course-24,ABC145,title1,Graduado,"EUR 20.00",http://example.com,true,lecturer-06
 course-25,ABC146,title1,Graduado,"EUR 20.00",,true,lecturer-07
-course-26,ABC147,title1,Graduado,"EUR 20.00",http://example.com,false,lecturer-08
+course-26,ABC147,hola buenas tardes,esto es una prueba,"EUR 20.00",http://example.com,false,lecturer-03

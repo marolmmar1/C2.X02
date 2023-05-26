@@ -146,7 +146,7 @@ class AssistantTutorialSessionCreateTest extends TestHarness {
 		tutorials = this.repository.findManyTutorialsByAssistantUsername("assistant1");
 		for (final Tutorial tutorial : tutorials)
 			if (!tutorial.isDraftMode()) {
-				param = String.format("masterId=%d", tutorial.getId());
+				param = String.format("tutorialId=%d", tutorial.getId());
 				super.request("/assistant/tutorial-session/create", param);
 				super.checkPanicExists();
 			}
@@ -162,7 +162,7 @@ class AssistantTutorialSessionCreateTest extends TestHarness {
 		super.signIn("assistant11", "assistant11");
 		tutorials = this.repository.findManyTutorialsByAssistantUsername("assistant14");
 		for (final Tutorial tutorial : tutorials) {
-			param = String.format("masterId=%d", tutorial.getId());
+			param = String.format("tutorialId=%d", tutorial.getId());
 			super.request("/assistant/tutorial-session/create", param);
 			super.checkPanicExists();
 		}

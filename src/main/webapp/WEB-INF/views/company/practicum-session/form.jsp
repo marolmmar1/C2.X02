@@ -22,7 +22,7 @@
 	<acme:input-moment code="company.practicumSession.form.label.inicialPeriod" path="inicialPeriod"/>
 	<acme:input-moment code="company.practicumSession.form.label.finalPeriod" path="finalPeriod"/>
 	<acme:input-url code="company.practicumSession.form.label.link" path="link"/>
-	<acme:input-checkbox code="company.practicumSession.form.label.exceptional" path="exceptional"/>
+	<acme:input-checkbox code="company.practicumSession.form.label.exceptional" path="exceptional" readonly="true"/>
 	<jstl:choose>
 		<jstl:when test="${_command == 'create'}">
 				<acme:submit code="company.practicumSession.form.button.create" action="/company/practicum-session/create?practicumId=${practicumId}"/>

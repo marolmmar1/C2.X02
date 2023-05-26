@@ -22,7 +22,9 @@ lecturer.course.form.button.lectures = Lecciones
 lecturer.course.form.button.publish = Publicar
 
 lecturer.course.form.error.duplicated = Este código ya está en uso
-lecturer.course.form.error.negative-price = La cantidad de dinero debe ser positiva
+lecturer.course.form.error.negative-price = El precio debe ser positivo
+lecturer.course.form.error.currency = La divisa debe ser EUR, GBP ó USD
+lecturer.course.form.error.upper-price = El precio debe ser como máximo un millón
 validation.course.code = Formato incorrecto(XXX111)
 
 lecturer.course.form.error.nolecture = Este curso necesita lecciones

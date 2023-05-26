@@ -29,6 +29,7 @@ company.practicumSession.create.button.practicumSession = Create Practicum Sessi
 company.practicumSession.list.button.create-exceptional = Create Exceptional Session
 company.practicumSession.form.button.create-exceptional = Create Exceptional Session
 
+company.practicumSession.form.error.minor = The start date should be one day after the local date
 company.practicummSession.form.error.exceptional = Only one exceptional practicum session
 company.practicumSession.form.error.before = Must be at least one week ahead 
 company.practicumSession.form.error.horaMax = The duration should be a minimum of 1 week

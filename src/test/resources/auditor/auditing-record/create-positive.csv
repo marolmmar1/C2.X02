@@ -1,0 +1,9 @@
+auditIndex,auditingRecordRecordIndex,subject,assessment,markType,initialPeriod,finalPeriod,link
+0,0,Lorem ipsum26,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo.",B,2010/12/10 13:00,2011/12/10 14:00,
+0,1,Lorem ipsum5,"La vida es corta, haz lo que te apasiona cada momento al máximo.",B,2010/12/10 20:00,2011/12/10 21:00,
+1,0,Lorem ipsum2,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo.",B,2010/12/10 11:00,2011/12/10 12:00,
+1,1,Lorem ipsum6,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo.",B,2010/12/10 17:00,2011/12/10 19:00,
+2,0,Lorem ipsum3,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo.",C,2010/12/10 17:00,2011/12/10 19:00,
+2,1,Lorem ipsum7,"La vida es corta, haz lo que te apasiona y disfruta al máximo.",B,2010/12/10 18:00,2011/12/10 19:00,
+3,0,Lorem ipsum4,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo.",B,2010/12/10 14:00,2011/12/10 16:00,
+3,1,Lorem ipsum8,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo.",C,2010/12/10 20:00,2011/12/10 23:00,

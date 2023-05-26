@@ -18,7 +18,7 @@
 <acme:form>
 	<acme:input-textbox code="any.peep.list.label.title" path="title"/>
 	<acme:input-textbox code="any.peep.list.label.nick" path="nick"/>
-	<acme:input-textbox code="any.peep.list.label.mail" path="mail"/>
+	<acme:input-textbox code="any.peep.list.label.mail" path="email"/>
 	<acme:input-textarea code="any.peep.list.label.message" path="message"/>
 	<acme:input-url code="any.peep.list.label.link" path="link"/>
 	

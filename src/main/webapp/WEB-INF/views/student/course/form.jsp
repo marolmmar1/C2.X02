@@ -22,6 +22,8 @@
 	<acme:input-money code="student.course.list.label.price" path="price"/>
 	<acme:input-url code="student.course.list.label.link" path="link" />
 	<acme:input-textbox code="lecturer.course.form.label.nature" path="nature" readonly="true"/>
+	
+	<acme:button code="student.course.form.button.lectures" action="/student/lecture/list?id=${id}"/>
 
     
 </acme:form>

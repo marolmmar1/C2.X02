@@ -24,6 +24,7 @@ company.practicum.form.button.update = Actualizar
 company.practicum.form.button.delete = Eliminar
 company.practicum.form.button.create = Crear
 
+validation.practicum.code = Formato incorrecto(XXX111)
 company.practicum.form.button.practicumSession = Sesiones de Practicas
 company.practicum.form.button.publish = Publicar
 company.practicum.form.error.duplicated = El código ya existe 
