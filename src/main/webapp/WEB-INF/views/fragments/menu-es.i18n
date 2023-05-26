@@ -34,6 +34,7 @@ master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.system-configuration = Mostrar configuracion del sistema
 master.menu.administrator.shut-down = Parar el sistema
 master.menu.administrator.offer.create = Crear Oferta
+master.menu.administrator.offer.list-all = Listar Ofertas
 
 # master.menu.assistant ###################################################
 

@@ -17,9 +17,9 @@ administrator.offer.form.label.link = Link:
 
 administrator.offer.list.label.heading = Heading
 
-administrator.offer.form.button.create = Crear
-administrator.offer.form.button.update = Actualizar
-administrator.offer.form.button.delete = Eliminar
+administrator.offer.form.button.create = Create
+administrator.offer.form.button.update = Update
+administrator.offer.form.button.delete = Delete
 
 administrator.offer.form.error.antes = La fecha inicial debe de ser después de la fecha de instanciación
 administrator.offer.form.error.menos = El periodo entre el inicial y el final debe ser de un minimo de 7 días

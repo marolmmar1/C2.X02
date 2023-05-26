@@ -44,6 +44,10 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.authenticated.bulletin.create" action="/administrator/bulletin/create" access="isAuthenticated()"/>
 			<acme:menu-suboption code="master.menu.administrator.offer.create" action="/administrator/offer/create"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.administrator.offer.list-all" action="/administrator/offer/list-all"/>
+			
+			
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.assistant" access="hasRole('Assistant')">
@@ -91,6 +95,7 @@
 		
     
 		<acme:menu-suboption code="master.menu.authenticated.offer.list-all" action="/authenticated/offer/list-all"/>
+		
 		<acme:menu-suboption code="master.menu.any.course.list-all" action="/any/course/list-all"/>
 			<acme:menu-suboption code="master.menu.any.peep.list-all" action="/any/peep/list-all"/>
 			<acme:menu-suboption code="master.menu.user-account.general-data" action="/authenticated/user-account/update"/>
