@@ -10,9 +10,9 @@
 
 authenticated.bulletin.form.label.instantiation = Instanciación:
 authenticated.bulletin.form.label.title = Título:
-authenticated.bulletin.form.label.status = Mensaje:
-authenticated.bulletin.form.label.text = Critica:
-authenticated.bulletin.form.label.moreInfo = Link: (Optional)
+authenticated.bulletin.form.label.message = Mensaje:
+authenticated.bulletin.form.label.critical = Critica:
+authenticated.bulletin.form.label.link = Link: (Optional)
 
 authenticated.bulletin.list.label.instantiation = Instanciación
 authenticated.bulletin.list.label.title = Título

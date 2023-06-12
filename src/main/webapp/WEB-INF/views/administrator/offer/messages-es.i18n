@@ -27,3 +27,4 @@ administrator.offer.form.error.menor = La fecha de inicio debe de ser antes a la
 
 administrator.offer.form.error.wrong-price = El precio debe ser mayor que cero
 administrator.offer.list.button.create = Crear
+validation.offer.notNull = No puede estar vacio

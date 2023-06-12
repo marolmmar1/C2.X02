@@ -29,19 +29,19 @@ public class Note extends AbstractEntity {
 	// Attributes
 
 	@PastOrPresent
-	@NotNull
+	@NotNull(message = "{validation.note.notNull}")
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				instantiation;
 
-	@NotBlank
+	@NotBlank(message = "{validation.note.notNull}")
 	@Length(max = 75)
 	protected String			title;
 
-	@NotBlank
+	@NotBlank(message = "{validation.note.notNull}")
 	@Length(max = 75)
 	protected String			author;
 
-	@NotBlank
+	@NotBlank(message = "{validation.note.notNull}")
 	@Length(max = 100)
 	protected String			message;
 

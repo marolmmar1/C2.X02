@@ -36,3 +36,4 @@ company.practicumSession.form.error.horaMax = The duration should be a minimum o
 company.practicumSession.form.error.horaMin = Must be at least one week ahead
 company.practicumSession.form.error.menor = Start date must be earlier than the final date
 company.practicumSession.form.error.antes = The start date should be one day after the local date
+validation.practicumSession.notNull = May not be null

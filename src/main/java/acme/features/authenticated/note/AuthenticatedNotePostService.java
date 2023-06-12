@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Note;
 import acme.framework.components.accounts.Authenticated;
+import acme.framework.components.accounts.Principal;
+import acme.framework.components.accounts.UserAccount;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
@@ -55,10 +57,24 @@ public class AuthenticatedNotePostService extends AbstractService<Authenticated,
 	@Override
 	public void load() {
 		Note object;
+
 		object = new Note();
 		final Date actDate = MomentHelper.getCurrentMoment();
+
+		final Tuple tuple;
+		Principal principal;
+		principal = super.getRequest().getPrincipal();
+		final int userAccountId = principal.getAccountId();
+		final UserAccount userAccount = this.repo.findUserAccountById(userAccountId);
+		final String authorName = userAccount.getIdentity().getName();
+		final String authorSurname = userAccount.getIdentity().getSurname();
+		final String authorUsername = userAccount.getUsername();
+		final String authorFinalFormat = "<" + authorUsername + "> - <" + authorSurname + ", " + authorName + ">";
+
 		object.setInstantiation(actDate);
+		object.setAuthor(authorFinalFormat);
 		super.getBuffer().setData(object);
+
 	}
 
 	@Override

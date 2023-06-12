@@ -18,15 +18,15 @@ public class Company extends AbstractRole {
 
 	protected static final long	serialVersionUID	= 1L;
 
-	@NotBlank
+	@NotBlank(message = "{validation.company.notNull}")
 	@Length(max = 75)
 	protected String			name;
 
-	@NotBlank
+	@NotBlank(message = "{validation.company.notNull}")
 	@Length(max = 25)
 	protected String			vatNumber;
 
-	@NotBlank
+	@NotBlank(message = "{validation.company.notNull}")
 	@Length(max = 100)
 	protected String			summary;
 

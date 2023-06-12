@@ -19,11 +19,11 @@ public class SystemConfiguration extends AbstractEntity {
 	protected static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
-	@NotBlank
+	@NotBlank(message = "{validation.systemConfiguration.notNull}")
 	@Pattern(regexp = "^[A-Z]{3}$")
 	protected String			systemCurrency;
 
-	@NotBlank
+	@NotBlank(message = "{validation.systemConfiguration.notNull}")
 	@Pattern(regexp = "^[A-Z]{3}(,[A-Z]{3})*$")
 	protected String			acceptedCurrencies;
 

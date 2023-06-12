@@ -35,3 +35,4 @@ student.enrolment.form.error.wrong-cvc = CVC format must be 3 numbers
 student.enrolment.form.error.wrong-card = Credit card's format must be xxxx/xxxx/xxxx/xxxx
 student.enrolment.form.error.duplicated-code = Duplicated code
 student.enrolment.form.error.wrong-holder = This entry cannot be empty
+validation.enrolment.notNull = May not be null

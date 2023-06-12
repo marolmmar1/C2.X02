@@ -16,7 +16,7 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-moment code="authenticated.bulletin.list.label.instantiation" path="instantiation"/>
+	<acme:input-moment code="authenticated.bulletin.list.label.instantiation" path="instantiation" readonly="true"/>
 	<acme:input-textbox code="authenticated.bulletin.list.label.title" path="title"/>
 	<acme:input-textbox code="authenticated.bulletin.list.label.message" path="message"/>
 	<acme:input-checkbox code="authenticated.bulletin.list.label.critical" path="critical"/>

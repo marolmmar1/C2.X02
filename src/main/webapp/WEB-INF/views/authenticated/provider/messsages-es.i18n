@@ -13,3 +13,4 @@ authenticated.provider.form.label.sector = Sector:
 
 authenticated.provider.form.button.create = Registrar
 authenticated.provider.form.button.update = Actualizar
+validation.provider.notNull = No puede estar vacio

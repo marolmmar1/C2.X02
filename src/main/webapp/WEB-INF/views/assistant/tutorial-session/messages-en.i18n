@@ -30,3 +30,4 @@ assistant.tutorialSession.form.error.horaMax = The duration should be a maximum 
 assistant.tutorialSession.form.error.horaMin = The duration should be a minimum of 1 hour
 assistant.tutorialSession.form.error.menor = Start date must be earlier than the final date
 assistant.tutorialSession.form.error.antes = The start date should be one day after the local date
+validation.tutorialSession.notNull = May not be null

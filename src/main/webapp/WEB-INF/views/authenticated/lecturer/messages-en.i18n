@@ -15,5 +15,7 @@ authenticated.lecturer.form.label.link = Link:
 
 authenticated.lecturer.form.button.create = Register
 authenticated.lecturer.form.button.update = Update
+validation.lecturer.notNull = May not be null
+
 
 

@@ -13,5 +13,8 @@ authenticated.student.form.label.strongFeatures = Fortalezas
 authenticated.student.form.label.weakFeatures = Debilidades
 authenticated.student.form.label.link = Link
 
+
 authenticated.student.form.button.create = Registrar
 authenticated.student.form.button.update = Actualizar
+validation.student.notNull = No puede estar vacio
+

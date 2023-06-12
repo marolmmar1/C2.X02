@@ -25,19 +25,19 @@ public class PracticumSession extends AbstractEntity {
 
 	protected static final long	serialVersionUID	= 1L;
 
-	@NotBlank
+	@NotBlank(message = "{validation.practicumSession.notNull}")
 	@Length(max = 75)
 	protected String			title;
 
-	@NotBlank
+	@NotBlank(message = "{validation.practicumSession.notNull}")
 	@Length(max = 100)
 	protected String			abstracts;
 
-	@NotNull
+	@NotNull(message = "{validation.practicumSession.notNull}")
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				inicialPeriod;
 
-	@NotNull
+	@NotNull(message = "{validation.practicumSession.notNull}")
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				finalPeriod;
 
@@ -47,7 +47,7 @@ public class PracticumSession extends AbstractEntity {
 	protected boolean			exceptional;
 
 	//Relaciones
-	@NotNull
+	@NotNull(message = "{validation.practicumSession.notNull}")
 	@Valid
 	@ManyToOne(optional = false)
 	protected Practicum			practicum;

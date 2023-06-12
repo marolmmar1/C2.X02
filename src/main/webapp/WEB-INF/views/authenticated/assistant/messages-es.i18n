@@ -16,3 +16,4 @@ authenticated.assistant.form.label.link = Link:
 
 authenticated.assistant.form.button.create = Registro
 authenticated.assistant.form.button.update = Actualizar
+validation.assistant.notNull = No puede estar vacio

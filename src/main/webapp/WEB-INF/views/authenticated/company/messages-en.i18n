@@ -16,5 +16,6 @@ authenticated.company.form.label.link = Link:
 
 authenticated.company.form.button.create = Register
 authenticated.company.form.button.update = Update
+validation.company.notNull = May not be null
 
 

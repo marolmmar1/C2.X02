@@ -27,28 +27,28 @@ public class Offer extends AbstractEntity {
 	protected static final long	serialVersionUID	= 1L;
 
 	// Attributes
-	@NotNull
+	@NotNull(message = "{validation.offer.notNull}")
 	@PastOrPresent
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				instantiation;
 
-	@NotBlank
+	@NotBlank(message = "{validation.offer.notNull}")
 	@Length(max = 75)
 	protected String			heading;
 
-	@NotBlank
+	@NotBlank(message = "{validation.offer.notNull}")
 	@Length(max = 100)
 	protected String			summary;
 
 	@Temporal(TemporalType.DATE)
-	@NotNull
+	@NotNull(message = "{validation.offer.notNull}")
 	protected Date				inicialPeriod;
 
 	@Temporal(TemporalType.DATE)
-	@NotNull
+	@NotNull(message = "{validation.offer.notNull}")
 	protected Date				finalPeriod;
 
-	@NotNull
+	@NotNull(message = "{validation.offer.notNull}")
 	protected Money				price;
 
 	@URL
