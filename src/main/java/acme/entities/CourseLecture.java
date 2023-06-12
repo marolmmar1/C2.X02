@@ -18,12 +18,12 @@ public class CourseLecture extends AbstractEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	// Relationships ----------------------------------------------------------
-	@NotNull
+	@NotNull(message = "{validation.courseLecture.notNull}")
 	@Valid
 	@ManyToOne(optional = false)
 	protected Course			course;
 
-	@NotNull
+	@NotNull(message = "{validation.courseLecture.notNull}")
 	@Valid
 	@ManyToOne(optional = false)
 	protected Lecture			lecture;

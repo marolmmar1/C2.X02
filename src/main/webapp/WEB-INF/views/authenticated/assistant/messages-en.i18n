@@ -15,5 +15,6 @@ authenticated.assistant.form.label.link = Link:
 
 authenticated.assistant.form.button.create = Register
 authenticated.assistant.form.button.update = Update
+validation.assistant.notNull = May not be null
 
 

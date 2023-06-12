@@ -27,3 +27,4 @@ student.activity.list.label.title = Título
 student.activity.list.label.nature = Tipo de actividad
 student.activity.list.button.create = Crear
 student.activity.form.error.menor = La fecha fin debe ser posterior a la fecha inicial
+validation.activity.notNull = No puede estar vacio

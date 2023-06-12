@@ -30,4 +30,4 @@ validation.course.code = Incorrect format(XXX111)
 lecturer.course.form.error.nolecture = This course needs lectures
 lecturer.course.form.error.nohandson = There are no hands-on lectures
 lecturer.course.form.error.lecturenp = Some lectures are not published
-
+validation.course.notNull = May not be null

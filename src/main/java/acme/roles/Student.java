@@ -18,15 +18,15 @@ public class Student extends AbstractRole {
 
 	protected static final long	serialVersionUID	= 1L;
 
-	@NotBlank
+	@NotBlank(message = "{validation.student.notNull}")
 	@Length(max = 75)
 	protected String			statement;
 
-	@NotBlank
+	@NotBlank(message = "{validation.student.notNull}")
 	@Length(max = 100)
 	protected String			strongFeatures;
 
-	@NotBlank
+	@NotBlank(message = "{validation.student.notNull}")
 	@Length(max = 100)
 	protected String			weakFeatures;
 

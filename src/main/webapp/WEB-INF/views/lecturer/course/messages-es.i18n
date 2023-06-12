@@ -30,3 +30,4 @@ validation.course.code = Formato incorrecto(XXX111)
 lecturer.course.form.error.nolecture = Este curso necesita lecciones
 lecturer.course.form.error.nohandson = Faltan clases prácticas
 lecturer.course.form.error.lecturenp = Algunas lecciones no están publicadas
+validation.course.notNull = No puede estar vacio

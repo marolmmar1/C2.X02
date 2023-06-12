@@ -25,29 +25,29 @@ public class TutorialSession extends AbstractEntity {
 
 	protected static final long	serialVersionUID	= 1L;
 
-	@NotBlank
+	@NotBlank(message = "{validation.tutorialSession.notNull}")
 	@Length(max = 75)
 	protected String			title;
 
-	@NotBlank
+	@NotBlank(message = "{validation.tutorialSession.notNull}")
 	@Length(max = 75)
 	protected String			abstracts;
 
-	@NotNull
+	@NotNull(message = "{validation.tutorialSession.notNull}")
 	protected Nature			nature;
 
-	@NotNull
+	@NotNull(message = "{validation.tutorialSession.notNull}")
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				inicialPeriod;
 
-	@NotNull
+	@NotNull(message = "{validation.tutorialSession.notNull}")
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				finalPeriod;
 
 	@URL
 	protected String			link;
 
-	@NotNull
+	@NotNull(message = "{validation.tutorialSession.notNull}")
 	@Valid
 	@ManyToOne(optional = false)
 	protected Tutorial			tutorial;

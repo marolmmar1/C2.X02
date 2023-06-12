@@ -8,10 +8,11 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.auditor.form.label.firm = firma
-authenticated.auditor.form.label.profesionalID = idProfesional
-authenticated.auditor.form.label.certifications = certificaciones
-authenticated.auditor.form.label.link = enlace
+authenticated.auditor.form.label.firm = Firma:
+authenticated.auditor.form.label.profesionalID = ID Profesional:
+authenticated.auditor.form.label.certifications = Certificaciones:
+authenticated.auditor.form.label.link = Enlace:
 
 authenticated.auditor.form.button.create = Registrar
 authenticated.auditor.form.button.update = Actualizar
+validation.auditor.notNull = No puede estar vacio

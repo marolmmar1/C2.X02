@@ -18,15 +18,15 @@ public class Auditor extends AbstractRole {
 
 	protected static final long	serialVersionUID	= 1L;
 
-	@NotBlank
+	@NotBlank(message = "{validation.auditor.notNull}")
 	@Length(max = 75)
 	protected String			firm;
 
-	@NotBlank
+	@NotBlank(message = "{validation.auditor.notNull}")
 	@Length(max = 25)
 	protected String			profesionalID;
 
-	@NotBlank
+	@NotBlank(message = "{validation.auditor.notNull}")
 	@Length(max = 100)
 	protected String			certifications;
 

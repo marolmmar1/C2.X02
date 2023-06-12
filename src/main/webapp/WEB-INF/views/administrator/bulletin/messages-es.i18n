@@ -24,3 +24,4 @@ administrator.bulletin.form.error.title = El título debe tener como máximo 75 
 administrator.bulletin.form.error.message = El mensaje como máximo debe tener 100 caracteres.
 administrator.bulletin.form.error.critical = El boletín debe ser crítico o no crítico.
 administrator.bulletin.form.error.link = El link no es correcto.
+validation.bulletin.notNull = No puede estar vacio

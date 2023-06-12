@@ -25,23 +25,23 @@ public class Activity extends AbstractEntity {
 
 	protected static final long	serialVersionUID	= 1L;
 
-	@NotBlank
+	@NotBlank(message = "{validation.activity.notNull}")
 	@Length(max = 75)
 	protected String			title;
 
-	@NotBlank
+	@NotBlank(message = "{validation.activity.notNull}")
 	@Length(max = 100)
 	protected String			abstracts;
 
-	@NotNull
+	@NotNull(message = "{validation.activity.notNull}")
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				inicialPeriod;
 
-	@NotNull
+	@NotNull(message = "{validation.activity.notNull}")
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				finalPeriod;
 
-	@NotNull
+	@NotNull(message = "{validation.activity.notNull}")
 	protected Nature			nature;
 
 	@URL
@@ -49,7 +49,7 @@ public class Activity extends AbstractEntity {
 
 	//Relaciones
 
-	@NotNull
+	@NotNull(message = "{validation.activity.notNull}")
 	@Valid
 	@ManyToOne(optional = false)
 	protected Enrolment			enrolment;

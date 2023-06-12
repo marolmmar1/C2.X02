@@ -8,6 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-administrator.system-configuration.form.label.systemCurrency = Divisa del sistema:
-administrator.system-configuration.form.label.aceptedCurrencies = Divisas aceptadas:
+administrator.system-configuration.form.label.systemCurrency = System Currency:
+administrator.system-configuration.form.label.aceptedCurrencies = Acepted Currencies:
 administrator.system-configuration.form.button.update = Update
+validation.systemConfiguration.notNull = May not be null

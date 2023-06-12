@@ -28,14 +28,14 @@ public class Bulletin extends AbstractEntity {
 	// Attributes
 	@Temporal(TemporalType.TIMESTAMP)
 	@PastOrPresent
-	@NotNull
+	@NotNull(message = "{validation.bulletin.notNull}")
 	protected Date				instantiation;
 
-	@NotBlank
+	@NotBlank(message = "{validation.bulletin.notNull}")
 	@Length(max = 75)
 	protected String			title;
 
-	@NotBlank
+	@NotBlank(message = "{validation.bulletin.notNull}")
 	@Length(max = 100)
 	protected String			message;
 

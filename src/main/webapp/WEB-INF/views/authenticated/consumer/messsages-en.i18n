@@ -13,3 +13,4 @@ authenticated.consumer.form.label.sector = Sector
 
 authenticated.consumer.form.button.create = Register
 authenticated.consumer.form.button.update = Update
+validation.consumer.notNull = May not be null

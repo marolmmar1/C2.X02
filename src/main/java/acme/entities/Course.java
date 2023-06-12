@@ -30,20 +30,20 @@ public class Course extends AbstractEntity {
 
 	protected static final long	serialVersionUID	= 1L;
 
-	@NotBlank
+	@NotBlank(message = "{validation.course.notNull}")
 	@Column(unique = true)
 	@Pattern(regexp = "(^[A-Z]{1,3}[0-9]{3}$)", message = "{validation.course.code}")
 	protected String			code;
 
-	@NotBlank
+	@NotBlank(message = "{validation.course.notNull}")
 	@Length(max = 75)
 	protected String			title;
 
-	@NotBlank
+	@NotBlank(message = "{validation.course.notNull}")
 	@Length(max = 100)
 	protected String			abstracts;
 
-	@NotNull
+	@NotNull(message = "{validation.course.notNull}")
 	protected Money				price;
 
 	@URL
@@ -79,7 +79,7 @@ public class Course extends AbstractEntity {
 
 
 	// Relationships ----------------------------------------------------------
-	@NotNull
+	@NotNull(message = "{validation.course.notNull}")
 	@Valid
 	@ManyToOne(optional = false)
 	protected Lecturer lecturer;

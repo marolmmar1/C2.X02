@@ -29,3 +29,4 @@ company.practicum.form.button.practicumSession = Practicum Session
 company.practicum.form.button.publish = Publish
 company.practicum.form.error.duplicated = This code is taken 
 company.practicum.form.error.noSession =  Must have a practicum session associated
+validation.practicum.notNull = May not be null

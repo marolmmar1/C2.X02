@@ -31,3 +31,4 @@ authenticated.note.form.error.title = Titulo debe ser mas corto que 75 caractere
 authenticated.note.form.error.author = Autor debe ser mas corto que 75 caracteres.
 authenticated.note.form.error.message = Mensaje debe ser mas corto que 100 caracteres.
 authenticated.note.form.error.link = El enlace no es correcto.
+validation.note.notNull = No puede estar vacio

@@ -23,20 +23,20 @@ public class Audit extends AbstractEntity {
 
 	protected static final long	serialVersionUID	= 1L;
 
-	@NotBlank
+	@NotBlank(message = "{validation.audit.notNull}")
 	@Column(unique = true)
 	@Pattern(regexp = "(^[A-Z]{1,3}[0-9]{3}$)", message = "{validation.audit.code}")
 	protected String			code;
 
-	@NotBlank
+	@NotBlank(message = "{validation.audit.notNull}")
 	@Length(max = 100)
 	protected String			conclusion;
 
-	@NotBlank
+	@NotBlank(message = "{validation.audit.notNull}")
 	@Length(max = 100)
 	protected String			strongPoints;
 
-	@NotBlank
+	@NotBlank(message = "{validation.audit.notNull}")
 	@Length(max = 100)
 	protected String			weakPoints;
 
@@ -44,12 +44,12 @@ public class Audit extends AbstractEntity {
 
 	//Relaciones
 
-	@NotNull
+	@NotNull(message = "{validation.audit.notNull}")
 	@Valid
 	@ManyToOne(optional = false)
 	protected Auditor			auditor;
 
-	@NotNull
+	@NotNull(message = "{validation.audit.notNull}")
 	@Valid
 	@ManyToOne(optional = false)
 	protected Course			course;

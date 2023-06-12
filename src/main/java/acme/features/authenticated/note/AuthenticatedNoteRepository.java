@@ -20,6 +20,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.Note;
+import acme.framework.components.accounts.UserAccount;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
@@ -33,5 +34,8 @@ public interface AuthenticatedNoteRepository extends AbstractRepository {
 
 	@Query("select b from Note b where b.instantiation >= :oneMonthAgo")
 	Collection<Note> findAllNoteLessThanAMonthOlder(@Param("oneMonthAgo") Date oneMonthAgo);
+
+	@Query("select ua from UserAccount ua where ua.id = :idAuthor")
+	UserAccount findUserAccountById(int idAuthor);
 
 }

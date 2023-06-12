@@ -18,15 +18,15 @@ public class Assistant extends AbstractRole {
 
 	protected static final long	serialVersionUID	= 1L;
 
-	@NotBlank
+	@NotBlank(message = "{validation.assistant.notNull}")
 	@Length(max = 75)
 	protected String			supervisor;
 
-	@NotBlank
+	@NotBlank(message = "{validation.assistant.notNull}")
 	@Length(max = 100)
 	protected String			expertiseField;
 
-	@NotBlank
+	@NotBlank(message = "{validation.assistant.notNull}")
 	@Length(max = 100)
 	protected String			resume;
 

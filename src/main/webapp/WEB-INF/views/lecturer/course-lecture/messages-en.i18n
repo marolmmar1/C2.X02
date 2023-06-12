@@ -25,3 +25,4 @@ lecturer.courseLecture.form.lecture.delete.info = Delete the lecture from a cour
 lecturer.courseLecture.form.error.lecture = The lecture is already in the course
 lecturer.courseLecture.form.error.lectureDeleted = The selected course doesn't contain the lecture
 lecturer.courseLecture.form.error.course = The selected course is published
+validation.courseLecture.notNull = May not be null

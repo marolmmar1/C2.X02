@@ -30,3 +30,4 @@ auditor.audit.list.button.create = Crear
 auditor.audit.form.button.create = Crear
 auditor.audit.form.error.duplicated = El código ya está cogido; 
 auditor.audit.form.error.noSession = debe de tener una memoria de auditoria asociada
+validation.audit.notNull = No puede estar vacio

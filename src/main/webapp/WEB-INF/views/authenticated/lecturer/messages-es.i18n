@@ -12,6 +12,8 @@ authenticated.lecturer.form.label.almaMater = Alma Mater:
 authenticated.lecturer.form.label.resume = Resumen:
 authenticated.lecturer.form.label.qualifications = Calificaciones:
 authenticated.lecturer.form.label.link = Link:
+validation.lecturer.notNull = No puede estar vacio
+
 
 authenticated.lecturer.form.button.create = Registrar
 authenticated.lecturer.form.button.update = Actualizar
