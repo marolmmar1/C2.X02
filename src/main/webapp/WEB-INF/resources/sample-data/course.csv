@@ -25,3 +25,4 @@ course-23,ABC144,title1,Graduado,"EUR 20.00",http://example.com,true,lecturer-05
 course-24,ABC145,title1,Graduado,"EUR 20.00",http://example.com,true,lecturer-06
 course-25,ABC146,title1,Graduado,"EUR 20.00",,true,lecturer-07
 course-26,ABC147,hola buenas tardes,esto es una prueba,"EUR 20.00",http://example.com,false,lecturer-03
+course-27,ABC148,"<script> alert(""hi!"")</script>",esto es una prueba,"EUR 20.00",http://example.com,false,lecturer-03

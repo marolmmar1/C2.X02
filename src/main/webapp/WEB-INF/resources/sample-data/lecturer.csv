@@ -9,11 +9,11 @@ lecturer-07,user-account-lecturer-07,almaMater,voy a escribir 99 caracteres en e
 lecturer-08,user-account-lecturer-08,almaMater,voy a escribir cien caracteres en esta línea para hacer la prueba de que es válida para los csv okey,Graduado,http://example.com
 lecturer-09,user-account-lecturer-09,almaMater,qualfications,G,http://example.com
 lecturer-10,user-account-lecturer-10,almaMater,qualfications,Gr,http://example.com
-lecturer-11,user-account-lecturer-11,almaMater,qualfications,voy a escribir 99 caracteres en esta línea para hacer la prueba de que es válida para los csv okeyy,http://example.com
-lecturer-12,user-account-lecturer-12,almaMater,qualfications,voy a escribir cien caracteres en esta línea para hacer la prueba de que es válida para los csv okey,http://example.com
+lecturer-11,user-account-lecturer-11,こんにちは、私のすべての人々に私たちはお元気ですか,qualfications,voy a escribir 99 caracteres en esta línea para hacer la prueba de que es válida para los csv okeyy,http://example.com
+lecturer-12,user-account-lecturer-12,almaMater,مرحبا لكل شعبي كيف حالالفيزياء الكيميائية,voy a escribir cien caracteres en esta línea para hacer la prueba de que es válida para los csv okey,http://example.com
 lecturer-13,user-account-lecturer-13,almaMater,qualfications,مرحبا لكل شعبي كيف حالالفيزياء الكيميائية,http://example.com
 lecturer-14,user-account-lecturer-14,almaMater,qualfications,こんにちは、私のすべての人々に私たちはお元気ですか,http://example.com
-lecturer-15,user-account-lecturer-15,almaMater,qualfications,<h1> hello and welcome to the class!<h1>,http://example.com
+lecturer-15,user-account-lecturer-15,"<script> alert(""hi!"")</script>",qualfications,<h1> hello and welcome to the class!<h1>,http://example.com
 lecturer-16,user-account-lecturer-16,almaMater,qualfications,"<script> alert(""hi!"")</script>",http://example.com
-lecturer-17,user-account-lecturer-17,almaMater,qualfications,#%&*@¡¿$/`´'€~|ª¨,http://example.com
+lecturer-17,user-account-lecturer-17,almaMater,"<script> alert(""hi!"")</script>",#%&*@¡¿$/`´'€~|ª¨,http://example.com
 lecturer-18,user-account-lecturer-18,almaMater,qualfications,Graduado,

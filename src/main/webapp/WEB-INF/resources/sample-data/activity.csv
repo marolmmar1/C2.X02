@@ -1,18 +1,17 @@
 key,title,abstracts,inicialPeriod,finalPeriod,nature,link,key:enrolment
-
 activity-01,t,Graduado,2022/07/30 21:00,2022/07/30 22:00,THEORETICAL,http://www.example.com,enrolment-01
-activity-02,ti,Graduado,2030/12/10 20:00,2030/12/10 22:00,THEORETICAL,http://example.com,enrolment-02
-activity-03,4V4gZES32W4gxYad7ap2RERmL7HeB9nxdDnNk8BQKdB4bJXf6zriKV3Sz4R5GAmfg9DWekfsdr,Graduado,2030/12/10 20:00,2030/12/10 22:00,THEORETICAL,http://www.acme.com/master,enrolment-03
+activity-02,ti,Graduado,2030/12/10 20:00,2030/12/10 20:01,THEORETICAL,http://example.com,enrolment-02
+activity-03,4V4gZES32W4gxYad7ap2RERmL7HeB9nxdDnNk8BQKdB4bJXf6zriKV3Sz4R5GAmfg9DWekfsdr,Graduado,2030/12/10 20:00,2030/12/10 20:10,THEORETICAL,http://www.acme.com/master,enrolment-03
 activity-04,4V4gZES32W4gxYad7ap2RERmL7HeB9nxdDnNk8BQKdB4bJXf6zriKV3Sz4R5GAmfg9DWekfsdrM,Graduado,2030/12/10 20:00,2030/12/10 22:00,THEORETICAL,http://example.com,enrolment-04
 activity-05,title,G,2022/07/29 21:00,2030/12/10 22:00,HANDS_ON,http://localhost,enrolment-04
 activity-06,title,Gr,2030/12/10 20:00,2030/12/10 22:00,THEORETICAL,null,enrolment-06
 activity-07,title,voy a escribir 99 caracteres en esta línea para hacer la prueba de que es válida para los csv okeyy,2030/12/10 20:00,2030/12/10 22:00,THEORETICAL,http://example.com,enrolment-07
 activity-08,title,voy a escribir cien caracteres en esta línea para hacer la prueba de que es válida para los csv okey,2030/12/10 09:00,2030/12/10 10:00,THEORETICAL,null,enrolment-08
 activity-09,"content=""width=device-width""initial-scale=1.0"">",Graduado,2030/12/10 09:00,2030/12/10 10:00,HANDS_ON,http://example.com,enrolment-09
-activity-10,title,こんにちは、私のすべての人々に私たちはお元気ですか,2030/12/10 13:00,2030/12/10 14:00,,http://www.acme.com/master/welcome,enrolment-10
+activity-10,title,こんにちは、私のすべての人々に私たちはお元気ですか,2030/12/10 13:00,2030/12/10 14:00,HANDS_ON,http://www.acme.com/master/welcome,enrolment-10
 activity-11,voy a escribir 75 caracteres en esta línea para hacer la prueba de csv aaa,voy a escribir 99 caracteres en esta línea para hacer la prueba de que es válida para los csv okey,2030/12/10 11:00,2030/12/10 12:00,THEORETICAL,http://example.com,enrolment-11
 activity-12,voy a escribir 76 caracteres en esta línea para hacer la prueba de csv okey,voy a escribir cien caracteres en esta línea para hacer la prueba de que es válida para los csv okk,2030/12/10 17:00,2030/12/10 19:00,THEORETICAL,http://example.com,enrolment-12
-activity-13,مرحبا لكل شعبي كيف حالالفيزياء الكيميائية,Graduado,2030/12/10 14:00,2030/12/10 16:00,,http://example.com,enrolment-05
+activity-13,مرحبا لكل شعبي كيف حالالفيزياء الكيميائية,Graduado,2030/12/10 14:00,2030/12/10 16:00,THEORETICAL,http://example.com,enrolment-05
 activity-14,こんにちは、私のすべての人々に私たちはお元気ですか,Graduado,2030/12/10 17:00,2030/12/10 19:00,THEORETICAL,null,enrolment-14
 activity-15,<h1> hello and welcome to the class!<h1>,Graduado,2030/12/10 18:00,2030/12/10 19:00,HANDS_ON,http://example.com,enrolment-15
 activity-16,title,voy a escribir 99 caracteres en esta línea para hacer la prueba de que es válida para los csv okey,2030/12/10 20:00,2030/12/10 23:00,THEORETICAL,http://example.com,enrolment-16
