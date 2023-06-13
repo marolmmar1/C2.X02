@@ -23,3 +23,7 @@ lecture-21,title,Graduado,body,THEORETICAL,http://example.com,0.01,false,lecture
 lecture-22,title,Graduado,body,THEORETICAL,http://example.com,0.02,false,lecturer-04
 lecture-23,title,Graduado,body,THEORETICAL,http://example.com,999.98,true,lecturer-05
 lecture-24,title,Graduado,body,THEORETICAL,http://example.com,999.99,false,lecturer-06
+lecture-25,title,"<script> alert(""hi!"")</script>",body,THEORETICAL,http://example.com,100.00,false,lecturer-17
+lecture-26,"<script> alert(""hi!"")</script>",Graduado estoy,body,THEORETICAL,http://example.com,100.00,false,lecturer-17
+lecture-27,title,こんにちは、私のすべての人々に私たちはお元気ですか,body,THEORETICAL,http://example.com,100.00,false,lecturer-17
+lecture-28,こんにちは、私のすべての人々に私たちはお元気ですか,Graduado estoy,body,THEORETICAL,http://example.com,100.00,false,lecturer-17
