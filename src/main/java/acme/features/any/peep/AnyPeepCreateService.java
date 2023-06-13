@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.Peep;
 import acme.framework.components.accounts.Any;
 import acme.framework.components.accounts.Principal;
+import acme.framework.components.accounts.UserAccount;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
@@ -40,8 +41,12 @@ public class AnyPeepCreateService extends AbstractService<Any, Peep> {
 		object.setInstantiation(moment);
 
 		if (principal.isAuthenticated()) {
-			final String nick = super.getRequest().getPrincipal().getUsername();
-			object.setNick(nick);
+			final int userAccountId = principal.getAccountId();
+			final UserAccount userAccount = this.repository.findUserAccountById(userAccountId);
+			final String Name = userAccount.getIdentity().getName();
+			final String Surname = userAccount.getIdentity().getSurname();
+			final String nickFinalFormat = "<" + Surname + ", " + Name + ">";
+			object.setNick(nickFinalFormat);
 		}
 
 		super.getBuffer().setData(object);
