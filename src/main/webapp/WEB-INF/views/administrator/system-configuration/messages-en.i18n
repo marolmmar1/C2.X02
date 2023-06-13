@@ -12,3 +12,5 @@ administrator.system-configuration.form.label.systemCurrency = System Currency:
 administrator.system-configuration.form.label.aceptedCurrencies = Acepted Currencies:
 administrator.system-configuration.form.button.update = Update
 validation.systemConfiguration.notNull = May not be null
+validation.moneyType.notValid = Some of the currencies are not valid, good example: "EUR", "GBP", "USD", "YEN", "AUD", "CHF", "DKK", "NOK", "NZD", "XAF", "XCD", "XOF", "ZAR"
+administrator.systemConfiguration.form.error.notAcceptedCurrencies = The system currency is not within the accepted currencies

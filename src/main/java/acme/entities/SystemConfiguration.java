@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
+import acme.components.MoneyType;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,10 +22,12 @@ public class SystemConfiguration extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 	@NotBlank(message = "{validation.systemConfiguration.notNull}")
 	@Pattern(regexp = "^[A-Z]{3}$")
+	@MoneyType
 	protected String			systemCurrency;
 
 	@NotBlank(message = "{validation.systemConfiguration.notNull}")
 	@Pattern(regexp = "^[A-Z]{3}(,[A-Z]{3})*$")
+	@MoneyType
 	protected String			acceptedCurrencies;
 
 }
