@@ -12,13 +12,16 @@
 
 package acme.features.administrator.offer;
 
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Offer;
+import acme.entities.SystemConfiguration;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
@@ -70,9 +73,22 @@ public class AdministratorOfferUpdateService extends AbstractService<Administrat
 	@Override
 	public void validate(final Offer object) {
 		assert object != null;
+		SystemConfiguration sc = new SystemConfiguration();
 
 		if (!super.getBuffer().getErrors().hasErrors("inicialPeriod"))
 			super.state(MomentHelper.isAfter(object.getInicialPeriod(), object.getInstantiation()), "inicialPeriod", "administrator.offer.form.error.antes");
+
+		if (object.getPrice() != null) {
+			if (!super.getBuffer().getErrors().hasErrors("price")) {
+				sc = this.repository.findAllSystemConfiguration().get(0);
+				final String acceptedCurrencies = sc.getAcceptedCurrencies();
+				final List<String> listCurrenciesAccepted = Arrays.asList(acceptedCurrencies.split(","));
+				super.state(listCurrenciesAccepted.contains(object.getPrice().getCurrency()), "price", "administrator.offer.form.error.price-error");
+			}
+
+			if (!super.getBuffer().getErrors().hasErrors("price"))
+				super.state(object.getPrice().getAmount() > 0, "price", "administrator.offer.form.error.wrong-price");
+		}
 
 		if (!super.getBuffer().getErrors().hasErrors("finalPeriod")) {
 			long diferenciaDias = 0;
@@ -85,9 +101,6 @@ public class AdministratorOfferUpdateService extends AbstractService<Administrat
 
 			if (diferenciaMilisegundos > 0)
 				diferenciaDias = TimeUnit.MILLISECONDS.toDays(diferenciaMilisegundos);
-
-			if (!super.getBuffer().getErrors().hasErrors("price"))
-				super.state(object.getPrice().getAmount() > 0, "price", "administrator.offer.form.error.wrong-price");
 
 			super.state(diferenciaDias >= numMax, "finalPeriod", "administrator.offer.form.error.menos");
 			super.state(MomentHelper.isAfter(object.getFinalPeriod(), object.getInicialPeriod()), "finalPeriod", "administrator.offer.form.error.menor");

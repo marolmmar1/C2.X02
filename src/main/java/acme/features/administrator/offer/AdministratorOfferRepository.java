@@ -13,11 +13,13 @@
 package acme.features.administrator.offer;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.Offer;
+import acme.entities.SystemConfiguration;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.repositories.AbstractRepository;
 
@@ -32,5 +34,8 @@ public interface AdministratorOfferRepository extends AbstractRepository {
 
 	@Query("select a from Administrator a where a.id =:id ")
 	Administrator findAdministratorById(int id);
+
+	@Query("select sc from SystemConfiguration sc ")
+	List<SystemConfiguration> findAllSystemConfiguration();
 
 }
