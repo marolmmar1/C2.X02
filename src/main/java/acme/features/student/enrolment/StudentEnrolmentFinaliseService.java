@@ -17,6 +17,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.DateChecker;
 import acme.entities.Course;
 import acme.entities.Enrolment;
 import acme.framework.components.jsp.SelectChoices;
@@ -91,23 +92,24 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 
 			super.state(!wrongholderName, "holderName", "student.enrolment.form.error.wrong-holder");
 		}
-		if (!super.getBuffer().getErrors().hasErrors("creditCard")) {
-			final String creditCard = object.getCreditCard();
-			final boolean wrongCard = creditCard.matches("^\\d{4}\\/\\d{4}\\/\\d{4}\\/\\d{4}$");
 
-			super.state(wrongCard, "creditCard", "student.enrolment.form.error.wrong-card");
-		}
 		if (!super.getBuffer().getErrors().hasErrors("cvc")) {
 			final String cvc = object.getCvc();
 			final boolean wrongcvc = cvc.matches("^\\d{3}$");
 
 			super.state(wrongcvc, "cvc", "student.enrolment.form.error.wrong-cvc");
 		}
+
 		if (!super.getBuffer().getErrors().hasErrors("expiryDate")) {
 			final String expiryDate = object.getExpiryDate();
 			final boolean wrongExpiryDate = expiryDate.matches("^\\d{2}\\/\\d{2}$");
-
 			super.state(wrongExpiryDate, "expiryDate", "student.enrolment.form.error.wrong-expiry-date");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("expiryDate")) {
+			final String expiryDate = object.getExpiryDate();
+			final boolean wrongExpiryDate = DateChecker.isDateInFuture(expiryDate);
+			super.state(wrongExpiryDate, "expiryDate", "student.enrolment.form.error.wrong-expiry-date-future");
 		}
 	}
 
