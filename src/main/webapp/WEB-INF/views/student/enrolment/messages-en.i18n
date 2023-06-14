@@ -30,9 +30,11 @@ student.activity.list.label.workTime = Work Time
 
 student.enrolment.form.label.code = Code
 validation.enrolment.code = Incorrect format(XXX111)
-student.enrolment.form.error.wrong-expiry-date = Expiricy date's format must be dd/yy
+student.enrolment.form.error.wrong-expiry-date = Expiricy date's format must be MM/yy
+student.enrolment.form.error.wrong-expiry-date-future = Expiricy date's must be in the future 
 student.enrolment.form.error.wrong-cvc = CVC format must be 3 numbers
 student.enrolment.form.error.wrong-card = Credit card's format must be xxxx/xxxx/xxxx/xxxx
 student.enrolment.form.error.duplicated-code = Duplicated code
 student.enrolment.form.error.wrong-holder = This entry cannot be empty
 validation.enrolment.notNull = May not be null
+validation.enrolment.creaditCardError = The credit card number does not exist

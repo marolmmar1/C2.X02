@@ -31,9 +31,11 @@ student.activity.list.label.workTime = Tiempo de Trabajo
 
 student.enrolment.form.label.code= Codigo
 
-student.enrolment.form.error.wrong-expiry-date = Fecha de caducidad debe seguir el formato dd/yy
+student.enrolment.form.error.wrong-expiry-date = Fecha de caducidad debe seguir el formato MM/yy
+student.enrolment.form.error.wrong-expiry-date-future = Fecha de caducidad tiene que estar en el futuro
 student.enrolment.form.error.wrong-cvc = CVC deben tener 3 números
 student.enrolment.form.error.wrong-card = La tarjeta de crédito tiene que seguir el formato xxxx/xxxx/xxxx/xxxx
 student.enrolment.form.error.duplicated-code = Código duplicado
 student.enrolment.form.error.wrong-holder = Esta entrada no debe estar vacía
 validation.enrolment.notNull = No puede estar vacio
+validation.enrolment.creaditCardError = El numero de tarjeta de credito introducido no existe
