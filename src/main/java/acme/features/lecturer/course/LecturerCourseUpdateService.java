@@ -1,7 +1,7 @@
 
 package acme.features.lecturer.course;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.Course;
 import acme.entities.Lecture;
 import acme.entities.Nature;
+import acme.entities.SystemConfiguration;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -71,14 +72,18 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 	@Override
 	public void validate(final Course object) {
 		assert object != null;
-		if (!super.getBuffer().getErrors().hasErrors("price")) {
-			final List<String> currencies = new ArrayList<>();
-			currencies.add("EUR");
-			currencies.add("USD");
-			currencies.add("GBP");
-			super.state(object.getPrice().getAmount() >= 0, "price", "lecturer.course.form.error.negative-price");
-			super.state(object.getPrice().getAmount() <= 1000000, "price", "lecturer.course.form.error.upper-price");
-			super.state(currencies.contains(object.getPrice().getCurrency()), "price", "lecturer.course.form.error.currency");
+		SystemConfiguration sc = new SystemConfiguration();
+
+		if (object.getPrice() != null) {
+			if (!super.getBuffer().getErrors().hasErrors("price")) {
+				sc = this.repository.findAllSystemConfiguration().get(0);
+				final String acceptedCurrencies = sc.getAcceptedCurrencies();
+				final List<String> listCurrenciesAccepted = Arrays.asList(acceptedCurrencies.split(","));
+				super.state(listCurrenciesAccepted.contains(object.getPrice().getCurrency()), "price", "administrator.offer.form.error.price-error");
+			}
+
+			if (!super.getBuffer().getErrors().hasErrors("price"))
+				super.state(object.getPrice().getAmount() > 0, "price", "administrator.offer.form.error.wrong-price");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {

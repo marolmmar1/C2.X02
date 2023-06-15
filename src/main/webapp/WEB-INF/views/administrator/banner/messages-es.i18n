@@ -12,18 +12,18 @@ administrator.banner.form.label.instantiation = Instanciación:
 administrator.banner.form.label.inicialPeriod = Período Inicial:	
 administrator.banner.form.label.finalPeriod = Período Final:	
 administrator.banner.form.label.slogan = Slogan:
-administrator.banner.form.label.link = Link:
-administrator.banner.form.label.linkImage = Link de Imagen:
+administrator.banner.form.label.link = Enlace:
+administrator.banner.form.label.linkImage = Enlace de Imagen:
 
 administrator.banner.form.label.slogan = Slogan:
-administrator.banner.form.label.link = Link:
-administrator.banner.form.label.linkImage = Link de Imagen:
+administrator.banner.form.label.link = Enlace:
+administrator.banner.form.label.linkImage = Enlace de Imagen:
 master.menu.administrator.banner = Lista de Banner
 
 administrator.banner.list.label.instantiation = Instanciación
 administrator.banner.list.label.slogan = Slogan
-administrator.banner.list.label.link = Link
-administrator.banner.list.label.linkImage = Link de Imagen
+administrator.banner.list.label.link = Enlace
+administrator.banner.list.label.linkImage = Enlace de Imagen
 
 
 administrator.banner.form.button.create = Crear

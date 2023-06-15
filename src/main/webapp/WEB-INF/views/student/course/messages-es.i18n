@@ -12,7 +12,7 @@ student.course.list.label.code = Código
 student.course.list.label.title = Título
 student.course.list.label.abstract = Resumen
 student.course.list.label.price = Precio
-student.course.list.label.link = Link
+student.course.list.label.link = Enlace
 student.course.list.label.lecturer = Profesor
 student.course.list.label.lecture = Clase
 

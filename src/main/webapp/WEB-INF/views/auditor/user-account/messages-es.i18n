@@ -20,4 +20,4 @@ auditor.user-account.form.button.update = Actualizar
 
 auditor.user-account.form.error.confirmation-no-match = La confirmación no cuadra
 
-auditor.user-account.list.label.username = username
+auditor.user-account.list.label.username = nombre de usuario

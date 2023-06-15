@@ -11,7 +11,7 @@
 authenticated.company.form.label.name = Nombre:
 authenticated.company.form.label.vatNumber = Número Vat:
 authenticated.company.form.label.summary = Curriculum:
-authenticated.company.form.label.link = Link:
+authenticated.company.form.label.link = Enlace:
 
 
 authenticated.company.form.button.create = Registro
