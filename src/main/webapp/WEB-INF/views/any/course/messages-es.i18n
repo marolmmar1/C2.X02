@@ -18,9 +18,9 @@ any.course.form.label.code = Código:
 any.course.form.label.title = Título:
 any.course.form.label.abstracts = Resume:
 any.course.form.label.price = Precio:
-any.course.form.label.nature = Nature:
-any.course.form.label.link = Link:
+any.course.form.label.nature = Naturaleza:
+any.course.form.label.link = Enlace:
 
 any.course.form.button.tutorial = Tutoriales
 any.course.form.button.practicum = Practicas
-any.course.form.button.audit = auditorias
+any.course.form.button.audit = Auditorias

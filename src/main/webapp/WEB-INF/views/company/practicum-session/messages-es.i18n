@@ -12,7 +12,7 @@ company.practicumSession.form.label.title = Título:
 company.practicumSession.form.label.abstracts = Resumen:
 company.practicumSession.form.label.inicialPeriod = Inicio:
 company.practicumSession.form.label.finalPeriod = Fin:
-company.practicumSession.form.label.link = Link:
+company.practicumSession.form.label.link = Enlace:
 company.practicumSession.form.label.exceptional = Excepcional
 
 company.practicum.list.label.code = Código

@@ -13,7 +13,7 @@ student.activity.form.label.abstracts = Resumen
 student.activity.form.label.nature = Tipo de actividad
 student.activity.form.label.inicialPeriod = Fecha inicio
 student.activity.form.label.finalPeriod = Fecha fin
-student.activity.form.label.link = Link
+student.activity.form.label.link = Enlace
 student.activity.list.label.enrolment = Inscripción
 
 

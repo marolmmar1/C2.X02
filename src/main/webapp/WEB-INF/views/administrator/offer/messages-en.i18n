@@ -28,4 +28,4 @@ administrator.offer.form.error.menor = The initial period date must be before th
 administrator.offer.form.error.wrong-price = The price must be positive
 administrator.offer.list.button.create = Create
 validation.offer.notNull = May not be null
-administrator.offer.form.error.price-error = Currency must be and accepted currency
+administrator.offer.form.error.price-error = Currency must be an accepted currency
