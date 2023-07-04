@@ -41,6 +41,7 @@ master.menu.administrator.offer.list-all = Listar Ofertas
 master.menu.assistant = Asistente
 master.menu.assistant.user-account.general-data = Account
 master.menu.authenticated.tutorial.list-all = Lista de Tutoriales
+master.menu.assistant.assistantDashboard = Panel
 
 # master.menu.auditor ###################################################
 

@@ -52,7 +52,7 @@
 		
 		<acme:menu-option code="master.menu.assistant" access="hasRole('Assistant')">
 			<acme:menu-suboption code="master.menu.authenticated.tutorial.list-all" action="/assistant/tutorial/list-all"/>
-		<%-- 	<acme:menu-suboption code="master.menu.assistant.assistantDashboard" action="/assistant/assistant-dashboard/show"/> --%>
+			<acme:menu-suboption code="master.menu.assistant.assistantDashboard" action="/assistant/assistant-dashboard/show"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
