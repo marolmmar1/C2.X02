@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Course;
 import acme.entities.Tutorial;
+import acme.features.codeGeneration.CodeGenerator;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -30,7 +31,10 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AssistantTutorialRepository repository;
+	protected AssistantTutorialRepository	repository;
+
+	@Autowired
+	protected CodeGenerator					codeGenerator;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -74,6 +78,7 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 		course = this.repository.findOneCourseById(courseId);
 
 		super.bind(object, "code", "title", "abstracts", "goals");
+		object.setCode(this.codeGenerator.newCode(Tutorial.class.getSimpleName()));
 		object.setCourse(course);
 	}
 

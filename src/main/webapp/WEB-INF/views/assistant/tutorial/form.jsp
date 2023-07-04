@@ -17,13 +17,18 @@
 
 <acme:form>
 
-	<acme:input-textbox code="assistant.tutorial.form.label.code" path="code"/>	
+	<jstl:if test="${!(_command == 'create')}">
+	<acme:input-textbox code="assistant.tutorial.form.label.code" readonly="true" path="code"/>	
+	</jstl:if>
+	
 	<acme:input-textbox code="assistant.tutorial.form.label.title" path="title"/>
 	<acme:input-textarea code="assistant.tutorial.form.label.abstracts" path="abstracts"/>
 	<acme:input-textarea code="assistant.tutorial.form.label.goals" path="goals"/>
 	<acme:input-select code="assistant.tutorial.form.label.course" path="course" choices="${courses}"/>	
-	<acme:input-textarea code="assistant.tutorial.form.label.estimatedTime" path="estimatedTime" readonly="true"/>
 	
+	<jstl:if test="${!(_command == 'create')}">
+	<acme:input-textarea code="assistant.tutorial.form.label.estimatedTime" path="estimatedTime" readonly="true"/>
+	</jstl:if>
 	
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish')&& draftMode == true}">
