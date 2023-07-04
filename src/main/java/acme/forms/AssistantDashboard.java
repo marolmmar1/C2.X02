@@ -12,10 +12,6 @@
 
 package acme.forms;
 
-import java.util.Map;
-
-import acme.datatypes.StatData;
-import acme.entities.Nature;
 import acme.framework.data.AbstractForm;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,15 +22,27 @@ public class AssistantDashboard extends AbstractForm {
 
 	// Serialisation identifier -----------------------------------------------
 
-	protected static final long		serialVersionUID	= 1L;
+	protected static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
 
-	protected Map<Nature, Integer>	totalNumberNatureCoursePerAssistant;
+	Integer						totalTutorials;
 
-	protected StatData				timeOfTutorialSessionsPerAssistant;
+	Double						averageTutorialSessionTime;
 
-	protected StatData				timeOfTutorialPerAssistant;
+	Double						deviationTutorialSessionTime;
+
+	Double						minimumTutorialSessionTime;
+
+	Double						maximumTutorialSessionTime;
+
+	Double						averageTutorialTime;
+
+	Double						deviationTutorialTime;
+
+	Double						minimumTutorialTime;
+
+	Double						maximumTutorialTime;
 
 	// Derived attributes -----------------------------------------------------
 

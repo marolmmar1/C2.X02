@@ -23,7 +23,11 @@ import lombok.Setter;
 @Setter
 public class TutorialSession extends AbstractEntity {
 
+	// Serialisation identifier -----------------------------------------------
+
 	protected static final long	serialVersionUID	= 1L;
+
+	// Attributes -------------------------------------------------------------
 
 	@NotBlank(message = "{validation.tutorialSession.notNull}")
 	@Length(max = 75)
@@ -46,6 +50,8 @@ public class TutorialSession extends AbstractEntity {
 
 	@URL
 	protected String			link;
+
+	// Relationships ----------------------------------------------------------
 
 	@NotNull(message = "{validation.tutorialSession.notNull}")
 	@Valid

@@ -16,7 +16,7 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:form>	
-			<acme:input-textbox code="student.enrolment.list.label.code" path="code"/>
+			<acme:input-textbox code="student.enrolment.list.label.code" readonly="true" path="code"/>
 			<acme:input-textbox code="student.enrolment.list.label.motivation" path="motivation"/>
 			<acme:input-textbox code="student.enrolment.list.label.goals" path="goals"/>
 			<acme:input-select code="student.enrolment.list.label.course" path="course" choices="${courses}"/>	
