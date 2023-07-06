@@ -49,7 +49,7 @@ public class StudentActivityListService extends AbstractService<Student, Activit
 
 		enrolmentId = super.getRequest().getData("id", int.class);
 		enrolment = this.repository.findEnrolmentById(enrolmentId);
-		result = enrolment != null && (!enrolment.isDraftMode() || super.getRequest().getPrincipal().hasRole(enrolment.getStudent()));
+		result = enrolment != null && super.getRequest().getPrincipal().hasRole(enrolment.getStudent());
 		super.getResponse().setAuthorised(result);
 	}
 
