@@ -51,8 +51,8 @@ public class AuditorAuditingRecordShowService extends AbstractService<Auditor, A
 
 		auditingRecordId = super.getRequest().getData("id", int.class);
 		audit = this.repository.findOneAuditByAuditingRecordId(auditingRecordId);
-		status = audit != null && (!audit.isDraftMode() || super.getRequest().getPrincipal().hasRole(audit.getAuditor()));
-
+		status = audit != null && super.getRequest().getPrincipal().hasRole(audit.getAuditor());
+		//!audit.isDraftMode() || 
 		super.getResponse().setAuthorised(status);
 	}
 
