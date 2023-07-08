@@ -26,23 +26,23 @@ public class AuditingRecord extends AbstractEntity {
 
 	protected static final long	serialVersionUID	= 1L;
 
-	@NotBlank
+	@NotBlank(message = "{validation.auditingRecord.notNull}")
 	@Length(max = 75)
 	protected String			subject;
 
-	@NotBlank
+	@NotBlank(message = "{validation.auditingRecord.notNull}")
 	@Length(max = 100)
 	protected String			assessment;
 
-	@NotNull
+	@NotNull(message = "{validation.auditingRecord.notNull}")
 	protected MarkType			markType;
 
-	@NotNull
+	@NotNull(message = "{validation.auditingRecord.notNull}")
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
 	protected Date				initialPeriod;
 
-	@NotNull
+	@NotNull(message = "{validation.auditingRecord.notNull}")
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
 	protected Date				finalPeriod;
@@ -53,7 +53,7 @@ public class AuditingRecord extends AbstractEntity {
 	protected boolean			exceptional;
 
 	//Relaciones
-	@NotNull
+	@NotNull(message = "{validation.auditingRecord.notNull}")
 	@Valid
 	@ManyToOne(optional = false)
 	protected Audit				audit;

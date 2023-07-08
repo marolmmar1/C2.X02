@@ -22,3 +22,4 @@ lecturer.lecture.form.button.delete = Delete
 lecturer.lecture.form.button.publish = Publish
 lecturer.lecture.form.button.add = Add to course
 lecturer.lecture.form.button.deleteFromCourse = Delete from course
+validation.lecture.notNull = May not be null

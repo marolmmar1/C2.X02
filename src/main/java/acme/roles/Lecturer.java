@@ -18,15 +18,15 @@ public class Lecturer extends AbstractRole {
 
 	protected static final long	serialVersionUID	= 1L;
 
-	@NotBlank
+	@NotBlank(message = "{validation.lecturer.notNull}")
 	@Length(max = 75)
 	protected String			almaMater;
 
-	@NotBlank
+	@NotBlank(message = "{validation.lecturer.notNull}")
 	@Length(max = 100)
 	protected String			qualifications;
 
-	@NotBlank
+	@NotBlank(message = "{validation.lecturer.notNull}")
 	@Length(max = 100)
 	protected String			resume;
 

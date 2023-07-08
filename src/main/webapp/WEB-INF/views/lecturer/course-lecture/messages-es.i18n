@@ -25,3 +25,4 @@ lecturer.courseLecture.form.lecture.delete.info = Borra esta lección de un curs
 lecturer.courseLecture.form.error.lecture = La lección ya está en este curso
 lecturer.courseLecture.form.error.lectureDeleted = Esta lección no está en este curso
 lecturer.courseLecture.form.error.course = Este curso está publicado
+validation.courseLecture.notNull = No puede estar vacio

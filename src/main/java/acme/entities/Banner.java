@@ -26,28 +26,28 @@ public class Banner extends AbstractEntity {
 	protected static final long	serialVersionUID	= 1L;
 
 	@PastOrPresent
-	@NotNull
+	@NotNull(message = "{validation.banner.notNull}")
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				instantiation;
 
 	@Temporal(TemporalType.DATE)
-	@NotNull
+	@NotNull(message = "{validation.banner.notNull}")
 	protected Date				inicialPeriod;
 
 	@Temporal(TemporalType.DATE)
-	@NotNull
+	@NotNull(message = "{validation.banner.notNull}")
 	protected Date				finalPeriod;
 
-	@NotBlank
+	@NotBlank(message = "{validation.banner.notNull}")
 	@Length(min = 1, max = 75)
 	protected String			slogan;
 
 	@URL
-	@NotBlank
+	@NotBlank(message = "{validation.banner.notNull}")
 	protected String			link;
 
 	@URL
-	@NotBlank
+	@NotBlank(message = "{validation.banner.notNull}")
 	protected String			linkImage;
 
 

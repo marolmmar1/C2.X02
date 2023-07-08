@@ -74,7 +74,7 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 		final Course course = this.repository.findCourseById(courseId);
 		object.setCourse(course);
 
-		super.bind(object, "motivation", "goals", "code");
+		super.bind(object, "motivation", "goals");
 	}
 
 	@Override
@@ -105,7 +105,7 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 		courses = this.repository.findAllCourse(false);
 		choices = SelectChoices.from(courses, "code", object.getCourse());
 
-		tuple = super.unbind(object, "motivation", "goals", "code", "draftMode");
+		tuple = super.unbind(object, "motivation", "goals", "draftMode");
 		tuple.put("courses", choices);
 		tuple.put("course", choices.getSelected().getKey());
 

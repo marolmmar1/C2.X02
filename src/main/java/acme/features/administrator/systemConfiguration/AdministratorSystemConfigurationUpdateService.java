@@ -12,6 +12,10 @@
 
 package acme.features.administrator.systemConfiguration;
 
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -58,6 +62,19 @@ public class AdministratorSystemConfigurationUpdateService extends AbstractServi
 	@Override
 	public void validate(final SystemConfiguration object) {
 		assert object != null;
+		String acceptedCurrencies;
+		String systemCurrencies;
+		List<String> listCurrenciesAccepted = new LinkedList<String>();
+		Boolean errorSC = false;
+
+		acceptedCurrencies = object.getAcceptedCurrencies();
+		systemCurrencies = object.getSystemCurrency();
+		listCurrenciesAccepted = Arrays.asList(acceptedCurrencies.split(","));
+		if (listCurrenciesAccepted.contains(systemCurrencies))
+			errorSC = true;
+
+		if (!super.getBuffer().getErrors().hasErrors("systemCurrency"))
+			super.state(errorSC, "systemCurrency", "administrator.systemConfiguration.form.error.notAcceptedCurrencies");
 
 	}
 

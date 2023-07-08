@@ -15,4 +15,6 @@ authenticated.student.form.label.link = Link
 
 authenticated.student.form.button.create = Register
 authenticated.student.form.button.update = Update
+validation.student.notNull = May not be null
+
 

@@ -23,34 +23,35 @@ public class Tutorial extends AbstractEntity {
 
 	protected static final long	serialVersionUID	= 1L;
 
-	@NotBlank
+	@NotBlank(message = "{validation.tutorial.notNull}")
 	@Column(unique = true)
-	@Pattern(regexp = "(^[A-Z]{1,3}[0-9]{3}$)", message = "{No es el formato adecuado}")
+	@Pattern(regexp = "(^[A-Z]{1,3}[0-9]{3}$)", message = "{validation.tutorial.pattern}")
 	protected String			code;
 
-	@NotBlank
+	@NotBlank(message = "{validation.tutorial.notNull}")
 	@Length(max = 75)
 	protected String			title;
 
-	@NotBlank
+	@NotBlank(message = "{validation.tutorial.notNull}")
 	@Length(max = 100)
 	protected String			abstracts;
 
-	@NotBlank
+	@NotBlank(message = "{validation.tutorial.notNull}")
 	@Length(max = 100)
 	protected String			goals;
 
+	@NotNull
 	protected boolean			draftMode;
 
 	protected double			estimatedTime;
 
 	// Relationships ----------------------------------------------------------
-	@NotNull
+	@NotNull(message = "{validation.tutorial.notNull}")
 	@Valid
 	@ManyToOne(optional = false)
 	protected Assistant			assistant;
 
-	@NotNull
+	@NotNull(message = "{validation.tutorial.notNull}")
 	@Valid
 	@ManyToOne(optional = false)
 	protected Course			course;

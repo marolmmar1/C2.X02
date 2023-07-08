@@ -26,3 +26,4 @@ administrator.bulletin.form.error.title = Title must be shorter than 75 characte
 administrator.bulletin.form.error.message = Message must be shorter than 100 characters.
 administrator.bulletin.form.error.critical = Bulletin must be critical or not critical.
 administrator.bulletin.form.error.link = Link is not correct.
+validation.bulletin.notNull = May not be null

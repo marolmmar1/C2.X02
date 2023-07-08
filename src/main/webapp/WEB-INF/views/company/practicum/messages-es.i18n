@@ -29,3 +29,4 @@ company.practicum.form.button.practicumSession = Sesiones de Practicas
 company.practicum.form.button.publish = Publicar
 company.practicum.form.error.duplicated = El código ya existe 
 company.practicum.form.error.noSession = Debe de tener una sesion práctica asociada
+validation.practicum.notNull = No puede estar vacio

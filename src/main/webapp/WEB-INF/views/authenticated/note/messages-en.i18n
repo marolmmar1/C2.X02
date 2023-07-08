@@ -30,3 +30,4 @@ authenticated.note.form.error.title = Title must be shorter than 75 characters.
 authenticated.note.form.error.author = Author must be shorter than 75 characters.
 authenticated.note.form.error.message = Message must be shorter than 100 characters.
 authenticated.note.form.error.link = Link is not correct.
+validation.note.notNull = May not be null

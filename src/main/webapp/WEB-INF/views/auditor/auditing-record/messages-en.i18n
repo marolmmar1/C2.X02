@@ -33,3 +33,5 @@ auditor.auditingRecords.form.label.exceptional = Exceptional
 auditor.auditingRecord.form.error.horaMin = The period should be a minimum of 1 hour
 auditor.auditingRecord.form.error.menor = Start date must be earlier than the final date
 auditor.auditingRecord.form.error.antes = The period should be a minimum of 1 hour
+validation.auditingRecord.notNull = May not be null
+validation.timestampFormatError = Wrong Temporal Format must be dd/MM/yyyy HH:mm

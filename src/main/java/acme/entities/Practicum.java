@@ -23,20 +23,20 @@ public class Practicum extends AbstractEntity {
 
 	protected static final long	serialVersionUID	= 1L;
 
-	@NotBlank
+	@NotBlank(message = "{validation.practicum.notNull}")
 	@Column(unique = true)
 	@Pattern(regexp = "(^[A-Z]{1,3}[0-9]{3}$)", message = "{validation.practicum.code}")
 	protected String			code;
 
-	@NotBlank
+	@NotBlank(message = "{validation.practicum.notNull}")
 	@Length(max = 75)
 	protected String			title;
 
-	@NotBlank
+	@NotBlank(message = "{validation.practicum.notNull}")
 	@Length(max = 100)
 	protected String			abstracts;
 
-	@NotBlank
+	@NotBlank(message = "{validation.practicum.notNull}")
 	@Length(max = 100)
 	protected String			goals;
 
@@ -44,12 +44,12 @@ public class Practicum extends AbstractEntity {
 
 	//Relaciones
 
-	@NotNull
+	@NotNull(message = "{validation.practicum.notNull}")
 	@Valid
 	@ManyToOne(optional = false)
 	protected Company			company;
 
-	@NotNull
+	@NotNull(message = "{validation.practicum.notNull}")
 	@Valid
 	@ManyToOne(optional = false)
 	protected Course			course;

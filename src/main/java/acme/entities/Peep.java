@@ -26,19 +26,20 @@ public class Peep extends AbstractEntity {
 	protected static final long	serialVersionUID	= 1L;
 
 	@PastOrPresent
-	@NotNull
+	@NotNull(message = "{validation.peep.notNull}")
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				instantiation;
 
-	@NotBlank
+	@NotBlank(message = "{validation.peep.notNull}")
 	@Length(max = 75)
 	protected String			title;
 
+	@NotBlank(message = "{validation.peep.notNull}")
 	@Length(max = 75)
 	protected String			nick;
 
-	@NotBlank
-	@Length(max = 75)
+	@NotBlank(message = "{validation.peep.notNull}")
+	@Length(max = 100)
 	protected String			message;
 
 	@Email

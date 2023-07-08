@@ -25,3 +25,4 @@ any.peep.list.label.mail = Email
 any.peep.list.label.link = Link
 any.peep.list.button.create = Publish
 any.peep.form.error.null = Must be empty
+validation.peep.notNull = May not be null

@@ -27,3 +27,4 @@ student.activity.list.label.title = Title
 student.activity.list.label.nature = Nature
 student.activity.list.button.create = Create
 student.activity.form.error.menor = End date must be later than start date
+validation.activity.notNull = May not be null

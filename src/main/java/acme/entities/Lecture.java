@@ -25,25 +25,25 @@ public class Lecture extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
 
-	@NotBlank
+	@NotBlank(message = "{validation.lecture.notNull}")
 	@Length(max = 75)
 	protected String			title;
 
-	@NotBlank
+	@NotBlank(message = "{validation.lecture.notNull}")
 	@Length(max = 100)
 	protected String			abstracts;
 
 	@Digits(integer = 3, fraction = 2)
-	@NotNull
+	@NotNull(message = "{validation.lecture.notNull}")
 	@Positive
 	@Max(1000)
 	protected Double			estimatedTime;
 
-	@NotBlank
+	@NotBlank(message = "{validation.lecture.notNull}")
 	@Length(max = 100)
 	protected String			body;
 
-	@NotNull
+	@NotNull(message = "{validation.lecture.notNull}")
 	protected Nature			nature;
 
 	@URL
@@ -52,7 +52,7 @@ public class Lecture extends AbstractEntity {
 	protected boolean			draftMode;
 
 	// Relationships ----------------------------------------------------------
-	@NotNull
+	@NotNull(message = "{validation.lecture.notNull}")
 	@Valid
 	@ManyToOne(optional = false)
 	protected Lecturer			lecturer;

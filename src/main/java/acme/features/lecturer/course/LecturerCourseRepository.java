@@ -2,6 +2,7 @@
 package acme.features.lecturer.course;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import acme.entities.Course;
 import acme.entities.CourseLecture;
 import acme.entities.Lecture;
+import acme.entities.SystemConfiguration;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Lecturer;
 
@@ -35,5 +37,8 @@ public interface LecturerCourseRepository extends AbstractRepository {
 
 	@Query("select cl from CourseLecture cl where cl.lecture = :lecture")
 	Collection<CourseLecture> findManyCourseLectureByLecture(Lecture lecture);
+
+	@Query("select sc from SystemConfiguration sc ")
+	List<SystemConfiguration> findAllSystemConfiguration();
 
 }

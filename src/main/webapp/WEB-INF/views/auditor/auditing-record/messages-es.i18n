@@ -19,6 +19,7 @@ auditor.auditingRecords.form.label.link = Link:
 
 auditor.audit.list.label.code = Código
 auditor.audit.list.label.subject = Tema
+auditor.auditingRecords.list.label.subject = Tema
 auditor.auditingRecords.list.label.markType = Nota
 auditor.auditingRecords.list.label.exceptional = Excepcional
 
@@ -35,3 +36,5 @@ auditor.auditingRecords.form.label.exceptional = Excepcional
 auditor.auditingRecord.form.error.horaMin = El periodo debe ser de un mínimo de 1 hora
 auditor.auditingRecord.form.error.menor = La fecha de inicio debe ser anterior a la fecha final
 auditor.auditingRecord.form.error.antes = El periodo debe ser de un mínimo de 1 hora
+validation.auditingRecord.notNull = No puede estar vacio
+validation.timestampFormatError = Formato Temporal erroneo debe de ser dd/MM/yyyy HH:mm

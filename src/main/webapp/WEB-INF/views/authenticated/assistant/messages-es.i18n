@@ -11,8 +11,9 @@
 authenticated.assistant.form.label.supervisor = Supervisor:
 authenticated.assistant.form.label.expertiseField = Campos de especialización:
 authenticated.assistant.form.label.resume = Curriculum:
-authenticated.assistant.form.label.link = Link:
+authenticated.assistant.form.label.link = Enlace:
 
 
 authenticated.assistant.form.button.create = Registro
 authenticated.assistant.form.button.update = Actualizar
+validation.assistant.notNull = No puede estar vacio

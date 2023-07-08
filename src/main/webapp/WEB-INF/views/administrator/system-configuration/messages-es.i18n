@@ -11,3 +11,6 @@
 administrator.system-configuration.form.label.systemCurrency = Divisa del sistema:
 administrator.system-configuration.form.label.aceptedCurrencies = Divisas aceptadas:
 administrator.system-configuration.form.button.update = Actualizar
+validation.systemConfiguration.notNull = No puede estar vacio
+validation.moneyType.notValid = Algunas monedas introducidas no son validas, ejemplos correctos: "EUR", "GBP", "USD", "YEN", "AUD", "CHF", "DKK", "NOK", "NZD", "XAF", "XCD", "XOF", "ZAR"
+administrator.systemConfiguration.form.error.notAcceptedCurrencies = La divisa del sistema no esta entre las divisas aceptadas

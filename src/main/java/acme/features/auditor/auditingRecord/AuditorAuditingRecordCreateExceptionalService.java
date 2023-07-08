@@ -125,6 +125,7 @@ public class AuditorAuditingRecordCreateExceptionalService extends AbstractServi
 		tuple = super.unbind(object, "subject", "assessment", "markType", "initialPeriod", "finalPeriod", "exceptional", "link");
 		tuple.put("auditId", super.getRequest().getData("auditId", int.class));
 		tuple.put("markTypes", choices);
+		tuple.put("exceptional", true);
 		tuple.put("draftMode", object.getAudit().isDraftMode());
 		super.getResponse().setData(tuple);
 	}

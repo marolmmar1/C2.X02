@@ -13,7 +13,7 @@ student.activity.form.label.abstracts = Resumen
 student.activity.form.label.nature = Tipo de actividad
 student.activity.form.label.inicialPeriod = Fecha inicio
 student.activity.form.label.finalPeriod = Fecha fin
-student.activity.form.label.link = Link
+student.activity.form.label.link = Enlace
 student.activity.list.label.enrolment = Inscripción
 
 
@@ -27,3 +27,4 @@ student.activity.list.label.title = Título
 student.activity.list.label.nature = Tipo de actividad
 student.activity.list.button.create = Crear
 student.activity.form.error.menor = La fecha fin debe ser posterior a la fecha inicial
+validation.activity.notNull = No puede estar vacio

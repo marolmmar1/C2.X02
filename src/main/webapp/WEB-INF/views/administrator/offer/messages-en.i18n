@@ -21,9 +21,11 @@ administrator.offer.form.button.create = Create
 administrator.offer.form.button.update = Update
 administrator.offer.form.button.delete = Delete
 
-administrator.offer.form.error.antes = La fecha inicial debe de ser después de la fecha de instanciación
-administrator.offer.form.error.menos = El periodo entre el inicial y el final debe ser de un minimo de 7 días
-administrator.offer.form.error.menor = La fecha de inicio debe de ser antes a la final
+administrator.offer.form.error.antes = The initial period date must be after the instantiation date
+administrator.offer.form.error.menos = Between the initial period date and the final period date there must be a minimum of seven days
+administrator.offer.form.error.menor = The initial period date must be before the final period date
 
 administrator.offer.form.error.wrong-price = The price must be positive
 administrator.offer.list.button.create = Create
+validation.offer.notNull = May not be null
+administrator.offer.form.error.price-error = Currency must be an accepted currency
