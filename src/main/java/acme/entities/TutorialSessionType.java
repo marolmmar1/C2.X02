@@ -3,6 +3,6 @@ package acme.entities;
 
 public enum TutorialSessionType {
 
-	THEORY, HANDSON
+	THEORETICAL, HANDS_ON
 
 }
