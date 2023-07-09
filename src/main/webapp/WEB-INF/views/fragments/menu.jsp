@@ -23,7 +23,8 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link2" action="https://google.com"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link3" action="https://youtube.com"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link4" action="https://www.twitch.tv"/>
-			<acme:menu-suboption code="master.menu.anonymous.favourite-link5" action="https://www.skyscanner.com"/>
+			<acme:menu-suboption code="master.menu.anonymous.favourite-link5" action="https://www.skyscanner.com"/>			
+			<acme:menu-suboption code="master.menu.anonymous.favourite-link6" action="https://www.youtube.com/@dragomega6955"/>
 			<acme:menu-suboption code="master.menu.any.course.list-all" action="/any/course/list-all"/>
 			<acme:menu-suboption code="master.menu.any.peep.list-all" action="/any/peep/list-all"/>
 		</acme:menu-option>
