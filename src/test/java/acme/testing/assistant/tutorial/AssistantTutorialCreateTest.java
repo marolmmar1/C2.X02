@@ -22,7 +22,7 @@ public class AssistantTutorialCreateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/tutorial/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int tutorialIndex, final String code, final String title, final String abstracts, final String goals, final String course, final String estimatedTime) {
+	public void test100Positive(final int tutorialIndex, final String title, final String abstracts, final String goals, final String course, final String estimatedTime) {
 
 		super.signIn("assistant6", "assistant6");
 

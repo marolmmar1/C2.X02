@@ -53,7 +53,7 @@ public class StudentActivityListMineTest extends TestHarness {
 		Collection<Enrolment> enrolments;
 		String param;
 
-		enrolments = this.repository.findManyEnrolmentsByStudentUsername("student1");
+		enrolments = this.repository.findManyEnrolmentsByStudentUsername("student3");
 		for (final Enrolment enrolment : enrolments)
 			if (enrolment.isDraftMode()) {
 				param = String.format("id=%d", enrolment.getId());

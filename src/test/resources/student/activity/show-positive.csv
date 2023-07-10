@@ -1,8 +1,6 @@
 enrolmentRecordIndex,code,activityRecordIndex,title,abstracts,inicialPeriod,finalPeriod,nature,link
-0,A001,1,Activity01,act1,2025/12/01 20:00,2025/12/02 23:00,THEORETICAL,http://activity1-example.com
-1,ABC023,2,A,act1111111222222333333344444444444,2025/12/03 20:00,2025/12/04 23:00,BALANCE,
-2,ABC053,3,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo.",A,2025/12/03 20:00,2025/12/04 23:00,BALANCE,
-3,ABC111,4,Ac,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo.",2025/10/03 20:00,2025/12/04 23:00,BALANCE,http://example.com
-4,ABC023,5,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máxim","La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo.",2024/12/03 20:00,2024/12/04 23:00,THEORETICAL,http://activity4.com
-5,A001,6,こんにちは、私のすべての人々に私たちはお元気ですか,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo.",2023/12/03 20:00,2023/12/04 23:00,BALANCE,http://activity2222.com
-6,ABC053,7,Activity04,こんにちは、私のすべての人々に私たちはお元気ですか,2026/12/03 20:00,2026/12/04 23:00,BALANCE,null
+0,A001,0,t,Graduado,2022/07/30 21:00,2022/07/30 22:00,THEORETICAL,http://www.example.com
+1,ABC023,0,title,?????????????????????????,2030/12/10 13:00,2030/12/10 14:00,HANDS_ON,http://www.acme.com/master/welcome
+2,ABC053,0,voy a escribir 75 caracteres en esta línea para hacer la prueba de csv aaa,voy a escribir 99 caracteres en esta línea para hacer la prueba de que es válida para los csv okey,2030/12/10 11:00,2030/12/10 12:00,THEORETICAL,http://example.com
+3,ABC111,0,voy a escribir 76 caracteres en esta línea para hacer la prueba de csv okey,voy a escribir cien caracteres en esta línea para hacer la prueba de que es válida para los csv okk,2030/12/10 17:00,2030/12/10 19:00,THEORETICAL,http://example.com
+5,ABC131,0,?????????????????????????,Graduado,2030/12/10 17:00,2030/12/10 19:00,THEORETICAL,
