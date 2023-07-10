@@ -76,11 +76,12 @@ public class StudentEnrolmentFinaliseTest extends TestHarness {
 		super.checkColumnHasValue(enrolmentIndex, 0, code);
 
 		super.clickOnListingRecord(enrolmentIndex);
-		super.checkFormExists();
 
-		super.clickOnButton("Activities");
-		super.checkListingExists();
-		super.checkListingEmpty();
+		super.checkFormExists();
+		super.checkInputBoxHasValue("code", code);
+		super.checkInputBoxHasValue("motivation", motivation);
+		super.checkInputBoxHasValue("goals", goals);
+		super.checkInputBoxHasValue("course", course);
 
 		super.signOut();
 	}
