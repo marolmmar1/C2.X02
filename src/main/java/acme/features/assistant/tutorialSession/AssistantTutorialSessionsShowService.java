@@ -15,9 +15,9 @@ package acme.features.assistant.tutorialSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.Nature;
 import acme.entities.Tutorial;
 import acme.entities.TutorialSession;
+import acme.entities.TutorialSessionType;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -75,7 +75,7 @@ public class AssistantTutorialSessionsShowService extends AbstractService<Assist
 		SelectChoices choices;
 		Tuple tuple;
 
-		choices = SelectChoices.from(Nature.class, object.getNature());
+		choices = SelectChoices.from(TutorialSessionType.class, object.getNature());
 
 		tuple = super.unbind(object, "title", "abstracts", "inicialPeriod", "finalPeriod", "link");
 		tuple.put("nature", choices.getSelected().getKey());

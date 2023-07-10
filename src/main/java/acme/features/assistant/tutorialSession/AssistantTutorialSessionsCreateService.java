@@ -18,9 +18,9 @@ import java.util.concurrent.TimeUnit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.Nature;
 import acme.entities.Tutorial;
 import acme.entities.TutorialSession;
+import acme.entities.TutorialSessionType;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
@@ -72,7 +72,7 @@ public class AssistantTutorialSessionsCreateService extends AbstractService<Assi
 		object = new TutorialSession();
 		object.setTitle("");
 		object.setAbstracts("");
-		object.setNature(Nature.BALANCE);
+		object.setNature(TutorialSessionType.HANDS_ON);
 		object.setTutorial(tutorial);
 
 		super.getBuffer().setData(object);
@@ -143,7 +143,7 @@ public class AssistantTutorialSessionsCreateService extends AbstractService<Assi
 
 		SelectChoices choices;
 		Tuple tuple;
-		choices = SelectChoices.from(Nature.class, object.getNature());
+		choices = SelectChoices.from(TutorialSessionType.class, object.getNature());
 
 		tuple = super.unbind(object, "title", "abstracts", "inicialPeriod", "finalPeriod", "nature", "link");
 		tuple.put("nature", choices.getSelected().getKey());
