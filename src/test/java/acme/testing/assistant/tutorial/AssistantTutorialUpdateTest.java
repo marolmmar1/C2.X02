@@ -34,7 +34,7 @@ public class AssistantTutorialUpdateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/tutorial/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int tutorialIndex, final String code, final String title, final String abstracts, final String goals, final String course, final String estimatedTime) {
+	public void test100Positive(final int tutorialIndex, final String title, final String abstracts, final String goals, final String course, final String estimatedTime) {
 
 		super.signIn("assistant18", "assistant18");
 
@@ -44,7 +44,6 @@ public class AssistantTutorialUpdateTest extends TestHarness {
 
 		super.clickOnListingRecord(tutorialIndex);
 		super.checkFormExists();
-		super.fillInputBoxIn("code", code);
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("abstracts", abstracts);
 		super.fillInputBoxIn("goals", goals);
@@ -53,13 +52,11 @@ public class AssistantTutorialUpdateTest extends TestHarness {
 
 		super.checkListingExists();
 		super.sortListing(0, "asc");
-		super.checkColumnHasValue(tutorialIndex, 0, code);
 		super.checkColumnHasValue(tutorialIndex, 1, title);
 		super.checkColumnHasValue(tutorialIndex, 2, estimatedTime);
 
 		super.clickOnListingRecord(tutorialIndex);
 		super.checkFormExists();
-		super.checkInputBoxHasValue("code", code);
 		super.checkInputBoxHasValue("title", title);
 		super.checkInputBoxHasValue("abstracts", abstracts);
 		super.checkInputBoxHasValue("goals", goals);
@@ -71,7 +68,7 @@ public class AssistantTutorialUpdateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/tutorial/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int tutorialIndex, final String code, final String title, final String abstracts, final String goals, final String course, final String estimatedTime) {
+	public void test200Negative(final int tutorialIndex, final String title, final String abstracts, final String goals, final String course, final String estimatedTime) {
 
 		super.signIn("assistant18", "assistant18");
 
@@ -81,7 +78,6 @@ public class AssistantTutorialUpdateTest extends TestHarness {
 
 		super.clickOnListingRecord(tutorialIndex);
 		super.checkFormExists();
-		super.fillInputBoxIn("code", code);
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("abstracts", abstracts);
 		super.fillInputBoxIn("goals", goals);

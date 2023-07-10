@@ -34,10 +34,6 @@ public class StudentEnrolmentCreateTest extends TestHarness {
 		super.fillInputBoxIn("motivation", motivation);
 		super.fillInputBoxIn("goals", goals);
 		super.fillInputBoxIn("course", course);
-		super.fillInputBoxIn("expiryDate", expiryDate);
-		super.fillInputBoxIn("cvc", cvc);
-		super.fillInputBoxIn("creditCard", creditCard);
-		super.fillInputBoxIn("holderName", holderName);
 		super.clickOnSubmit("Create");
 
 		super.checkListingExists();
@@ -50,10 +46,6 @@ public class StudentEnrolmentCreateTest extends TestHarness {
 		super.checkInputBoxHasValue("motivation", motivation);
 		super.checkInputBoxHasValue("goals", goals);
 		super.checkInputBoxHasValue("course", course);
-		super.checkInputBoxHasValue("expiryDate", expiryDate);
-		super.checkInputBoxHasValue("cvc", cvc);
-		super.checkInputBoxHasValue("creditCard", creditCard);
-		super.checkInputBoxHasValue("holderName", holderName);
 
 		super.signOut();
 	}
@@ -72,10 +64,6 @@ public class StudentEnrolmentCreateTest extends TestHarness {
 		super.fillInputBoxIn("motivation", motivation);
 		super.fillInputBoxIn("goals", goals);
 		super.fillInputBoxIn("course", course);
-		super.fillInputBoxIn("expiryDate", expiryDate);
-		super.fillInputBoxIn("cvc", cvc);
-		super.fillInputBoxIn("creditCard", creditCard);
-		super.fillInputBoxIn("holderName", holderName);
 		super.clickOnSubmit("Create");
 		super.checkErrorsExist();
 

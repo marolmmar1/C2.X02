@@ -32,3 +32,4 @@ assistant.tutorial.form.error.duplicated = El código ya está cogido;
 assistant.Tutorial.form.error.noSession = Debe de tener una sesion de tutoria asociada
 validation.tutorial.pattern = Mal patron debe tener un patron similar o parecido a ABC123
 validation.tutorial.notNull = No puede estar vacio
+validation.tutorial.greaterThanZero = El tiempo estimado tiene que ser mayor que cero

@@ -54,10 +54,6 @@ public class StudentEnrolmentUpdateTest extends TestHarness {
 		super.checkInputBoxHasValue("motivation", motivation);
 		super.checkInputBoxHasValue("goals", goals);
 		super.checkInputBoxHasValue("course", course);
-		super.checkInputBoxHasValue("expiryDate", expiryDate);
-		super.checkInputBoxHasValue("cvc", cvc);
-		super.checkInputBoxHasValue("creditCard", creditCard);
-		super.checkInputBoxHasValue("holderName", holderName);
 
 		super.signOut();
 	}
